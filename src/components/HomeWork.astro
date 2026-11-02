@@ -1,0 +1,96 @@
+---
+// Home page "Selected work": case studies tab (with quotes and the NDA block)
+// and articles tab. Webflow tabs markup, driven by src/scripts/tabs.js.
+import { caseStudies, posts, pick } from '../lib/content';
+import { homeFeaturedCases, homeNdaCases, homeArticles } from '../data/curation';
+
+const all = await caseStudies();
+const featured = pick(all, homeFeaturedCases);
+const nda = pick(all, homeNdaCases);
+const articles = pick(await posts(), homeArticles);
+---
+<div class="work_tabs w-tabs" data-current="Tab 1" data-duration-in="300" data-duration-out="100" data-easing="ease">
+  <div aria-label="Work type" class="work_toggle w-tab-menu">
+    <a class="work_toggle-btn w-inline-block w-tab-link w--current" data-w-tab="Tab 1" href="#work-cases">Case studies</a>
+    <a class="work_toggle-btn w-inline-block w-tab-link" data-w-tab="Tab 2" href="#work-articles">Articles</a>
+  </div>
+  <div class="work_panels w-tab-content">
+    <div class="w-tab-pane w--tab-active" data-w-tab="Tab 1" id="work-cases">
+      <div class="w-dyn-list">
+        <div class="work_list w-dyn-items" role="list">
+          {featured.map((cs) => (
+            <div class="work_item w-dyn-item" role="listitem">
+              <div class="work_row">
+                <a class="work_case-link w-inline-block" href={`/case-studies/${cs.id}`}>
+                  <div class="work_num"></div>
+                  <div class="work_stack">
+                    <div class="work_meta">
+                      {cs.data.eyebrow && <p class="work_eyebrow">{cs.data.eyebrow}</p>}
+                      <div class="work_yeararrow">
+                        {cs.data.year && <div>{cs.data.year}</div>}
+                        <div aria-hidden="true" class="work_arrow">↗</div>
+                      </div>
+                    </div>
+                    <h3 class="work_h3">{cs.data.title}</h3>
+                    {cs.data.lede && <p class="work_para">{cs.data.lede}</p>}
+                  </div>
+                </a>
+                <figure class="work_quote">
+                  <p class="work_quote-label">{cs.data.quote.label}</p>
+                  {cs.data.quote.text && <blockquote class="work_blockquote">{cs.data.quote.text}</blockquote>}
+                  <figcaption class="work_attrib">
+                    {cs.data.quote.portrait && <img alt={cs.data.quote.portraitAlt} class="work_portrait" loading="lazy" src={cs.data.quote.portrait} width="32" height="32" />}
+                    <div class="work_attrib-info">
+                      {cs.data.quote.author && <p class="work_attrib-name">{cs.data.quote.author}</p>}
+                      {cs.data.quote.role && <p class="work_attrib-role">{cs.data.quote.role}</p>}
+                    </div>
+                  </figcaption>
+                  {cs.data.quote.logo && <img alt={cs.data.quote.logoAlt} class="work_client-logo" loading="lazy" src={cs.data.quote.logo} />}
+                </figure>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {nda.length > 0 && (
+        <div aria-label="Engagements under NDA" class="work_nda">
+          <p class="work_nda-label">Client under NDA</p>
+          <div class="w-dyn-list">
+            <div class="work_nda-list w-dyn-items" role="list">
+              {nda.map((cs) => (
+                <div class="work_nda-item w-dyn-item" role="listitem">
+                  <a class="w-inline-block" data-nda-link="1" href={`/case-studies/${cs.id}`}>
+                    <div>
+                      {cs.data.eyebrow && <p class="work_nda-eyebrow">{cs.data.eyebrow}</p>}
+                      {cs.data.ndaSummary && <p class="work_nda-body">{cs.data.ndaSummary}</p>}
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+    <div class="w-tab-pane" data-w-tab="Tab 2" id="work-articles">
+      <div class="w-dyn-list">
+        <div class="work_list w-dyn-items" role="list">
+          {articles.map((post) => (
+            <div class="work_item w-dyn-item" role="listitem">
+              <a class="work_article-link w-inline-block" href={`/blog/${post.id}`}>
+                <div class="work_num"></div>
+                <div class="work_stack">
+                  <div class="work_meta">
+                    {post.data.category && <p class="work_eyebrow">{post.data.category}</p>}
+                    <div aria-hidden="true" class="work_arrow">↗</div>
+                  </div>
+                  <h3 class="work_article-h3">{post.data.title}</h3>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

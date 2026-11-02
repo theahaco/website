@@ -1,0 +1,25 @@
+---
+// Generated from the Webflow page "/work". Edit freely: this file is the source now.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkRows from '../components/WorkRows.astro';
+import { caseStudies } from '../lib/content';
+const caseCount = (await caseStudies()).length;
+import Cta from '../components/Cta.astro';
+---
+<BaseLayout title={'Work and writing: case studies and articles | The Aha Company'} description={'Every engagement The Aha Company can show: regulated assets for financial institutions, integrations for protocols and products, tooling for ecosystems. Filter by audience and network.'}>
+<main data-main="1"><section><div class="wk_container"><a class="art_back" data-back="1" href="/">← Back to home</a><div class="lg_header"><p class="cs_eyebrow" data-wk="eyebrow">Work</p><h1 class="intro_h1" data-wk="h1">Named clients, live systems, public code.</h1><p class="art_lede" data-wk="lede">Case studies, filtered by who the work was for and the network it runs on. Switch to Articles for the writing that came out of them.</p></div><div class="wk_controls"><div class="wk_togglerow"><div aria-label="Type" class="wk_toggle" role="tablist"><a class="wk_tab w-button" data-view="cases" href="#" role="tab">Case studies</a><a class="wk_tab w-button" data-view="articles" href="#" role="tab">Articles</a></div><p class="tm_count" data-wk="count">{caseCount} items</p></div><div class="wk_filters"><div class="wk_filtergroup" data-wk="aud"><span class="cs_dt">For</span></div><div class="wk_filtergroup" data-wk="net"><span class="cs_dt">Network</span></div></div></div><div data-wk="cases"><WorkRows kind="cases" /></div><div data-wk="articles"><WorkRows kind="articles" /></div><div class="wk_empty" data-wk="empty"><p>Nothing public matches those filters yet.</p><a class="wk_clear w-button" data-wk="clear" href="#">Clear filters</a></div></div></section></main>
+<script is:inline>
+// Set the requested view before first paint (the Blog link opens /work?view=articles).
+(function () {
+  if (new URLSearchParams(location.search).get('view') !== 'articles') return;
+  var c = document.querySelector('[data-wk="cases"]'), a = document.querySelector('[data-wk="articles"]');
+  if (c) c.style.display = 'none';
+  var set = function (k, v) { var el = document.querySelector('[data-wk="' + k + '"]'); if (el) el.textContent = v; };
+  set('eyebrow', 'Blog');
+  set('h1', 'Notes from the engineers.');
+  set('lede', 'What we learned taking regulated assets, protocol integrations and developer tooling to mainnet. Switch to Case studies for the work itself.');
+  if (a) set('count', a.querySelectorAll('.work_item').length + ' items');
+})();
+</script>
+<Cta heading={'Working on something similar? Talk to an engineer.'} />
+</BaseLayout>

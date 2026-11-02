@@ -1,0 +1,24 @@
+---
+// Home page "Networks" rows. A network gets a link only when it has its own
+// page (a heading); the others stay unlinked, as on the Webflow site.
+import { networks } from '../lib/content';
+const list = await networks();
+---
+<div class="w-dyn-list">
+  <div class="networks_list w-dyn-items" role="list">
+    {list.map((n) => (
+      <div class="networks_item w-dyn-item" role="listitem">
+        <a class="networks_row w-inline-block" href={n.data.heading ? `/networks/${n.id}` : '#'}>
+          <div class="networks_left">
+            <div class="networks_name-wrap"><h3 class="networks_h3">{n.data.name}</h3></div>
+            {n.data.homeDescription && <p class="networks_desc">{n.data.homeDescription}</p>}
+          </div>
+          <div class="networks_cta">
+            <div class="inline-text">{n.data.homeCta}</div>
+            <div aria-hidden="true" class="work_arrow">→</div>
+          </div>
+        </a>
+      </div>
+    ))}
+  </div>
+</div>

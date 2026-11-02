@@ -1,0 +1,18 @@
+---
+// Closing call-to-action band. Only the heading changes between pages.
+import { contact } from '../data/site';
+
+interface Props {
+  heading: string;
+}
+const { heading } = Astro.props;
+---
+<section class="cta_section">
+  <div class="cta_container">
+    <h2 class="cta_h2">{heading}</h2>
+    <div class="cta_actions">
+      <a class="btn-green" href="/contact">Schedule a call</a>
+      <a class="cta_email" href={`mailto:${contact.email}`}>{contact.email}</a>
+    </div>
+  </div>
+</section>

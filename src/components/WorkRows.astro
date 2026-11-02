@@ -1,0 +1,54 @@
+---
+// Rows of the Work page (case studies or articles). Eyebrow, filter data and
+// links are computed here; src/scripts/work.js only filters and switches views.
+import { caseStudies, posts, formatDate } from '../lib/content';
+
+interface Props {
+  kind: 'cases' | 'articles';
+}
+const { kind } = Astro.props;
+const eyebrow = (aud: string, net: string) => (aud && net ? `${aud} · ${net}` : aud || net);
+const cases = kind === 'cases' ? await caseStudies() : [];
+const articles = kind === 'articles' ? await posts() : [];
+---
+<div class="w-dyn-list">
+  <div class="work_list w-dyn-items" role="list">
+    {cases.map((cs) => (
+      <div class="work_item w-dyn-item" role="listitem" data-fa={cs.data.audience} data-fn={cs.data.network}>
+        <a class="work_article-link w-inline-block" href={`/case-studies/${cs.id}`}>
+          <span class="work_num"></span>
+          <div class="work_stack">
+            <div class="work_meta">
+              <span class="work_eyebrow" data-row="eyebrow">{eyebrow(cs.data.audience, cs.data.network)}</span>
+              <span class="work_yeararrow"><span data-row="year">{cs.data.year}</span><span> ↗</span></span>
+            </div>
+            {cs.data.client && <p class="wk_client"><span data-row="client">{cs.data.client}</span>{cs.data.nda && <span class="wk_nda" data-row="nda">Under NDA</span>}</p>}
+            <h2 class="work_article-h3" data-row="title">{cs.data.workTitle || cs.data.title}</h2>
+            {cs.data.workLine && <p class="wk_rowline" data-row="line">{cs.data.workLine}</p>}
+          </div>
+        </a>
+      </div>
+    ))}
+    {articles.map((post) => (
+      <div class="work_item w-dyn-item" role="listitem" data-fa={post.data.audience} data-fn={post.data.network}>
+        <a class="work_article-link w-inline-block" href={`/blog/${post.id}`}>
+          <span class="work_num"></span>
+          <div class="work_stack">
+            <div class="work_meta">
+              <span class="work_eyebrow" data-row="eyebrow">{eyebrow(post.data.audience, post.data.network)}</span>
+              <span class="work_yeararrow"><span data-row="date">{formatDate(post.data.date, 'short')}</span><span> ↗</span></span>
+            </div>
+            <h2 class="work_article-h3" data-row="title">{post.data.title}</h2>
+            {(post.data.readMinutes || post.data.authorName) && (
+              <p class="wk_rowline">
+                {post.data.readMinutes && <span data-row="min">{post.data.readMinutes}</span>}
+                {post.data.readMinutes && <span> min · </span>}
+                {post.data.authorName && <span data-row="author">{post.data.authorName}</span>}
+              </p>
+            )}
+          </div>
+        </a>
+      </div>
+    ))}
+  </div>
+</div>

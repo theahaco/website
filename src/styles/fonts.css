@@ -1,0 +1,22 @@
+/* Self-hosted brand typefaces (SIL Open Font License), same weights the
+   Webflow site loaded from Google Fonts. Latin + Latin Extended subsets. */
+@import '@fontsource/space-grotesk/latin-400.css';
+@import '@fontsource/space-grotesk/latin-ext-400.css';
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-ext-500.css';
+@import '@fontsource/space-grotesk/latin-600.css';
+@import '@fontsource/space-grotesk/latin-ext-600.css';
+@import '@fontsource/space-grotesk/latin-700.css';
+@import '@fontsource/space-grotesk/latin-ext-700.css';
+@import '@fontsource/spectral/latin-300.css';
+@import '@fontsource/spectral/latin-ext-300.css';
+@import '@fontsource/spectral/latin-300-italic.css';
+@import '@fontsource/spectral/latin-ext-300-italic.css';
+@import '@fontsource/spectral/latin-400.css';
+@import '@fontsource/spectral/latin-ext-400.css';
+@import '@fontsource/spectral/latin-400-italic.css';
+@import '@fontsource/spectral/latin-ext-400-italic.css';
+@import '@fontsource/spectral/latin-500.css';
+@import '@fontsource/spectral/latin-ext-500.css';
+@import '@fontsource/spectral/latin-500-italic.css';
+@import '@fontsource/spectral/latin-ext-500-italic.css';
