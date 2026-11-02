@@ -6,7 +6,7 @@ location: Brazil
 focus: Tokenization, privacy
 networks: Stellar · Cardano · Hyperledger · EVM
 since: ''
-portrait: ''
+portrait: /images/team/fabricius-zatti.webp
 links:
   linkedin: ''
   github: ''

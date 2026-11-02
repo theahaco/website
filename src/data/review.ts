@@ -32,6 +32,14 @@ const team: Array<[string, string]> = [
   ['em-lowing', 'Placeholder-level: confirm what Em wants said, or keep the page without a bio.'],
 ];
 
+// Team photos come from our team deck (October 2026); three of them are small.
+const LOW_RES = ['elizabeth-engelman', 'pamphile-roy', 'zach-fedor'];
+function photoNote(slug: string): string {
+  if (slug === 'em-lowing') return 'No photo on file yet.';
+  if (LOW_RES.includes(slug)) return 'Photo from our team deck. It is only 200 px wide: send a larger one if you have it.';
+  return 'Photo from our team deck.';
+}
+
 export const review: ReviewItem[] = [
   // ------------------------------------------------------------------ home
   { page: '/', target: '.work_item:nth-child(1) .work_quote', kind: 'changed', title: 'Société Générale-FORGE: testimonial removed', note: 'Quote, name and photo removed, as asked. The slot keeps the FORGE logo with the label “Client”.' },
@@ -60,6 +68,7 @@ export const review: ReviewItem[] = [
   { page: '/about', target: '[data-rv=office-us], [data-rv=office-us-desc]', kind: 'changed', title: 'United States office', note: 'Lorem ipsum replaced. Registered name: Dawning Inc. (dba The Aha Company).' },
   { page: '/about', target: '[data-rv=office-fr], [data-rv=office-fr-desc]', kind: 'changed', title: 'France office', note: 'Lorem ipsum replaced. Registered name: Limus Vita SAS.' },
   { page: '/about', target: '[data-rv=office-br], [data-rv=office-br-desc]', kind: 'new', title: 'Brazil office', note: 'Was “Entity details to confirm”. City from the company registration (São Paulo); add a street address if you want one.' },
+  { page: '/about', target: '[data-ab=team]', kind: 'new', title: 'Team photos', note: 'Added from our team deck. Em has no photo yet, and the photos of Elizabeth, Pamphile and Zach are small (200 px).' },
   { page: '/faq', target: '[data-rv=faq-team]', kind: 'changed', title: 'Team size', note: 'In “Where is the team based?”: was “Seventeen engineers”.' },
 
   // ------------------------------------------------------------------ legal
@@ -89,5 +98,14 @@ export const review: ReviewItem[] = [
   { page: '/blog/defi-on-xrpl-compliance-liquidity-and-the-road-ahead', target: '.art_lede, .blog_richtext, .art_byline, .art_footer', kind: 'changed', title: 'Article draft', note: 'Replaces the “test” placeholder. XRPL facts as checked in October 2026 (amendments, validator votes): refresh them on publication. The date still says September 1, 2026.' },
 
   // ------------------------------------------------------------------ team
-  ...team.map(([slug, note]): ReviewItem => ({ page: `/team/${slug}`, target: BIO, kind: 'new', title: 'Bio, focus and links', note: `${note} Portraits are still missing on every team page.` })),
+  ...team.map(([slug, note]): ReviewItem => {
+    const photo = slug !== 'em-lowing';
+    return {
+      page: `/team/${slug}`,
+      target: photo ? `${BIO}, .tm_portraitbox` : BIO,
+      kind: 'new',
+      title: photo ? 'Photo, bio, focus and links' : 'Bio, focus and links',
+      note: `${note} ${photoNote(slug)}`,
+    };
+  }),
 ];

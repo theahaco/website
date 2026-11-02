@@ -6,7 +6,7 @@ location: France
 focus: Financial institutions
 networks: Stellar · XRPL
 since: ''
-portrait: ''
+portrait: /images/team/enzo-soyer.webp
 links:
   linkedin: https://www.linkedin.com/in/enzo-soyer
   github: ''

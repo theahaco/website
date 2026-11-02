@@ -6,7 +6,7 @@ location: United States
 focus: Developer tooling, contract registries
 networks: Stellar
 since: ''
-portrait: ''
+portrait: /images/team/pamela-selle.webp
 links:
   linkedin: ''
   github: ''

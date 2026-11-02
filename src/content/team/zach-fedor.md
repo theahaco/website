@@ -6,7 +6,7 @@ location: United States
 focus: Developer tooling, TypeScript front ends
 networks: Stellar
 since: ''
-portrait: ''
+portrait: /images/team/zach-fedor.webp
 links:
   linkedin: https://www.linkedin.com/in/zachfedor/
   github: ''

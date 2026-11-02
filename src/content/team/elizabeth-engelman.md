@@ -6,7 +6,7 @@ location: United States
 focus: Developer tooling, wallets and signing
 networks: Stellar
 since: ''
-portrait: ''
+portrait: /images/team/elizabeth-engelman.webp
 links:
   linkedin: ''
   github: ''

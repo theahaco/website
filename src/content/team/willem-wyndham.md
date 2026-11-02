@@ -6,7 +6,7 @@ location: United States
 focus: Smart accounts, Stellar CLI architecture
 networks: Stellar · XRPL · NEAR
 since: ''
-portrait: ''
+portrait: /images/team/willem-wyndham.webp
 links:
   linkedin: https://www.linkedin.com/in/willem-wyndham/
   github: https://github.com/willemneal

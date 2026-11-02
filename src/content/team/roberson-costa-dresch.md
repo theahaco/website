@@ -6,7 +6,7 @@ location: Brazil
 focus: Tokenization, integrations
 networks: Stellar · XRPL
 since: ''
-portrait: ''
+portrait: /images/team/roberson-costa-dresch.webp
 links:
   linkedin: ''
   github: ''

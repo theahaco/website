@@ -6,7 +6,7 @@ location: Austria
 focus: Supply-chain security, wallets, standards
 networks: Stellar · XRPL
 since: ''
-portrait: ''
+portrait: /images/team/pamphile-roy.webp
 links:
   linkedin: ''
   github: https://github.com/tupui

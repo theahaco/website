@@ -6,7 +6,7 @@ location: United States
 focus: SDKs and developer platforms
 networks: Stellar · XRPL · NEAR
 since: ''
-portrait: ''
+portrait: /images/team/chad-ostrowski.webp
 links:
   linkedin: https://www.linkedin.com/in/chadoh/
   github: https://github.com/chadoh
