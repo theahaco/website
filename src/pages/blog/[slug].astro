@@ -37,7 +37,7 @@ const more = (await posts()).filter((p) => p.id !== post.id).slice(0, 2);
             </div>
           </div>
           <div class="blog_author">
-            <span class="inline-text">{formatDate(d.date, 'long')}</span><span class="inline-text"> · </span>{d.readMinutes && <span class="inline-text">{d.readMinutes}</span>}<span class="inline-text"> min read</span>
+            {d.date && <span class="inline-text">{formatDate(d.date, 'long')}</span>}{d.date && d.readMinutes && <span class="inline-text"> · </span>}{d.readMinutes && <span class="inline-text">{d.readMinutes} min read</span>}
           </div>
           <div class="art_share">
             <a aria-label="Share on LinkedIn" class="share_pill" data-share="linkedin" href="#">LinkedIn</a>

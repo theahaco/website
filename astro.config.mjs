@@ -23,7 +23,7 @@ export default defineConfig({
   compressHTML: true,
   integrations: [
     sitemap({
-      filter: (page) => !/\/404\/?$/.test(page),
+      filter: (page) => !/\/(404|review)\/?$/.test(page),
     }),
     basePath(),
   ],

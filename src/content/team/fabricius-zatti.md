@@ -3,8 +3,8 @@ name: Fabricius (Fifo) Zatti
 order: 4
 role: Principal Engineer · President, The Aha Company Brazil
 location: Brazil
-focus: ''
-networks: ''
+focus: Tokenization, privacy
+networks: Stellar · Cardano · Hyperledger · EVM
 since: ''
 portrait: ''
 links:
@@ -12,3 +12,6 @@ links:
   github: ''
   email: ''
 ---
+Fabricius has fifteen years of engineering experience, five of them building Web3 systems for institutions such as MoneyGram, the Central Bank of Indonesia and IOG. He holds Hyperledger Fabric and Besu certifications.
+
+He designed Moonlight, our privacy layer for Stellar payments (protocol, core contracts and SDK), and sits in the Stellar Development Foundation's Architect Program, working on institutional proposals.

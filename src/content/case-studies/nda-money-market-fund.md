@@ -2,7 +2,7 @@
 title: Tokenizing a €130M money-market fund for a regulated European private bank
 order: 6
 eyebrow: Financial institution · Stellar
-lede: A €130M tokenized money-market fund for a regulated European private bank.
+lede: A €130M money-market fund for a regulated European private bank, moving onchain on Stellar. In build; launch targeted for 2027.
 cta: Bringing a fund or deposit onchain? Talk to the engineers who did it.
 facts:
 - label: Client
@@ -15,9 +15,8 @@ facts:
   value: Stellar
   style: net
 - label: Status
-  value: Live on mainnet
+  value: In build
   style: net
-  live: true
 - label: Year
   value: 2025-2026
   style: plain
@@ -30,16 +29,16 @@ hero:
   caption: Fund units mapped one-to-one to the legal structure; transfer restrictions enforced at the contract layer.
 metrics:
 - figure: €130M
-  label: Fund assets tokenized
-  receipt: ''
-- figure: Live
-  label: On Stellar mainnet
+  label: Money-market fund being tokenized
   receipt: ''
 - figure: '1:1'
   label: Onchain units to the fund's legal structure
   receipt: ''
 - figure: Onchain
-  label: Subscriptions and redemptions
+  label: Subscriptions and redemptions, by design
+  receipt: ''
+- figure: '2027'
+  label: Launch targeted
   receipt: ''
 sections:
 - id: challenge
@@ -60,15 +59,13 @@ sections:
     - Auditable issuance and redemption flows
 - id: outcome
   title: Outcome
-  body: €130M of fund assets tokenized and live on Stellar mainnet, with subscriptions and redemptions running onchain under the bank's existing compliance controls. The administrator operates the fund without an engineer in the loop.
+  body: Milestones are validated with the Stellar Development Foundation as they are delivered. Launch is targeted for 2027, once the bank's custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the bank's existing compliance controls.
 tech:
 - Soroban
 - Rust
 - Stellar
 - RWA
-receipts: |-
-  - [Fund token on the Stellar explorer](#)
-  - [Source-verified contract](#)
+receipts: ''
 relatedService: Tokenized funds and deposits
 team:
 - enzo-soyer
@@ -81,7 +78,7 @@ quote:
   portraitAlt: ''
   logo: ''
   logoAlt: ''
-ndaSummary: A €130M tokenized money-market fund for a regulated European private bank.
+ndaSummary: A €130M money-market fund for a regulated European private bank, in build on Stellar.
 client: Regulated European private bank
 nda: true
 workTitle: Tokenizing a €130M money-market fund

@@ -3,8 +3,8 @@ name: Elizabeth Engelman
 order: 6
 role: Principal Engineer
 location: United States
-focus: ''
-networks: ''
+focus: Developer tooling, wallets and signing
+networks: Stellar
 since: ''
 portrait: ''
 links:
@@ -12,3 +12,6 @@ links:
   github: ''
   email: ''
 ---
+Elizabeth spent a decade consulting across healthcare, insurance and finance, with production work on Ethereum, Polygon, Stellar and Flow.
+
+She is a core contributor to the Stellar CLI (contract init, Ledger signing through the stellar-ledger crate, the Docker local network) and on Nido built the integration tests, the relayer and the mainnet switchover.

@@ -3,16 +3,16 @@ title: LI.FI
 order: 2
 eyebrow: Protocol · Stellar
 lede: LI.FI's routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for their existing stack.
-cta: ''
+cta: Bringing your protocol to a new network? Talk to the engineers who did it for LI.FI.
 facts:
 - label: Client
   value: LI.FI
   style: plain
 - label: Role
-  value: ''
+  value: Smart contract engineering
   style: plain
 - label: Network
-  value: ''
+  value: Stellar
   style: net
 - label: Status
   value: Live
@@ -22,42 +22,55 @@ facts:
   value: '2026'
   style: plain
 - label: Engagement
-  value: ''
+  value: Integration partner
   style: plain
 hero:
   image: ''
   alt: ''
   caption: ''
 metrics:
-- figure: ''
-  label: ''
+- figure: Audited
+  label: By Halborn, before production
   receipt: ''
-- figure: ''
-  label: ''
+- figure: Live
+  label: In production on Stellar
+  receipt: https://docs.li.fi/introduction/lifi-architecture/stellar-overview
+- figure: End to end
+  label: Contract layer designed, built and delivered by us
   receipt: ''
-- figure: ''
-  label: ''
-  receipt: ''
-- figure: ''
-  label: ''
+- figure: Native
+  label: Soroban contracts, not ported from EVM
   receipt: ''
 sections:
 - id: challenge
   title: Challenge
-  body: ''
+  body: 'LI.FI aggregates bridges and exchanges so users can move assets across chains in one transaction. Its stack was built for EVM chains, and Stellar is not one: contracts run on Soroban, in Rust, with Stellar''s own account, authorization and asset model. Bringing LI.FI to Stellar meant writing that layer natively, while keeping the guarantees LI.FI gives users everywhere else.'
 - id: solution
   title: Solution
-  body: ''
+  body: |-
+    LI.FI came to us directly, as a standard commercial engagement. We designed and built the entire smart-contract layer on Soroban, had it audited by Halborn, and delivered it into production.
+
+    The contracts give LI.FI's existing stack a clean surface on Stellar, so a route on Stellar goes through the same interface as a route anywhere else.
 - id: architecture
   title: Architecture highlights
-  body: ''
+  body: |-
+    - Soroban contracts written for Stellar's authorization and asset model, not ported from EVM
+    - Routes executed under the user's signed authorization or a token allowance
+    - Tokens, native XLM included, addressed through their Stellar Asset Contracts
+    - Third-party audit by Halborn before production
 - id: outcome
   title: Outcome
-  body: ''
-tech: []
-receipts: ''
-relatedService: ''
-team: []
+  body: LI.FI is live on Stellar. According to LI.FI's documentation, users can swap on Stellar through Soroswap, bring USDC in from EVM chains through Circle's CCTP, bring XLM and USDC in through NEAR Intents, and send USDC out to ten EVM chains.
+tech:
+- Soroban
+- Rust
+- Stellar
+- Stellar Asset Contract
+- Cross-chain
+receipts: '- [LI.FI''s Stellar documentation](https://docs.li.fi/introduction/lifi-architecture/stellar-overview)'
+relatedService: Integration onto a new network
+team:
+- enzo-soyer
 quote:
   label: Placeholder quote
   text: '"The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference."'

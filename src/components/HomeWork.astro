@@ -35,16 +35,16 @@ const articles = pick(await posts(), homeArticles);
                     {cs.data.lede && <p class="work_para">{cs.data.lede}</p>}
                   </div>
                 </a>
-                <figure class="work_quote">
+                <figure class:list={['work_quote', !cs.data.quote.text && 'work_quote--plain']}>
                   <p class="work_quote-label">{cs.data.quote.label}</p>
                   {cs.data.quote.text && <blockquote class="work_blockquote">{cs.data.quote.text}</blockquote>}
-                  <figcaption class="work_attrib">
+                  {(cs.data.quote.author || cs.data.quote.portrait) && <figcaption class="work_attrib">
                     {cs.data.quote.portrait && <img alt={cs.data.quote.portraitAlt} class="work_portrait" loading="lazy" src={cs.data.quote.portrait} width="32" height="32" />}
                     <div class="work_attrib-info">
                       {cs.data.quote.author && <p class="work_attrib-name">{cs.data.quote.author}</p>}
                       {cs.data.quote.role && <p class="work_attrib-role">{cs.data.quote.role}</p>}
                     </div>
-                  </figcaption>
+                  </figcaption>}
                   {cs.data.quote.logo && <img alt={cs.data.quote.logoAlt} class="work_client-logo" loading="lazy" src={cs.data.quote.logo} />}
                 </figure>
               </div>

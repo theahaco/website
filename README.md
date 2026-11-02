@@ -49,6 +49,10 @@ Set `draft: true` in the frontmatter to keep an item out of the build.
 
 Search engines: only a build for `site.productionOrigin` (`https://theaha.co`, in `src/data/site.ts`) is indexable. Anywhere else (the github.io preview) every page carries `noindex` and `robots.txt` disallows crawling, so the preview never competes with the real domain.
 
+### Review mode (preview only)
+
+Suggested content is listed in `src/data/review.ts`: each entry names a page, the elements it touched and a note. On the preview every listed element is outlined and numbered, a panel in the bottom-left corner lists the notes, and `/review/` gathers them all. A production build (`site.productionOrigin`) renders none of it and has no `/review/` page. Once a suggestion is accepted, rewritten or dropped, delete its entry.
+
 ### Moving theaha.co from Webflow
 
 1. In the repo, Settings → Pages → Custom domain: `theaha.co`, then enable "Enforce HTTPS" once the certificate is issued.

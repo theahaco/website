@@ -1,18 +1,18 @@
 ---
-title: PwC
+title: PwC US
 order: 3
 eyebrow: Alliance · Multi-network
-lede: Joint business relationship with PwC US. When a PwC client's use case moves onchain, we are the engineering partner, from architecture to delivery, on whichever network the case calls for.
-cta: ''
+lede: Co-selling alliance with PwC US. Through this joint business relationship, we combine PwC US's advisory capabilities with our blockchain engineering to help financial institutions design, build and ship tokenization, stablecoin and payment infrastructure.
+cta: Moving a client’s use case onchain? Talk to the engineers who build it.
 facts:
-- label: Client
-  value: PwC
+- label: Alliance
+  value: PwC US
   style: plain
 - label: Role
-  value: ''
+  value: Blockchain engineering
   style: plain
 - label: Network
-  value: ''
+  value: Multi-network
   style: net
 - label: Status
   value: Joint business relationship
@@ -21,7 +21,7 @@ facts:
   value: Ongoing
   style: plain
 - label: Engagement
-  value: ''
+  value: Co-selling alliance
   style: plain
 hero:
   image: ''
@@ -58,21 +58,21 @@ receipts: ''
 relatedService: ''
 team: []
 quote:
-  label: Placeholder quote
-  text: '"The engineering partner we bring in when a client''s use case moves onchain."'
-  author: Gabriel Blum
-  role: Director, PwC US
-  portrait: /images/people/gabriel-blum.webp
-  portraitAlt: Gabriel Blum
+  label: Co-selling alliance
+  text: ''
+  author: ''
+  role: ''
+  portrait: ''
+  portraitAlt: ''
   logo: /images/logos/logo-light-pwc.webp
   logoAlt: PwC
 ndaSummary: ''
-client: PwC
+client: PwC US
 nda: false
-workTitle: Joint business relationship with PwC US
-workLine: When a PwC client's use case moves onchain, we are the engineering partner, from architecture to delivery.
+workTitle: Co-selling alliance with PwC US
+workLine: 'Joint business relationship: PwC US''s advisory capabilities, our blockchain engineering.'
 audience: Institutions
 network: Multi-network
 year: Ongoing
-shortTitle: PwC
+shortTitle: PwC US
 ---

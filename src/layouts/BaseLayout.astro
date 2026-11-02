@@ -5,6 +5,7 @@ import '../styles/webflow.css';
 import '../styles/site.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import ReviewOverlay from '../components/ReviewOverlay.astro';
 import { site } from '../data/site';
 import { pagePath } from '../lib/paths';
 
@@ -69,5 +70,6 @@ const imageUrl = Astro.site ? new URL(base.replace(/\/$/, '') + image, Astro.sit
     <script>
       import '../scripts/site.js';
     </script>
+    {!isProduction && path !== '/review' && <ReviewOverlay path={path} />}
   </body>
 </html>

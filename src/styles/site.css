@@ -96,3 +96,8 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 /* Team pages: Webflow kept the (empty) links list in the column for members
    without links, which adds one 28px row gap under the facts. Same spacing here. */
 .tm_col--nolinks::after { content: ""; }
+
+/* Home "Selected work": a row without a testimonial shows the relationship
+   label and the logo in the quote slot. */
+.work_quote--plain { row-gap: 12px; }
+.work_quote--plain .work_client-logo { height: 28px; }

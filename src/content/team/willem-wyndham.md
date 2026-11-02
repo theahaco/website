@@ -3,12 +3,15 @@ name: Willem Wyndham
 order: 2
 role: Chief Scientist Officer
 location: United States
-focus: ''
-networks: ''
+focus: Smart accounts, Stellar CLI architecture
+networks: Stellar · XRPL · NEAR
 since: ''
 portrait: ''
 links:
-  linkedin: ''
-  github: ''
+  linkedin: https://www.linkedin.com/in/willem-wyndham/
+  github: https://github.com/willemneal
   email: ''
 ---
+Willem is a programming-languages and security specialist (PhD track at the University of Maryland) who moved into blockchain runtime engineering at NEAR, with deep expertise in Rust and WebAssembly.
+
+He leads Nido, our passkey smart-account wallet, and is the architect of Scaffold Stellar and of the Stellar Registry contract. On the Stellar CLI he built the plugin system, contract calls generated from each contract's interface, and Ledger signing.

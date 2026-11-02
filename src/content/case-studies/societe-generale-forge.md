@@ -30,10 +30,10 @@ hero:
 metrics:
 - figure: €20M+
   label: Regulated stablecoin issued onchain
-  receipt: ''
+  receipt: https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G
 - figure: Live
   label: On Stellar mainnet since January 2026
-  receipt: ''
+  receipt: https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G
 - figure: '3'
   label: 'Distinct onchain roles: issuer, compliance, pause'
   receipt: ''
@@ -67,18 +67,18 @@ tech:
 - SEP-41
 - Source verification
 receipts: |-
-  - [EURCV contract on the Stellar explorer](#)
+  - [EURCV on the Stellar explorer](https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G)
   - [Source-verified contract](#)
 relatedService: Stablecoin issuance and governance
 team:
 - enzo-soyer
 quote:
-  label: Placeholder quote
-  text: '"They built EURCV''s Stellar contracts to our compliance requirements, and they know the network from the inside."'
-  author: Sylvain Prigent
-  role: Chief Product Officer, Société Générale-FORGE
-  portrait: /images/people/sylvain-prigent.webp
-  portraitAlt: Sylvain Prigent
+  label: Client
+  text: ''
+  author: ''
+  role: ''
+  portrait: ''
+  portraitAlt: ''
   logo: /images/logos/logo-light-sgforge.webp
   logoAlt: Société Générale FORGE
 ndaSummary: ''

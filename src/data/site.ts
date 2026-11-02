@@ -23,8 +23,8 @@ export const nav = [
 export const contact = {
   email: 'hello@theaha.co',
   github: 'https://github.com/theahaco',
-  // Company LinkedIn page. Empty on the Webflow site ("#"); set the URL here.
-  linkedin: '#',
+  // Company LinkedIn page (the one linked from the current theaha.co footer).
+  linkedin: 'https://www.linkedin.com/company/aha-labs-dev',
   // Endpoint that receives the contact form as a POST (Formspree, Basin,
   // Getform, a Worker...). While empty, the form opens the visitor's email
   // client with the message prefilled, addressed to `email` above.
@@ -41,6 +41,6 @@ export const calendly = {
 export const footer = {
   description: 'Blockchain integration partner for financial institutions, protocols and ecosystems.',
   locations: 'United States · France · Brazil',
-  legal: ['The Aha Company Inc., United States', 'The Aha Company SAS, France', 'The Aha Company Ltda., Brazil'],
+  legal: ['Dawning Inc. (dba The Aha Company), United States', 'Limus Vita SAS (dba The Aha Company), France', 'The Aha Company LTDA, Brazil'],
   copyright: '© 2026 The Aha Company. All rights reserved.',
 };
