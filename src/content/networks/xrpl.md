@@ -37,7 +37,7 @@ involves:
 - title: Compliance primitives
   description: Credentials and permissioned domains where they apply, with KYC data kept off the ledger.
 - title: Custody and keys
-  description: Custodian integration and multisig issuers, so no single key can mint, freeze or claw back.
+  description: Custodian integration, multisig issuers and, since October 2026, delegated permissions that give operational roles their own keys, so no single key can mint, freeze or claw back.
 - title: Markets and settlement
   description: The ledger's native exchange, AMM and escrow connected to your systems, with the Permissioned DEX for institution-only markets.
 stepsLede: Four milestones, each with an output your team can verify. Protocol changes depend on validator votes, so we plan on what is live, not on what is announced.

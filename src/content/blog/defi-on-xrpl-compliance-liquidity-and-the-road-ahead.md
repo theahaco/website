@@ -5,7 +5,7 @@ lede: 'XRPL keeps adding the pieces regulated DeFi needs at the protocol level: 
 author: enzo-soyer
 authorName: Enzo Soyer
 authorRole: Chief Executive Officer · President, The Aha Company France
-date: September 1, 2026
+date: ''
 readMinutes: '4'
 cover: ''
 coverCaption: ''
@@ -22,11 +22,11 @@ The XRP Ledger has been in production since 2012. Issuance, issuer controls, a n
 
 ## A compliance toolkit that keeps deepening
 
-Clawback went live in 2024. Deep Freeze, Credentials and Multi-Purpose Tokens (MPTs) followed in 2025, then Permissioned Domains and the Permissioned DEX in 2026. Credentials let a trusted issuer attest onchain that an account passed KYC, without putting personal data on the ledger. A permissioned domain then restricts a market to credentialed accounts.
+Clawback went live in 2024. Deep Freeze, Credentials and Multi-Purpose Tokens (MPTs) followed in 2025, then Permissioned Domains and the Permissioned DEX in 2026, and in October 2026 delegated permissions, which give operational roles their own keys. Credentials let a trusted issuer attest onchain that an account passed KYC, without putting personal data on the ledger. A permissioned domain then restricts a market to credentialed accounts.
 
 ## Liquidity: what exists today
 
-The native exchange and its AMM give issued tokens a market without a separate protocol, and the Permissioned DEX lets institutions trade on the same ledger while enforcing KYC and AML rules. The market is still small: RWA.xyz counted $0.5B of tokenized assets on XRPL in October 2026.
+The native exchange and its AMM give issued tokens a market without a separate protocol, and the Permissioned DEX lets institutions trade on the same ledger while enforcing KYC and AML rules, though it cannot draw on the AMM's pools yet. The market is still small: RWA.xyz counted $0.5B of tokenized assets on XRPL in October 2026, plus $1.3B of stablecoins, almost all of it Ripple's RLUSD.
 
 ## What is still missing
 

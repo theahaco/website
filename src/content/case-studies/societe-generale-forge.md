@@ -2,7 +2,7 @@
 title: Société Générale-FORGE
 order: 1
 eyebrow: Financial institution · Stellar
-lede: EURCV, Société Générale-FORGE's regulated euro stablecoin, live on Stellar mainnet since January 2026. We built the issuance and governance contracts on Soroban, with compliance controls agreed with the FORGE compliance team.
+lede: EURCV, Société Générale-FORGE's regulated euro stablecoin, live on Stellar mainnet since Q1 2026. We built the issuance and governance contracts on Soroban, with compliance controls agreed with the FORGE compliance team.
 cta: Issuing a regulated stablecoin? Talk to the engineers who took one to mainnet.
 facts:
 - label: Client
@@ -15,7 +15,7 @@ facts:
   value: Stellar
   style: net
 - label: Status
-  value: Live since Jan 2026
+  value: Live since Q1 2026
   style: net
 - label: Year
   value: 2025-2026
@@ -32,7 +32,7 @@ metrics:
   label: Regulated stablecoin issued onchain
   receipt: https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G
 - figure: Live
-  label: On Stellar mainnet since January 2026
+  label: On Stellar mainnet since Q1 2026
   receipt: https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G
 - figure: '3'
   label: 'Distinct onchain roles: issuer, compliance, pause'

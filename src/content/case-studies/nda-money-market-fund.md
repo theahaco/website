@@ -53,10 +53,10 @@ sections:
 - id: architecture
   title: Architecture highlights
   body: |-
-    - Subscription: the investor pays in a regulated euro stablecoin
-    - Fund units issued onchain to the investor's account, mapped one-to-one to the fund's legal structure
-    - NAV updates and transfer-agent controls kept with the fund manager; transfer restrictions enforced at the contract layer
-    - Redemption: units returned, euro stablecoin paid out
+    - Fund units as a native Stellar asset with holder approval, freeze and clawback: tokens in circulation equal units on the register
+    - One contract nets subscriptions against redemptions at the published NAV, so only the net goes to the depositary
+    - NAV published onchain by the management company, which keeps the transfer-agent controls
+    - Cash leg designed for a regulated euro stablecoin on the same ledger, with delivery versus payment in one step
 - id: outcome
   title: Outcome
   body: Milestones are validated with the Stellar Development Foundation as they are delivered. Launch is targeted for 2027, once the bank's custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the bank's existing compliance controls. Settlement then happens in the same transaction as the order, not in days, and the manager, the depositary and the distributor share one register instead of reconciling three.

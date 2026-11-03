@@ -26,7 +26,7 @@ Since Soroban, every Stellar asset also has a smart-contract interface, the Stel
 
 ## Institutions are already there
 
-Franklin Templeton brought its money market fund to Stellar in 2021, the first US-registered fund on a public blockchain. Circle issues USDC and EURC on Stellar, Ondo's USDY went live in September 2025, and EURCV followed in 2026, after Ethereum, Solana and the XRP Ledger. The register of SAFO, the overnight fund from Spiko and Amundi, lives on Ethereum and Stellar. In May 2026, DTCC and the Stellar Development Foundation announced plans to tokenize DTC-custodied assets on Stellar, targeted for the first half of 2027.
+Franklin Templeton brought its money market fund to Stellar in 2021, the first US-registered fund on a public blockchain. Circle issues USDC and EURC on Stellar. Ondo's USDY and PayPal's PYUSD went live in September 2025, MoneyGram's MGUSD in June 2026, and EURCV in March 2026, after Ethereum, Solana and the XRP Ledger. The register of SAFO, the overnight fund from Spiko and Amundi, lives on Ethereum and Stellar. In May 2026, DTCC and the Stellar Development Foundation announced plans to tokenize DTC-custodied assets on Stellar, targeted for the first half of 2027.
 
 ## Custody is not a blocker
 
@@ -34,7 +34,7 @@ Custodians such as Taurus have supported Stellar since 2024, for custody and for
 
 ## What to weigh
 
-Stellar is not the deepest market: RWA.xyz counted $3.6B of tokenized assets on Stellar in October 2026, against $16.8B on Ethereum. A native asset has no asset-wide pause or rule engine of its own, so those come from a contract, with an audit to match. And most issuers go multi-chain sooner or later, so the useful question is which network carries the controls, not which one carries everything.
+Stellar is not the deepest market: RWA.xyz counted $3.6B of tokenized assets on Stellar in October 2026, against $16.8B on Ethereum. About half of Stellar's figure is issued as contract tokens, not native assets: Spiko's funds and the State Street and Galaxy fund among them. Native is the simplest choice, not the only one. A native asset has no asset-wide pause or rule engine of its own, so those come from a contract, with an audit to match. And most issuers go multi-chain sooner or later, so the useful question is which network carries the controls, not which one carries everything.
 
 ## Where to start
 
