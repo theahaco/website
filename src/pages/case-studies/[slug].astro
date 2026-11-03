@@ -23,7 +23,7 @@ const more = pick(all, moreWork).filter((c) => c.id !== cs.id).slice(0, 2);
 const cta = d.cta || 'Bringing a fund or deposit onchain? Talk to the engineers who did it.';
 const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData.productionOrigin);
 ---
-<BaseLayout title={`${d.title} | Case study | The Aha Company`} description={d.description || d.lede || d.ndaSummary || undefined}>
+<BaseLayout title={`${d.title} | Case study | The Aha Company`} description={d.description || d.lede || d.ndaSummary || undefined} image={d.hero.image || undefined}>
   <main>
     <article>
       <div class="cs_header">

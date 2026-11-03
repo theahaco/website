@@ -9,7 +9,7 @@ since: ''
 portrait: /images/team/elizabeth-engelman.webp
 links:
   linkedin: ''
-  github: ''
+  github: https://github.com/elizabethengelman
   email: ''
 ---
 Elizabeth spent a decade consulting across healthcare, insurance and finance, with production work on Ethereum, Polygon, Stellar and Flow.

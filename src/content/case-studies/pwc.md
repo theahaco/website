@@ -24,8 +24,8 @@ facts:
   value: Co-selling alliance
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/pwc.webp
+  alt: 'Advisory and engineering, together: the co-selling alliance with PwC US'
   caption: ''
 metrics:
 - figure: ''

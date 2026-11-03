@@ -25,8 +25,8 @@ facts:
   value: Integration partner
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/lifi.webp
+  alt: 'Cross-chain routing, brought to Stellar: routes from several networks converging on Stellar'
   caption: ''
 metrics:
 - figure: Audited
@@ -72,7 +72,7 @@ relatedService: Integration onto a new network
 team:
 - enzo-soyer
 quote:
-  label: Placeholder quote
+  label: ''
   text: '"The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference."'
   author: Max Klenk
   role: Chief Technology Officer, LI.FI

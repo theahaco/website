@@ -9,7 +9,7 @@ since: ''
 portrait: /images/team/fabricius-zatti.webp
 links:
   linkedin: ''
-  github: ''
+  github: https://github.com/fazzatti
   email: ''
 ---
 Fabricius has fifteen years of engineering experience, five of them building Web3 systems for institutions such as MoneyGram, the Central Bank of Indonesia and IOG. He holds Hyperledger Fabric and Besu certifications.

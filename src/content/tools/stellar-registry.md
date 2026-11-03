@@ -83,7 +83,7 @@ sections:
 - id: history
   title: Where it came from
   body: |-
-    The Registry grew out of SmartDeploy, which we started in 2023: its crate has 12,093 downloads since September 2023, and the Registry’s own crates 20,495 since May 2025 (crates.io, November 2, 2026). Like [Scaffold Stellar](/open-source/scaffold-stellar), it is funded as a Stellar public good.
+    The Registry grew out of SmartDeploy, which we started in 2023: its crate has 12,093 downloads since September 2023, and the Registry’s own crates 20,495 since May 2025 (crates.io, November 2, 2026). Like [Stellar Scaffold](/open-source/stellar-scaffold), it is funded as a Stellar public good.
 tech:
 - Rust
 - Soroban
@@ -101,7 +101,7 @@ built:
 - chad-ostrowski
 - zach-fedor
 related:
-- scaffold-stellar
+- stellar-scaffold
 - perch
 cta: Shipping contracts other teams will call? Talk to the team that runs the Registry.
 repo: https://github.com/stellar-registry

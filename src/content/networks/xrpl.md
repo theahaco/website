@@ -62,7 +62,7 @@ proof:
   caseStudy: ripple
   linkLabel: See the case study →
   quote:
-    label: Placeholder quote
+    label: ''
     text: '"They shorten our teams’ time to go live, and they bring the DevX thinking XRPL needs."'
     author: Maxime Dienger
     role: Senior Developer Advocate, Ripple

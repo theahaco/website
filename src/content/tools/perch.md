@@ -85,7 +85,9 @@ receipts: |-
   - [GitHub](https://github.com/stellar-registry/perch)
   - [@stellar-registry/perch on npm](https://www.npmjs.com/package/@stellar-registry/perch)
   - [Mainnet deployment manifest](https://github.com/stellar-registry/perch/blob/main/deployments/mainnet.json)
-built: []
+built:
+- willem-wyndham
+- elizabeth-engelman
 related:
 - nido
 - stellar-registry

@@ -5,9 +5,9 @@ lede: 'XRPL keeps adding the pieces regulated DeFi needs at the protocol level: 
 author: enzo-soyer
 authorName: Enzo Soyer
 authorRole: Chief Executive Officer · President, The Aha Company France
-date: ''
+date: November 13, 2026
 readMinutes: '4'
-cover: ''
+cover: /images/covers/defi-on-xrpl-compliance-liquidity-and-the-road-ahead.webp
 coverCaption: ''
 authorBio: CEO of The Aha Company. Stellar Community Fund reviewer and co-author of SEP-61.
 relatedWork: ripple

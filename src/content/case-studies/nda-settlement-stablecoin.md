@@ -25,8 +25,8 @@ facts:
   value: Embedded architecture lead
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/nda-settlement-stablecoin.webp
+  alt: 'A bank’s settlement stablecoin, in a live pilot: two accounts settling atomically on one ledger'
   caption: ''
 metrics:
 - figure: Live pilot

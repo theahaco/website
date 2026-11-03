@@ -3,7 +3,7 @@
 // study: facts, dated figures with receipts, a visual, the story, builders.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { tools, team, md, mdInline, wrapTables, networkMarks } from '../../lib/content';
+import { tools, team, posts, md, mdInline, wrapTables, unlinkPosts, networkMarks } from '../../lib/content';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -14,6 +14,7 @@ const { tool } = Astro.props;
 const d = tool.data;
 const all = await tools();
 const people = new Map((await team()).map((m) => [m.id, m]));
+const published = new Set((await posts()).map((p) => p.id));
 const builders = d.built.map((slug) => people.get(slug)).filter((m) => m !== undefined);
 const facts = d.facts.filter((f) => f.value);
 const headline = (t: { data: { headline?: { figure?: string; label?: string } } }) => [t.data.headline?.figure, t.data.headline?.label].filter(Boolean).join(' ');
@@ -150,7 +151,7 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
           {sections.map((s) => (
             <section class="cs_section" id={s.id}>
               <h2 class="cs_h2">{s.title}</h2>
-              <div class="blog_richtext w-richtext" set:html={wrapTables(md(s.body))} />
+              <div class="blog_richtext w-richtext" set:html={unlinkPosts(wrapTables(md(s.body)), published)} />
             </section>
           ))}
         </div>

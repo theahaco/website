@@ -2,7 +2,7 @@
 title: Stellar Development Foundation
 order: 4
 eyebrow: Ecosystem · Stellar
-lede: 'We build and maintain tooling the Stellar ecosystem runs on: Scaffold Stellar, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. We take an active part in the Stellar Architect Program as experts.'
+lede: 'We build and maintain tooling the Stellar ecosystem runs on: Stellar Scaffold, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. We take an active part in the Stellar Architect Program as experts.'
 cta: Building developer tooling for an ecosystem? Talk to the team that maintains Stellar’s.
 facts:
 - label: Client
@@ -24,8 +24,8 @@ facts:
   value: Public goods and Architect Program
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/stellar-development-foundation.webp
+  alt: 'The tooling the Stellar ecosystem runs on: the Stellar CLI and the tools around it'
   caption: ''
 metrics:
 - figure: ~20%
@@ -35,7 +35,7 @@ metrics:
   label: Stellar CLI downloads on crates.io, with soroban-cli
   receipt: https://crates.io/crates/stellar-cli
 - figure: '37'
-  label: Scaffold Stellar releases (Oct 2026)
+  label: Stellar Scaffold releases (Oct 2026)
   receipt: https://github.com/stellar-scaffold/cli
 - figure: '218'
   label: Names on the mainnet Stellar Registry, namespaces included (Nov 2026)
@@ -49,19 +49,19 @@ sections:
   body: |-
     We became core contributors to the Stellar CLI, the network's official command-line tool, and built the parts developers use every day: the plugin system, contract calls generated from each contract's interface, key management and TypeScript client generation.
 
-    On top of it we built Scaffold Stellar and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. Fabricius Zatti, a principal engineer on our team, also leads the Foundation's Architect Program, working on institutional proposals.
+    On top of it we built Stellar Scaffold and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. Fabricius Zatti, a principal engineer on our team, also leads the Foundation's Architect Program, working on institutional proposals.
 - id: architecture
   title: Architecture highlights
   body: |-
     - [Stellar CLI](/open-source/stellar-cli): plugin system, typed contract calls, SEP-5 key management, Ledger signing
-    - [Scaffold Stellar](/open-source/scaffold-stellar): one command from an empty folder to contracts, a front end, a local network and typed clients
+    - [Stellar Scaffold](/open-source/stellar-scaffold): one command from an empty folder to contracts, a front end, a local network and typed clients
     - [Stellar Registry](/open-source/stellar-registry): an onchain package manager for Soroban contracts, audited by Veridise with no findings, on mainnet since July 2026
     - [Nido](/open-source/nido): our open-source passkey wallet, in a curated mainnet release since October 2026
     - JavaScript SDK: contract.Client and AssembledTransaction in Stellar's official SDK
     - Standards: co-authors of SEP-53 (final) and SEP-61 (draft)
 - id: outcome
   title: Outcome
-  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Scaffold Stellar is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On November 2, 2026, 137 projects used at least one of our tools, 111 of them building on Scaffold Stellar, and the Stellar Community Fund votes its Public Goods Award on [Tansu](/open-source/tansu) ([how we count](/open-source#how-we-count)).'
+  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Stellar Scaffold is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On November 2, 2026, 137 projects used at least one of our tools, 111 of them building on Stellar Scaffold, and the Stellar Community Fund votes its Public Goods Award on [Tansu](/open-source/tansu) ([how we count](/open-source#how-we-count)).'
 tech:
 - Rust
 - TypeScript
@@ -71,7 +71,7 @@ tech:
 - Open source
 receipts: |-
   - [Stellar CLI](https://github.com/stellar/stellar-cli)
-  - [Scaffold Stellar](https://github.com/stellar-scaffold/cli)
+  - [Stellar Scaffold](https://github.com/stellar-scaffold/cli)
   - [Stellar Registry](https://rgstry.xyz)
   - [Nido](https://nido.fyi)
 relatedService: Developer tooling and DevX
@@ -95,11 +95,11 @@ quote:
 ndaSummary: ''
 client: Stellar Development Foundation
 nda: false
-workTitle: Scaffold Stellar, Stellar CLI plugin system, Stellar Registry, Nido
+workTitle: Stellar Scaffold, Stellar CLI plugin system, Stellar Registry, Nido
 workLine: Tooling the Stellar ecosystem runs on, maintained as public goods; active part in the Stellar Architect Program as experts.
 audience: Ecosystems and open source
 network: Stellar
 year: 2021-today
 shortTitle: Stellar Development Foundation
-description: 'We build and maintain the tooling the Stellar ecosystem runs on: Scaffold Stellar, the Stellar CLI plugin system, Stellar Registry and Nido.'
+description: 'We build and maintain the tooling the Stellar ecosystem runs on: Stellar Scaffold, the Stellar CLI plugin system, Stellar Registry and Nido.'
 ---

@@ -5,16 +5,16 @@ lede: For a regulated issuer, the question is not which chain is fastest. It is 
 author: enzo-soyer
 authorName: Enzo Soyer
 authorRole: Chief Executive Officer · President, The Aha Company France
-date: ''
+date: November 9, 2026
 readMinutes: '3'
-cover: ''
+cover: /images/covers/why-stellar-is-the-right-chain-for-tokenization.webp
 coverCaption: ''
 authorBio: CEO of The Aha Company. Stellar Community Fund reviewer and co-author of SEP-61.
 relatedWork: societe-generale-forge
 relatedWorkLabel: EURCV, a regulated euro stablecoin on Stellar
 audience: Institutions
 network: Stellar
-order: 3
+order: 2
 description: 'For a regulated issuer, the right chain is where controls are part of the ledger and custodians and counterparties already are. Why Stellar fits.'
 ---
 ## The controls are part of the ledger

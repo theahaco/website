@@ -33,7 +33,7 @@ const articleLd = ld({
   publisher: { '@type': 'Organization', name: 'The Aha Company', url: base },
 });
 ---
-<BaseLayout title={`${d.title} | The Aha Company`} description={d.description || d.lede || undefined}>
+<BaseLayout title={`${d.title} | The Aha Company`} description={d.description || d.lede || undefined} image={d.cover || undefined}>
   <Fragment slot="head"><script type="application/ld+json" set:html={articleLd} /></Fragment>
   <main>
     <article>

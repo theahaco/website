@@ -24,8 +24,8 @@ facts:
   value: Integration partner
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/nda-money-market-fund.webp
+  alt: 'A tokenized share class for a money-market fund: fund units issued against a published NAV'
   caption: Fund units mapped one-to-one to the legal structure; transfer restrictions enforced at the contract layer.
 metrics:
 - figure: €130M
@@ -69,6 +69,7 @@ receipts: ''
 relatedService: Tokenized funds and deposits
 team:
 - enzo-soyer
+- hugo-heer
 quote:
   label: ''
   text: ''

@@ -11,10 +11,11 @@ export const homeNdaCases = ["nda-real-estate-debt-fund", "nda-money-market-fund
 export const moreWork = ["nda-settlement-stablecoin", "societe-generale-forge", "lifi", "pwc"];
 
 /** Home page, "Selected work" > Articles. */
-export const homeArticles = ["defi-on-xrpl-compliance-liquidity-and-the-road-ahead", "scaffold-stellar-how-we-built-the-developer-toolkit", "why-stellar-is-the-right-chain-for-tokenization"];
+// Newest first. Scheduled articles stay off theaha.co until their date.
+export const homeArticles = ["defi-on-xrpl-compliance-liquidity-and-the-road-ahead", "why-stellar-is-the-right-chain-for-tokenization", "scaffold-stellar-how-we-built-the-developer-toolkit"];
 
 /** Team cards on team pages ("The rest of the team") and on case studies. */
-export const teamPanelOrder = ["em-lowing", "roberson-costa-dresch", "zach-fedor", "pamphile-roy", "elizabeth-engelman", "pamela-selle", "fabricius-zatti", "willem-wyndham", "chad-ostrowski", "enzo-soyer"];
+export const teamPanelOrder = ["hugo-heer", "roberson-costa-dresch", "zach-fedor", "pamphile-roy", "elizabeth-engelman", "pamela-selle", "fabricius-zatti", "willem-wyndham", "chad-ostrowski", "enzo-soyer"];
 
 /** Engagement rows on team pages (case studies whose `team` includes the person). */
 export const engagementOrder = ["nda-settlement-stablecoin", "societe-generale-forge", "lifi", "pwc", "stellar-development-foundation", "ripple", "nda-real-estate-debt-fund", "nda-money-market-fund"];

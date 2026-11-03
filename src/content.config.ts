@@ -130,7 +130,7 @@ const tools = defineCollection({
   loader: glob({ pattern: '*.md', base: './src/content/tools' }),
   schema: z.object({
     draft: z.boolean().default(false),
-    name: z.string(), // "Scaffold Stellar"
+    name: z.string(), // "Stellar Scaffold"
     order: z.number().default(100),
     network: str, // "Stellar", "XRPL and Stellar"
     category: str, // eyebrow and index card tag: "Developer tooling", "Wallet"...

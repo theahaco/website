@@ -9,7 +9,7 @@ since: ''
 portrait: /images/team/enzo-soyer.webp
 links:
   linkedin: https://www.linkedin.com/in/enzo-soyer
-  github: ''
+  github: https://github.com/Dgetsylver
   email: mailto:hello@theaha.co
 ---
 Enzo leads The Aha Company's work with financial institutions and ecosystem foundations. He was engagement lead on EURCV with Société Générale-FORGE and on LI.FI's Stellar integration, and works with foundations on co-financed proposals.

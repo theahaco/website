@@ -75,10 +75,10 @@ sections:
     | [Shake](https://github.com/franciscogfsm/shake) | HackMeridian 2026 | Face ID payments: approve once, then pay within onchain limits |
     | [Darwin](https://app.darwin.market/stellar) | HackMeridian 2026 | One Touch ID per trade, with a session key, in a live app |
     | [LumenSplit](https://github.com/manuuvllgs/LumenSplit) | HackMeridian 2026 | Passkey onboarding with a daily spending cap |
-    | [Tansu](/open-source/tansu) | Our team (SCF #28, #30) | Sign-in with Nido in its governance dApp, on testnet |
-    | [Turbolong](https://github.com/Dgetsylver/TurboLong) | Our team (SCF #43) | Nido in its wallet picker |
-    | [Authline](https://github.com/theahaco/authline) | Our team (SCF #44) | Onboards Nido wallets to issued assets |
-    | Stroopies | Our team | SCF Pilots can hold their soulbound credential in a Nido wallet, on testnet |
+    | [Tansu](/open-source/tansu) | SCF #28, #30 | Sign-in with Nido in its governance dApp, on testnet |
+    | [Turbolong](https://github.com/Dgetsylver/TurboLong) | SCF #43 | Nido in its wallet picker |
+    | [Authline](https://github.com/theahaco/authline) | SCF #44 | Onboards Nido wallets to issued assets |
+    | Stroopies | SCF Pilots | SCF Pilots can hold their soulbound credential in a Nido wallet, on testnet |
 
     Tero, Agentic Realities and Nod, from HackMeridian 2026, list Nido as their next step.
 - id: integrate

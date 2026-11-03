@@ -82,7 +82,7 @@ receipts: |-
 built:
 - fabricius-zatti
 - chad-ostrowski
-builtNote: Hugo Heer (browser wallet)
+- hugo-heer
 related:
 - nido
 - stellar-registry

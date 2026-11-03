@@ -24,8 +24,8 @@ facts:
   value: Ecosystem programs
   style: plain
 hero:
-  image: ''
-  alt: ''
+  image: /images/cases/ripple.webp
+  alt: 'From prototype to go live, with Ripple’s cohorts: milestones on the way to launch'
   caption: ''
 metrics:
 - figure: ''
@@ -65,7 +65,7 @@ team:
 - chad-ostrowski
 - willem-wyndham
 quote:
-  label: Placeholder quote
+  label: ''
   text: '"They shorten our teams’ time to go live, and they bring the DevX thinking XRPL needs."'
   author: Maxime Dienger
   role: Senior Developer Advocate, Ripple

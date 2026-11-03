@@ -45,7 +45,7 @@ sections:
 - id: what-we-built
   title: What we built
   body: |-
-    - **The plugin system**, which lets separate tools run as `stellar` subcommands. [Scaffold Stellar](/open-source/scaffold-stellar) and the [Stellar Registry](/open-source/stellar-registry), which we build, run this way as `stellar scaffold` and `stellar registry`.
+    - **The plugin system**, which lets separate tools run as `stellar` subcommands. [Stellar Scaffold](/open-source/stellar-scaffold) and the [Stellar Registry](/open-source/stellar-registry), which we build, run this way as `stellar scaffold` and `stellar registry`.
     - **Contract calls generated from each contract’s interface**: every function of a deployed contract becomes a typed command.
     - **Key management**: SEP-5 key derivation through our sep5 crate, storage in the operating system’s keychain, and Ledger hardware signing, tested in CI.
     - **The transaction toolkit** (build, simulate, sign, send) and **TypeScript client generation**.
@@ -69,7 +69,7 @@ built:
 - elizabeth-engelman
 - chad-ostrowski
 related:
-- scaffold-stellar
+- stellar-scaffold
 - stellar-registry
 cta: Building on Stellar? Talk to the engineers who write its tooling.
 maintainer: Stellar Development Foundation

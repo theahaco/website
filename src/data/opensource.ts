@@ -19,6 +19,6 @@ export const standards: Standard[] = [
   { name: 'Rust crates', what: 'sep5 key derivation (225k downloads) and stellar-ledger signing (87k downloads), used by the Stellar CLI, and a Stellar RPC client. By Willem Wyndham and Elizabeth Engelman.', status: 'Used by the Stellar CLI', people: 'elizabeth-engelman' },
   { name: 'Trezor Stellar package', what: 'Trezor’s Stellar package upgraded to Stellar SDK v17 by Pamela Selle.', status: 'Shipped, September 2026', people: 'pamela-selle' },
   { name: 'Carbon Coin (XRPL)', what: 'An XRPL multi-purpose token with a 2-of-3 multisig issuer, freeze and clawback, built by Chad Ostrowski.', status: 'Testnet demo, September 2026', people: 'chad-ostrowski' },
-  { name: 'Loam and SmartDeploy', what: 'The tools we started in 2023, from which Scaffold Stellar and the Stellar Registry grew. Across the four, our Stellar crates have 125,107 downloads (November 2, 2026).', status: 'Since 2023', people: 'willem-wyndham' },
+  { name: 'Loam and SmartDeploy', what: 'The tools we started in 2023, from which Stellar Scaffold and the Stellar Registry grew. Across the four, our Stellar crates have 125,107 downloads (November 2, 2026).', status: 'Since 2023', people: 'willem-wyndham' },
   { name: 'XRPL Rust library', what: 'Fixes contributed upstream by Willem Wyndham.', status: 'Contributor', people: 'willem-wyndham' },
 ];

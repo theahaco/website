@@ -42,8 +42,23 @@ const byOrder = (a: { data: { order: number } }, b: { data: { order: number } })
 export async function caseStudies() {
   return (await getCollection('caseStudies', (e) => !e.data.draft)).sort(byOrder);
 }
+/**
+ * Articles dated in the future are scheduled: the production build
+ * (theaha.co) leaves them out until their date, and the deploy workflow
+ * rebuilds every morning so each one goes live on its day. The preview
+ * shows them all, for review.
+ */
+const PRODUCTION = import.meta.env.SITE ? new URL(import.meta.env.SITE).origin === 'https://theaha.co' : true;
+export function isScheduled(date: string, now = new Date()): boolean {
+  const d = new Date(date);
+  return Boolean(date) && !Number.isNaN(d.getTime()) && d.getTime() > now.getTime();
+}
 export async function posts() {
-  return (await getCollection('blog', (e) => !e.data.draft)).sort(byOrder);
+  return (await getCollection('blog', (e) => !e.data.draft && !(PRODUCTION && isScheduled(e.data.date)))).sort(byOrder);
+}
+/** Links to articles not published yet become plain text (scheduled posts). */
+export function unlinkPosts(html: string, published: Set<string>): string {
+  return html.replace(/<a href="\/blog\/([^"\/]+)\/?">(.*?)<\/a>/g, (m, id, text) => (published.has(id) ? m : text));
 }
 export async function networks() {
   return (await getCollection('networks', (e) => !e.data.draft)).sort(byOrder);

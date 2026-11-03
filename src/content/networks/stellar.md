@@ -23,10 +23,10 @@ ship:
     description: Plugin system and bindings
     badge: Core contributor
     href: /open-source/stellar-cli
-  - name: Scaffold Stellar
+  - name: Stellar Scaffold
     description: Empty folder to typed client in one command
     badge: Author
-    href: /open-source/scaffold-stellar
+    href: /open-source/stellar-scaffold
   - name: Stellar Registry
     description: Onchain package manager for contracts, audited
     badge: Author
@@ -83,7 +83,7 @@ proof:
   caseStudy: lifi
   linkLabel: See the case study →
   quote:
-    label: Placeholder quote
+    label: ''
     text: '"The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference."'
     author: Max Klenk
     role: Chief Technology Officer, LI.FI
