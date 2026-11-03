@@ -38,7 +38,7 @@ metrics:
   label: Scaffold Stellar releases (Oct 2026)
   receipt: https://github.com/stellar-scaffold/cli
 - figure: '218'
-  label: Contracts and assets named on the Stellar Registry (Oct 2026)
+  label: Names on the mainnet Stellar Registry, namespaces included (Nov 2026)
   receipt: https://rgstry.xyz
 sections:
 - id: challenge
@@ -60,7 +60,7 @@ sections:
     - Standards: co-authors of SEP-53 (final) and SEP-61 (draft)
 - id: outcome
   title: Outcome
-  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Scaffold Stellar is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review.'
+  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Scaffold Stellar is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On 2 November 2026, 137 projects used at least one of our tools, 111 of them building on Scaffold Stellar, and the Stellar Community Fund votes its Public Goods Award on Tansu ([how we count](/open-source#how-we-count)).'
 tech:
 - Rust
 - TypeScript

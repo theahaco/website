@@ -22,7 +22,7 @@ When Soroban brought smart contracts to Stellar, every new project started the s
 
 ## Built on the Stellar CLI's plugin system
 
-We were already core contributors to the Stellar CLI, the network's official command-line tool. One of the pieces we built there is its plugin system, which lets a separate tool run as a `stellar` subcommand. Scaffold Stellar is such a plugin. It reuses the CLI's networks, keys and contract commands instead of reimplementing them, so a project behaves the same way on a laptop and on a public network.
+We were already core contributors to the Stellar CLI, the network's official command-line tool. One of the pieces we built there is its plugin system, which lets a separate tool run as a `stellar` subcommand. Scaffold Stellar is such a plugin, and it grew out of Loam, the tool we started in 2023. It reuses the CLI's networks, keys and contract commands instead of reimplementing them, so a project behaves the same way on a laptop and on a public network.
 
 ## What one command sets up
 
@@ -43,7 +43,7 @@ Scaffold Stellar ships for six platforms from one release pipeline, and every re
 
 ## Maintained as a public good
 
-Scaffold Stellar is open source, listed in the official Stellar documentation and funded as a Stellar public good. It runs on a quarterly proposal and review, which keeps it maintained, not merely released.
+Scaffold Stellar is open source, listed in the official Stellar documentation and funded as a Stellar public good. On 2 November 2026, 111 projects built on it, and OpenZeppelin's Contracts Wizard exports any Stellar contract as a Scaffold Stellar package. It runs on a quarterly proposal and review, which keeps it maintained, not merely released.
 
 ## What it changes for a client
 

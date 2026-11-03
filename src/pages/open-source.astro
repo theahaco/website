@@ -8,10 +8,10 @@ import { team } from '../lib/content';
 
 const people = new Map((await team()).map((m) => [m.id, m]));
 const metrics = [
+  { figure: '137', label: 'Projects using at least one of our tools (2 Nov 2026)', receipt: '' },
   { figure: '~20%', label: 'Of Stellar CLI commits, 2022 to 2025', receipt: 'https://github.com/stellar/stellar-cli' },
-  { figure: '297k', label: 'Stellar CLI downloads on crates.io, with soroban-cli (Oct 2026)', receipt: 'https://crates.io/crates/stellar-cli' },
-  { figure: '37', label: 'Scaffold Stellar releases (Oct 2026)', receipt: 'https://github.com/stellar-scaffold/cli' },
-  { figure: '218', label: 'Contracts and assets named on the Stellar Registry (Oct 2026)', receipt: 'https://rgstry.xyz' },
+  { figure: '125,107', label: 'Downloads of our Stellar crates since 2023 (2 Nov 2026)', receipt: '' },
+  { figure: '~$1.4M', label: 'Public-goods funding the Stellar Community Fund voted on Tansu, Q2 to Q4 2026', receipt: 'https://app.tansu.dev' },
 ];
 ---
 <BaseLayout title="Open source: the tools we build and maintain | The Aha Company" description="The open-source tooling behind our work: core contributions to the Stellar CLI, Scaffold Stellar, the Stellar Registry, Nido, Moonlight, Tansu and GhostSig, with their status, audits and adoption.">
@@ -30,7 +30,7 @@ const metrics = [
       <ul class="cs_metrics" role="list">
         {metrics.map((m) => (
           <li class="cs_metric">
-            <span class="cs_fig"><span>{m.figure}</span><a aria-label="Receipt" class="cs_figmark" href={m.receipt}>✓</a></span>
+            <span class="cs_fig"><span>{m.figure}</span>{m.receipt && <a aria-label="Receipt" class="cs_figmark" href={m.receipt}>✓</a>}</span>
             <span class="cs_metriclabel">{m.label}</span>
           </li>
         ))}
@@ -54,7 +54,7 @@ const metrics = [
                 {t.proof && <div class="cs_fact"><dt class="cs_dt">{t.proofLabel}</dt><dd class="os_dd">{t.proof}</dd></div>}
               </dl>
               <div class="os_foot">
-                <div class="os_built">
+                {(t.built.length > 0 || t.builtNote) && <div class="os_built">
                   <span class="cs_dt">Built by</span>
                   <ul class="os_people" role="list">
                     {t.built.map((slug) => {
@@ -68,7 +68,7 @@ const metrics = [
                     })}
                     {t.builtNote && <li class="os_note">{t.builtNote}</li>}
                   </ul>
-                </div>
+                </div>}
                 <ul aria-label="Links" class="tm_links" role="list">
                   {t.links.map((l) => <li><a class="share_pill" href={l.href}>{l.label}</a></li>)}
                 </ul>
@@ -76,6 +76,20 @@ const metrics = [
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+    <section class="ab_white" data-os="count" id="how-we-count">
+      <div class="ab_container">
+        <div class="ab_howgrid">
+          <div class="ab_howhead">
+            <h2 class="ab_h2">How we count</h2>
+          </div>
+          <div class="os_count">
+            <p>A project counts when its public repo uses a tool in code (configuration, dependencies, imports or CLI scripts), or when its contracts use it on chain. Forks count once, and a project using several tools counts once in the total.</p>
+            <p>A tool’s own repo never counts toward that tool; our other tools count like any other project. Pages that only mention a tool do not count. Code search does not index every repo, so project counts are floors, and testnet counts include our own testing.</p>
+            <p>Every figure carries the date it was counted. Counts that only grow, such as downloads, calls and wallets, are as of that date.</p>
+          </div>
+        </div>
       </div>
     </section>
     <section>
@@ -115,4 +129,6 @@ const metrics = [
   .os_person { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--deep-blue); text-decoration: none; }
   .os_person:hover span:last-child { text-decoration: underline; text-underline-offset: 3px; }
   .os_note { display: inline-flex; align-items: center; font-size: 14px; color: var(--muted); }
+  .os_count { display: flex; flex-direction: column; gap: 14px; max-width: 640px; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+  .os_count p { margin: 0; }
 </style>
