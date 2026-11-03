@@ -13,8 +13,8 @@ const COPY = {
   cases: {
     eyebrow: 'Work',
     h1: 'Named clients, live systems, public code.',
-    lede: 'Case studies, filtered by who the work was for and the network it runs on. Switch to Articles for the writing that came out of them.',
-    title: 'Work: case studies | The Aha Company',
+    lede: 'Case studies and our open-source tools, filtered by who the work was for and the network it runs on. Switch to Articles for the writing that came out of them.',
+    title: 'Work: case studies and open-source tools | The Aha Company',
   },
 };
 
@@ -86,7 +86,7 @@ export function initWork() {
     let n = 0;
     active.querySelectorAll('.work_item').forEach((it) => {
       const okA = state.aud === 'All' || it.getAttribute('data-fa') === state.aud;
-      const okN = state.net === 'All' || it.getAttribute('data-fn') === state.net;
+      const okN = state.net === 'All' || (it.getAttribute('data-fn') || '').split('|').includes(state.net);
       const show = okA && okN;
       it.style.display = show ? '' : 'none';
       if (show) n++;
