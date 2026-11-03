@@ -1,7 +1,7 @@
 ---
 name: Stellar
 order: 1
-mark: /images/logos/logo-stellar.webp
+mark: /images/logos/logo-light-stellar.svg
 markAlt: Stellar
 heading: Bring your protocol to Stellar, with the team that maintains its tooling.
 lede: Native Soroban contracts, adapters and SDKs matched to the guarantees you already give users. Often fundable through ecosystem programs; we scope and draft the application.
@@ -91,7 +91,7 @@ proof:
     role: Chief Technology Officer, LI.FI
     portrait: /images/people/max-klenk.webp
     portraitAlt: Max Klenk
-    logo: /images/logos/logo-light-lifi.webp
+    logo: /images/logos/logo-light-lifi.svg
     logoAlt: LI.FI
 funding:
   heading: Integrations are often fundable
@@ -112,7 +112,7 @@ homeCta: Integrate with Stellar
 card:
   name: Integrate with Stellar
   line: Core contributors, Stellar Community Fund reviewers, tooling maintainers.
-  logo: /images/logos/logo-stellar.webp
+  logo: /images/logos/logo-light-stellar.svg
   logoAlt: Stellar
 description: 'Stellar integrations for regulated assets and protocols: native Soroban contracts, adapters and SDKs, from the core contributors behind its tooling.'
 ---

@@ -78,7 +78,7 @@ quote:
   role: Chief Technology Officer, LI.FI
   portrait: /images/people/max-klenk.webp
   portraitAlt: Max Klenk
-  logo: /images/logos/logo-light-lifi.webp
+  logo: /images/logos/logo-light-lifi.svg
   logoAlt: LI.FI
 ndaSummary: ''
 client: LI.FI

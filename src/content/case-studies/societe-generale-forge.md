@@ -74,7 +74,7 @@ quote:
   role: ''
   portrait: ''
   portraitAlt: ''
-  logo: /images/logos/logo-light-sgforge.webp
+  logo: /images/logos/logo-light-sgforge.svg
   logoAlt: Société Générale FORGE
 ndaSummary: ''
 client: Société Générale-FORGE

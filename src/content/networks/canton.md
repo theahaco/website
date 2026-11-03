@@ -1,7 +1,7 @@
 ---
 name: Canton
 order: 3
-mark: /images/logos/logo-canton.webp
+mark: /images/logos/logo-light-canton.svg
 markAlt: Canton
 heading: ''
 lede: ''
@@ -41,6 +41,6 @@ homeCta: Integrate with Canton
 card:
   name: Integrate with Canton
   line: Integrations in progress.
-  logo: /images/logos/logo-canton.webp
+  logo: /images/logos/logo-light-canton.svg
   logoAlt: Canton
 ---

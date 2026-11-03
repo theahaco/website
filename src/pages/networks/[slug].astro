@@ -156,7 +156,7 @@ const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteDa
                 {others.map((o) => (
                   <div class="w-dyn-item" role="listitem">
                     <a class="net_card w-inline-block" href={`/networks/${o.id}`}>
-                      {o.data.card.logo && <img alt={o.data.card.logoAlt} class="net_cardlogo" src={o.data.card.logo} loading="lazy" style="filter:grayscale(1);opacity:.7" />}
+                      {o.data.card.logo && <img alt={o.data.card.logoAlt} class="net_cardlogo" src={o.data.card.logo} loading="lazy" />}
                       <span class="net_cardname" data-on="name">{o.data.card.name}</span>
                       <span class="net_carddesc" data-on="line">{o.data.card.line}</span>
                     </a>

@@ -49,7 +49,7 @@ sections:
   body: |-
     We became core contributors to the Stellar CLI, the network's official command-line tool, and built the parts developers use every day: the plugin system, contract calls generated from each contract's interface, key management and TypeScript client generation.
 
-    On top of it we built Stellar Scaffold and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. Fabricius Zatti, a principal engineer on our team, also leads the Foundation's Architect Program, working on institutional proposals.
+    On top of it we built Stellar Scaffold and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. Fabricius Zatti, a principal engineer on our team, is also a core contributor to the Stellar Architect Program, working on institutional proposals.
 - id: architecture
   title: Architecture highlights
   body: |-
@@ -90,7 +90,7 @@ quote:
   role: Chief Product Officer, Stellar Development Foundation · On the launch of Soroban
   portrait: /images/people/tomer-weller.webp
   portraitAlt: Tomer Weller
-  logo: /images/logos/logo-light-stellar.webp
+  logo: /images/logos/logo-light-stellar.svg
   logoAlt: Stellar Development Foundation
 ndaSummary: ''
 client: Stellar Development Foundation

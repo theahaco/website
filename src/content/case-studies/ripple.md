@@ -28,6 +28,9 @@ hero:
   alt: 'From prototype to go live, with Ripple’s cohorts: milestones on the way to launch'
   caption: ''
 metrics:
+- figure: Q4 2025
+  label: Working with Ripple since, on its accelerator programs and its developer experience
+  receipt: ''
 - figure: '2'
   label: Teams we mentored in one 2026 cohort, live on mainnet or ready to go live
   receipt: ''
@@ -70,7 +73,7 @@ quote:
   role: Senior Developer Advocate, Ripple
   portrait: /images/people/maxime-dienger.webp
   portraitAlt: Maxime Dienger
-  logo: /images/logos/logo-light-ripple.webp
+  logo: /images/logos/logo-light-ripple.svg
   logoAlt: Ripple
 ndaSummary: ''
 client: Ripple

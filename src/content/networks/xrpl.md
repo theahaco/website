@@ -1,7 +1,7 @@
 ---
 name: XRPL
 order: 2
-mark: /images/logos/logo-xrpl.webp
+mark: /images/logos/logo-xrpl-transparent.webp
 markAlt: XRPL
 heading: Issue and integrate on the XRP Ledger, with the team that mentors its builders.
 lede: Issued tokens and MPTs with issuer controls, credentials and permissioned domains, integrated with your custody and your systems. We design for the ledger as it is today, and keep your token model ready for the next amendments.
@@ -9,8 +9,8 @@ secondaryCta:
   label: See the Ripple programs
   href: /case-studies/ripple
 stats:
-- value: '2025'
-  label: Mentoring in Ripple's programs since
+- value: Q4 2025
+  label: Working with Ripple since
 - value: MPT
   label: Token demo with a multisig issuer
 - value: DevX
@@ -69,7 +69,7 @@ proof:
     role: Senior Developer Advocate, Ripple
     portrait: /images/people/maxime-dienger.webp
     portraitAlt: Maxime Dienger
-    logo: /images/logos/logo-light-ripple.webp
+    logo: /images/logos/logo-light-ripple.svg
     logoAlt: Ripple
 funding:
   heading: ''
@@ -81,7 +81,7 @@ homeCta: Integrate with XRPL
 card:
   name: Integrate with XRPL
   line: Ripple program partner, tooling proposals in progress.
-  logo: /images/logos/logo-xrpl.webp
+  logo: /images/logos/logo-xrpl-transparent.webp
   logoAlt: XRPL
 description: 'XRPL integrations for regulated assets: issued tokens and MPTs with issuer controls, credentials and permissioned domains, wired to your custody and systems.'
 ---
