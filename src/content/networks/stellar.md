@@ -3,8 +3,9 @@ name: Stellar
 order: 1
 mark: /images/logos/logo-light-stellar.svg
 markAlt: Stellar
-heading: Bring your protocol to Stellar, with the team that maintains its tooling.
-lede: Native Soroban contracts, adapters and SDKs matched to the guarantees you already give users. Often fundable through ecosystem programs; we scope and draft the application.
+heading: Issue assets and integrate protocols on Stellar, with the team that maintains its tooling.
+metaTitle: Stellar and Soroban development company | The Aha Company
+lede: Stablecoins, tokenized assets and protocol integrations on Stellar. Native Soroban contracts, adapters and SDKs matched to the guarantees you already give users.
 secondaryCta:
   label: See the LI.FI case
   href: /case-studies/lifi
@@ -13,8 +14,8 @@ stats:
   label: Building on Stellar since
 - value: €20M+
   label: Regulated stablecoins issued
-- value: Core
-  label: Contributor, SCF reviewer
+- value: ~20%
+  label: Of Stellar CLI commits, 2022 to 2025
 ship:
   title: What we ship on Stellar
   meta: Public goods and production
@@ -48,7 +49,7 @@ ship:
     badge: Mainnet
     href: /open-source/tansu
   - name: EURCV contracts
-    description: Issuance and governance for SG FORGE
+    description: Issuance and governance for SG-FORGE
     badge: Live on mainnet
     href: /case-studies/societe-generale-forge
   - name: LI.FI contracts
@@ -64,7 +65,7 @@ involves:
   description: Path payments, the Stellar DEX and anchors where they apply; liquidity plans agreed with the ecosystem where a program is involved.
 - title: Onboarding and wallets
   description: Passkey and smart-account flows, custodian integration where users are institutions, fiat rails through anchors.
-stepsLede: 'Four milestones, each with an output your team can verify. Funding sits in step two: where a Stellar ecosystem program applies, we scope and draft the application; where it doesn’t, we say so.'
+stepsLede: Four milestones, each with an output your team can verify.
 steps:
 - title: Roadmap
   description: We map your integration surface to Stellar and size the work.
@@ -94,18 +95,18 @@ proof:
     logo: /images/logos/logo-light-lifi.svg
     logoAlt: LI.FI
 funding:
-  heading: Integrations are often fundable
-  body: Stellar ecosystem programs fund integrations that bring live protocols and products to the network. We review for the Stellar Community Fund, so we know what a proposal needs. When your case qualifies we scope and draft the application with you; when it doesn’t, we say so before any work starts.
+  heading: Who funds the work
+  body: Most integrations run on the client’s own budget, as a fixed-scope, milestone-based engagement. Stellar ecosystem programs fund some of them; when one fits, we prepare the application with you, and we say early when none applies.
   rows:
-  - name: Stellar Community Fund
-    description: Community-voted grants for ecosystem projects
-    badge: Reviewer
-  - name: Stellar Development Foundation programs
-    description: Direct support for strategic integrations
-    badge: Engineering vendor
   - name: Your own budget
     description: Fixed scope, milestone-based, no program required
     badge: Integration partner
+  - name: Stellar Development Foundation programs
+    description: Support for strategic integrations
+    badge: Engineering vendor
+  - name: Stellar Community Fund
+    description: Community-voted awards for ecosystem projects
+    badge: Ecosystem program
 cta: Evaluating Stellar? Bring your architecture. We will tell you what the integration takes.
 homeDescription: Core contributors, Stellar Community Fund reviewers, tooling maintainers.
 homeCta: Integrate with Stellar
@@ -114,5 +115,5 @@ card:
   line: Core contributors, Stellar Community Fund reviewers, tooling maintainers.
   logo: /images/logos/logo-light-stellar.svg
   logoAlt: Stellar
-description: 'Stellar integrations for regulated assets and protocols: native Soroban contracts, adapters and SDKs, from the core contributors behind its tooling.'
+description: 'Soroban smart contracts, tokenization and protocol integrations on Stellar, by core contributors to the Stellar CLI. We built the EURCV and LI.FI contracts.'
 ---

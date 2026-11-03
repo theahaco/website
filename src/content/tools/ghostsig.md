@@ -4,7 +4,7 @@ order: 8
 network: XRPL and Stellar
 category: Wallet
 title: 'GhostSig: a passkey wallet for XRPL and Stellar that stores no keys'
-metaTitle: 'GhostSig: passkey web wallet for XRPL and Stellar | The Aha Company'
+metaTitle: 'GhostSig: passkey web wallet for XRPL and Stellar'
 description: 'GhostSig, a passkey web wallet for XRPL and Stellar that stores no keys, default in the Stellar Wallets Kit and xrpl-connect. In beta.'
 lede: 'GhostSig is a passkey web wallet for the XRP Ledger and Stellar. Its key is derived from the user’s passkey at each signature and never stored, and there is no backend. It is the default passkey module in the Stellar Wallets Kit and in XRPL Commons’ xrpl-connect. GhostSig is in beta, and the work continues.'
 summary: 'One passkey wallet for XRPL and Stellar, with keys derived at each signature and never stored.'
@@ -71,7 +71,7 @@ sections:
 - id: status
   title: Status
   body: |-
-    GhostSig is in beta: mainnet is enabled, it has not been audited yet, and the work continues. Pamphile Roy built it and maintains it, under the MIT license. Our other passkey wallet, [Nido](/open-source/nido), is a smart-account wallet for Stellar only, with its rules enforced on chain.
+    GhostSig is in beta: mainnet is enabled, it has not been audited yet, and the work continues. Pamphile Roy built it and maintains it, under the MIT license. Our other passkey wallet, [Nido](/open-source/nido), is a smart-account wallet for Stellar only, with its rules enforced onchain.
 tech:
 - TypeScript
 - WebAuthn PRF

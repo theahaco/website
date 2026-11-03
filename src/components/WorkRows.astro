@@ -8,7 +8,11 @@ interface Props {
 }
 const { kind } = Astro.props;
 const eyebrow = (aud: string, net: string) => (aud && net ? `${aud} · ${net}` : aud || net);
-const cases = kind === 'cases' ? await caseStudies() : [];
+const allCases = kind === 'cases' ? await caseStudies() : [];
+// Alliances (PwC US) are not client engagements: listed last, after the
+// open-source tools, without a link.
+const cases = allCases.filter((c) => !c.data.alliance);
+const alliances = allCases.filter((c) => c.data.alliance);
 const articles = kind === 'articles' ? await posts() : [];
 // Open-source tools are listed with the case studies, under "Ecosystems and
 // open source": each has a case-study page of its own (/open-source/<id>).
@@ -54,6 +58,22 @@ const toolNets = (network: string) => network.split(/,| and /).map((n) => n.trim
             <p class="wk_rowline" data-row="line">{toolLine(tool.data.summary, tool.data.headline?.figure, tool.data.headline?.label)}</p>
           </div>
         </a>
+      </div>
+    ))}
+    {alliances.map((cs) => (
+      <div class="work_item w-dyn-item" role="listitem" data-fa={cs.data.audience} data-fn={cs.data.network} data-wk-alliance={cs.id}>
+        <div class="work_article-link wk_static">
+          <span class="work_num"></span>
+          <div class="work_stack">
+            <div class="work_meta">
+              <span class="work_eyebrow" data-row="eyebrow">{eyebrow(cs.data.audience, cs.data.network)}</span>
+              <span class="work_yeararrow"><span data-row="year">{cs.data.year}</span></span>
+            </div>
+            <p class="wk_client"><span data-row="client">{cs.data.client}</span><span class="wk_nda" data-row="nda">Co-selling alliance</span></p>
+            <h2 class="work_article-h3" data-row="title">{cs.data.workTitle || cs.data.title}</h2>
+            {cs.data.workLine && <p class="wk_rowline" data-row="line">{cs.data.workLine}</p>}
+          </div>
+        </div>
       </div>
     ))}
     {articles.map((post) => (

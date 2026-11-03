@@ -4,10 +4,10 @@ order: 4
 network: Stellar
 category: Wallet
 title: 'Nido: an open-source passkey wallet for Stellar'
-metaTitle: 'Nido: open-source passkey smart-account wallet for Stellar | The Aha Company'
-description: 'Nido, an open-source passkey wallet for Stellar: no seed phrase, no server key, limits enforced on chain. 54 mainnet wallets in four days.'
+metaTitle: 'Nido: open-source passkey smart wallet for Stellar'
+description: 'Nido, an open-source passkey wallet for Stellar: no seed phrase, no server key, limits enforced onchain. 54 mainnet wallets in four days.'
 lede: 'Nido is our open-source smart-account wallet for Stellar: passkeys instead of seed phrases, across the user’s devices, with recovery built in. The account is a smart contract controlled by the user’s devices, so no signing key sits on a server. It went live on mainnet in a curated release on October 26, 2026.'
-summary: 'Passkeys instead of seed phrases, with spending limits enforced on chain.'
+summary: 'Passkeys instead of seed phrases, with spending limits enforced onchain.'
 headline:
   figure: '54'
   label: mainnet wallets in four days
@@ -50,7 +50,7 @@ sections:
   body: |-
     A Nido wallet is a smart contract on Stellar, controlled by the passkeys on the user’s devices. There is no seed phrase to write down and no signing key on a server: setting one up takes a face or a fingerprint, in seconds.
 
-    Every Nido mainnet wallet runs on a [Perch](/open-source/perch) account, so its rules are enforced on chain: spending caps, time-limited permissions for apps (session keys), and recovery by guardians, a zero-knowledge proof, or both. An app can ask for a session that spends up to a daily cap; the user approves once, and the account refuses anything beyond it.
+    Every Nido mainnet wallet runs on a [Perch](/open-source/perch) account, so its rules are enforced onchain: spending caps, time-limited permissions for apps (session keys), and recovery by guardians, a zero-knowledge proof, or both. An app can ask for a session that spends up to a daily cap; the user approves once, and the account refuses anything beyond it.
 - id: mainnet
   title: Mainnet, day by day
   body: |-
@@ -91,7 +91,7 @@ sections:
     - Open source under Apache-2.0, with 364 commits to nidohq/nido (November 2, 2026).
     - 134 Rust tests, 91 of them with real passkey signatures and zero-knowledge proofs.
     - An audit preparation package in the repo: threat models (STRIDE included), security invariants, audit scope, runbooks and a mainnet readiness checklist. CoinFabrik Scout runs in CI.
-    - Nido applied to the Stellar Development Foundation’s Audit Bank in October 2026. Mainnet access stays curated until the audit completes, and the open launch follows it.
+    - Mainnet access stays curated until an external audit completes, and the open launch follows it.
 tech:
 - Rust
 - Soroban

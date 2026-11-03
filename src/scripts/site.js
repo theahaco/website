@@ -13,11 +13,21 @@ function initMenu() {
   const btn = document.querySelector('.nav_menu-btn');
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const open = menu.classList.toggle('is-open');
+  const set = (open) => {
+    menu.classList.toggle('is-open', open);
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     btn.textContent = open ? 'Close' : 'Menu';
+  };
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    set(!menu.classList.contains('is-open'));
+  });
+  // Escape closes the menu and gives focus back to its button.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      set(false);
+      btn.focus();
+    }
   });
 }
 

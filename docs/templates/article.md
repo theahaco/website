@@ -9,6 +9,9 @@ title: 'Tokenized deposits on Stellar: what a bank needs to decide first'
 # Put the text in single quotes when it contains a colon. An apostrophe inside
 # single quotes is written twice: 'What''s next'.
 
+metaTitle: ''
+# Optional: a shorter title for Google when the title is over 60 characters.
+
 description: 'The three decisions a bank makes before tokenizing deposits on Stellar: who holds the keys, which controls sit in the asset, how cash settles.'
 # What Google shows under the title: 120 to 160 characters, with the words people search for.
 

@@ -4,7 +4,8 @@
 // rendered into the form's `action`. Any service that accepts a POST of form
 // fields and answers JSON works (Formspree, Basin, Getform, a Cloudflare
 // Worker...). Until one is configured the form falls back to opening the
-// visitor's email client with the message prefilled, so nothing is lost.
+// visitor's email app with the message prefilled, and says so: the visitor
+// still has to send that email.
 //
 // Markup keeps Webflow's structure and classes:
 //   .w-form > form + .w-form-done + .w-form-fail
@@ -31,6 +32,10 @@ export function initForms(root = document) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
+      // Honeypot: a field people never see. Bots fill it; the message is dropped.
+      const trap = form.querySelector('[name="_gotcha"]');
+      if (trap && trap.value) return;
+      let delivered = false;
       if (fail) fail.style.display = 'none';
       const data = new FormData(form);
       const label = submit ? (submit.value || submit.textContent) : '';
@@ -42,19 +47,25 @@ export function initForms(root = document) {
         if (endpoint && /^https?:/i.test(endpoint)) {
           const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          delivered = true;
         } else if (mailto) {
           const lines = [];
           for (const [k, v] of data.entries()) {
             if (typeof v === 'string' && v.trim() && !k.startsWith('_')) lines.push(`${k}: ${v}`);
           }
-          const subject = encodeURIComponent(form.dataset.subject || 'Website enquiry');
+          const subject = encodeURIComponent(form.dataset.subject || 'Website inquiry');
           window.location.href = `mailto:${mailto}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
         } else {
           throw new Error('No form endpoint configured');
         }
-        track('Contact form sent');
+        // Counted only when the message actually reached the endpoint: opening
+        // an email app does not mean the email was sent.
+        if (delivered) track('Contact form sent');
         form.style.display = 'none';
-        if (done) done.style.display = 'block';
+        if (done) {
+          done.style.display = 'block';
+          done.focus();
+        }
       } catch (err) {
         console.error(err);
         if (fail) fail.style.display = 'block';

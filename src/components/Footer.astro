@@ -1,6 +1,6 @@
 ---
 // Site footer (Webflow "Footer" component).
-import { contact, footer, nav } from '../data/site';
+import { contact, footer, nav, footerLinks } from '../data/site';
 ---
 <footer class="footer_section">
   <div class="footer_container">
@@ -12,10 +12,7 @@ import { contact, footer, nav } from '../data/site';
       </div>
       <ul class="footer_col" role="list">
         <li class="footer_col-title">Company</li>
-        {nav.map((item) => <li><a class="footer_link" href={item.href}>{item.label}</a></li>)}
-        <li><a class="footer_link" data-rv="footer-os" href="/open-source">Open source</a></li>
-        <li><a class="footer_link" href="/faq">FAQ</a></li>
-        <li><a class="footer_link" href="/contact">Contact</a></li>
+        {[...nav, ...footerLinks].map((item) => <li><a class="footer_link" href={item.href}>{item.label}</a></li>)}
       </ul>
       <ul class="footer_col" role="list">
         <li class="footer_col-title">Contact</li>

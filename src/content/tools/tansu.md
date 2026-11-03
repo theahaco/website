@@ -4,7 +4,7 @@ order: 7
 network: Stellar
 category: Governance
 title: 'Tansu: onchain governance for open-source projects'
-metaTitle: 'Tansu: the onchain governance the Stellar Community Fund votes on | The Aha Company'
+metaTitle: 'Tansu: onchain governance for open-source projects'
 description: 'Tansu, onchain governance for open-source projects on Stellar. The Stellar Community Fund votes its Public Goods Award on it: about $1.4M in 2026.'
 lede: 'Tansu gives any open-source project its own onchain governance: a DAO with badge-weighted and anonymous voting, and a record of which code was released and who approved it. Since Q2 2026, the Stellar Community Fund votes its Public Goods Award on Tansu: about $1.4M approved over three rounds.'
 summary: 'Onchain governance for open-source projects, where the Stellar Community Fund votes its Public Goods Award.'
@@ -60,13 +60,13 @@ sections:
 - id: what-it-does
   title: What it does
   body: |-
-    Each project registered on Tansu gets its own DAO. Members earn badges, votes are weighted by them, and ballots can be anonymous. Proposals carry their outcome on chain, so anyone can check what was approved and when.
+    Each project registered on Tansu gets its own DAO. Members earn badges, votes are weighted by them, and ballots can be anonymous. Proposals carry their outcome onchain, so anyone can check what was approved and when.
 
     Tansu also keeps release records: which code was released, what it contains and who approved it, with commit hashes, software bills of materials and signed attestations, append-only. A third party can check that evidence without access to the vendor’s systems.
 - id: scf
   title: Where the Stellar Community Fund votes
   body: |-
-    Since Q2 2026, SCF Pilots vote on the Stellar Community Fund’s Public Goods Award in Tansu, with anonymous ballots weighted by Neural Quorum Governance. Three rounds have used it, and the third ran on mainnet: 480 ballots were cast on 24 proposals, and 23 were approved and executed on chain, 22 on October 30, 2026 and one more on November 2.
+    Since Q2 2026, SCF Pilots vote on the Stellar Community Fund’s Public Goods Award in Tansu, with anonymous ballots weighted by Neural Quorum Governance. Three rounds have used it, and the third ran on mainnet: 480 ballots were cast on 24 proposals, and 23 were approved and executed onchain, 22 on October 30, 2026 and one more on November 2.
 - id: projects
   title: Projects on Tansu
   body: |-

@@ -4,7 +4,7 @@ order: 6
 network: Stellar
 category: Privacy
 title: 'Moonlight: private payments on Stellar for regulated finance'
-metaTitle: 'Moonlight: private, not anonymous payments on Stellar | The Aha Company'
+metaTitle: 'Moonlight: private payments on Stellar for regulated finance'
 description: 'Moonlight, private payments on Stellar for regulated finance: the provider knows the customer, the market sees no names. Audited, on mainnet since July 2026.'
 lede: 'Private, not anonymous. Moonlight is an open-source privacy layer for Stellar payments: a regulated provider knows each customer, while the ledger shows amounts and flows between one-time keys, but no names. Its core contracts were audited by Runtime Verification and have been in a limited mainnet release since July 2026.'
 summary: 'Private, not anonymous: payments known to the provider, not to the market.'

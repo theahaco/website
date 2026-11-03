@@ -20,7 +20,7 @@ const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteDa
 {!d.heading ? (
   <Redirect to="/networks" title={`${d.name} | The Aha Company`} />
 ) : (
-  <BaseLayout title={`Integrate with ${d.name} | The Aha Company`} description={d.description || d.lede || undefined}>
+  <BaseLayout title={d.metaTitle || `Integrate with ${d.name} | The Aha Company`} description={d.description || d.lede || undefined}>
     <main data-main="1" data-nx="page">
       <section>
         <div class="nx_herowrap">
@@ -155,11 +155,19 @@ const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteDa
               <div class="net_cards w-dyn-items" role="list">
                 {others.map((o) => (
                   <div class="w-dyn-item" role="listitem">
-                    <a class="net_card w-inline-block" href={`/networks/${o.id}`}>
-                      {o.data.card.logo && <img alt={o.data.card.logoAlt} class="net_cardlogo" src={o.data.card.logo} loading="lazy" />}
-                      <span class="net_cardname" data-on="name">{o.data.card.name}</span>
-                      <span class="net_carddesc" data-on="line">{o.data.card.line}</span>
-                    </a>
+                    {o.data.heading ? (
+                      <a class="net_card w-inline-block" href={`/networks/${o.id}`}>
+                        {o.data.card.logo && <img alt={o.data.card.logoAlt} class="net_cardlogo" src={o.data.card.logo} loading="lazy" />}
+                        <span class="net_cardname" data-on="name">{o.data.card.name}</span>
+                        <span class="net_carddesc" data-on="line">{o.data.card.line}</span>
+                      </a>
+                    ) : (
+                      <div class="net_card net_card--plain">
+                        {o.data.card.logo && <img alt={o.data.card.logoAlt} class="net_cardlogo" src={o.data.card.logo} loading="lazy" />}
+                        <span class="net_cardname" data-on="name">{o.data.name}</span>
+                        <span class="net_carddesc" data-on="line">{o.data.card.line}</span>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>

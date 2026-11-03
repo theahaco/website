@@ -23,23 +23,25 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
     <div class="w-tab-pane w--tab-active" data-w-tab="Tab 1" id="work-cases">
       <div class="w-dyn-list">
         <div class="work_list w-dyn-items" role="list">
-          {featured.map((cs) => (
-            <div class="work_item w-dyn-item" role="listitem">
+          {featured.map((cs) => {
+            const Row = cs.data.alliance ? 'div' : 'a';
+            return (
+            <div class="work_item w-dyn-item" role="listitem" data-client={cs.id}>
               <div class="work_row">
-                <a class="work_case-link w-inline-block" href={`/case-studies/${cs.id}`}>
+                <Row class:list={['work_case-link w-inline-block', cs.data.alliance && 'wk_static']} href={cs.data.alliance ? undefined : `/case-studies/${cs.id}`}>
                   <div class="work_num"></div>
                   <div class="work_stack">
                     <div class="work_meta">
                       {cs.data.eyebrow && <p class="work_eyebrow">{cs.data.eyebrow}</p>}
                       <div class="work_yeararrow">
                         {cs.data.year && <div>{cs.data.year}</div>}
-                        <div aria-hidden="true" class="work_arrow">↗</div>
+                        {!cs.data.alliance && <div aria-hidden="true" class="work_arrow">↗</div>}
                       </div>
                     </div>
                     <h3 class="work_h3">{cs.data.title}</h3>
                     {cs.data.lede && <p class="work_para">{cs.data.lede}</p>}
                   </div>
-                </a>
+                </Row>
                 {(() => { const q = publicQuote(cs.data.quote, production); return (
                 <figure class:list={['work_quote', !q.text && 'work_quote--plain']}>
                   <p class="work_quote-label">{q.label}</p>
@@ -56,7 +58,7 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
                 ); })()}
               </div>
             </div>
-          ))}
+          ); })}
         </div>
       </div>
       {nda.length > 0 && (
@@ -120,4 +122,5 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
       </div>
     </div>
   </div>
+  <a class="btn-secondary work_all" href="/work">See all work →</a>
 </div>

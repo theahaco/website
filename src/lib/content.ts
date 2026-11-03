@@ -1,6 +1,27 @@
 // Content helpers shared by pages and components.
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { marked } from 'marked';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+/**
+ * Share image (LinkedIn, X, Slack previews) of a page: public/images/og/<id>.png,
+ * 1200 x 630, when that file exists. Pages without one share their header image.
+ */
+export function ogImageFor(id: string): string | undefined {
+  return existsSync(join(process.cwd(), 'public', 'images', 'og', `${id}.png`)) ? `/images/og/${id}.png` : undefined;
+}
+
+/**
+ * Dates are written "November 9, 2026" in the content files. They are read as
+ * UTC midnight, so a build anywhere (a laptop in Paris, CI in UTC) gives the
+ * same day and the same publication time.
+ */
+export function parseDate(value: string): Date {
+  if (!value) return new Date(NaN);
+  const utc = new Date(`${value} 00:00 UTC`);
+  return Number.isNaN(utc.getTime()) ? new Date(value) : utc;
+}
 
 marked.use({ gfm: true, breaks: false });
 
@@ -50,13 +71,13 @@ export async function caseStudies() {
  */
 const PRODUCTION = import.meta.env.SITE ? new URL(import.meta.env.SITE).origin === 'https://theaha.co' : true;
 export function isScheduled(date: string, now = new Date()): boolean {
-  const d = new Date(date);
+  const d = parseDate(date);
   return Boolean(date) && !Number.isNaN(d.getTime()) && d.getTime() > now.getTime();
 }
 /** Articles, newest first (by `date`; `order` only breaks ties between articles of the same day). */
 const byDateDesc = (a: Post, b: Post) => {
-  const da = new Date(a.data.date).getTime() || 0;
-  const db = new Date(b.data.date).getTime() || 0;
+  const da = parseDate(a.data.date).getTime() || 0;
+  const db = parseDate(b.data.date).getTime() || 0;
   return db - da || a.data.order - b.data.order;
 };
 export async function posts() {
@@ -106,9 +127,9 @@ export const networkMarks: Record<string, string> = {
   Ethereum: '/images/logos/logo-ethereum.webp',
 };
 
-/** Dates are stored as written in Webflow ("September 1, 2026"); lists show "Sep 2026". */
+/** Dates are written "September 1, 2026"; lists show "Sep 1, 2026", pages "September 1, 2026". */
 export function formatDate(value: string, style: 'short' | 'long'): string {
-  const d = new Date(value);
+  const d = parseDate(value);
   if (!value || Number.isNaN(d.getTime())) return value;
-  return d.toLocaleDateString('en-US', style === 'short' ? { month: 'short', year: 'numeric' } : { month: 'long', year: 'numeric' });
+  return d.toLocaleDateString('en-US', { month: style === 'short' ? 'short' : 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 }

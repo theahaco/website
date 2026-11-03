@@ -4,13 +4,13 @@ order: 3
 network: Stellar
 category: Developer tooling
 title: 'Stellar Registry: an onchain package manager for smart contracts'
-metaTitle: 'Stellar Registry: publish, deploy and resolve Soroban contracts by name | The Aha Company'
-description: 'Stellar Registry, an onchain package manager for Soroban contracts: publish once, deploy and resolve by name. Audited by Veridise, 218 names on mainnet.'
+metaTitle: 'Stellar Registry: onchain package manager for Soroban'
+description: 'Stellar Registry, an onchain package manager for Soroban contracts: publish once, deploy and resolve by name. Audited by Veridise, 166,833 mainnet calls.'
 lede: 'Publish a contract once, then deploy and import it by name on any network, instead of passing addresses around. The Stellar Registry is an onchain package manager for Soroban smart contracts. We designed, built and operate it, and Veridise audited it with no findings.'
 summary: 'Publish a contract once, then deploy and resolve it by name on any network.'
 headline:
-  figure: '218'
-  label: names on mainnet
+  figure: 166,833
+  label: mainnet calls
 facts:
 - label: Network
   value: Stellar

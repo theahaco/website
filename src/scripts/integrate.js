@@ -80,7 +80,7 @@ export function initIntegrate() {
     rq.style.cssText = 'font-size:12px;color:rgba(255,255,255,.6)';
     rq.textContent = qd.q;
     const ra = document.createElement('span');
-    ra.style.cssText = 'font-size:15px;font-weight:600;color:rgba(255,255,255,.45)';
+    ra.style.cssText = 'font-size:15px;font-weight:600;color:rgba(255,255,255,.6)';
     ra.textContent = 'Not answered';
     ra.setAttribute('data-ra', '1');
     rrow.appendChild(rq);
@@ -131,7 +131,7 @@ export function initIntegrate() {
       const rrow = routeList ? routeList.querySelector(`[data-rq="${qd.id}"] [data-ra]`) : null;
       if (rrow) {
         rrow.textContent = done ? qd.opts[picks[qd.id]] : 'Not answered';
-        rrow.style.color = done ? '#fff' : 'rgba(255,255,255,.45)';
+        rrow.style.color = done ? '#fff' : 'rgba(255,255,255,.6)';
       }
     });
     if (progEl) progEl.textContent = `${answered} of 4`;

@@ -17,6 +17,12 @@ Images go in `public/images/` (covers in `covers/`, case study headers in
 `cases/`, team photos in `team/`, images inside articles in `blog/<file-name>/`)
 and are written in the files as `/images/...`.
 
+**Share image (optional).** What LinkedIn, X or Slack show when someone shares
+the page: a 1200 × 630 PNG named after the file, in `public/images/og/` (for
+example `public/images/og/your-article-slug.png`). Nothing to declare: the page
+uses it as soon as the file exists. Without one, the page shares its cover or
+header image.
+
 ## Publish an article from the GitHub website
 
 1. Open the template [`docs/templates/article.md`](templates/article.md), click
@@ -73,12 +79,13 @@ Before publishing, check:
 - **Clients under NDA stay anonymous.** No name, logo, city or figure that
   identifies them, in the text, the file name, the image or its alt text.
 - **No prices**, rates, budgets, proposal amounts or grant amounts.
-- **PwC US** is a co-selling alliance (joint business relationship). Never call
-  it a partner and never tie it to a client engagement.
+- **PwC US**: describe it only as a co-selling alliance (joint business
+  relationship), never as a partner.
 - **Figures carry a date or a source** ("111 projects, November 2, 2026").
 - **Title** 60 characters or fewer, **description** 120 to 160 characters, both
   with the words a prospect would type in Google ("tokenized deposits",
-  "Stellar integration"...).
+  "Stellar integration"...). A long page heading can get a shorter title for
+  Google in `metaTitle`.
 - **House style:** US English, short sentences, no em-dashes (use a colon, a
   comma or a new sentence), "onchain" in one word.
 - **Links to our own pages** start with `/` (`/networks/stellar`), never with
@@ -88,8 +95,8 @@ Before publishing, check:
 
 - From GitHub: open a pull request instead of committing to `main`. The build
   check on the pull request tells you if a file has an error.
-- On your computer (Node 22 or newer): `npm ci`, then `npm run dev` and open
-  http://localhost:4321. Pages update as you save.
+- On your computer (Node 22.23.4 or newer): `npm ci`, then `npm run dev` and
+  open http://localhost:4321. Pages update as you save.
 
 ## If the build fails
 

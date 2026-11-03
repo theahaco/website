@@ -1,6 +1,7 @@
 ---
 title: Stellar Development Foundation
-order: 4
+metaTitle: 'Stellar Development Foundation: ecosystem tooling'
+order: 1
 eyebrow: Ecosystem · Stellar
 lede: 'We build and maintain tooling the Stellar ecosystem runs on: Stellar Scaffold, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. We take an active part in the Stellar Architect Program as experts.'
 cta: Building developer tooling for an ecosystem? Talk to the team that maintains Stellar’s.
@@ -37,9 +38,9 @@ metrics:
 - figure: '37'
   label: Stellar Scaffold releases (November 2, 2026)
   receipt: https://github.com/stellar-scaffold/cli
-- figure: '218'
-  label: Names on the mainnet Stellar Registry, namespaces included (November 2, 2026)
-  receipt: https://rgstry.xyz
+- figure: 166,833
+  label: Mainnet calls to contracts running Stellar Registry code (October 31, 2026)
+  receipt: /open-source/stellar-registry#adoption
 sections:
 - id: challenge
   title: Challenge

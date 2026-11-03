@@ -13,8 +13,8 @@ const { path } = Astro.props;
 
 function sectionOf(p: string): string | null {
   if (p === '/services') return '/services';
-  if (p === '/work' || p.startsWith('/case-studies/')) return '/work';
-  if (p.startsWith('/blog')) return '/work?view=articles';
+  if (p === '/work' || p.startsWith('/case-studies/') || p.startsWith('/blog')) return '/work';
+  if (p === '/open-source' || p.startsWith('/open-source/')) return '/open-source';
   if (p === '/networks' || p.startsWith('/networks/')) return '/networks';
   if (p === '/about' || p.startsWith('/team/')) return '/about';
   return null;
@@ -26,6 +26,7 @@ const isContact = path === '/contact';
 const linkClass = (base: string, href: string) => (exact(href) ? `${base} w--current` : base);
 const current = (href: string) => (exact(href) || section === href ? 'page' : undefined);
 ---
+<a class="skip_link" href="#main">Skip to content</a>
 <header class="nav_wrap">
   <nav aria-label="Main" class="nav_bar">
     <a
@@ -40,7 +41,10 @@ const current = (href: string) => (exact(href) || section === href ? 'page' : un
       ))}
       <li><a class={isContact ? 'nav_cta w--current' : 'nav_cta'} aria-current={isContact ? 'page' : undefined} href="/contact">Schedule a call</a></li>
     </ul>
-    <a aria-controls="mobile-menu" aria-expanded="false" class="nav_menu-btn w-button" href="#">Menu</a>
+    <div class="nav_mobile">
+      {!isContact && <a class="nav_cta nav_cta--compact" href="/contact">Book a call</a>}
+      <a aria-controls="mobile-menu" aria-expanded="false" class="nav_menu-btn w-button" href="#">Menu</a>
+    </div>
   </nav>
   <ul class="nav_menu" id="mobile-menu" role="list">
     {nav.map((item) => (

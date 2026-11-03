@@ -19,11 +19,6 @@
 .work_item{counter-increment:work}
 .work_num::before{content:counter(work,decimal-leading-zero)}
 .work_quote-label:empty{display:none}
-.work_list .work_item:nth-child(1) .work_client-logo{height:30px}
-.work_list .work_item:nth-child(2) .work_client-logo{height:20px}
-.work_list .work_item:nth-child(3) .work_client-logo{height:26px}
-.work_list .work_item:nth-child(4) .work_client-logo{height:18px}
-.work_list .work_item:nth-child(5) .work_client-logo{height:20px}
 summary.faq_q::-webkit-details-marker{display:none}
 summary.faq_q{list-style:none}
 details[open]>summary>.faq_icon{transform:rotate(45deg)}
@@ -166,3 +161,52 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 .work_os-all:hover{color:#367A12}
 .work_os-name{color:var(--ink);font-weight:600}
 .svc_casestack{display:flex;flex-direction:column;gap:16px}
+
+/* ---------------------------------------------------------------- launch fixes, November 2026 */
+/* Contrast (WCAG AA: 4.5:1 for text under 18 px) */
+:root{--muted:#56677a;--muted-2:#56677a}
+.cs_dd-sub,.ab_teamloc,.wk_nda,.nx_quotetag{color:#56677a}
+.btn-green{background-color:var(--green-ink)}
+.btn-green:hover{background-color:#2f6e10}
+.ways_section,.art_related,.tm_teampanel,.ab_team,.nx_proof{--green-ink:#2f6e10}
+/* Client logos in "Selected work", sized per client rather than per row */
+.work_item[data-client="societe-generale-forge"] .work_client-logo{height:30px}
+.work_item[data-client="lifi"] .work_client-logo{height:20px}
+.work_item[data-client="pwc"] .work_client-logo{height:26px}
+.work_item[data-client="stellar-development-foundation"] .work_client-logo{height:18px}
+.work_item[data-client="ripple"] .work_client-logo{height:20px}
+/* Rows and cards without a page of their own (the alliance, networks without a page) */
+.wk_static,.net_card--plain{cursor:default}
+.net_inlinelink{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.work_all{grid-column:1 / -1;justify-self:start;margin-top:8px}
+/* Network names in the facts link to the network page */
+.cs_netlink{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px;transition:color .2s}
+.cs_netlink:hover{color:var(--green-ink)}
+/* Logo band: static, every logo whole (a moving band cannot be paused by touch or keyboard) */
+.logos_track{animation:none;width:auto;flex-wrap:wrap;justify-content:center;gap:24px 56px;padding-right:0}
+.logos_track>[aria-hidden="true"]{display:none}
+/* Calendly inline embed: the iframe fills its 700 px box (it was 150 px tall),
+   and gets the full width under 992 px (Calendly needs 320 px at least) */
+.calendar_widget .w-embed{height:100%}
+@media (max-width:991px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:479px){.card.calendar{padding:20px 8px}.card.calendar>.card_h2,.card.calendar>.calendar_fallback{padding:0 8px}}
+/* Case studies and tool pages under 992 px: each heading above its own text */
+@media (max-width:991px){.cs_section>.cs_h2{grid-row:1}.cs_section>.blog_richtext{grid-row:2}}
+/* Pills on one line */
+.wk_nda{white-space:nowrap}
+/* Team grids: two per row on phones */
+@media (max-width:767px){.ab_teamgrid,.tm_grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Header on tablets and phones: a call button next to Menu; a shorter bar on phones */
+.nav_mobile{display:none;align-items:center;gap:8px}
+.nav_cta--compact{min-height:44px;padding:0 14px;font-size:15px}
+@media (max-width:991px){.nav_mobile{display:flex}}
+@media (max-width:767px){.nav_bar{height:64px}.nav_logo{height:40px}}
+/* Skip link (keyboard users) and visible focus on the home toggle */
+.skip_link{position:absolute;left:8px;top:-64px;z-index:100;background:var(--deep-blue);color:#fff;padding:10px 16px;border-radius:4px;font-weight:600;text-decoration:none}
+.skip_link:focus{top:8px}
+#main{outline:none}
+.work_toggle-btn:focus-visible{outline:2px solid var(--green-ink);outline-offset:2px}
+/* Home: the eyebrow is part of the H1 (search engines read "Blockchain integration partner"), styled as before */
+.h1_eyebrow{display:block;font-style:normal;line-height:1.5;margin-bottom:28px}
+/* "More" rows: a long figure wraps instead of widening the page on phones */
+@media (max-width:767px){.more_meta{white-space:normal}}

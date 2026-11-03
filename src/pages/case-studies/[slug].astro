@@ -3,9 +3,9 @@
 // Empty fields are skipped, as the Webflow site's script did after load.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { caseStudies, team, pick, orderBy, md, serviceAnchor, networkMarks, publicQuote } from '../../lib/content';
+import { caseStudies, team, tools, networks, orderBy, md, serviceAnchor, networkMarks, publicQuote, ogImageFor } from '../../lib/content';
 import { site as siteData } from '../../data/site';
-import { moreWork, teamPanelOrder } from '../../data/curation';
+import { moreWork, moreWorkFor, teamPanelOrder } from '../../data/curation';
 
 export async function getStaticPaths() {
   return (await caseStudies()).map((cs) => ({ params: { slug: cs.id }, props: { cs } }));
@@ -19,11 +19,31 @@ const facts = d.facts.filter((f) => f.value);
 const metrics = d.metrics.filter((m) => m.figure);
 const sections = d.sections.filter((s) => s.body.trim());
 const receipts = md(d.receipts);
-const more = pick(all, moreWork).filter((c) => c.id !== cs.id).slice(0, 2);
+// "More work": chosen by hand for some pages (curation.ts), otherwise two other
+// case studies, those for the same audience first. Alliances are never listed.
+type MoreItem = { href: string; eyebrow: string; title: string; meta: string };
+const toolList = await tools();
+const asCase = (c: (typeof all)[number]): MoreItem => ({ href: `/case-studies/${c.id}`, eyebrow: c.data.eyebrow, title: c.data.shortTitle || c.data.title, meta: c.data.year });
+const fromRef = (ref: string): MoreItem | undefined => {
+  if (ref.startsWith('/open-source/')) {
+    const t = toolList.find((x) => x.id === ref.slice('/open-source/'.length));
+    if (!t) return undefined;
+    const sub = t.data.title.startsWith(t.data.name + ':') ? t.data.title.slice(t.data.name.length + 1).trim() : t.data.title;
+    return { href: ref, eyebrow: `Open source · ${t.data.network}`, title: `${t.data.name}: ${sub}`, meta: t.data.category };
+  }
+  const c = all.find((x) => x.id === ref);
+  return c ? asCase(c) : undefined;
+};
+const candidates = orderBy(all, moreWork).filter((c) => c.id !== cs.id && !c.data.alliance);
+const more: MoreItem[] = moreWorkFor[cs.id]
+  ? moreWorkFor[cs.id].map(fromRef).filter((x): x is MoreItem => Boolean(x)).slice(0, 2)
+  : [...candidates.filter((c) => c.data.audience === d.audience), ...candidates.filter((c) => c.data.audience !== d.audience)].slice(0, 2).map(asCase);
+// The network fact links to the network's page, when it has one.
+const networkPages = new Map((await networks()).filter((n) => n.data.heading).map((n) => [n.data.name, `/networks/${n.id}`]));
 const cta = d.cta || 'Bringing a fund or deposit onchain? Talk to the engineers who did it.';
 const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData.productionOrigin);
 ---
-<BaseLayout title={`${d.title} | Case study | The Aha Company`} description={d.description || d.lede || d.ndaSummary || undefined} image={d.hero.image || undefined}>
+<BaseLayout title={d.metaTitle || `${d.title} | Case study | The Aha Company`} description={d.description || d.lede || d.ndaSummary || undefined} image={ogImageFor(cs.id) || d.hero.image || undefined} imageAlt={d.hero.alt || undefined} noindex={d.alliance}>
   <main>
     <article>
       <div class="cs_header">
@@ -42,7 +62,7 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
                   <dd class="cs_dd-net">
                     {f.label === 'Network' && networkMarks[f.value] && <img alt="" class="cs_netmark" data-cs="netmark" src={networkMarks[f.value]} />}
                     {f.live && <span aria-hidden="true" class="cs_dot" data-cs="dot"></span>}
-                    <span>{f.value}</span>
+                    {f.label === 'Network' && networkPages.has(f.value) ? <a class="cs_netlink" href={networkPages.get(f.value)}>{f.value}</a> : <span>{f.value}</span>}
                   </dd>
                 ) : (
                   <dd class="cs_dd">{f.value}</dd>
@@ -53,7 +73,15 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
           </dl>
         </div>
       </div>
-      {d.hero.image && (
+      {quote.text ? (
+        <section class="cs_quoteband cs_quoteband--top" data-cs="quote">
+          <div class="cs_quoteinner">
+            <p class="cs_quotelabel">{quote.label}</p>
+            <blockquote class="cs_quote">{quote.text}</blockquote>
+            <p class="cs_quoteattrib"><span data-cs="q-author">{quote.author}</span><span>, </span><span data-cs="q-role">{quote.role}</span></p>
+          </div>
+        </section>
+      ) : d.hero.image && (
         <figure class="cs_hero" data-cs="hero">
           <img alt={d.hero.alt} class="cs_heroimg" src={d.hero.image} />
           {d.hero.caption && <figcaption class="cs_herocaption">{d.hero.caption}</figcaption>}
@@ -124,33 +152,24 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
           )}
         </aside>
       </div>
-      {quote.text && (
-        <section class="cs_quoteband" data-cs="quote">
-          <div class="cs_quoteinner">
-            <p class="cs_quotelabel">{quote.label}</p>
-            <blockquote class="cs_quote">{quote.text}</blockquote>
-            <p class="cs_quoteattrib"><span data-cs="q-author">{quote.author}</span><span>, </span><span data-cs="q-role">{quote.role}</span></p>
-          </div>
-        </section>
-      )}
     </article>
     {more.length > 0 && (
       <section class="footer_section" data-cs="morework">
         <div class="more_inner">
           <div class="more_header">
             <h2 class="more_h2">More work</h2>
-            <a class="more_all" href="/#work">All work ↗</a>
+            <a class="more_all" href="/work">All work ↗</a>
           </div>
           <div class="w-dyn-list">
             <div class="w-dyn-items" role="list">
               {more.map((c) => (
                 <div class="work_item w-dyn-item" role="listitem">
-                  <a class="more_row w-inline-block" href={`/case-studies/${c.id}`}>
+                  <a class="more_row w-inline-block" href={c.href}>
                     <div class="more_stack">
-                      <span class="work_eyebrow">{c.data.eyebrow}</span>
-                      <span class="more_title">{c.data.shortTitle || c.data.title}</span>
+                      <span class="work_eyebrow">{c.eyebrow}</span>
+                      <span class="more_title">{c.title}</span>
                     </div>
-                    <div class="more_meta"><span class="inline-text">{c.data.year}</span><span class="inline-text"> ↗</span></div>
+                    <div class="more_meta"><span class="inline-text">{c.meta}</span><span class="inline-text"> ↗</span></div>
                   </a>
                 </div>
               ))}

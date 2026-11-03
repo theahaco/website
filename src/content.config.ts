@@ -33,7 +33,9 @@ const caseStudies = defineCollection({
   schema: z.object({
     draft: z.boolean().default(false),
     title: z.string(), // page heading
+    metaTitle: str, // <title> for search engines (60 characters max); defaults to "<title> | Case study | The Aha Company"
     shortTitle: str, // used in "More work" and team engagement rows
+    alliance: z.boolean().default(false), // an alliance, not a client engagement: listed last, without a link to a case page
     order: z.number().default(100), // Work page order
     eyebrow: str, // "Financial institution · Stellar"
     lede: str, // also the paragraph in Selected work on the home page
@@ -64,6 +66,7 @@ const blog = defineCollection({
   schema: z.object({
     draft: z.boolean().default(false),
     title: z.string(),
+    metaTitle: str, // <title> for search engines (60 characters max); defaults to "<title> | The Aha Company"
     order: z.number().default(100),
     category: str, // eyebrow
     lede: str,
@@ -93,6 +96,7 @@ const networks = defineCollection({
     mark: str,
     markAlt: str,
     heading: str, // a network without a heading has no page of its own (redirects to /networks)
+    metaTitle: str, // <title> for search engines (60 characters max); defaults to "Integrate with <name> | The Aha Company"
     lede: str,
     description: str, // search description (160 characters max); defaults to the lede
     secondaryCta: z.object({ label: str, href: str }).default({}),

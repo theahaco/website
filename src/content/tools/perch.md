@@ -4,10 +4,10 @@ order: 5
 network: Stellar
 category: Smart accounts
 title: 'Perch: a policy layer for Stellar smart accounts'
-metaTitle: 'Perch: spending caps, session keys and recovery for Stellar smart accounts | The Aha Company'
-description: 'Perch, a policy layer for Stellar smart accounts: spending caps, session keys and recovery, written as a reviewable document and enforced on chain.'
-lede: 'Perch says what each key on a Stellar smart account may do, in a policy document anyone can review, and enforces it on chain. Spending caps, session keys, scoped app access and recovery compile onto OpenZeppelin’s smart-account rules. Every Nido wallet runs on it.'
-summary: 'What each key may do, written as a reviewable document and enforced on chain.'
+metaTitle: 'Perch: policy layer for Stellar smart accounts'
+description: 'Perch, a policy layer for Stellar smart accounts: spending caps, session keys and recovery, written as a reviewable document and enforced onchain.'
+lede: 'Perch says what each key on a Stellar smart account may do, in a policy document anyone can review, and enforces it onchain. Spending caps, session keys, scoped app access and recovery compile onto OpenZeppelin’s smart-account rules. Every Nido wallet runs on it.'
+summary: 'What each key may do, written as a reviewable document and enforced onchain.'
 headline:
   figure: 2,106
   label: npm downloads since September
@@ -56,7 +56,7 @@ sections:
 - id: what-it-does
   title: What it does
   body: |-
-    A smart account can hold several signers: a passkey on a phone, a session key an app holds for a while, a guardian for recovery. Perch decides what each of them may do. A policy is a reviewable, content-hashed document; Perch compiles it onto OpenZeppelin’s context rules on chain, where the account enforces it on every call.
+    A smart account can hold several signers: a passkey on a phone, a session key an app holds for a while, a guardian for recovery. Perch decides what each of them may do. A policy is a reviewable, content-hashed document; Perch compiles it onto OpenZeppelin’s context rules onchain, where the account enforces it on every call.
 
     - Spending caps, per asset and per period
     - Session keys scoped to one contract and one function

@@ -23,12 +23,11 @@ const ld = {
   itemListElement: list.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.data.name, url: new URL(`open-source/${t.id}/`, siteUrl).href })),
 };
 ---
-<BaseLayout title="Open source: the tools we build and maintain | The Aha Company" description="The open-source tools we build and maintain on Stellar and XRPL, one page per tool: Stellar Scaffold, Stellar Registry, Nido, Perch, Moonlight, Tansu and more.">
+<BaseLayout title="Open-source Stellar and XRPL tools | The Aha Company" description="Open-source Stellar and XRPL tools we build and maintain, one page per tool: Stellar CLI, Stellar Scaffold, Stellar Registry, Nido, Perch, Moonlight, Tansu.">
   <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\\u003c')} /></Fragment>
   <main data-main="1" data-os="page">
     <section>
       <div class="svc_introcontainer">
-        <a class="art_back" data-back="1" href="/">← Back to home</a>
         <div class="lg_header">
           <p class="cs_eyebrow">Open source</p>
           <h1 class="intro_h1">Public code you can inspect, commit by commit.</h1>
@@ -76,7 +75,7 @@ const ld = {
             <h2 class="ab_h2">How we count</h2>
           </div>
           <div class="os_count">
-            <p>A project counts when its public repo uses a tool in code (configuration, dependencies, imports or CLI scripts), or when its contracts use it on chain. Forks count once, and a project using several tools counts once in the total.</p>
+            <p>A project counts when its public repo uses a tool in code (configuration, dependencies, imports or CLI scripts), or when its contracts use it onchain. Forks count once, and a project using several tools counts once in the total.</p>
             <p>A tool’s own repo never counts toward that tool; our other tools and our team’s own projects count like any other project. Pages that only mention a tool do not count. Code search does not index every repo, so project counts are floors, and testnet counts include our own testing.</p>
             <p>Every figure carries the date it was counted. Counts that only grow, such as downloads, calls and wallets, are as of that date.</p>
           </div>

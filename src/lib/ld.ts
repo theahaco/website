@@ -11,9 +11,12 @@ export function organization(base: string) {
     '@type': 'Organization',
     '@id': base + '#organization',
     name: site.name,
+    alternateName: ['Aha Labs'],
     legalName: 'Dawning Inc.',
+    description: site.defaultDescription,
+    knowsAbout: ['Stellar', 'Soroban', 'XRP Ledger', 'Canton', 'Stablecoins', 'Tokenization', 'Smart contracts', 'Developer tooling'],
     url: base,
-    logo: new URL('images/brand/logomark_blue.svg', base).href,
+    logo: new URL('images/brand/logo-512.png', base).href,
     email: contact.email,
     foundingDate: '2021',
     address: {

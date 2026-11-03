@@ -9,7 +9,7 @@ date: November 13, 2026
 readMinutes: '4'
 cover: /images/covers/defi-on-xrpl-compliance-liquidity-and-the-road-ahead.webp
 coverCaption: ''
-authorBio: CEO of The Aha Company. Stellar Community Fund reviewer and co-author of SEP-61.
+authorBio: CEO of The Aha Company, a Ripple program partner for accelerator mentoring and developer experience on the XRP Ledger.
 relatedWork: ripple
 relatedWorkLabel: Ripple's accelerator cohorts and hackathons
 audience: Protocols and products
@@ -37,7 +37,7 @@ The newest pieces are not yet connected. MPTs cannot trade on the native exchang
 
 - One MPT per instrument, with Require Auth as the KYC gate: the investor opts in, then the issuer approves.
 - Instrument identifiers such as the name and ISIN in the token's metadata, documents off-chain, referenced by link and hash. No investor data on the ledger.
-- Finalise the compliance policy before issuance, because MPT settings are fixed at creation today.
+- Finalize the compliance policy before issuance, because MPT settings are fixed at creation today.
 - Check that the custodian supports MPTs before choosing the token model.
 
 ## The road ahead

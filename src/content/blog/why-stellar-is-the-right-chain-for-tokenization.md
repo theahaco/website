@@ -23,7 +23,7 @@ On Stellar, a token issued with the network's built-in functions carries issuer 
 
 ## Smart contracts where the rules need them
 
-Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express. For EURCV, Société Générale-FORGE's regulated euro stablecoin, we built an admin contract on Soroban that pauses the asset and bans accounts pre-emptively, two controls a native asset does not offer on its own. EURCV stays a native Stellar asset; the contract governs it.
+Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express. For EURCV, Société Générale-FORGE's regulated euro stablecoin, we built the Soroban contracts that govern it, with controls agreed with the FORGE compliance team. EURCV stays a native Stellar asset.
 
 ## Institutions are already there
 
@@ -31,7 +31,7 @@ Franklin Templeton brought its money market fund to Stellar in 2021, the first U
 
 ## Custody is not a blocker
 
-Custodians such as Taurus have supported Stellar since 2024, for custody and for issuance. Check one thing early: support for native assets usually comes first, and support for smart contract calls can come later. That decides how much an issuer can rely on contracts on day one.
+Major institutional custodians support Stellar for custody and for issuance. Check one thing early: support for native assets usually comes first, and support for smart contract calls can come later. That decides how much an issuer can rely on contracts on day one.
 
 ## What to weigh
 

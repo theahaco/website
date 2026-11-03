@@ -12,4 +12,4 @@ links:
   github: https://github.com/rcostadresch
   email: ''
 ---
-Roberson works from Brazil on tokenization and integration projects. He mentors teams in Ripple's accelerator programs on XRPL and scopes a tokenization pilot in Brazil with Fabricius Zatti.
+Roberson works from Brazil on tokenization and integration projects. He mentors teams in Ripple's accelerator programs on XRPL and works with Fabricius Zatti on tokenization in Brazil.

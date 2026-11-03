@@ -1,8 +1,8 @@
 # theaha.co
 
-The Aha Company website. A static site built with [Astro](https://astro.build) and deployed to GitHub Pages by GitHub Actions on every push to `main`.
+The Aha Company website. A static site built with [Astro](https://astro.build): every push to `main` rebuilds the preview on GitHub Pages and, once the domain moves, theaha.co on Cloudflare Pages.
 
-It is a rebuild of the Webflow site "The Aha Company 2026" (`the-aha-company-2026.webflow.io`): same pages, URLs, copy, design and behaviour, with the Webflow runtime and CMS replaced by plain HTML, a few small scripts and Markdown content files.
+It started as a rebuild of a Webflow design: same pages, URLs, copy, design and behavior, with the Webflow runtime and CMS replaced by plain HTML, a few small scripts and Markdown content files.
 
 ## Run it locally
 
@@ -16,7 +16,7 @@ npm run check      # after a build: every internal link, image and #anchor resol
 
 To check a build made for a sub-path (as on `theahaco.github.io/website/`): `BASE_PATH=/website npm run build && BASE_PATH=/website npm run check`.
 
-Node 22.23 or newer.
+Node 22.23.4 or newer (24 recommended: `.nvmrc`).
 
 ## Where things are
 
@@ -50,32 +50,20 @@ Testimonials still waiting for approval carry the quote label `Placeholder quote
 
 ## Deployment
 
-`.github/workflows/deploy.yml` builds the site and publishes it with GitHub Pages (Settings → Pages → Source: GitHub Actions). The workflow passes the Pages URL and base path to the build, so the same code works on `https://theahaco.github.io/website/` and on a custom domain.
+Two builds come from `main`:
 
-Search engines: only a build for `site.productionOrigin` (`https://theaha.co`, in `src/data/site.ts`) is indexable. Anywhere else (the github.io preview) every page carries `noindex` and `robots.txt` disallows crawling, so the preview never competes with the real domain.
+- **Preview, GitHub Pages**: `.github/workflows/deploy.yml` builds and publishes https://theahaco.github.io/website/ on every push, every morning at 05:30 UTC and on demand. Every page is `noindex`, the review overlay and the scheduled articles show, and there are no analytics. Keep GitHub Pages **without a custom domain**: it stays the preview.
+- **theaha.co, Cloudflare Pages**: Cloudflare builds the same branch on every push, and `.github/workflows/daily-production.yml` triggers one build every morning so that scheduled articles go live on their date. Setup and the switch from Webflow: [`docs/LAUNCH.md`](docs/LAUNCH.md).
+
+Safeguards: a build with a broken link, image or anchor fails before it is published (in the GitHub workflow, and on Cloudflare with the build command given in `docs/LAUNCH.md`), and the GitHub workflow refuses a theaha.co build that would be `noindex`. Only a build for `https://theaha.co` (`site.productionOrigin` in `src/data/site.ts`) is indexable; `www.theaha.co` and `http://` builds are treated as theaha.co. On Cloudflare, `public/_headers` keeps the `*.pages.dev` addresses out of search engines and `public/_redirects` holds the permanent redirects.
 
 ### Review mode (preview only)
 
-Suggested content is listed in `src/data/review.ts`: each entry names a page, the elements it touched and a note. On the preview every listed element is outlined and numbered, a panel in the bottom-left corner lists the notes, and `/review/` gathers them all. A production build (`site.productionOrigin`) renders none of it and has no `/review/` page. Once a suggestion is accepted, rewritten or dropped, delete its entry.
-
-### Deploying on Cloudflare Pages
-
-The site is static, so Cloudflare Pages can build it from this repo instead of GitHub Pages: Workers & Pages → Create → Pages → Connect to Git → `theahaco/website`, framework preset Astro, build command `npm run build`, output directory `dist`. No environment variable is needed for theaha.co (the defaults are `SITE_URL=https://theaha.co` and `BASE_PATH=/`). Then add `theaha.co` under Custom domains. If you switch, the legal pages already name Cloudflare as the host.
-
-### Moving theaha.co from Webflow
-
-1. In the repo, Settings → Pages → Custom domain: `theaha.co`, then enable "Enforce HTTPS" once the certificate is issued.
-2. At the DNS provider, replace the Webflow records:
-   - apex `theaha.co`: `A` records to `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (and `AAAA` to `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`)
-   - `www`: `CNAME` to `theahaco.github.io`
-3. Verify the domain for the organization (GitHub org settings → Pages → Verified domains) so nobody else can claim it.
-4. Unpublish the Webflow site only after the GitHub Pages version is live on the domain.
-
-URLs keep the Webflow paths. GitHub Pages adds a trailing slash (`/services` → `/services/`) with a redirect, so existing links keep working.
+Open points for the owner are listed in `src/data/review.ts`: each entry names a page, the elements it concerns and a note. On the preview every listed element is outlined and numbered, a panel in the bottom-left corner lists the notes, and `/review/` gathers them all. A production build renders none of it. The file is public, like the whole repository: notes say what to check, never confidential details. Once a point is settled, delete its entry; an empty list switches the overlay off.
 
 ## Contact form
 
-GitHub Pages has no form backend. Set `contact.formEndpoint` in `src/data/site.ts` to any endpoint that accepts a form POST (Formspree, Basin, Getform, a Cloudflare Worker...). Until then the form opens the visitor's email client with the message prefilled, addressed to `hello@theaha.co`.
+Set `contact.formEndpoint` in `src/data/site.ts` to a Formspree form address (`https://formspree.io/f/...`, or any endpoint that accepts a form POST and answers JSON). The form already carries Formspree's `_subject` and `_gotcha` (spam trap) fields, and the privacy policy names Formspree once the address is set. Until then the button reads “Open in my email app”: the form writes the message into the visitor's email app, addressed to `hello@theaha.co`, and says so.
 
 ## Analytics
 

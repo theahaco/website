@@ -1,0 +1,25 @@
+name: Daily production rebuild
+
+# theaha.co on Cloudflare Pages builds on every push to main. Scheduled
+# articles also need a build on their publication day: this calls the Pages
+# deploy hook every morning at 05:30 UTC. The hook URL is the repository
+# secret CF_PAGES_DEPLOY_HOOK (never commit it); without it this does nothing.
+on:
+  schedule:
+    - cron: '30 5 * * *'
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  hook:
+    runs-on: ubuntu-latest
+    env:
+      HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
+    steps:
+      - name: Trigger the Cloudflare Pages build
+        if: env.HOOK != ''
+        run: curl -fsS -X POST "$HOOK" > /dev/null
+      - name: No deploy hook configured
+        if: env.HOOK == ''
+        run: echo "CF_PAGES_DEPLOY_HOOK is not set; nothing to do."

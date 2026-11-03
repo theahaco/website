@@ -1,5 +1,6 @@
 ---
 title: LI.FI
+metaTitle: 'LI.FI on Stellar: cross-chain routing on Soroban'
 order: 2
 eyebrow: Protocol · Stellar
 lede: LI.FI's routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for their existing stack.

@@ -4,6 +4,7 @@ order: 2
 mark: /images/logos/logo-xrpl-transparent.webp
 markAlt: XRPL
 heading: Issue and integrate on the XRP Ledger, with the team that mentors its builders.
+metaTitle: 'XRP Ledger development and tokenization | The Aha Company'
 lede: Issued tokens and MPTs with issuer controls, credentials and permissioned domains, integrated with your custody and your systems. We design for the ledger as it is today, and keep your token model ready for the next amendments.
 secondaryCta:
   label: See the Ripple programs
@@ -76,11 +77,11 @@ funding:
   body: ''
   rows: []
 cta: Bringing an asset or a protocol to the XRP Ledger? Talk to an engineer.
-homeDescription: Ripple program partner, tooling proposals in progress.
+homeDescription: 'Ripple program partner: accelerator mentoring and developer experience.'
 homeCta: Integrate with XRPL
 card:
   name: Integrate with XRPL
-  line: Ripple program partner, tooling proposals in progress.
+  line: 'Ripple program partner: accelerator mentoring and developer experience.'
   logo: /images/logos/logo-xrpl-transparent.webp
   logoAlt: XRPL
 description: 'XRPL integrations for regulated assets: issued tokens and MPTs with issuer controls, credentials and permissioned domains, wired to your custody and systems.'

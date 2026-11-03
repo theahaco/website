@@ -32,17 +32,23 @@ const engagements = orderBy(await caseStudies(), engagementOrder).filter((c) => 
 const writing = (await posts()).filter((p) => p.data.author === member.id);
 const built = (await tools()).filter((t) => t.data.built.includes(member.id));
 const base = siteUrl(Astro.site);
+// "Fabricius (Fifo) Zatti": the name without the nickname, the nickname apart.
+const plainName = d.name.replace(/ \(.*\)/, '');
+const nickname = (d.name.match(/\(([^)]+)\)/) || [])[1];
+const networksText = d.networks ? d.networks.split(' · ').join(', ').replace(/, ([^,]*)$/, ' and $1') : '';
+const description = [`${plainName}, ${d.role || 'engineer'} at The Aha Company.`, d.focus ? `${d.focus}${networksText ? `, on ${networksText}` : ''}.` : ''].filter(Boolean).join(' ');
 const personLd = ld({
   '@type': 'Person',
-  name: d.name.replace(/ \(.*\)/, ''),
+  name: plainName,
+  alternateName: nickname,
   jobTitle: d.role ? d.role.split(' · ')[0] : undefined,
   url: Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined,
   image: d.portrait ? new URL(d.portrait.replace(/^\//, ''), base).href : undefined,
-  worksFor: { '@type': 'Organization', name: 'The Aha Company', url: base },
+  worksFor: { '@type': 'Organization', '@id': base + '#organization', name: 'The Aha Company', url: base },
   sameAs: [d.links.linkedin, d.links.github].filter((u) => u && u !== '#'),
 });
 ---
-<BaseLayout title={`${d.name}${d.role ? `, ${d.role}` : ''} | The Aha Company`} description={d.role || undefined}>
+<BaseLayout title={`${d.name}${d.role ? `, ${d.role}` : ''} | The Aha Company`} description={description} image={d.portrait || undefined} imageAlt={d.portrait ? plainName : undefined}>
   <Fragment slot="head"><script type="application/ld+json" set:html={personLd} /></Fragment>
   <main>
     <article class="tm_article">
@@ -145,7 +151,7 @@ const personLd = ld({
       <section class="tm_teampanel" data-tm="team">
         <div class="tm_teamhead">
           <h2 class="tm_teamh2">The rest of the team</h2>
-          <p class="tm_count" data-rv="team-count">12+ engineers · United States · Europe · Brazil</p>
+          <p class="tm_count" data-rv="team-count">Core team · 12+ engineers across the United States, Europe and Brazil</p>
         </div>
         <TeamGrid variant="member" exclude={member.id} />
       </section>

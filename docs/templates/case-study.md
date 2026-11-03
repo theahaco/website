@@ -6,7 +6,9 @@
 
 title: Acme Bank
 # Page heading: the client's name, or a description for a client under NDA
-# ("A tokenized share class for a €130M money-market fund").
+# ("A tokenized share class for a money-market fund").
+metaTitle: 'Acme Bank: a regulated stablecoin on Stellar'
+# Optional <title> for Google, 60 characters or fewer (default: "<title> | Case study | The Aha Company").
 shortTitle: Acme Bank
 # Short name used in "More work" and on team pages.
 eyebrow: Financial institution · Stellar

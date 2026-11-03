@@ -5,9 +5,9 @@ order: 2
 network: Stellar
 category: Developer tooling
 title: 'Stellar Scaffold: a working Stellar dApp in one command'
-metaTitle: 'Stellar Scaffold: the Stellar dApp starter 111 projects build on | The Aha Company'
-description: 'Stellar Scaffold sets up a Stellar dApp in one command: contracts, typed TypeScript clients and a web front end. 111 projects build on it.'
-lede: 'One command gives a working Stellar dApp: smart contracts, generated TypeScript clients and a web front end, wired to a local network, testnet and mainnet. We built Stellar Scaffold and maintain it as a Stellar public good. On November 2, 2026, 111 projects were building on it.'
+metaTitle: 'Stellar Scaffold (Scaffold Stellar): Soroban dApp toolkit'
+description: 'Stellar Scaffold, also called Scaffold Stellar, sets up a Soroban dApp in one command: contracts, typed TypeScript clients and a front end. 111 projects use it.'
+lede: 'One command gives a working Stellar dApp: smart contracts, generated TypeScript clients and a web front end, wired to a local network, testnet and mainnet. We built Stellar Scaffold (Scaffold Stellar in Stellar’s docs) and maintain it as a Stellar public good. On November 2, 2026, 111 projects were building on it.'
 summary: 'One command from an empty folder to contracts, typed clients and a web front end.'
 headline:
   figure: '111'

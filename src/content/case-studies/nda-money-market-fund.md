@@ -1,12 +1,14 @@
 ---
-title: A tokenized share class for a €130M money-market fund
+title: A tokenized share class for a money-market fund
+metaTitle: 'Tokenized money market fund share class on Stellar'
 order: 6
 eyebrow: Financial institution · Stellar
-lede: A regulated European private bank is adding a tokenized share class to its €130M money-market fund, on Stellar. In build; launch targeted for 2027.
+lede: A regulated European asset manager is adding a tokenized share class to its money-market fund, on Stellar. In build; launch targeted for 2027.
+description: A tokenized money market fund share class on Stellar for a regulated European asset manager, with fund units, NAV and net settlement onchain.
 cta: Bringing a fund onchain? Talk to the engineers building one.
 facts:
 - label: Client
-  value: Regulated European private bank
+  value: Regulated European asset manager
   style: plain
 - label: Role
   value: Onchain architecture and smart contract engineering
@@ -28,8 +30,8 @@ hero:
   alt: 'A tokenized share class for a money-market fund: fund units issued against a published NAV'
   caption: Fund units mapped one-to-one to the legal structure; transfer restrictions enforced at the contract layer.
 metrics:
-- figure: €130M
-  label: Money-market fund adding a tokenized share class
+- figure: Share class
+  label: Tokenized, alongside the fund's existing units
   receipt: ''
 - figure: '1:1'
   label: Onchain units to the fund's legal structure
@@ -49,7 +51,7 @@ sections:
   body: |-
     We designed a compliance-aware token architecture that ties onchain units to the fund structure, supports transfer restrictions, and gives the administrator the controls they need without weakening the security model.
 
-    The engagement runs as a fixed-scope, milestone-based integration: one scoping session with the bank's technical lead, an MOU with verifiable milestones, a first release on testnet with the operations team, then mainnet deployment, runbooks and handover at launch.
+    The engagement runs as a fixed-scope, milestone-based integration: one scoping session with the manager's technical lead, an MOU with verifiable milestones, a first release on testnet with the operations team, then mainnet deployment, runbooks and handover at launch.
 - id: architecture
   title: Architecture highlights
   body: |-
@@ -59,7 +61,7 @@ sections:
     - Cash leg designed for a regulated euro stablecoin on the same ledger, with delivery versus payment in one step
 - id: outcome
   title: Outcome
-  body: Milestones are validated with the Stellar Development Foundation as they are delivered. Launch is targeted for 2027, once the bank's custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the bank's existing compliance controls. Settlement then happens in the same transaction as the order, not in days, and the manager, the depositary and the distributor share one register instead of reconciling three.
+  body: Each milestone is validated as it is delivered. Launch is targeted for 2027, once the custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the manager's existing compliance controls. Settlement then happens in the same transaction as the order, not in days, and the manager, the depositary and the distributor share one register instead of reconciling three.
 tech:
 - Soroban
 - Rust
@@ -79,13 +81,13 @@ quote:
   portraitAlt: ''
   logo: ''
   logoAlt: ''
-ndaSummary: A tokenized share class for the €130M money-market fund of a regulated European private bank, in build on Stellar.
-client: Regulated European private bank
+ndaSummary: A tokenized share class for the money-market fund of a regulated European asset manager, in build on Stellar.
+client: Regulated European asset manager
 nda: true
-workTitle: A tokenized share class for a €130M money-market fund
+workTitle: A tokenized share class for a money-market fund
 workLine: Fund units mapped to the legal structure, transfer restrictions in the contract, subscriptions and redemptions onchain.
 audience: Institutions
 network: Stellar
 year: 2025-2026
-shortTitle: Tokenizing a €130M money-market fund for a regulated European private bank
+shortTitle: A tokenized money-market fund share class
 ---

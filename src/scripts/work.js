@@ -1,8 +1,10 @@
 import { href } from './base.js';
 
 // Work page: Case studies / Articles views and the audience and network filters.
+// Filter values, in display order. A chip shows only when at least one item of
+// the current view matches it, so no filter leads to an empty list.
 const AUDS = ['All', 'Institutions', 'Protocols and products', 'Ecosystems and open source'];
-const NETS = ['All', 'Stellar', 'XRPL', 'Canton', 'Multi-network'];
+const NETS = ['All', 'Stellar', 'XRPL', 'Canton', 'Ethereum', 'Multi-network'];
 const COPY = {
   articles: {
     eyebrow: 'Blog',
@@ -12,9 +14,10 @@ const COPY = {
   },
   cases: {
     eyebrow: 'Work',
-    h1: 'Named clients, live systems, public code.',
-    lede: 'Case studies and our open-source tools, filtered by who the work was for and the network it runs on. Switch to Articles for the writing that came out of them.',
-    title: 'Work: case studies and open-source tools | The Aha Company',
+    h1: 'Client work, live systems, public code.',
+    lede: 'Case studies and our open-source tools, filtered by who the work was for and the network it runs on.',
+    ledeArticles: ' Switch to Articles for the writing that came out of them.',
+    title: 'Blockchain case studies and open source | The Aha Company',
   },
 };
 
@@ -66,7 +69,7 @@ export function initWork() {
     artsWrap.style.display = isArt ? '' : 'none';
     if (eyeEl) eyeEl.textContent = copy.eyebrow;
     if (h1El) h1El.textContent = copy.h1;
-    if (ledeEl) ledeEl.textContent = copy.lede;
+    if (ledeEl) ledeEl.textContent = copy.lede + (copy.ledeArticles && document.querySelector('.wk_tab[data-view="articles"]') ? copy.ledeArticles : '');
     document.title = copy.title;
     tabs.forEach((t) => {
       const on = t.getAttribute('data-view') === state.view;
@@ -83,6 +86,25 @@ export function initWork() {
       }
     });
     const active = isArt ? artsWrap : casesWrap;
+    const items = [...active.querySelectorAll('.work_item')];
+    const hasA = (it, v) => it.getAttribute('data-fa') === v;
+    const hasN = (it, v) => (it.getAttribute('data-fn') || '').split('|').includes(v);
+    // Hide the chips that match nothing in this view; reset a hidden choice.
+    [['aud', hasA], ['net', hasN]].forEach(([group, has]) => {
+      document.querySelectorAll(`[data-wk="${group}"] .wk_chip`).forEach((c) => {
+        const v = c.getAttribute('data-val');
+        const shown = v === 'All' || items.some((it) => has(it, v));
+        c.hidden = !shown;
+        if (!shown && state[group] === v) {
+          state[group] = 'All';
+          c.parentElement.querySelectorAll('.wk_chip').forEach((x) => {
+            const on = x.getAttribute('data-val') === 'All';
+            x.classList.toggle('is-on', on);
+            x.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+        }
+      });
+    });
     let n = 0;
     active.querySelectorAll('.work_item').forEach((it) => {
       const okA = state.aud === 'All' || it.getAttribute('data-fa') === state.aud;

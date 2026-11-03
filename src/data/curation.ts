@@ -8,8 +8,16 @@ export const homeFeaturedCases = ["stellar-development-foundation", "lifi", "rip
 /** Home page, "Client under NDA" block under the case studies. */
 export const homeNdaCases = ["nda-real-estate-debt-fund", "nda-money-market-fund"];
 
-/** "More work" at the bottom of a case study: the first two of these that are not the current page. */
-export const moreWork = ["nda-settlement-stablecoin", "societe-generale-forge", "lifi", "pwc"];
+/** "More work" at the bottom of a case study: two other case studies, those for
+ * the same audience first, in this order. Alliances (PwC US) are never listed. */
+export const moreWork = ["societe-generale-forge", "lifi", "stellar-development-foundation", "nda-settlement-stablecoin", "nda-money-market-fund", "ripple", "nda-real-estate-debt-fund"];
+
+/** Pages whose "More work" is chosen by hand: case study slugs, or tool pages
+ * written "/open-source/<tool>". Ripple's page stays on XRPL. */
+export const moreWorkFor: Record<string, string[]> = {
+  ripple: ["/open-source/ghostsig"],
+  pwc: ["stellar-development-foundation", "lifi"],
+};
 
 /** Home page, "Selected work" > Articles: leave empty to show the three most recent
  * articles automatically (scheduled ones appear on their date). List slugs only to pin a selection. */

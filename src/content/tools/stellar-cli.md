@@ -4,7 +4,7 @@ order: 1
 network: Stellar
 category: Developer tooling
 title: 'Stellar CLI: our core contributions to the network’s official command line'
-metaTitle: 'Stellar CLI contributions: plugins, typed contract calls, key management | The Aha Company'
+metaTitle: 'Stellar CLI: our core contributions and plugin system'
 description: 'We are core contributors to the Stellar CLI, Stellar’s official command line: about a fifth of its commits from 2022 to 2025, including its plugin system.'
 lede: 'The Stellar CLI is the official command-line tool of the Stellar network, maintained by the Stellar Development Foundation. Teams use it to build, deploy and call smart contracts and to manage keys. Our engineers wrote about a fifth of its commits from 2022 to 2025, including several of the parts developers use every day.'
 summary: 'Core contributors to Stellar’s official command line: plugins, typed contract calls, key management.'
@@ -58,7 +58,7 @@ sections:
 - id: what-it-does
   title: What it does
   body: |-
-    Every team that builds smart contracts on Stellar starts with the Stellar CLI. It compiles contracts to WebAssembly, deploys them, calls their functions, manages keys, and builds, simulates, signs and sends transactions, on a local network, on testnet or on mainnet.
+    Most teams that build smart contracts on Stellar start with the Stellar CLI. It compiles contracts to WebAssembly, deploys them, calls their functions, manages keys, and builds, simulates, signs and sends transactions, on a local network, on testnet or on mainnet.
 
     The CLI belongs to the Stellar Development Foundation, which maintains it and sets its roadmap. We are among its core contributors.
 - id: what-we-built

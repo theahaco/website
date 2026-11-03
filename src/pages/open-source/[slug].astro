@@ -3,7 +3,7 @@
 // study: facts, dated figures with receipts, a visual, the story, builders.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { tools, team, posts, md, mdInline, wrapTables, unlinkPosts, networkMarks } from '../../lib/content';
+import { tools, team, posts, networks, md, mdInline, wrapTables, unlinkPosts, networkMarks, ogImageFor } from '../../lib/content';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -32,6 +32,9 @@ const maxBar = Math.max(1, ...v.bars.map((b) => b.value));
 
 // Network marks for "Stellar", "XRPL and Stellar"...
 const marksFor = (value: string) => value.split(/,| and /).map((n) => networkMarks[n.trim()]).filter(Boolean);
+// ...and each network name links to its page, when it has one.
+const networkPages = new Map((await networks()).filter((n) => n.data.heading).map((n) => [n.data.name, `/networks/${n.id}`]));
+const netParts = (value: string) => value.split(/(,\s*| and )/).map((part) => ({ part, href: networkPages.get(part.trim()) }));
 
 // Code sample: escaped, with quoted strings tinted.
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -65,7 +68,7 @@ const crumbs = {
 };
 const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={ogImageFor(tool.id) || (v.kind === 'image' && v.image) || undefined} imageAlt={v.kind === 'image' ? v.alt : undefined}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={json(ld)} />
     <script type="application/ld+json" set:html={json(crumbs)} />
@@ -90,7 +93,7 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
                     <dd class="cs_dd-net">
                       {marks.map((src) => <img alt="" class="cs_netmark" src={src} />)}
                       {f.live && <span aria-hidden="true" class="cs_dot"></span>}
-                      <span>{f.value}</span>
+                      {marks.length > 0 ? <span>{netParts(f.value).map((p) => (p.href ? <a class="cs_netlink" href={p.href}>{p.part}</a> : p.part))}</span> : <span>{f.value}</span>}
                     </dd>
                   ) : (
                     <dd class="cs_dd">{f.value}</dd>

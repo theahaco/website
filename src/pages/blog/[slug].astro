@@ -4,7 +4,7 @@
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { posts, team, formatDate } from '../../lib/content';
+import { posts, team, formatDate, parseDate, ogImageFor } from '../../lib/content';
 import { siteUrl, ld } from '../../lib/ld';
 
 export async function getStaticPaths() {
@@ -20,7 +20,10 @@ const portrait = author?.data.portrait || '';
 const more = (await posts()).filter((p) => p.id !== post.id).slice(0, 2);
 const base = siteUrl(Astro.site);
 const pageUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
-const published = d.date && !Number.isNaN(new Date(d.date).getTime()) ? new Date(d.date).toISOString().slice(0, 10) : undefined;
+const publishedAt = d.date && !Number.isNaN(parseDate(d.date).getTime()) ? parseDate(d.date).toISOString() : undefined;
+const published = publishedAt?.slice(0, 10);
+// Long titles carry no suffix, so search results do not cut them.
+const title = d.metaTitle || (d.title.length > 42 ? d.title : `${d.title} | The Aha Company`);
 const articleLd = ld({
   '@type': 'BlogPosting',
   headline: d.title,
@@ -30,10 +33,10 @@ const articleLd = ld({
   datePublished: published,
   image: d.cover ? new URL(d.cover.replace(/^\//, ''), base).href : undefined,
   author: d.authorName ? { '@type': 'Person', name: d.authorName, url: d.author ? new URL(`team/${d.author}/`, base).href : undefined } : undefined,
-  publisher: { '@type': 'Organization', name: 'The Aha Company', url: base },
+  publisher: { '@type': 'Organization', '@id': base + '#organization', name: 'The Aha Company', url: base },
 });
 ---
-<BaseLayout title={`${d.title} | The Aha Company`} description={d.description || d.lede || undefined} image={d.cover || undefined}>
+<BaseLayout title={title} description={d.description || d.lede || undefined} image={ogImageFor(post.id) || d.cover || undefined} imageAlt={d.title} ogType="article" publishedTime={publishedAt}>
   <Fragment slot="head"><script type="application/ld+json" set:html={articleLd} /></Fragment>
   <main>
     <article>
@@ -53,7 +56,7 @@ const articleLd = ld({
             </div>
           </div>
           <div class="blog_author">
-            {d.date && <span class="inline-text">{formatDate(d.date, 'long')}</span>}{d.date && d.readMinutes && <span class="inline-text"> · </span>}{d.readMinutes && <span class="inline-text">{d.readMinutes} min read</span>}
+            {d.date && <time class="inline-text" datetime={published}>{formatDate(d.date, 'long')}</time>}{d.date && d.readMinutes && <span class="inline-text"> · </span>}{d.readMinutes && <span class="inline-text">{d.readMinutes} min read</span>}
           </div>
           <div class="art_share">
             <a aria-label="Share on LinkedIn" class="share_pill" data-share="linkedin" href="#">LinkedIn</a>

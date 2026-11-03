@@ -2,9 +2,9 @@
 
 export const site = {
   name: 'The Aha Company',
-  defaultTitle: 'The Aha Company: blockchain integration partner for institutions, protocols and ecosystems',
+  defaultTitle: 'Blockchain integration partner | The Aha Company',
   defaultDescription:
-    'We integrate financial institutions and protocols onto Stellar, XRPL and Canton, and build the developer tooling those ecosystems run on.',
+    "Stablecoins, tokenized funds and protocol integrations on Stellar, XRPL and Canton, by core contributors to Stellar's tooling. €20M+ stablecoins issued.",
   ogImage: '/images/og-default.png',
   // Canonical address of the live site. Builds served anywhere else (the
   // github.io preview) get <meta name="robots" content="noindex"> so search
@@ -15,9 +15,16 @@ export const site = {
 export const nav = [
   { label: 'Services', href: '/services' },
   { label: 'Work', href: '/work' },
-  { label: 'Integrate', href: '/networks' },
+  { label: 'Open source', href: '/open-source' },
+  { label: 'Networks', href: '/networks' },
   { label: 'About', href: '/about' },
+];
+
+/** Footer "Company" column: the main navigation plus these. */
+export const footerLinks = [
   { label: 'Blog', href: '/work?view=articles' },
+  { label: 'FAQ', href: '/faq' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export const contact = {
@@ -32,9 +39,9 @@ export const contact = {
 };
 
 export const calendly = {
-  url: 'https://calendly.com/d/cs4b-dy3-9py/introduction-to-the-aha-company?hide_gdpr_banner=1&background_color=fbfaf8&text_color=14243a&primary_color=1a3b60',
+  url: 'https://calendly.com/d/cs4b-dy3-9py/introduction-to-the-aha-company?background_color=fbfaf8&text_color=14243a&primary_color=1a3b60',
   badgeText: 'Schedule a call',
-  badgeColor: '#47A019',
+  badgeColor: '#367A12', // brand green, darkened so white text passes WCAG AA
   badgeTextColor: '#ffffff',
 };
 
