@@ -49,7 +49,7 @@ sections:
   body: |-
     We designed a compliance-aware token architecture that ties onchain units to the fund structure, supports transfer restrictions, and gives the administrator the controls they need without weakening the security model.
 
-    The engagement ran as a fixed-scope, milestone-based integration: one scoping session with the bank's technical lead, an MOU with verifiable milestones, a first release on testnet with the operations team, then mainnet deployment, runbooks and handover.
+    The engagement runs as a fixed-scope, milestone-based integration: one scoping session with the bank's technical lead, an MOU with verifiable milestones, a first release on testnet with the operations team, then mainnet deployment, runbooks and handover at launch.
 - id: architecture
   title: Architecture highlights
   body: |-

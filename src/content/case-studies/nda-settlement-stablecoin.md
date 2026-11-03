@@ -3,7 +3,7 @@ title: Internal settlement stablecoin on Stellar
 order: 7
 eyebrow: Financial institution · Stellar
 lede: An internal settlement stablecoin for a top US commercial bank, live on Stellar. We led the architecture and the delivery, embedded with the engineering team for six months.
-cta: Issuing a stablecoin inside a bank? Talk to the engineers who led one to launch.
+cta: Issuing a stablecoin inside a bank? Talk to the engineers who architected one.
 facts:
 - label: Client
   value: Top US commercial bank
@@ -30,12 +30,12 @@ hero:
   caption: ''
 metrics:
 - figure: Live
-  label: On Stellar
+  label: On Stellar since Q3 2026
   receipt: ''
-- figure: '3'
-  label: Quarters from kickoff to launch
+- figure: 6 months
+  label: Embedded with the joint engineering team, February to July 2026
   receipt: ''
-- figure: End to end
+- figure: Architecture
   label: Token, bank integration and custody setup
   receipt: ''
 sections:
@@ -44,7 +44,7 @@ sections:
   body: 'A top US commercial bank wanted a stablecoin to settle internally on a public network, with the controls its compliance and custody teams require: minting and redemption tied to the bank''s systems, freeze and clawback, and keys held in the bank''s own custody.'
 - id: solution
   title: Solution
-  body: 'We owned the architecture: the token and its controls, its integration into the bank''s systems, and the bank''s blockchain custody setup. As technical lead, we ran the joint engineering team from kickoff to launch.'
+  body: 'We owned the architecture: the token and its controls, its integration into the bank''s systems, and the bank''s blockchain custody setup. As technical lead, we ran the joint engineering team through design and build. The bank then ran the final security review and the launch itself.'
 - id: architecture
   title: Architecture highlights
   body: |-

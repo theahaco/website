@@ -12,4 +12,4 @@ links:
   github: ''
   email: ''
 ---
-Em keeps the company running behind the scenes: scheduling, travel and administration for the team across the United States, France and Brazil.
+Em keeps the company running behind the scenes: scheduling, travel and administration for the team across the United States, Europe and Brazil.

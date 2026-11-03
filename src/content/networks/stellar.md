@@ -21,7 +21,7 @@ ship:
   rows:
   - name: Stellar CLI
     description: Plugin system and bindings
-    badge: Maintainer
+    badge: Core contributor
   - name: Scaffold Stellar
     description: Empty folder to typed client in one command
     badge: Author
