@@ -1,7 +1,7 @@
 ---
 name: Chad Ostrowski
 order: 1
-role: Chief Technology Officer · President, The Aha Company US
+role: Chief Technology Officer
 location: United States
 focus: SDKs and developer platforms
 networks: Stellar · XRPL · NEAR

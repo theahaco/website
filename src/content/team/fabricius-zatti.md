@@ -1,7 +1,7 @@
 ---
 name: Fabricius (Fifo) Zatti
 order: 4
-role: Principal Engineer · President, The Aha Company Brazil
+role: Principal Engineer
 location: Brazil
 focus: Tokenization, privacy
 networks: Stellar · Cardano · Hyperledger · EVM

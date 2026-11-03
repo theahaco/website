@@ -29,7 +29,7 @@ export function initWork() {
   const emptyEl = document.querySelector('[data-wk="empty"]');
   const tabs = document.querySelectorAll('.wk_tab');
   const state = {
-    view: new URLSearchParams(location.search).get('view') === 'articles' ? 'articles' : 'cases',
+    view: new URLSearchParams(location.search).get('view') === 'articles' && document.querySelector('.wk_tab[data-view="articles"]') ? 'articles' : 'cases',
     aud: 'All',
     net: 'All',
   };

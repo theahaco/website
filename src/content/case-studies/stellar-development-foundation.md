@@ -32,13 +32,13 @@ metrics:
   label: Of Stellar CLI commits, 2022 to 2025
   receipt: https://github.com/stellar/stellar-cli
 - figure: 297k
-  label: Stellar CLI downloads on crates.io, with soroban-cli
+  label: Stellar CLI downloads on crates.io, with soroban-cli (October 2026)
   receipt: https://crates.io/crates/stellar-cli
 - figure: '37'
-  label: Stellar Scaffold releases (Oct 2026)
+  label: Stellar Scaffold releases (November 2, 2026)
   receipt: https://github.com/stellar-scaffold/cli
 - figure: '218'
-  label: Names on the mainnet Stellar Registry, namespaces included (Nov 2026)
+  label: Names on the mainnet Stellar Registry, namespaces included (November 2, 2026)
   receipt: https://rgstry.xyz
 sections:
 - id: challenge

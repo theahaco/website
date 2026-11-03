@@ -50,9 +50,11 @@ ship:
   - name: EURCV contracts
     description: Issuance and governance for SG FORGE
     badge: Live on mainnet
+    href: /case-studies/societe-generale-forge
   - name: LI.FI contracts
     description: Soroban contracts behind the Stellar integration
     badge: Live on mainnet
+    href: /case-studies/lifi
 involves:
 - title: Contracts
   description: Soroban contracts written for Stellar’s resource model, not ported from EVM. Role and authorization patterns that match Stellar’s account model.

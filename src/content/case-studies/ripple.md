@@ -28,17 +28,11 @@ hero:
   alt: 'From prototype to go live, with Ripple’s cohorts: milestones on the way to launch'
   caption: ''
 metrics:
-- figure: ''
-  label: ''
+- figure: '2'
+  label: Teams we mentored in one 2026 cohort, live on mainnet or ready to go live
   receipt: ''
-- figure: ''
-  label: ''
-  receipt: ''
-- figure: ''
-  label: ''
-  receipt: ''
-- figure: ''
-  label: ''
+- figure: 2 weeks
+  label: DevX audit of XRPL's developer path by two of our senior engineers, September 2026
   receipt: ''
 sections:
 - id: challenge
@@ -48,11 +42,16 @@ sections:
   title: Solution
   body: 'Our architects mentor teams through the programs: architecture reviews, token and issuer design, and hands-on help on the path to go live. Alongside the programs, we work with Ripple''s developer relations team on XRPL''s developer experience, from tooling to onboarding.'
 - id: architecture
-  title: Architecture highlights
-  body: ''
+  title: What we bring to the programs
+  body: |-
+    - Architecture reviews of each team's design, against the ledger's built-in functions
+    - Token and issuer design: trust line tokens or MPTs, Require Auth as the KYC gate, freeze and clawback
+    - Technical due diligence on potential deals
+    - Hands-on help on the last steps before go live
+    - Our own XRPL open source: [GhostSig](/open-source/ghostsig), the passkey wallet in XRPL Commons' xrpl-connect, and Carbon Coin, an MPT demo with a 2-of-3 multisig issuer, freeze and clawback
 - id: outcome
   title: Outcome
-  body: ''
+  body: In one 2026 cohort, two of the teams we mentored went live on mainnet or were ready to go live. In September 2026, two of our senior engineers completed a two-week DevX audit of the path developers take on XRPL, from its documentation to its tooling. The mentoring continues with each new cohort and hackathon.
 tech:
 - XRP Ledger
 - Multi-purpose tokens

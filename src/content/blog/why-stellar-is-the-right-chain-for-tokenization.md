@@ -4,7 +4,7 @@ category: Institutions
 lede: For a regulated issuer, the question is not which chain is fastest. It is where the controls a regulator expects are part of the ledger, where custodians already are, and where counterparties have already gone. On those three questions, Stellar is hard to beat.
 author: enzo-soyer
 authorName: Enzo Soyer
-authorRole: Chief Executive Officer · President, The Aha Company France
+authorRole: Chief Executive Officer
 date: November 9, 2026
 readMinutes: '3'
 cover: /images/covers/why-stellar-is-the-right-chain-for-tokenization.webp

@@ -62,7 +62,6 @@ tech:
 - Rust
 - Stellar
 - SEP-41
-- Source verification
 receipts: |-
   - [EURCV on the Stellar explorer](https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G)
 relatedService: Stablecoin issuance and governance

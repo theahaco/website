@@ -32,6 +32,7 @@ ship:
   - name: Ripple programs
     description: Accelerator cohorts and hackathons
     badge: Mentors
+    href: /case-studies/ripple
 involves:
 - title: Token design
   description: 'Trust line tokens or MPTs, chosen for your compliance policy: Require Auth as the KYC gate, freeze, clawback, and metadata that carries the instrument''s identifiers.'

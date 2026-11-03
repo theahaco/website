@@ -19,7 +19,7 @@ facts:
 - label: Owner
   value: Stellar Development Foundation
 - label: Status
-  value: v28.1.0 (September 2026)
+  value: v30.0.1 (November 3, 2026)
   live: true
 - label: Language
   value: Rust
@@ -34,7 +34,26 @@ metrics:
   receipt: https://crates.io/crates/stellar-cli
 - figure: 225k
   label: Downloads of sep5, our key-derivation crate inside the CLI (November 2026)
-  receipt: ''
+  receipt: https://crates.io/crates/sep5
+visual:
+  kind: code
+  filename: terminal
+  code: |-
+    # Keys kept in the operating system’s keychain
+    stellar keys generate alice --secure-store \
+      --fund --network testnet
+
+    # Deploy, and save the contract id under an alias
+    stellar contract deploy --wasm hello.wasm \
+      --source alice --network testnet --alias hello
+
+    # Each contract function becomes a typed command
+    stellar contract invoke --id hello --source alice \
+      --network testnet -- hello --to world
+
+    # Plugins run as stellar subcommands
+    stellar scaffold init my-project
+  caption: 'A first contract call with the Stellar CLI. Secure key storage, the typed contract commands and the plugin system are among the parts our engineers built.'
 sections:
 - id: what-it-does
   title: What it does
@@ -48,11 +67,11 @@ sections:
     - **The plugin system**, which lets separate tools run as `stellar` subcommands. [Stellar Scaffold](/open-source/stellar-scaffold) and the [Stellar Registry](/open-source/stellar-registry), which we build, run this way as `stellar scaffold` and `stellar registry`.
     - **Contract calls generated from each contract’s interface**: every function of a deployed contract becomes a typed command.
     - **Key management**: SEP-5 key derivation through our sep5 crate, storage in the operating system’s keychain, and Ledger hardware signing, tested in CI.
-    - **The transaction toolkit** (build, simulate, sign, send) and **TypeScript client generation**.
+    - **The transaction toolkit** (build, simulate, sign, send) and the CLI’s **TypeScript client generation**, which Stellar’s JavaScript SDK has since taken over.
 - id: related-work
   title: Related work
   body: |-
-    The TypeScript clients the CLI generates run on `contract.Client` and `AssembledTransaction` in Stellar’s official JavaScript SDK, which Chad Ostrowski, on our team, wrote. Two of our Rust crates ship inside the CLI: sep5 for key derivation (225k downloads) and stellar-ledger for Ledger signing (87k downloads).
+    TypeScript clients generated from a contract’s interface run on `contract.Client` and `AssembledTransaction` in Stellar’s official JavaScript SDK, which Chad Ostrowski, on our team, wrote. Two of our Rust crates ship inside the CLI: sep5 for key derivation (225k downloads) and stellar-ledger for Ledger signing (87k downloads).
 tech:
 - Rust
 - Soroban
@@ -64,6 +83,7 @@ receipts: |-
   - [Stellar CLI on GitHub](https://github.com/stellar/stellar-cli)
   - [Contributors](https://github.com/stellar/stellar-cli/graphs/contributors)
   - [stellar-cli on crates.io](https://crates.io/crates/stellar-cli)
+  - [sep5 on crates.io](https://crates.io/crates/sep5)
 built:
 - willem-wyndham
 - elizabeth-engelman

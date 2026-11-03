@@ -14,7 +14,7 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
 <div class="work_tabs w-tabs" data-current="Tab 1" data-duration-in="300" data-duration-out="100" data-easing="ease">
   <div aria-label="Work type" class="work_toggle w-tab-menu">
     <a class="work_toggle-btn w-inline-block w-tab-link w--current" data-w-tab="Tab 1" href="#work-cases">Case studies</a>
-    <a class="work_toggle-btn w-inline-block w-tab-link" data-w-tab="Tab 2" href="#work-articles">Articles</a>
+    {articles.length > 0 && <a class="work_toggle-btn w-inline-block w-tab-link" data-w-tab="Tab 2" href="#work-articles">Articles</a>}
   </div>
   <div class="work_panels w-tab-content">
     <div class="w-tab-pane w--tab-active" data-w-tab="Tab 1" id="work-cases">
