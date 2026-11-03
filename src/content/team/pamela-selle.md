@@ -8,7 +8,7 @@ networks: Stellar
 since: ''
 portrait: /images/team/pamela-selle.webp
 links:
-  linkedin: ''
+  linkedin: https://www.linkedin.com/in/pamelaselle/
   github: https://github.com/pselle
   email: ''
 ---

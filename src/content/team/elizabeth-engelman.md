@@ -8,7 +8,7 @@ networks: Stellar
 since: ''
 portrait: /images/team/elizabeth-engelman.webp
 links:
-  linkedin: ''
+  linkedin: https://www.linkedin.com/in/elizabethengelman/
   github: https://github.com/elizabethengelman
   email: ''
 ---

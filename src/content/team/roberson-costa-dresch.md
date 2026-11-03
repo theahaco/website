@@ -8,8 +8,8 @@ networks: Stellar · XRPL
 since: ''
 portrait: /images/team/roberson-costa-dresch.webp
 links:
-  linkedin: ''
-  github: ''
+  linkedin: https://www.linkedin.com/in/roberson-costa-dresch-72833a143/
+  github: https://github.com/rcostadresch
   email: ''
 ---
 Roberson works from Brazil on tokenization and integration projects. He mentors teams in Ripple's accelerator programs on XRPL and scopes a tokenization pilot in Brazil with Fabricius Zatti.

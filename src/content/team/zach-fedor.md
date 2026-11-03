@@ -9,7 +9,7 @@ since: ''
 portrait: /images/team/zach-fedor.webp
 links:
   linkedin: https://www.linkedin.com/in/zachfedor/
-  github: ''
+  github: https://github.com/zachfedor
   email: ''
 ---
 Zach has a decade of production web engineering, including four years leading UI architecture at Hug (Assemble Stream Inc.) on authentication, role-based access control and performance tooling.

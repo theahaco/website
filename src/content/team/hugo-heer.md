@@ -2,13 +2,13 @@
 name: Hugo Heer
 order: 10
 role: Software Engineer
-location: ''
+location: France
 focus: Tokenized funds, wallets and onboarding standards
 networks: Stellar
 since: ''
-portrait: ''
+portrait: /images/team/hugo-heer.webp
 links:
-  linkedin: ''
+  linkedin: https://www.linkedin.com/in/hugo-heer-b29a0419b/
   github: https://github.com/hugo-heer
   email: ''
 ---

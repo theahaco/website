@@ -23,19 +23,19 @@ const team: Array<[string, string]> = [
   ['chad-ostrowski', 'From his bio in our grant applications and his public work (Stellar CLI, JavaScript SDK, Carbon Coin). Moonlight’s provider platform added, from the team deck.'],
   ['willem-wyndham', 'From his bio in our grant applications and his public work (Nido, Stellar Scaffold, Stellar Registry, Stellar CLI). Contract admin standard draft added, from the team deck.'],
   ['enzo-soyer', 'Bio added; LinkedIn link added; GitHub added from your commits (@Dgetsylver).'],
-  ['fabricius-zatti', 'From his bio in our grant applications (MoneyGram, Central Bank of Indonesia, IOG) and Moonlight. GitHub added from his commits (@fazzatti); LinkedIn still to add. Architect Program: “sits in” became “leads”, as you described it and as in the team deck. Check SDF is fine with that wording in public.'],
-  ['pamela-selle', 'From her background (HashiCorp, Comcast) and her public work (Stellar Registry, Stellar Scaffold, Trezor). GitHub added (@pselle, the owner of Stellar Squares in the traction report): confirm it is hers. LinkedIn still to add. Wallets Kit fixes and HackMeridian workshops added, from the team deck.'],
-  ['elizabeth-engelman', 'From her background and her public work (Stellar CLI, Nido). GitHub added from her commits (@elizabethengelman); LinkedIn still to add.'],
-  ['pamphile-roy', 'From his public work (Tansu, GhostSig, SEP-53, SciPy). GitHub link added; no LinkedIn on file. GhostSig’s place in the Stellar Wallets Kit and xrpl-connect added, from the team deck.'],
-  ['zach-fedor', 'From his background (Hug) and his public work (Stellar Scaffold, Contract Explorer). LinkedIn link added. Registry web interface added, from the team deck.'],
-  ['roberson-costa-dresch', 'Short on purpose: his client work has no public repositories. No LinkedIn or GitHub link on file. “Tokenization pilots” became “a tokenization pilot”, as in the team deck.'],
-  ['hugo-heer', 'New page, replacing Em’s, as you asked (Em’s file is kept but left out of the site). GitHub from the SEP-61 author list (@hugo-heer). Bio from what we have: the fund share class we build for a European private bank, the Moonlight browser wallet, SEP-61. Location, LinkedIn and a photo still to add.'],
+  ['fabricius-zatti', 'From his bio in our grant applications (MoneyGram, Central Bank of Indonesia, IOG) and Moonlight. GitHub (@fazzatti) and LinkedIn added. Architect Program: “sits in” became “leads”, as you described it and as in the team deck. Check SDF is fine with that wording in public.'],
+  ['pamela-selle', 'From her background (HashiCorp, Comcast) and her public work (Stellar Registry, Stellar Scaffold, Trezor). GitHub (@pselle, confirmed) and LinkedIn added. Wallets Kit fixes and HackMeridian workshops added, from the team deck.'],
+  ['elizabeth-engelman', 'From her background and her public work (Stellar CLI, Nido). GitHub (@elizabethengelman) and LinkedIn added.'],
+  ['pamphile-roy', 'From his public work (Tansu, GhostSig, SEP-53, SciPy). GitHub and LinkedIn links added. GhostSig’s place in the Stellar Wallets Kit and xrpl-connect added, from the team deck.'],
+  ['zach-fedor', 'From his background (Hug) and his public work (Stellar Scaffold, Contract Explorer). LinkedIn and GitHub (@zachfedor) links added. Registry web interface added, from the team deck.'],
+  ['roberson-costa-dresch', 'Short on purpose: his client work has no public repositories. LinkedIn and GitHub (@rcostadresch) links added. “Tokenization pilots” became “a tokenization pilot”, as in the team deck.'],
+  ['hugo-heer', 'New page, replacing Em’s, as you asked (Em’s file is kept but left out of the site). GitHub from the SEP-61 author list (@hugo-heer). Bio from what we have: the fund share class we build for a European private bank, the Moonlight browser wallet, SEP-61. Photo, location (France) and LinkedIn as you sent them.'],
 ];
 
 // Team photos come from our team deck (October 2026); three of them are small.
 const LOW_RES = ['elizabeth-engelman', 'pamphile-roy', 'zach-fedor'];
 function photoNote(slug: string): string {
-  if (slug === 'hugo-heer') return 'No photo on file yet: send one.';
+  if (slug === 'hugo-heer') return 'Photo as you sent it.';
   if (LOW_RES.includes(slug)) return 'Photo from our team deck. It is only 200 px wide: send a larger one if you have it.';
   return 'Photo from our team deck.';
 }
@@ -123,7 +123,7 @@ export const review: ReviewItem[] = [
   { page: '/open-source/nido', target: '#apps', kind: 'changed', title: 'The eight apps', note: 'No “Our team” labels, as you asked: each app shows its context (SCF round, HackMeridian 2026, SCF Pilots). The counting rules on /open-source still say our team’s projects count like any other.' },
   { page: '/open-source/nido', target: '#security', kind: 'check', title: 'Audit Bank application', note: 'The report says Nido applied to the Audit Bank in October 2026. Check you want the application public before the answer comes.' },
   { page: '/open-source/perch', target: '[data-tl=intro], [data-tl=facts], [data-tl=metrics], [data-tl=visual], .cs_section, [data-tl=tech], [data-tl=receipts], [data-tl=built]', kind: 'new', title: 'New page', note: 'Figures from the Nido and Perch report of 2 November 2026; code sample from the Perch post, as text so search engines read it. No audit is claimed: the page mentions only the audit manifest the repo ships.' },
-  { page: '/open-source/perch', target: '[data-tl=built]', kind: 'changed', title: 'Perch builders', note: 'Credited to Willem Wyndham and Elizabeth Engelman, from the repo’s commit history. An account named bitswell also has about 155 commits there (and some on Nido): tell me who it is if it should be credited.' },
+  { page: '/open-source/perch', target: '[data-tl=built]', kind: 'changed', title: 'Perch builders', note: 'Credited to Willem Wyndham and Elizabeth Engelman, from the repo’s commit history (bitswell, the other main account, is Willem’s).' },
   { page: '/open-source/moonlight', target: '[data-tl=intro], [data-tl=facts], [data-tl=metrics], [data-tl=visual], .cs_section, [data-tl=tech], [data-tl=receipts], [data-tl=built]', kind: 'new', title: 'New page', note: 'From the Moonlight deck (status as of November 2026) and the traction report: audit, roles, components. No usage figure (“We publish no usage figure yet”, as in the report) and no award amount. Nothing from the deck’s internal limits is published, and nothing here contradicts them.' },
   { page: '/open-source/moonlight', target: '[data-tl=built]', kind: 'changed', title: 'Hugo Heer', note: 'Now on the team pages (replacing Em), so he is credited with the others instead of in a side note.' },
   { page: '/open-source/tansu', target: '[data-tl=intro], [data-tl=facts], [data-tl=metrics], [data-tl=visual], .cs_section, [data-tl=tech], [data-tl=receipts], [data-tl=built]', kind: 'new', title: 'New page', note: 'Rounds and totals from the traction report and the Tansu post (about $1.4M, 58 proposals, the Q4 round on mainnet). Pamphile’s project, credited to him, as on the first draft.' },
@@ -151,7 +151,7 @@ export const review: ReviewItem[] = [
   { page: '/team/willem-wyndham', target: '[data-tm=tools]', kind: 'new', title: 'Open source (team pages)', note: 'Each team page now lists the tools the person is credited for, linking to the tool pages. Credits follow the team deck: confirm each person is happy to be named.' },
   { page: '/team/chad-ostrowski', target: '[data-rv=team-count]', kind: 'changed', title: 'Engineer count line (every team page)', note: 'Was “17 engineers · United States · France · Brazil”. Now 12+, with Europe instead of France (Pamphile is in Austria), as on the About page and the FAQ.' },
   ...team.map(([slug, note]): ReviewItem => {
-    const photo = slug !== 'hugo-heer';
+    const photo = true;
     return {
       page: `/team/${slug}`,
       target: photo ? `${BIO}, .tm_portraitbox` : BIO,

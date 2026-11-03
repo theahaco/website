@@ -8,7 +8,7 @@ networks: Stellar · Cardano · Hyperledger · EVM
 since: ''
 portrait: /images/team/fabricius-zatti.webp
 links:
-  linkedin: ''
+  linkedin: https://www.linkedin.com/in/oififo/
   github: https://github.com/fazzatti
   email: ''
 ---

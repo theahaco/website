@@ -8,7 +8,7 @@ networks: Stellar · XRPL
 since: ''
 portrait: /images/team/pamphile-roy.webp
 links:
-  linkedin: ''
+  linkedin: https://www.linkedin.com/in/tupui/
   github: https://github.com/tupui
   email: ''
 ---
