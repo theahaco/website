@@ -14,4 +14,4 @@ links:
 ---
 Zach has a decade of production web engineering, including four years leading UI architecture at Hug (Assemble Stream Inc.) on authentication, role-based access control and performance tooling.
 
-He works on Scaffold Stellar (configuration, the doctor command, the documentation site) and wrote Contract Explorer, published on npm.
+He works on Scaffold Stellar (configuration, the doctor command, the documentation site), built the web interface of the Stellar Registry and wrote Contract Explorer, published on npm.

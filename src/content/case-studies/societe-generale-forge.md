@@ -18,7 +18,7 @@ facts:
   value: Live since Jan 2026
   style: net
 - label: Year
-  value: '2026'
+  value: 2025-2026
   style: plain
 - label: Engagement
   value: Integration partner
@@ -57,6 +57,7 @@ sections:
     - Denylist interface so flagged accounts can be blocked from transfers in line with regulation
     - Pausable transfers for incident response without touching balances
     - Source-verified contracts so anyone can confirm the deployed bytecode matches the audited source
+    - Audited by Hacken before mainnet deployment
 - id: outcome
   title: Outcome
   body: 'EURCV is live on Stellar mainnet with €20M+ issued onchain: regulated stablecoin, not TVL. The FORGE compliance team operates freeze and denylist controls, and the contracts are source-verified so any counterparty can check what is deployed.'
@@ -88,6 +89,6 @@ workTitle: EURCV, a regulated euro stablecoin on Stellar mainnet
 workLine: Issuance and governance contracts on Soroban, compliance controls agreed with the FORGE compliance team.
 audience: Institutions
 network: Stellar
-year: '2026'
+year: 2025-2026
 shortTitle: Société Générale-FORGE
 ---

@@ -101,3 +101,6 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
    label and the logo in the quote slot. */
 .work_quote--plain { row-gap: 12px; }
 .work_quote--plain .work_client-logo { height: 28px; }
+
+/* About: link to the open-source page under "Roles we hold in the ecosystems". */
+.os_aboutlink { display: inline-block; margin-top: 24px; }

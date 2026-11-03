@@ -13,6 +13,7 @@ import { contact, footer, nav } from '../data/site';
       <ul class="footer_col" role="list">
         <li class="footer_col-title">Company</li>
         {nav.map((item) => <li><a class="footer_link" href={item.href}>{item.label}</a></li>)}
+        <li><a class="footer_link" data-rv="footer-os" href="/open-source">Open source</a></li>
         <li><a class="footer_link" href="/faq">FAQ</a></li>
         <li><a class="footer_link" href="/contact">Contact</a></li>
       </ul>

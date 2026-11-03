@@ -1,9 +1,9 @@
 ---
-title: Tokenizing a €130M money-market fund for a regulated European private bank
+title: A tokenized share class for a €130M money-market fund
 order: 6
 eyebrow: Financial institution · Stellar
-lede: A €130M money-market fund for a regulated European private bank, moving onchain on Stellar. In build; launch targeted for 2027.
-cta: Bringing a fund or deposit onchain? Talk to the engineers who did it.
+lede: A regulated European private bank is adding a tokenized share class to its €130M money-market fund, on Stellar. In build; launch targeted for 2027.
+cta: Bringing a fund onchain? Talk to the engineers building one.
 facts:
 - label: Client
   value: Regulated European private bank
@@ -29,7 +29,7 @@ hero:
   caption: Fund units mapped one-to-one to the legal structure; transfer restrictions enforced at the contract layer.
 metrics:
 - figure: €130M
-  label: Money-market fund being tokenized
+  label: Money-market fund adding a tokenized share class
   receipt: ''
 - figure: '1:1'
   label: Onchain units to the fund's legal structure
@@ -53,13 +53,13 @@ sections:
 - id: architecture
   title: Architecture highlights
   body: |-
-    - Onchain units mapped one-to-one to the fund's legal structure
-    - Transfer restrictions enforced at the contract layer
-    - Administrator controls separated from holder operations
-    - Auditable issuance and redemption flows
+    - Subscription: the investor pays in a regulated euro stablecoin
+    - Fund units issued onchain to the investor's account, mapped one-to-one to the fund's legal structure
+    - NAV updates and transfer-agent controls kept with the fund manager; transfer restrictions enforced at the contract layer
+    - Redemption: units returned, euro stablecoin paid out
 - id: outcome
   title: Outcome
-  body: Milestones are validated with the Stellar Development Foundation as they are delivered. Launch is targeted for 2027, once the bank's custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the bank's existing compliance controls.
+  body: Milestones are validated with the Stellar Development Foundation as they are delivered. Launch is targeted for 2027, once the bank's custody and depositary integrations are in place; subscriptions and redemptions will then run onchain under the bank's existing compliance controls. Settlement then happens in the same transaction as the order, not in days, and the manager, the depositary and the distributor share one register instead of reconciling three.
 tech:
 - Soroban
 - Rust
@@ -78,10 +78,10 @@ quote:
   portraitAlt: ''
   logo: ''
   logoAlt: ''
-ndaSummary: A €130M money-market fund for a regulated European private bank, in build on Stellar.
+ndaSummary: A tokenized share class for the €130M money-market fund of a regulated European private bank, in build on Stellar.
 client: Regulated European private bank
 nda: true
-workTitle: Tokenizing a €130M money-market fund
+workTitle: A tokenized share class for a €130M money-market fund
 workLine: Fund units mapped to the legal structure, transfer restrictions in the contract, subscriptions and redemptions onchain.
 audience: Institutions
 network: Stellar

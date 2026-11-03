@@ -2,7 +2,7 @@
 title: Internal settlement stablecoin on Stellar
 order: 7
 eyebrow: Financial institution · Stellar
-lede: An internal settlement stablecoin for a top US commercial bank, live on Stellar. We led the architecture and the delivery, embedded with the engineering team for six months.
+lede: An internal settlement stablecoin for a top US commercial bank, live on Stellar. We led the architecture and the delivery, embedded with the engineering team from February to July 2026.
 cta: Issuing a stablecoin inside a bank? Talk to the engineers who architected one.
 facts:
 - label: Client
@@ -32,8 +32,8 @@ metrics:
 - figure: Live
   label: On Stellar since Q3 2026
   receipt: ''
-- figure: 6 months
-  label: Embedded with the joint engineering team, February to July 2026
+- figure: 5 months
+  label: From kickoff (February 2026) to launch on Stellar (July 2026)
   receipt: ''
 - figure: Architecture
   label: Token, bank integration and custody setup
@@ -77,7 +77,7 @@ ndaSummary: 'An internal settlement stablecoin on Stellar for a top US commercia
 client: Top US commercial bank
 nda: true
 workTitle: Internal settlement stablecoin on Stellar
-workLine: Architecture and delivery lead, embedded for six months.
+workLine: Architecture and delivery lead, embedded from February to July 2026.
 audience: Institutions
 network: Stellar
 year: '2026'

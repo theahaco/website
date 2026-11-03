@@ -20,7 +20,7 @@ ship:
   meta: Open source and programs
   rows:
   - name: GhostSig
-    description: Passkey wallet for XRPL and Stellar, in XRPL Commons' xrpl-connect
+    description: Passkey wallet for XRPL and Stellar, default in xrpl-connect and the Stellar Wallets Kit
     badge: Beta
   - name: Carbon Coin
     description: MPT with a 2-of-3 multisig issuer, freeze and clawback

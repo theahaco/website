@@ -2,7 +2,7 @@
 title: Stellar Development Foundation
 order: 4
 eyebrow: Ecosystem · Stellar
-lede: 'We build and maintain tooling the Stellar ecosystem runs on: Scaffold Stellar, the Stellar CLI plugin system, Stellar Registry and Nido, our passkey wallet. We take an active part in the Stellar Architect Program as experts.'
+lede: 'We build and maintain tooling the Stellar ecosystem runs on: Scaffold Stellar, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. We take an active part in the Stellar Architect Program as experts.'
 cta: Building developer tooling for an ecosystem? Talk to the team that maintains Stellar’s.
 facts:
 - label: Client
@@ -49,13 +49,13 @@ sections:
   body: |-
     We became core contributors to the Stellar CLI, the network's official command-line tool, and built the parts developers use every day: the plugin system, contract calls generated from each contract's interface, key management and TypeScript client generation.
 
-    On top of it we built Scaffold Stellar and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. A principal engineer from our team also sits in the Foundation's Architect Program, working on institutional proposals.
+    On top of it we built Scaffold Stellar and the Stellar Registry, maintained as public goods with funding from the Stellar Community Fund. Fabricius Zatti, a principal engineer on our team, also leads the Foundation's Architect Program, working on institutional proposals.
 - id: architecture
   title: Architecture highlights
   body: |-
     - Stellar CLI: plugin system, typed contract calls, SEP-5 key management, Ledger signing
     - Scaffold Stellar: one command from an empty folder to contracts, a front end, a local network and typed clients
-    - Stellar Registry: an onchain package manager for Soroban contracts, on mainnet since July 2026
+    - Stellar Registry: an onchain package manager for Soroban contracts, audited by Veridise with no findings, on mainnet since July 2026
     - JavaScript SDK: contract.Client and AssembledTransaction in Stellar's official SDK
     - Standards: co-authors of SEP-53 (final) and SEP-61 (draft)
 - id: outcome

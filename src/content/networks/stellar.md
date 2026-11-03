@@ -26,11 +26,14 @@ ship:
     description: Empty folder to typed client in one command
     badge: Author
   - name: Stellar Registry
-    description: Contract discovery and verification
+    description: Onchain package manager for contracts, audited
     badge: Author
   - name: Nido
     description: Open-source passkey wallet
     badge: Author
+  - name: Moonlight
+    description: Privacy layer for payments, audited
+    badge: Limited mainnet release
   - name: EURCV contracts
     description: Issuance and governance for SG FORGE
     badge: Live on mainnet

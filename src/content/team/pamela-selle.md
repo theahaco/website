@@ -14,4 +14,4 @@ links:
 ---
 Pamela was a senior engineer at HashiCorp, where she maintained Terraform Core, and led cloud infrastructure at Comcast.
 
-At The Aha Company she has led the Stellar Registry since June 2026 and runs Scaffold Stellar's CI, releases and contract generation. She also upgraded Trezor's Stellar package to the current Stellar SDK.
+At The Aha Company she has led the Stellar Registry since June 2026 and runs Scaffold Stellar's CI, releases and contract generation. She also upgraded Trezor's Stellar package to Stellar SDK v17, fixed issues in the Stellar Wallets Kit and ran workshops at HackMeridian 2026.
