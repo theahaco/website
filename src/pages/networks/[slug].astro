@@ -4,7 +4,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Redirect from '../../layouts/Redirect.astro';
 import Cta from '../../components/Cta.astro';
-import { networks, orderBy } from '../../lib/content';
+import { site as siteData } from '../../data/site';
+import { networks, orderBy, publicQuote } from '../../lib/content';
 import { otherNetworksOrder } from '../../data/curation';
 
 export async function getStaticPaths() {
@@ -14,12 +15,12 @@ export async function getStaticPaths() {
 const { net } = Astro.props;
 const d = net.data;
 const others = orderBy(await networks(), otherNetworksOrder).filter((n) => n.id !== net.id);
-const q = d.proof.quote;
+const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteData.productionOrigin);
 ---
 {!d.heading ? (
   <Redirect to="/networks" title={`${d.name} | The Aha Company`} />
 ) : (
-  <BaseLayout title={`Integrate with ${d.name} | The Aha Company`} description={d.lede || undefined}>
+  <BaseLayout title={`Integrate with ${d.name} | The Aha Company`} description={d.description || d.lede || undefined}>
     <main data-main="1" data-nx="page">
       <section>
         <div class="nx_herowrap">
@@ -53,7 +54,7 @@ const q = d.proof.quote;
                 <div data-nx="shiprows">
                   {d.ship.rows.map((r) => (
                     <div class="nxjs_shiprow">
-                      <div><span class="nxjs_shipname">{r.name}</span><span class="nxjs_shipdesc">{r.description}</span></div>
+                      <div>{r.href ? <a class="nxjs_shipname nxjs_shiplink" href={r.href}>{r.name} <span aria-hidden="true">→</span></a> : <span class="nxjs_shipname">{r.name}</span>}<span class="nxjs_shipdesc">{r.description}</span></div>
                       <span class="nxjs_shipbadge"><span class="nxjs_shipdot" aria-hidden="true"></span>{r.badge}</span>
                     </div>
                   ))}

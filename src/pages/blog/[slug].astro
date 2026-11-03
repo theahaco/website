@@ -5,6 +5,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
 import { posts, team, formatDate } from '../../lib/content';
+import { siteUrl, ld } from '../../lib/ld';
 
 export async function getStaticPaths() {
   return (await posts()).map((post) => ({ params: { slug: post.id }, props: { post } }));
@@ -17,8 +18,23 @@ const toc = headings.filter((h) => h.depth === 2);
 const author = d.author ? (await team()).find((m) => m.id === d.author) : undefined;
 const portrait = author?.data.portrait || '';
 const more = (await posts()).filter((p) => p.id !== post.id).slice(0, 2);
+const base = siteUrl(Astro.site);
+const pageUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+const published = d.date && !Number.isNaN(new Date(d.date).getTime()) ? new Date(d.date).toISOString().slice(0, 10) : undefined;
+const articleLd = ld({
+  '@type': 'BlogPosting',
+  headline: d.title,
+  description: d.description || d.lede || undefined,
+  url: pageUrl,
+  mainEntityOfPage: pageUrl,
+  datePublished: published,
+  image: d.cover ? new URL(d.cover.replace(/^\//, ''), base).href : undefined,
+  author: d.authorName ? { '@type': 'Person', name: d.authorName, url: d.author ? new URL(`team/${d.author}/`, base).href : undefined } : undefined,
+  publisher: { '@type': 'Organization', name: 'The Aha Company', url: base },
+});
 ---
-<BaseLayout title={`${d.title} | The Aha Company`} description={d.lede || undefined}>
+<BaseLayout title={`${d.title} | The Aha Company`} description={d.description || d.lede || undefined}>
+  <Fragment slot="head"><script type="application/ld+json" set:html={articleLd} /></Fragment>
   <main>
     <article>
       <div class="art_header">

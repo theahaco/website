@@ -3,7 +3,8 @@
 // Empty fields are skipped, as the Webflow site's script did after load.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { caseStudies, team, pick, orderBy, md, serviceAnchor, networkMarks } from '../../lib/content';
+import { caseStudies, team, pick, orderBy, md, serviceAnchor, networkMarks, publicQuote } from '../../lib/content';
+import { site as siteData } from '../../data/site';
 import { moreWork, teamPanelOrder } from '../../data/curation';
 
 export async function getStaticPaths() {
@@ -20,8 +21,9 @@ const sections = d.sections.filter((s) => s.body.trim());
 const receipts = md(d.receipts);
 const more = pick(all, moreWork).filter((c) => c.id !== cs.id).slice(0, 2);
 const cta = d.cta || 'Bringing a fund or deposit onchain? Talk to the engineers who did it.';
+const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData.productionOrigin);
 ---
-<BaseLayout title={`${d.title} | Case study | The Aha Company`} description={d.lede || d.ndaSummary || undefined}>
+<BaseLayout title={`${d.title} | Case study | The Aha Company`} description={d.description || d.lede || d.ndaSummary || undefined}>
   <main>
     <article>
       <div class="cs_header">
@@ -122,12 +124,12 @@ const cta = d.cta || 'Bringing a fund or deposit onchain? Talk to the engineers 
           )}
         </aside>
       </div>
-      {d.quote.text && (
+      {quote.text && (
         <section class="cs_quoteband" data-cs="quote">
           <div class="cs_quoteinner">
-            <p class="cs_quotelabel">{d.quote.label}</p>
-            <blockquote class="cs_quote">{d.quote.text}</blockquote>
-            <p class="cs_quoteattrib"><span data-cs="q-author">{d.quote.author}</span><span>, </span><span data-cs="q-role">{d.quote.role}</span></p>
+            <p class="cs_quotelabel">{quote.label}</p>
+            <blockquote class="cs_quote">{quote.text}</blockquote>
+            <p class="cs_quoteattrib"><span data-cs="q-author">{quote.author}</span><span>, </span><span data-cs="q-role">{quote.role}</span></p>
           </div>
         </section>
       )}

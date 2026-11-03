@@ -6,6 +6,7 @@ import '../styles/site.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import ReviewOverlay from '../components/ReviewOverlay.astro';
+import Analytics from '../components/Analytics.astro';
 import { site } from '../data/site';
 import { pagePath } from '../lib/paths';
 
@@ -59,6 +60,7 @@ const imageUrl = Astro.site ? new URL(base.replace(/\/$/, '') + image, Astro.sit
     <link rel="sitemap" href="/sitemap-index.xml" />
     <script is:inline>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
     <slot name="head" />
+    {isProduction && <Analytics />}
   </head>
   <body>
     <div class="page-body">

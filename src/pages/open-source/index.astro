@@ -1,0 +1,124 @@
+---
+// Open-source index: the figures across our tools, one card per tool
+// (each tool has its own page, src/content/tools), the counting rules and
+// the smaller pieces (src/data/opensource.ts).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Cta from '../../components/Cta.astro';
+import { standards } from '../../data/opensource';
+import { tools } from '../../lib/content';
+import { site } from '../../data/site';
+
+const list = await tools();
+const metrics = [
+  { figure: '137', label: 'Projects using at least one of our tools (November 2, 2026)', receipt: '' },
+  { figure: '~20%', label: 'Of Stellar CLI commits, 2022 to 2025', receipt: 'https://github.com/stellar/stellar-cli' },
+  { figure: '125,107', label: 'Downloads of our Stellar crates since 2023 (November 2, 2026)', receipt: '' },
+  { figure: '~$1.4M', label: 'Public goods funding the Stellar Community Fund voted on Tansu, Q2 to Q4 2026', receipt: 'https://app.tansu.dev' },
+];
+const siteUrl = Astro.site ? new URL(import.meta.env.BASE_URL, Astro.site).href : site.productionOrigin;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Open-source tools by The Aha Company',
+  itemListElement: list.map((t, i) => ({ '@type': 'ListItem', position: i + 1, name: t.data.name, url: new URL(`open-source/${t.id}/`, siteUrl).href })),
+};
+---
+<BaseLayout title="Open source: the tools we build and maintain | The Aha Company" description="The open-source tools we build and maintain on Stellar and XRPL, one page per tool: Scaffold Stellar, Stellar Registry, Nido, Perch, Moonlight, Tansu and more.">
+  <Fragment slot="head"><script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\\u003c')} /></Fragment>
+  <main data-main="1" data-os="page">
+    <section>
+      <div class="svc_introcontainer">
+        <a class="art_back" data-back="1" href="/">← Back to home</a>
+        <div class="lg_header">
+          <p class="cs_eyebrow">Open source</p>
+          <h1 class="intro_h1">Public code you can inspect, commit by commit.</h1>
+          <p class="art_lede" data-os="lede">The tooling behind our work is open source. On Stellar we are core contributors to the official CLI and build the tools around it; some of them already serve XRPL. Each tool has its own page: what it does, what we built, where it stands and who uses it, with every figure dated.</p>
+        </div>
+      </div>
+    </section>
+    <section aria-label="In numbers" class="cs_outcomes" data-os="metrics">
+      <ul class="cs_metrics" role="list">
+        {metrics.map((m) => (
+          <li class="cs_metric">
+            <span class="cs_fig"><span>{m.figure}</span>{m.receipt && <a aria-label="Receipt" class="cs_figmark" href={m.receipt}>✓</a>}</span>
+            <span class="cs_metriclabel">{m.label}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+    <section class="ab_white">
+      <div class="ab_container">
+        <h2 class="ab_h2">The tools</h2>
+        <ul class="os_grid" data-os="tools" role="list">
+          {list.map((t) => (
+            <li class="os_card" id={t.id} data-os-tool={t.id}>
+              <a class="os_cardlink" href={`/open-source/${t.id}`}>
+                <span class="os_head">
+                  <span class="os_name">{t.data.name}</span>
+                  <span class="os_net">{t.data.network}</span>
+                </span>
+                <span class="os_cat">{t.data.category}</span>
+                <span class="os_what">{t.data.summary}</span>
+                {t.data.headline?.figure && (
+                  <span class="os_kpi"><span class="os_kpifig">{t.data.headline.figure}</span><span class="os_kpilabel">{t.data.headline.label}</span></span>
+                )}
+                <span class="os_more">Read about {t.data.name} →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+    <section class="ab_white" data-os="count" id="how-we-count">
+      <div class="ab_container">
+        <div class="ab_howgrid">
+          <div class="ab_howhead">
+            <h2 class="ab_h2">How we count</h2>
+          </div>
+          <div class="os_count">
+            <p>A project counts when its public repo uses a tool in code (configuration, dependencies, imports or CLI scripts), or when its contracts use it on chain. Forks count once, and a project using several tools counts once in the total.</p>
+            <p>A tool’s own repo never counts toward that tool; our other tools and our team’s own projects count like any other project, and the tool pages say which ones are ours. Pages that only mention a tool do not count. Code search does not index every repo, so project counts are floors, and testnet counts include our own testing.</p>
+            <p>Every figure carries the date it was counted. Counts that only grow, such as downloads, calls and wallets, are as of that date.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="ab_container">
+        <div class="ab_howgrid">
+          <div class="ab_howhead">
+            <h2 class="ab_h2">Standards, libraries and XRPL work</h2>
+            <p class="net_carddesc">The smaller pieces: Stellar standards we wrote, code in the official SDK, libraries the CLI depends on, and our work on the XRP Ledger.</p>
+          </div>
+          <ul class="nx_fundinglist" data-os="standards" role="list">
+            {standards.map((s) => (
+              <li class="nxjs_fundrow">
+                <div><span class="nxjs_fundname">{s.name}</span><span class="nxjs_funddesc">{s.what}</span></div>
+                <span class="nxjs_fundbadge">{s.status}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Cta heading="Building on Stellar or XRPL? Talk to the engineers who write the tooling." />
+</BaseLayout>
+<style>
+  .os_grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+  .os_card { display: flex; scroll-margin-top: 120px; }
+  .os_cardlink { display: flex; flex-direction: column; gap: 14px; width: 100%; padding: 28px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md); color: inherit; text-decoration: none; transition: border-color .2s; }
+  .os_cardlink:hover { border-color: var(--deep-blue); }
+  .os_cardlink:hover .os_more { color: var(--green-ink); }
+  .os_head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .os_name { font-family: var(--font-display); font-style: italic; font-weight: 400; font-size: 30px; line-height: 1.1; color: var(--deep-blue); }
+  .os_net { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .os_cat { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green-ink); }
+  .os_what { font-size: 17px; line-height: 1.5; color: var(--ink); }
+  .os_kpi { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); }
+  .os_kpifig { font-size: 32px; font-weight: 500; letter-spacing: -.02em; line-height: 1; color: var(--deep-blue); }
+  .os_kpilabel { font-size: 14px; color: var(--muted); }
+  .os_more { font-size: 14px; font-weight: 600; color: var(--deep-blue); transition: color .2s; }
+  .os_count { display: flex; flex-direction: column; gap: 14px; max-width: 640px; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
+  .os_count p { margin: 0; }
+</style>

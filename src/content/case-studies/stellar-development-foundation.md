@@ -53,14 +53,15 @@ sections:
 - id: architecture
   title: Architecture highlights
   body: |-
-    - Stellar CLI: plugin system, typed contract calls, SEP-5 key management, Ledger signing
-    - Scaffold Stellar: one command from an empty folder to contracts, a front end, a local network and typed clients
-    - Stellar Registry: an onchain package manager for Soroban contracts, audited by Veridise with no findings, on mainnet since July 2026
+    - [Stellar CLI](/open-source/stellar-cli): plugin system, typed contract calls, SEP-5 key management, Ledger signing
+    - [Scaffold Stellar](/open-source/scaffold-stellar): one command from an empty folder to contracts, a front end, a local network and typed clients
+    - [Stellar Registry](/open-source/stellar-registry): an onchain package manager for Soroban contracts, audited by Veridise with no findings, on mainnet since July 2026
+    - [Nido](/open-source/nido): our open-source passkey wallet, in a curated mainnet release since October 2026
     - JavaScript SDK: contract.Client and AssembledTransaction in Stellar's official SDK
     - Standards: co-authors of SEP-53 (final) and SEP-61 (draft)
 - id: outcome
   title: Outcome
-  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Scaffold Stellar is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On 2 November 2026, 137 projects used at least one of our tools, 111 of them building on Scaffold Stellar, and the Stellar Community Fund votes its Public Goods Award on Tansu ([how we count](/open-source#how-we-count)).'
+  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Scaffold Stellar is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On November 2, 2026, 137 projects used at least one of our tools, 111 of them building on Scaffold Stellar, and the Stellar Community Fund votes its Public Goods Award on [Tansu](/open-source/tansu) ([how we count](/open-source#how-we-count)).'
 tech:
 - Rust
 - TypeScript
@@ -100,4 +101,5 @@ audience: Ecosystems and open source
 network: Stellar
 year: 2021-today
 shortTitle: Stellar Development Foundation
+description: 'We build and maintain the tooling the Stellar ecosystem runs on: Scaffold Stellar, the Stellar CLI plugin system, Stellar Registry and Nido.'
 ---

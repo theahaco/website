@@ -22,18 +22,31 @@ ship:
   - name: Stellar CLI
     description: Plugin system and bindings
     badge: Core contributor
+    href: /open-source/stellar-cli
   - name: Scaffold Stellar
     description: Empty folder to typed client in one command
     badge: Author
+    href: /open-source/scaffold-stellar
   - name: Stellar Registry
     description: Onchain package manager for contracts, audited
     badge: Author
+    href: /open-source/stellar-registry
   - name: Nido
     description: Open-source passkey wallet
     badge: Author
+    href: /open-source/nido
+  - name: Perch
+    description: Policy layer under every Nido wallet
+    badge: Mainnet
+    href: /open-source/perch
   - name: Moonlight
     description: Privacy layer for payments, audited
     badge: Limited mainnet release
+    href: /open-source/moonlight
+  - name: Tansu
+    description: Onchain governance the Stellar Community Fund votes on
+    badge: Mainnet
+    href: /open-source/tansu
   - name: EURCV contracts
     description: Issuance and governance for SG FORGE
     badge: Live on mainnet
@@ -99,4 +112,5 @@ card:
   line: Core contributors, Stellar Community Fund reviewers, tooling maintainers.
   logo: /images/logos/logo-stellar.webp
   logoAlt: Stellar
+description: 'Stellar integrations for regulated assets and protocols: native Soroban contracts, adapters and SDKs, from the core contributors behind its tooling.'
 ---

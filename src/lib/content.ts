@@ -10,6 +10,28 @@ export function md(src: string | undefined | null): string {
   return (marked.parse(src, { async: false }) as string).trim();
 }
 
+/** One line of Markdown (links, code, emphasis) to HTML, without a <p>. */
+export function mdInline(src: string | undefined | null): string {
+  if (!src || !src.trim()) return '';
+  return (marked.parseInline(src, { async: false }) as string).trim();
+}
+
+/** Markdown tables in a horizontally scrollable wrapper (narrow screens). */
+export function wrapTables(html: string): string {
+  return html.replace(/<table>/g, '<div class="tl_tablewrap"><table>').replace(/<\/table>/g, '</table></div>');
+}
+
+type Quote = { label: string; text: string; author: string; role: string; portrait: string; portraitAlt: string; logo: string; logoAlt: string };
+/**
+ * Testimonials still waiting for approval carry the label "Placeholder quote".
+ * The preview shows them for review; the production build (theaha.co) never
+ * publishes them: the slot keeps the logo, labelled "Client".
+ */
+export function publicQuote<Q extends Quote>(q: Q, production: boolean): Q {
+  if (!q || !production || !/placeholder/i.test(q.label || '')) return q;
+  return { ...q, label: 'Client', text: '', author: '', role: '', portrait: '' };
+}
+
 export type CaseStudy = CollectionEntry<'caseStudies'>;
 export type Post = CollectionEntry<'blog'>;
 export type Network = CollectionEntry<'networks'>;
@@ -28,6 +50,10 @@ export async function networks() {
 }
 export async function team() {
   return (await getCollection('team', (e) => !e.data.draft)).sort(byOrder);
+}
+export type Tool = CollectionEntry<'tools'>;
+export async function tools() {
+  return (await getCollection('tools', (e) => !e.data.draft)).sort(byOrder);
 }
 
 /** Pick entries by id, in the given order, skipping ids that do not exist. */

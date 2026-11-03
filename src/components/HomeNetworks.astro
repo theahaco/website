@@ -8,7 +8,7 @@ const list = await networks();
   <div class="networks_list w-dyn-items" role="list">
     {list.map((n) => (
       <div class="networks_item w-dyn-item" role="listitem">
-        <a class="networks_row w-inline-block" href={n.data.heading ? `/networks/${n.id}` : '#'}>
+        <a class="networks_row w-inline-block" href={n.data.heading ? `/networks/${n.id}` : '/networks'}>
           <div class="networks_left">
             <div class="networks_name-wrap"><h3 class="networks_h3">{n.data.name}</h3></div>
             {n.data.homeDescription && <p class="networks_desc">{n.data.homeDescription}</p>}

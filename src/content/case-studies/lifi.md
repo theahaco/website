@@ -89,4 +89,5 @@ audience: Protocols and products
 network: Stellar
 year: '2026'
 shortTitle: LI.FI
+description: 'How we brought LI.FI’s routing to Stellar: Soroban contracts written from scratch, with the guarantees LI.FI gives users on other chains.'
 ---

@@ -8,6 +8,8 @@
 //
 // Markup keeps Webflow's structure and classes:
 //   .w-form > form + .w-form-done + .w-form-fail
+import { track } from './analytics.js';
+
 export function initForms(root = document) {
   root.querySelectorAll('.w-form form').forEach((form) => {
     const wrap = form.closest('.w-form');
@@ -50,6 +52,7 @@ export function initForms(root = document) {
         } else {
           throw new Error('No form endpoint configured');
         }
+        track('Contact form sent');
         form.style.display = 'none';
         if (done) done.style.display = 'block';
       } catch (err) {

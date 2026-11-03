@@ -15,6 +15,7 @@ relatedWorkLabel: Ripple's accelerator cohorts and hackathons
 audience: Protocols and products
 network: XRPL
 order: 1
+description: 'What XRPL offers regulated DeFi today: issuer controls, credentials, permissioned domains and a permissioned DEX, what is still missing, and our advice.'
 ---
 ## Finance functions built into the ledger
 
@@ -30,7 +31,7 @@ The native exchange and its AMM give issued tokens a market without a separate p
 
 ## What is still missing
 
-The newest pieces are not yet connected. MPTs cannot trade on the native exchange today, and credentials do not yet decide who may hold a token. Native vaults and lending, proposed to validators in January 2026, stood between 46% and 57% support on 8 October 2026, against the more than 80% an amendment needs. There is no custom logic on the main ledger, so products with bespoke rules keep them off-chain or wait for a protocol change.
+The newest pieces are not yet connected. MPTs cannot trade on the native exchange today, and credentials do not yet decide who may hold a token. Native vaults and lending, proposed to validators in January 2026, stood between 46% and 57% support on October 8, 2026, against the more than 80% an amendment needs. There is no custom logic on the main ledger, so products with bespoke rules keep them off-chain or wait for a protocol change.
 
 ## How we advise issuers today
 

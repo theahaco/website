@@ -75,4 +75,5 @@ audience: Institutions
 network: Multi-network
 year: Ongoing
 shortTitle: PwC US
+description: 'Our co-selling alliance with PwC US: PwC US advisory with our blockchain engineering, for tokenization, stablecoin and payment infrastructure.'
 ---

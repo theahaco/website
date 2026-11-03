@@ -22,6 +22,7 @@ ship:
   - name: GhostSig
     description: Passkey wallet for XRPL and Stellar, default in xrpl-connect and the Stellar Wallets Kit
     badge: Beta
+    href: /open-source/ghostsig
   - name: Carbon Coin
     description: MPT with a 2-of-3 multisig issuer, freeze and clawback
     badge: Testnet demo
@@ -81,4 +82,5 @@ card:
   line: Ripple program partner, tooling proposals in progress.
   logo: /images/logos/logo-xrpl.webp
   logoAlt: XRPL
+description: 'XRPL integrations for regulated assets: issued tokens and MPTs with issuer controls, credentials and permissioned domains, wired to your custody and systems.'
 ---

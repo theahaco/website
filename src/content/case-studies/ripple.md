@@ -82,4 +82,5 @@ audience: Ecosystems and open source
 network: XRPL
 year: 2025-2026
 shortTitle: Ripple
+description: 'Our work with Ripple: architects mentoring accelerator cohorts and hackathon teams from prototype to go live, and continuous work on developer experience.'
 ---

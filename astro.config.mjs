@@ -23,7 +23,8 @@ export default defineConfig({
   compressHTML: true,
   integrations: [
     sitemap({
-      filter: (page) => !/\/(404|review)\/?$/.test(page),
+      // Redirect stubs (/blog, networks without a page) stay out of the sitemap.
+      filter: (page) => !/\/(404|review|blog|networks\/canton|networks\/ethereum)\/?$/.test(page),
     }),
     basePath(),
   ],

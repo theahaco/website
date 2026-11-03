@@ -82,4 +82,5 @@ audience: Institutions
 network: Stellar
 year: '2026'
 shortTitle: Internal settlement stablecoin on Stellar
+description: 'A settlement stablecoin for a top US commercial bank, in a live pilot on Stellar: we led the architecture and delivery, February to July 2026.'
 ---

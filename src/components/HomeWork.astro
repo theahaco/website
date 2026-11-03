@@ -1,13 +1,15 @@
 ---
 // Home page "Selected work": case studies tab (with quotes and the NDA block)
 // and articles tab. Webflow tabs markup, driven by src/scripts/tabs.js.
-import { caseStudies, posts, pick } from '../lib/content';
+import { caseStudies, posts, pick, publicQuote } from '../lib/content';
 import { homeFeaturedCases, homeNdaCases, homeArticles } from '../data/curation';
 
 const all = await caseStudies();
 const featured = pick(all, homeFeaturedCases);
 const nda = pick(all, homeNdaCases);
 const articles = pick(await posts(), homeArticles);
+import { site as siteData } from '../data/site';
+const production = !Astro.site || Astro.site.origin === siteData.productionOrigin;
 ---
 <div class="work_tabs w-tabs" data-current="Tab 1" data-duration-in="300" data-duration-out="100" data-easing="ease">
   <div aria-label="Work type" class="work_toggle w-tab-menu">
@@ -35,18 +37,20 @@ const articles = pick(await posts(), homeArticles);
                     {cs.data.lede && <p class="work_para">{cs.data.lede}</p>}
                   </div>
                 </a>
-                <figure class:list={['work_quote', !cs.data.quote.text && 'work_quote--plain']}>
-                  <p class="work_quote-label">{cs.data.quote.label}</p>
-                  {cs.data.quote.text && <blockquote class="work_blockquote">{cs.data.quote.text}</blockquote>}
-                  {(cs.data.quote.author || cs.data.quote.portrait) && <figcaption class="work_attrib">
-                    {cs.data.quote.portrait && <img alt={cs.data.quote.portraitAlt} class="work_portrait" loading="lazy" src={cs.data.quote.portrait} width="32" height="32" />}
+                {(() => { const q = publicQuote(cs.data.quote, production); return (
+                <figure class:list={['work_quote', !q.text && 'work_quote--plain']}>
+                  <p class="work_quote-label">{q.label}</p>
+                  {q.text && <blockquote class="work_blockquote">{q.text}</blockquote>}
+                  {(q.author || q.portrait) && <figcaption class="work_attrib">
+                    {q.portrait && <img alt={q.portraitAlt} class="work_portrait" loading="lazy" src={q.portrait} width="32" height="32" />}
                     <div class="work_attrib-info">
-                      {cs.data.quote.author && <p class="work_attrib-name">{cs.data.quote.author}</p>}
-                      {cs.data.quote.role && <p class="work_attrib-role">{cs.data.quote.role}</p>}
+                      {q.author && <p class="work_attrib-name">{q.author}</p>}
+                      {q.role && <p class="work_attrib-role">{q.role}</p>}
                     </div>
                   </figcaption>}
-                  {cs.data.quote.logo && <img alt={cs.data.quote.logoAlt} class="work_client-logo" loading="lazy" src={cs.data.quote.logo} />}
+                  {q.logo && <img alt={q.logoAlt} class="work_client-logo" loading="lazy" src={q.logo} />}
                 </figure>
+                ); })()}
               </div>
             </div>
           ))}

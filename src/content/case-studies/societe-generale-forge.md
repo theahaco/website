@@ -91,4 +91,5 @@ audience: Institutions
 network: Stellar
 year: 2025-2026
 shortTitle: Société Générale-FORGE
+description: 'EURCV, Société Générale-FORGE’s regulated euro stablecoin, live on Stellar since Q1 2026: we built its issuance and governance contracts on Soroban.'
 ---

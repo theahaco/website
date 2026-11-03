@@ -15,6 +15,7 @@ relatedWorkLabel: 'Stellar Development Foundation: tooling and public goods'
 audience: Ecosystems and open source
 network: Stellar
 order: 2
+description: 'How we built Scaffold Stellar: from an empty folder to contracts, a front end, a local network and typed clients in one command, as a Stellar CLI plugin.'
 ---
 ## The problem: a blank repository
 
@@ -43,7 +44,7 @@ Scaffold Stellar ships for six platforms from one release pipeline, and every re
 
 ## Maintained as a public good
 
-Scaffold Stellar is open source, listed in the official Stellar documentation and funded as a Stellar public good. On 2 November 2026, 111 projects built on it, and OpenZeppelin's Contracts Wizard exports any Stellar contract as a Scaffold Stellar package. It runs on a quarterly proposal and review, which keeps it maintained, not merely released.
+Scaffold Stellar is open source, listed in the official Stellar documentation and funded as a Stellar public good. On November 2, 2026, 111 projects built on it, and OpenZeppelin's Contracts Wizard exports any Stellar contract as a Scaffold Stellar package. It runs on a quarterly proposal and review, which keeps it maintained, not merely released. Who builds on it, with every count dated, is on its [tool page](/open-source/scaffold-stellar).
 
 ## What it changes for a client
 

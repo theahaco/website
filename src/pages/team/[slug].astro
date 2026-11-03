@@ -4,7 +4,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
 import TeamGrid from '../../components/TeamGrid.astro';
-import { team, caseStudies, posts, orderBy, formatDate } from '../../lib/content';
+import { team, caseStudies, posts, tools, orderBy, formatDate } from '../../lib/content';
+import { siteUrl, ld } from '../../lib/ld';
 import { engagementOrder } from '../../data/curation';
 
 export async function getStaticPaths() {
@@ -29,8 +30,20 @@ const links = [
 ].filter((l) => l.href && l.href !== '#');
 const engagements = orderBy(await caseStudies(), engagementOrder).filter((c) => c.data.team.includes(member.id));
 const writing = (await posts()).filter((p) => p.data.author === member.id);
+const built = (await tools()).filter((t) => t.data.built.includes(member.id));
+const base = siteUrl(Astro.site);
+const personLd = ld({
+  '@type': 'Person',
+  name: d.name.replace(/ \(.*\)/, ''),
+  jobTitle: d.role ? d.role.split(' · ')[0] : undefined,
+  url: Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined,
+  image: d.portrait ? new URL(d.portrait.replace(/^\//, ''), base).href : undefined,
+  worksFor: { '@type': 'Organization', name: 'The Aha Company', url: base },
+  sameAs: [d.links.linkedin, d.links.github].filter((u) => u && u !== '#'),
+});
 ---
 <BaseLayout title={`${d.name}${d.role ? `, ${d.role}` : ''} | The Aha Company`} description={d.role || undefined}>
+  <Fragment slot="head"><script type="application/ld+json" set:html={personLd} /></Fragment>
   <main>
     <article class="tm_article">
       <a class="art_back" href="/about">← The team</a>
@@ -80,6 +93,27 @@ const writing = (await posts()).filter((p) => p.data.author === member.id);
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+      {built.length > 0 && (
+        <section class="tm_section" data-tm="tools">
+          <div class="more_header">
+            <h2 class="more_h2">Open source</h2>
+            <a class="more_all" href="/open-source">All tools ↗</a>
+          </div>
+          <div role="list">
+            {built.map((t) => (
+              <div class="work_item" role="listitem">
+                <a class="more_row" href={`/open-source/${t.id}`}>
+                  <div class="more_stack">
+                    <span class="work_eyebrow">{t.data.category} · {t.data.network}</span>
+                    <span class="more_title">{t.data.name}</span>
+                  </div>
+                  <div class="more_meta"><span class="inline-text">{[t.data.headline?.figure, t.data.headline?.label].filter(Boolean).join(' ')}</span><span class="inline-text"> ↗</span></div>
+                </a>
+              </div>
+            ))}
           </div>
         </section>
       )}

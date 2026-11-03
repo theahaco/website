@@ -28,6 +28,7 @@ const caseStudies = defineCollection({
     order: z.number().default(100), // Work page order
     eyebrow: str, // "Financial institution · Stellar"
     lede: str, // also the paragraph in Selected work on the home page
+    description: str, // search description (160 characters max); defaults to the lede
     ndaSummary: str, // one-liner in the "Client under NDA" block on home
     cta: str, // heading of the closing call-to-action band
     client: str,
@@ -57,6 +58,7 @@ const blog = defineCollection({
     order: z.number().default(100),
     category: str, // eyebrow
     lede: str,
+    description: str, // search description (160 characters max); defaults to the lede
     author: str, // team member slug (for the team page "Writing" list)
     authorName: str,
     authorRole: str,
@@ -83,10 +85,11 @@ const networks = defineCollection({
     markAlt: str,
     heading: str, // a network without a heading has no page of its own (redirects to /networks)
     lede: str,
+    description: str, // search description (160 characters max); defaults to the lede
     secondaryCta: z.object({ label: str, href: str }).default({}),
     stats: z.array(z.object({ value: z.string(), label: str })).default([]),
     ship: z
-      .object({ title: str, meta: str, rows: z.array(z.object({ name: z.string(), description: str, badge: str })).default([]) })
+      .object({ title: str, meta: str, rows: z.array(z.object({ name: z.string(), description: str, badge: str, href: str })).default([]) })
       .default({}),
     involves: z.array(row2).default([]),
     stepsLede: str,
@@ -120,4 +123,53 @@ const team = defineCollection({
   }),
 });
 
-export const collections = { caseStudies, blog, networks, team };
+// One page per open-source tool (/open-source/<id>), laid out like a case
+// study. Figures carry their as-of date and follow the counting rules shown
+// on /open-source#how-we-count.
+const tools = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/tools' }),
+  schema: z.object({
+    draft: z.boolean().default(false),
+    name: z.string(), // "Scaffold Stellar"
+    order: z.number().default(100),
+    network: str, // "Stellar", "XRPL and Stellar"
+    category: str, // eyebrow and index card tag: "Developer tooling", "Wallet"...
+    title: z.string(), // page heading
+    metaTitle: str, // <title>; defaults to "<name>: <category> | The Aha Company"
+    description: str, // meta description; defaults to the lede
+    lede: str,
+    summary: str, // one line on the /open-source index card
+    headline: z.object({ figure: str, label: str }).default({}), // index card figure
+    facts: z.array(z.object({ label: z.string(), value: str, live: z.boolean().default(false) })).default([]),
+    metrics: z.array(z.object({ figure: str, label: str, receipt: str })).default([]),
+    visual: z
+      .object({
+        kind: z.enum(['image', 'code', 'bars', '']).default(''),
+        image: str,
+        alt: str,
+        tone: z.enum(['dark', 'light']).default('dark'), // panel behind an image
+        filename: str, // code
+        code: str,
+        title: str, // bars
+        bars: z.array(z.object({ label: z.string(), sub: str, value: z.number(), display: str, highlight: z.boolean().default(false) })).default([]),
+        caption: str,
+      })
+      .default({}),
+    sections: z.array(z.object({ id: z.string(), title: z.string(), body: str })).default([]),
+    tech: z.array(z.string()).default([]),
+    receipts: str, // Markdown list of links
+    built: z.array(z.string()).default([]), // team member slugs, in credit order
+    builtNote: str, // credit not on a team page
+    related: z.array(z.string()).default([]), // other tool ids
+    cta: str,
+    // Structured data (schema.org SoftwareSourceCode). maintainer: who owns
+    // the tool when it is not The Aha Company (we are then a contributor).
+    maintainer: str,
+    maintainerType: z.enum(['Organization', 'Person']).default('Organization'),
+    repo: str,
+    license: str, // SPDX id when known
+    languages: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { caseStudies, blog, networks, team, tools };

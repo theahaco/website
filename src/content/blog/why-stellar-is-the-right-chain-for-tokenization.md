@@ -15,6 +15,7 @@ relatedWorkLabel: EURCV, a regulated euro stablecoin on Stellar
 audience: Institutions
 network: Stellar
 order: 3
+description: 'For a regulated issuer, the right chain is where controls are part of the ledger and custodians and counterparties already are. Why Stellar fits.'
 ---
 ## The controls are part of the ledger
 

@@ -7,6 +7,7 @@ import { initForms } from './form.js';
 import { initWork } from './work.js';
 import { initIntegrate } from './integrate.js';
 import { initShare, initBackLink } from './article.js';
+import { initAnalytics } from './analytics.js';
 
 function initMenu() {
   const btn = document.querySelector('.nav_menu-btn');
@@ -27,3 +28,4 @@ initWork();
 initIntegrate();
 initShare();
 initBackLink();
+initAnalytics();
