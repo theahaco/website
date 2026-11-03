@@ -7,7 +7,9 @@ import { homeFeaturedCases, homeNdaCases, homeArticles } from '../data/curation'
 const all = await caseStudies();
 const featured = pick(all, homeFeaturedCases);
 const nda = pick(all, homeNdaCases);
-const articles = pick(await posts(), homeArticles);
+// The three most recent articles, unless curation.ts pins a selection.
+const allPosts = await posts();
+const articles = homeArticles.length ? pick(allPosts, homeArticles) : allPosts.slice(0, 3);
 const toolList = await tools();
 import { site as siteData } from '../data/site';
 const production = !Astro.site || Astro.site.origin === siteData.productionOrigin;

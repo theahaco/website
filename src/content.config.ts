@@ -5,7 +5,16 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const str = z.string().default('');
+// Text fields are forgiving, so files edited by hand on GitHub still build:
+// a number (year: 2026) becomes text, an empty value (caption:) becomes '',
+// and a date written 2026-11-20 becomes "November 20, 2026".
+const toText = (v: unknown) => {
+  if (v === null || v === undefined) return undefined;
+  if (v instanceof Date) return v.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
+  return v;
+};
+const str = z.preprocess(toText, z.string().default(''));
 const quote = z
   .object({
     label: str, // small tag above the quote ("Placeholder quote" until approved)

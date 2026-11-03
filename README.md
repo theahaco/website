@@ -34,6 +34,8 @@ Node 22.23 or newer.
 
 ## Editing content
 
+**To add an article, a case study, a tool page or a team member without touching code, follow [`docs/CONTENT.md`](docs/CONTENT.md)** (step by step from the GitHub website, with templates in [`docs/templates/`](docs/templates/)).
+
 Each case study, article, network and team member is a Markdown file. The frontmatter holds the structured fields (client, network, metrics, quote...), the body or the named Markdown fields hold the rich text. Add a file, push, and it appears everywhere it is listed (home, Work, network pages, team pages) with its own page at the matching URL.
 
 - `src/content/case-studies/<slug>.md` → `/case-studies/<slug>`

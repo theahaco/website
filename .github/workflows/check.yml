@@ -1,0 +1,28 @@
+name: Check
+
+# On every pull request: build the site and check every internal link, image
+# and anchor, so a file with an error never reaches main. Nothing is deployed.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build (as theaha.co)
+        run: npm run build
+
+      - name: Check links, images and anchors
+        run: npm run check

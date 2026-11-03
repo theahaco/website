@@ -53,8 +53,14 @@ export function isScheduled(date: string, now = new Date()): boolean {
   const d = new Date(date);
   return Boolean(date) && !Number.isNaN(d.getTime()) && d.getTime() > now.getTime();
 }
+/** Articles, newest first (by `date`; `order` only breaks ties between articles of the same day). */
+const byDateDesc = (a: Post, b: Post) => {
+  const da = new Date(a.data.date).getTime() || 0;
+  const db = new Date(b.data.date).getTime() || 0;
+  return db - da || a.data.order - b.data.order;
+};
 export async function posts() {
-  return (await getCollection('blog', (e) => !e.data.draft && !(PRODUCTION && isScheduled(e.data.date)))).sort(byOrder);
+  return (await getCollection('blog', (e) => !e.data.draft && !(PRODUCTION && isScheduled(e.data.date)))).sort(byDateDesc);
 }
 /** Links to articles not published yet become plain text (scheduled posts). */
 export function unlinkPosts(html: string, published: Set<string>): string {
