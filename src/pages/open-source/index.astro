@@ -1,11 +1,11 @@
 ---
 // Open-source index: the figures across our tools, one card per tool
 // (each tool has its own page, src/content/tools), the counting rules and
-// the smaller pieces (src/data/opensource.ts).
+// the standards and other contributions (src/data/opensource.ts).
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { standards } from '../../data/opensource';
-import { tools } from '../../lib/content';
+import { contributions } from '../../data/opensource';
+import { tools, nobr } from '../../lib/content';
 import { site } from '../../data/site';
 
 const list = await tools();
@@ -82,21 +82,29 @@ const ld = {
         </div>
       </div>
     </section>
-    <section>
+    <section data-os="contributions">
       <div class="ab_container">
-        <div class="ab_howgrid">
-          <div class="ab_howhead">
-            <h2 class="ab_h2">Standards, libraries and XRPL work</h2>
-            <p class="net_carddesc">The smaller pieces: Stellar standards we wrote, code in the official SDK, libraries the CLI depends on, and our work on the XRP Ledger.</p>
-          </div>
-          <ul class="nx_fundinglist" data-os="standards" role="list">
-            {standards.map((s) => (
-              <li class="nxjs_fundrow">
-                <div><span class="nxjs_fundname">{s.name}</span><span class="nxjs_funddesc">{s.what}</span></div>
-                <span class="nxjs_fundbadge">{s.status}</span>
-              </li>
-            ))}
-          </ul>
+        <div class="os_sthead">
+          <h2 class="ab_h2">Standards and contributions</h2>
+          <p class="os_stlede">Beyond our own tools: the standards we wrote and our code in SDKs, wallets and libraries, across the networks we work on.</p>
+        </div>
+        <div class="os_stgroups" data-os="standards">
+          {contributions.map((g) => (
+            <div class="os_stgroup">
+              <h3 class="os_stlabel">{g.title}</h3>
+              <ul class="os_stlist" role="list">
+                {g.items.map((s) => (
+                  <li class="os_stitem">
+                    {s.href
+                      ? <a class="os_stname" href={s.href}><Fragment set:html={nobr(s.name)} /><span aria-hidden="true" class="os_starrow"> ↗</span></a>
+                      : <p class="os_stname" set:html={nobr(s.name)} />}
+                    <p class="os_stwhat" set:html={nobr(s.what)} />
+                    <p class="os_stmeta">{s.network}<span aria-hidden="true"> · </span><span class="os_ststatus">{s.status}</span></p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -120,4 +128,21 @@ const ld = {
   .os_more { font-size: 14px; font-weight: 600; color: var(--deep-blue); transition: color .2s; }
   .os_count { display: flex; flex-direction: column; gap: 14px; max-width: 640px; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
   .os_count p { margin: 0; }
+  .os_sthead { display: flex; flex-direction: column; gap: 16px; max-width: 720px; }
+  .os_stlede { margin: 0; font-size: 17px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+  .os_stgroups { display: grid; grid-template-columns: minmax(0, 1fr); row-gap: 48px; }
+  .os_stlabel { margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--deep-blue); font-family: inherit; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--deep-blue); }
+  .os_stlist { margin: 0; padding: 0; list-style: none; }
+  .os_stitem { display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .os_stmeta { order: -1; margin: 0; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .os_ststatus { color: var(--green-ink); }
+  .os_stname { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.35; color: var(--deep-blue); text-decoration: none; }
+  a.os_stname:hover { color: var(--green-ink); }
+  .os_starrow { color: var(--muted); font-weight: 500; }
+  .os_stwhat { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+  @media (min-width: 992px) {
+    .os_stgroups { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; }
+    .os_stgroup:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .os_stgroup:last-child:nth-child(odd) .os_stlist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 64px; }
+  }
 </style>
