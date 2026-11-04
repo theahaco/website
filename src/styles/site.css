@@ -159,7 +159,14 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 .work_os-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
 .work_os-all{color:var(--deep-blue);font-size:14px;font-weight:500;text-decoration:none}
 .work_os-all:hover{color:#367A12}
-.work_os-name{color:var(--ink);font-weight:600}
+/* Home: the open-source block is a row of tool links; three NDA cases sit in one row on desktop. */
+.work_os-head{flex-wrap:wrap;row-gap:8px}
+.work_os-list{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.work_nda-label{text-wrap:balance}
+@media (max-width:767px){.work_os-head{display:contents}.work_os-list{order:1}.work_os-all{order:2}}
+@media (max-width:479px){.work_nda{padding:24px 20px}}
+@media (min-width:992px){.work_nda-list:has(>:nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr));column-gap:40px}}
+@media (min-width:768px) and (max-width:991px){.work_nda-list:has(>:nth-child(3):last-child){grid-template-columns:1fr}}
 .svc_casestack{display:flex;flex-direction:column;gap:16px}
 
 /* ---------------------------------------------------------------- launch fixes, November 2026 */

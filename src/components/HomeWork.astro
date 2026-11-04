@@ -81,23 +81,16 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
         </div>
       )}
       {toolList.length > 0 && (
-        <div aria-label="Open-source tools" class="work_nda" data-rv="home-tools">
+        <div aria-label="Open-source tools" class="work_nda work_os" data-rv="home-tools">
           <div class="work_os-head">
             <p class="work_nda-label">Open source · 137 projects use these tools</p>
-            <a class="work_os-all" href="/open-source">All tools ↗</a>
+            <a class="work_os-all" href="/open-source">See all tools →</a>
           </div>
-          <div class="work_nda-list" role="list">
+          <ul class="work_os-list" role="list">
             {toolList.map((tool) => (
-              <div class="work_nda-item" role="listitem">
-                <a class="w-inline-block" data-nda-link="1" href={`/open-source/${tool.id}`}>
-                  <div>
-                    <p class="work_nda-eyebrow">{tool.data.category} · {tool.data.network}</p>
-                    <p class="work_nda-body"><span class="work_os-name">{tool.data.name}</span> {tool.data.summary}</p>
-                  </div>
-                </a>
-              </div>
+              <li><a class="faq_pill" href={`/open-source/${tool.id}`}>{tool.data.name}</a></li>
             ))}
-          </div>
+          </ul>
         </div>
       )}
     </div>

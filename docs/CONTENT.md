@@ -156,5 +156,6 @@ like the article to `public/images/og/` (`what-a-bank-should-ask.png`).
 - Articles: newest first, by `date`.
 - Case studies and open-source tools on the Work page: the `order` field
   (lower first).
+- The people on a case study: its `team` list, in that order.
 - The home page selection and the team order on team pages:
   `src/data/curation.ts` (ask Enzo).

@@ -101,7 +101,7 @@ receipts: |-
 relatedService: Stablecoin issuance and governance
 team:
 - enzo-soyer
-# File names from src/content/team/ (without .md).
+# File names from src/content/team/ (without .md), in the order to show them, the lead first.
 
 quote:
   label: ''

@@ -72,6 +72,8 @@ receipts: '- [LI.FI''s Stellar documentation](https://docs.li.fi/introduction/li
 relatedService: Protocol and product integration
 team:
 - enzo-soyer
+- hugo-heer
+- pamphile-roy
 quote:
   label: ''
   text: '“The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference.”'

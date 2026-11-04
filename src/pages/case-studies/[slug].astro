@@ -5,7 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
 import { caseStudies, team, tools, networks, orderBy, md, serviceAnchor, networkMarks, publicQuote, ogImageFor, nobr } from '../../lib/content';
 import { site as siteData } from '../../data/site';
-import { moreWork, moreWorkFor, teamPanelOrder } from '../../data/curation';
+import { moreWork, moreWorkFor } from '../../data/curation';
 
 export async function getStaticPaths() {
   return (await caseStudies()).map((cs) => ({ params: { slug: cs.id }, props: { cs } }));
@@ -14,7 +14,9 @@ export async function getStaticPaths() {
 const { cs } = Astro.props;
 const d = cs.data;
 const all = await caseStudies();
-const members = orderBy(await team(), teamPanelOrder).filter((m) => d.team.includes(m.id));
+// In the order the case study lists them: the first person is the lead.
+const people = await team();
+const members = d.team.flatMap((id) => people.filter((m) => m.id === id));
 const facts = d.facts.filter((f) => f.value);
 const metrics = d.metrics.filter((m) => m.figure);
 const sections = d.sections.filter((s) => s.body.trim());

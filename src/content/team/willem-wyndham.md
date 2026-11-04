@@ -1,7 +1,7 @@
 ---
 name: Willem Wyndham
 order: 2
-role: Chief Scientist Officer
+role: Chief Science Officer
 location: United States
 focus: Smart accounts, Stellar CLI architecture
 networks: Stellar · XRPL · NEAR

@@ -40,9 +40,6 @@ export const contact = {
 
 export const calendly = {
   url: 'https://calendly.com/d/cs4b-dy3-9py/introduction-to-the-aha-company?background_color=fbfaf8&text_color=14243a&primary_color=1a3b60',
-  badgeText: 'Schedule a call',
-  badgeColor: '#367A12', // brand green, darkened so white text passes WCAG AA
-  badgeTextColor: '#ffffff',
 };
 
 // Audience analytics, loaded on the production domain only (never on the
