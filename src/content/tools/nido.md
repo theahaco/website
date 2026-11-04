@@ -89,7 +89,7 @@ sections:
   title: Security and the open launch
   body: |-
     - Open source under Apache-2.0, with 364 commits to nidohq/nido (November 2, 2026).
-    - 134 Rust tests, 91 of them with real passkey signatures and zero-knowledge proofs.
+    - 134 Rust tests (November 2, 2026), 91 of them with real passkey signatures and zero-knowledge proofs.
     - An audit preparation package in the repo: threat models (STRIDE included), security invariants, audit scope, runbooks and a mainnet readiness checklist. CoinFabrik Scout runs in CI.
     - Mainnet access stays curated until an external audit completes, and the open launch follows it.
 tech:

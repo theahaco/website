@@ -4,7 +4,7 @@ export const site = {
   name: 'The Aha Company',
   defaultTitle: 'Blockchain integration partner | The Aha Company',
   defaultDescription:
-    "Stablecoins, tokenized funds and protocol integrations on Stellar, XRPL and Canton, by core contributors to Stellar's tooling. €20M+ stablecoins issued.",
+    "Stablecoins, tokenized funds and protocol integrations on Stellar, XRPL and Canton, by core contributors to Stellar's tooling. €20M+ of EURCV issued.",
   ogImage: '/images/og-default.png',
   // Canonical address of the live site. Builds served anywhere else (the
   // github.io preview) get <meta name="robots" content="noindex"> so search

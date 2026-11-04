@@ -3,7 +3,7 @@ import { href } from './base.js';
 // Work page: Case studies / Articles views and the audience and network filters.
 // Filter values, in display order. A chip shows only when at least one item of
 // the current view matches it, so no filter leads to an empty list.
-const AUDS = ['All', 'Institutions', 'Protocols and products', 'Ecosystems and open source'];
+const AUDS = ['All', 'Financial institutions', 'Protocols and products', 'Ecosystems and open source'];
 const NETS = ['All', 'Stellar', 'XRPL', 'Canton', 'Ethereum', 'Multi-network'];
 const COPY = {
   articles: {
@@ -33,7 +33,7 @@ export function initWork() {
   const tabs = document.querySelectorAll('.wk_tab');
   // /work?for=institutions|protocols|ecosystems opens with that audience selected
   // (the Services page links there).
-  const FOR = { institutions: 'Institutions', protocols: 'Protocols and products', ecosystems: 'Ecosystems and open source' };
+  const FOR = { institutions: 'Financial institutions', protocols: 'Protocols and products', ecosystems: 'Ecosystems and open source' };
   const params = new URLSearchParams(location.search);
   const state = {
     view: params.get('view') === 'articles' && document.querySelector('.wk_tab[data-view="articles"]') ? 'articles' : 'cases',

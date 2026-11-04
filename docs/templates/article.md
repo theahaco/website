@@ -21,8 +21,8 @@ lede: 'Before a bank tokenizes deposits, three decisions shape everything else: 
 category: Institutions
 # Small label above the title: Institutions, Protocols or Ecosystems.
 
-audience: Institutions
-# Work page filter "For": Institutions, Protocols and products, or Ecosystems and open source.
+audience: Financial institutions
+# Work page filter "For": Financial institutions, Protocols and products, or Ecosystems and open source.
 
 network: Stellar
 # Work page filter "Network": Stellar, XRPL, Canton or Multi-network.

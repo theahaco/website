@@ -5,15 +5,15 @@ mark: /images/logos/logo-xrpl-transparent.webp
 markAlt: XRPL
 heading: Issue and integrate on the XRP Ledger, with the team that mentors its builders.
 metaTitle: 'XRP Ledger development and tokenization | The Aha Company'
-lede: Issued tokens and MPTs with issuer controls, credentials and permissioned domains, integrated with your custody and your systems. We design for the ledger as it is today, and keep your token model ready for the next amendments.
+lede: Issued tokens and multi-purpose tokens (MPTs) with issuer controls, credentials and permissioned domains, integrated with your custody and your systems. We design for the ledger as it is today, and keep your token model ready for the next amendments.
 secondaryCta:
   label: See the Ripple programs
   href: /case-studies/ripple
 stats:
 - value: Q4 2025
   label: Working with Ripple since
-- value: MPT
-  label: Token demo with a multisig issuer
+- value: '2'
+  label: Wallet kits that ship GhostSig by default
 - value: DevX
   label: Work on XRPL's developer experience
 ship:

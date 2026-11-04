@@ -3,7 +3,7 @@ title: Stellar Development Foundation
 metaTitle: 'Stellar Development Foundation: ecosystem tooling'
 order: 1
 eyebrow: Ecosystem · Stellar
-lede: 'We build and maintain tooling the Stellar ecosystem runs on: Stellar Scaffold, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. We take an active part in the Stellar Architect Program as experts.'
+lede: 'We build and maintain tooling the Stellar ecosystem runs on: Stellar Scaffold, the Stellar CLI plugin system, Stellar Registry and Nido, our open-source passkey wallet. Our principal engineer Fabricius Zatti is a core contributor to the Stellar Architect Program.'
 cta: Building developer tooling for an ecosystem? Talk to the team that maintains Stellar’s.
 facts:
 - label: Client
@@ -59,10 +59,10 @@ sections:
     - [Stellar Registry](/open-source/stellar-registry): an onchain package manager for Soroban contracts, audited by Veridise with no findings, on mainnet since July 2026
     - [Nido](/open-source/nido): our open-source passkey wallet, in a curated mainnet release since October 2026
     - JavaScript SDK: contract.Client and AssembledTransaction in Stellar's official SDK
-    - Standards: co-authors of SEP-53 (final) and SEP-61 (draft)
+    - Standards: co-authors of SEP-53 (final), SEP-61 and SEP-52 (drafts)
 - id: outcome
   title: Outcome
-  body: 'Every team building contracts on Stellar starts with the Stellar CLI, and Stellar Scaffold is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On November 2, 2026, 137 projects used at least one of our tools, 111 of them building on Stellar Scaffold, and the Stellar Community Fund votes its Public Goods Award on [Tansu](/open-source/tansu) ([how we count](/open-source#how-we-count)).'
+  body: 'Most teams building contracts on Stellar start with the Stellar CLI, and Stellar Scaffold is listed in the official Stellar docs. The tooling stays maintained: each public good runs on a quarterly proposal and review. On November 2, 2026, 137 projects used at least one of our tools, 111 of them building on Stellar Scaffold, and the Stellar Community Fund votes its Public Goods Award on [Tansu](/open-source/tansu) ([how we count](/open-source#how-we-count)).'
 tech:
 - Rust
 - TypeScript
@@ -97,7 +97,7 @@ ndaSummary: ''
 client: Stellar Development Foundation
 nda: false
 workTitle: Stellar Scaffold, Stellar CLI plugin system, Stellar Registry, Nido
-workLine: Tooling the Stellar ecosystem runs on, maintained as public goods; active part in the Stellar Architect Program as experts.
+workLine: Tooling the Stellar ecosystem runs on, maintained as public goods, and a core contributor to the Stellar Architect Program.
 audience: Ecosystems and open source
 network: Stellar
 year: 2021-today

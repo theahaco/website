@@ -11,7 +11,7 @@ export interface Standard {
 }
 
 export const standards: Standard[] = [
-  { name: 'SEP-53, Sign and Verify Messages', what: 'Stellar standard for signing and verifying off-chain messages. Co-authored by Pamphile Roy.', status: 'Final, June 2026', people: 'pamphile-roy' },
+  { name: 'SEP-53, Sign and Verify Messages', what: 'Stellar standard for signing and verifying offchain messages. Co-authored by Pamphile Roy.', status: 'Final, June 2026', people: 'pamphile-roy' },
   { name: 'SEP-61, Trustline Onboarder', what: 'Onboarding users to regulated assets, including assets that need issuer authorization. By Willem Wyndham, Enzo Soyer, Pamphile Roy and Hugo Heer.', status: 'Draft, merged October 2026', people: 'willem-wyndham' },
   { name: 'SEP-52, Key Sharing Method', what: 'A method for sharing Stellar keys. Co-authored by Pamphile Roy.', status: 'Draft', people: 'pamphile-roy' },
   { name: 'Contract admin and upgrades', what: 'A common admin and upgrade interface for Soroban contracts, drafted by Willem Wyndham and Pamela Selle with a Stellar Development Foundation engineer.', status: 'Draft', people: 'willem-wyndham' },

@@ -12,4 +12,4 @@ links:
   github: https://github.com/hugo-heer
   email: ''
 ---
-Hugo is a senior engineer at The Aha Company. He works on the tokenized share class we are building for a European asset manager's money-market fund, built the browser wallet for Moonlight, our privacy layer for Stellar payments, and co-authored SEP-61, the Trustline Onboarder standard.
+Hugo is a senior engineer at The Aha Company. He works on the tokenized share class we are building for a European asset manager's money market fund, built the browser wallet for Moonlight, our privacy layer for Stellar payments, and co-authored SEP-61, the Trustline Onboarder standard.

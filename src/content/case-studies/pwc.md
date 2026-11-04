@@ -73,7 +73,7 @@ client: PwC US
 nda: false
 workTitle: Co-selling alliance with PwC US
 workLine: 'Joint business relationship: PwC US''s advisory capabilities, our blockchain engineering.'
-audience: Institutions
+audience: Financial institutions
 network: Multi-network
 year: Ongoing
 shortTitle: PwC US

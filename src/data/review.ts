@@ -46,7 +46,6 @@ export const review: ReviewItem[] = [
   { page: '/about', target: '[data-ab=team]', kind: 'check', title: 'Team pages', note: 'Confirm each person is happy with their page and credits. Three photos are small (Elizabeth, Pamphile, Zach): send larger ones if you have them.' },
   { page: '/privacy', target: '[data-rv=privacy-third]', kind: 'changed', title: 'Scheduler and form', note: 'Says that the Contact page loads Calendly when it opens. Formspree is named once the form uses it.' },
   // ------------------------------------------------------------------ articles
-  { page: '/blog/scaffold-stellar-how-we-built-the-developer-toolkit', target: '.art_cover, .art_byline', kind: 'new', title: 'Date: November 4', note: 'Scheduled for Wednesday November 4, with the traction posts: on theaha.co it goes live that morning (the site rebuilds every day at 05:30 UTC). The preview shows it already.' },
   { page: '/blog/why-stellar-is-the-right-chain-for-tokenization', target: '.art_lede, .art_byline', kind: 'check', title: 'Date: November 9', note: 'Scheduled for Monday November 9. Check the market figures that day.' },
   { page: '/blog/defi-on-xrpl-compliance-liquidity-and-the-road-ahead', target: '.art_lede, .art_byline', kind: 'check', title: 'Date: November 13', note: 'Scheduled for Friday November 13. Refresh the XRPL figures (checked October 8) before then.' },
 ];

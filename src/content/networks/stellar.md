@@ -13,7 +13,7 @@ stats:
 - value: '2021'
   label: Building on Stellar since
 - value: €20M+
-  label: Regulated stablecoins issued
+  label: Regulated stablecoin issued (EURCV)
 - value: ~20%
   label: Of Stellar CLI commits, 2022 to 2025
 ship:
@@ -90,7 +90,7 @@ steps:
 proof:
   eyebrow: Precedent · Protocol · Stellar
   heading: LI.FI on Stellar
-  body: LI.FI’s routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for their existing stack.
+  body: LI.FI’s routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for its existing stack.
   caseStudy: lifi
   linkLabel: See the case study →
   quote:
@@ -123,5 +123,5 @@ card:
   line: Core contributors, Stellar Community Fund reviewers, tooling maintainers.
   logo: /images/logos/logo-light-stellar.svg
   logoAlt: Stellar
-description: 'Soroban smart contracts, tokenization and protocol integrations on Stellar, by core contributors to the Stellar CLI. We built the EURCV and LI.FI contracts.'
+description: 'Soroban smart contracts, tokenization and protocol integrations on Stellar, by core contributors to the Stellar CLI. We built EURCV''s issuance and LI.FI''s contracts.'
 ---

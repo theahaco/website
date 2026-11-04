@@ -3,7 +3,7 @@ title: LI.FI
 metaTitle: 'LI.FI on Stellar: cross-chain routing on Soroban'
 order: 2
 eyebrow: Protocol · Stellar
-lede: LI.FI's routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for their existing stack.
+lede: LI.FI's routing was built for EVM chains. Bringing it to Stellar meant writing the Soroban contracts from scratch, matching the guarantees LI.FI gives users elsewhere, with a clean surface for its existing stack.
 cta: Bringing your protocol to a new network? Talk to the engineers who did it for LI.FI.
 facts:
 - label: Client
@@ -69,7 +69,7 @@ tech:
 - Stellar Asset Contract
 - Cross-chain
 receipts: '- [LI.FI''s Stellar documentation](https://docs.li.fi/introduction/lifi-architecture/stellar-overview)'
-relatedService: Integration onto a new network
+relatedService: Protocol and product integration
 team:
 - enzo-soyer
 quote:

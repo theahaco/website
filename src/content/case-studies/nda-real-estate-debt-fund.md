@@ -3,7 +3,7 @@ title: A tokenized real estate fund, issued natively on Stellar
 metaTitle: 'Tokenized real estate fund on Stellar | The Aha Company'
 order: 7
 eyebrow: Financial institution · Stellar
-lede: A Luxembourg real estate fund is preparing to issue its partnership interests natively on Stellar, with the onchain register as its register of record. We designed its onchain issuance. In design.
+lede: A Luxembourg real estate fund is preparing to issue its partnership interests natively on Stellar, with the onchain register as its register of record. We are designing its onchain issuance.
 description: 'A tokenized real estate fund on Stellar: partnership interests issued natively, the onchain register as register of record, compliance locked in the asset.'
 cta: Bringing a fund onchain? Talk to the engineers designing one.
 facts:
@@ -67,7 +67,7 @@ sections:
     - One security audit of the full suite before mainnet
 - id: outcome
   title: Outcome
-  body: The design is complete. Delivery runs in milestones, from a compliant issuance prototype to mainnet with the first subscriptions, with one audit of the full suite before launch.
+  body: Delivery will run in milestones, from a compliant issuance prototype to mainnet with the first subscriptions, with one audit of the full suite before launch.
 tech:
 - Soroban
 - Rust
@@ -92,7 +92,7 @@ client: European real estate fund sponsor
 nda: true
 workTitle: Issuing a real estate fund natively on Stellar
 workLine: Fund interests onchain as the register of record, compliance locked in the asset. Client under NDA, in design.
-audience: Institutions
+audience: Financial institutions
 network: Stellar
 year: '2026'
 shortTitle: A tokenized real estate fund

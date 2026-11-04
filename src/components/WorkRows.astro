@@ -83,7 +83,7 @@ const toolNets = (network: string) => network.split(/,| and /).map((n) => n.trim
           <div class="work_stack">
             <div class="work_meta">
               <span class="work_eyebrow" data-row="eyebrow">{eyebrow(post.data.audience, post.data.network)}</span>
-              <span class="work_yeararrow"><span data-row="date">{formatDate(post.data.date, 'short')}</span><span> ↗</span></span>
+              <span class="work_yeararrow"><span data-row="date">{formatDate(post.data.date, 'long')}</span><span> ↗</span></span>
             </div>
             <h2 class="work_article-h3" data-row="title">{post.data.title}</h2>
             {(post.data.readMinutes || post.data.authorName) && (

@@ -80,8 +80,8 @@ sections:
   body: |-
     - The Stellar developer docs list Stellar Scaffold under Tools, with its own page.
     - OpenZeppelin’s Contracts Wizard exports any Stellar contract as a Stellar Scaffold package.
-    - PG Atlas, the Stellar Community Fund’s map of public goods, scores its adoption at 88.9, 12th of the 91 public goods it rates.
-    - 16 contributors have shipped to the main repo, including the authors of the SCF-funded Soroban SDK Tools and SoroPG.
+    - PG Atlas, the Stellar Community Fund’s map of public goods, scores its adoption at 88.9, 12th of the 91 public goods it rates (November 2, 2026).
+    - 16 contributors (November 2, 2026) have shipped to the main repo, including the authors of the SCF-funded Soroban SDK Tools and SoroPG.
 - id: history
   title: Where it came from
   body: |-

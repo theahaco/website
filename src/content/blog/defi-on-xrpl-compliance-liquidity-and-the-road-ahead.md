@@ -31,12 +31,12 @@ The native exchange and its AMM give issued tokens a market without a separate p
 
 ## What is still missing
 
-The newest pieces are not yet connected. MPTs cannot trade on the native exchange today, and credentials do not yet decide who may hold a token. Native vaults and lending, proposed to validators in January 2026, stood between 46% and 57% support on October 8, 2026, against the more than 80% an amendment needs. There is no custom logic on the main ledger, so products with bespoke rules keep them off-chain or wait for a protocol change.
+The newest pieces are not yet connected. MPTs cannot trade on the native exchange today, and credentials do not yet decide who may hold a token. Native vaults and lending, proposed to validators in January 2026, stood between 46% and 57% support on October 8, 2026, against the more than 80% an amendment needs. There is no custom logic on the main ledger, so products with bespoke rules keep them offchain or wait for a protocol change.
 
 ## How we advise issuers today
 
 - One MPT per instrument, with Require Auth as the KYC gate: the investor opts in, then the issuer approves.
-- Instrument identifiers such as the name and ISIN in the token's metadata, documents off-chain, referenced by link and hash. No investor data on the ledger.
+- Instrument identifiers such as the name and ISIN in the token's metadata, documents offchain, referenced by link and hash. No investor data on the ledger.
 - Finalize the compliance policy before issuance, because MPT settings are fixed at creation today.
 - Check that the custodian supports MPTs before choosing the token model.
 

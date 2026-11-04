@@ -40,7 +40,7 @@ Configuration lives per network, and secrets stay out of the repository. Deploym
 
 ## Release engineering
 
-Stellar Scaffold ships for six platforms from one release pipeline, and every release comes with a software bill of materials. As of October 2026 it has had 37 releases, and version 1.0 is in preparation.
+Stellar Scaffold ships for six platforms from one release pipeline, and every release comes with a software bill of materials. As of November 2, 2026, it has had 37 releases, and version 1.0 is in preparation.
 
 ## Maintained as a public good
 

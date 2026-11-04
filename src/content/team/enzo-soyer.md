@@ -14,4 +14,4 @@ links:
 ---
 Enzo leads The Aha Company's work with financial institutions and ecosystem foundations. He was engagement lead on EURCV with Société Générale-FORGE and on LI.FI's Stellar integration, and works with foundations on co-financed proposals.
 
-He reviews for the Stellar Community Fund and co-authored SEP-61, the Stellar standard for onboarding users to regulated assets. He trained in engineering and business (Centrale-ESSEC Entrepreneurs) and is based in Paris.
+He reviews for the Stellar Community Fund and co-authored SEP-61 (draft), the Trustline Onboarder standard for onboarding users to regulated assets. He trained in engineering and business (Centrale-ESSEC Entrepreneurs) and is based in Paris.

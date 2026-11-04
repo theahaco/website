@@ -46,7 +46,8 @@ const caseStudies = defineCollection({
     nda: z.boolean().default(false), // shows the "Under NDA" pill on the Work page
     workTitle: str, // Work page row title
     workLine: str, // Work page row line
-    audience: z.enum(['Institutions', 'Protocols and products', 'Ecosystems and open source', '']).default(''),
+    // Work page filter. "Institutions" (the former label) is still accepted.
+    audience: z.preprocess((v) => (v === 'Institutions' ? 'Financial institutions' : v), z.enum(['Financial institutions', 'Protocols and products', 'Ecosystems and open source', '']).default('')),
     network: str, // Stellar, XRPL, Canton, Multi-network
     year: str,
     facts: z.array(z.object({ label: z.string(), value: str, style: z.enum(['plain', 'net']).default('plain'), live: z.boolean().default(false) })).default([]), // live: green status dot

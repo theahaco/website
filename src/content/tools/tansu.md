@@ -79,7 +79,7 @@ sections:
     - Switchly DEX, Switchly
     - Stroopies, the SCF Pilots’ soulbound credential, built by our team
 
-    Tansu’s repos have 86 forks across its original and current homes. At HackMeridian 2026, Pinakion’s team designed its anonymous voting with Tansu as the first integrator.
+    Tansu’s repos have 86 forks (November 2, 2026) across its original and current homes. At HackMeridian 2026, Pinakion’s team designed its anonymous voting with Tansu as the first integrator.
 - id: history
   title: Where it came from
   body: |-

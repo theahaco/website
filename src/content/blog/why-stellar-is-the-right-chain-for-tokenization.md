@@ -12,7 +12,7 @@ coverCaption: ''
 authorBio: CEO of The Aha Company. Stellar Community Fund reviewer and co-author of SEP-61.
 relatedWork: societe-generale-forge
 relatedWorkLabel: EURCV, a regulated euro stablecoin on Stellar
-audience: Institutions
+audience: Financial institutions
 network: Stellar
 order: 2
 description: 'For a regulated issuer, the right chain is where controls are part of the ledger and custodians and counterparties already are. Why Stellar fits.'
@@ -23,11 +23,11 @@ On Stellar, a token issued with the network's built-in functions carries issuer 
 
 ## Smart contracts where the rules need them
 
-Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express, and take them off later without reissuing the asset. EURCV, Société Générale-FORGE's regulated euro stablecoin, launched with a governance layer we built on Soroban, with controls agreed with the FORGE compliance team. Its compliance now runs on the built-in controls, applied when an address is flagged, and it is still the same native Stellar asset.
+Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express, and take them off later without reissuing the asset. EURCV, Société Générale-FORGE's regulated euro stablecoin, launched with a governance layer we built on Soroban, with controls agreed with SG-FORGE’s compliance team. Its compliance now runs on the built-in controls, applied when an address is flagged, and it is still the same native Stellar asset.
 
 ## Institutions are already there
 
-Franklin Templeton brought its money market fund to Stellar in 2021, the first US-registered fund on a public blockchain. Circle issues USDC and EURC on Stellar. Ondo's USDY and PayPal's PYUSD went live in September 2025, MoneyGram's MGUSD in June 2026, and EURCV in March 2026, after Ethereum, Solana and the XRP Ledger. The register of SAFO, the overnight fund from Spiko and Amundi, lives on Ethereum and Stellar. In May 2026, DTCC and the Stellar Development Foundation announced plans to tokenize DTC-custodied assets on Stellar, targeted for the first half of 2027.
+Franklin Templeton brought its money market fund to Stellar in 2021, the first US-registered fund on a public blockchain. Circle issues USDC and EURC on Stellar. Ondo's USDY and PayPal's PYUSD went live in September 2025, MoneyGram's MGUSD in June 2026, and EURCV, announced on Stellar in March 2026, after Ethereum, Solana and the XRP Ledger. The register of SAFO, the overnight fund from Spiko and Amundi, lives on Ethereum and Stellar. In May 2026, DTCC and the Stellar Development Foundation announced plans to tokenize DTC-custodied assets on Stellar, targeted for the first half of 2027.
 
 ## Custody is not a blocker
 

@@ -79,7 +79,7 @@ client: Top US commercial bank
 nda: true
 workTitle: Internal settlement stablecoin on Stellar
 workLine: Architecture and delivery lead, embedded with the bank's engineers for five months in 2026.
-audience: Institutions
+audience: Financial institutions
 network: Stellar
 year: '2026'
 shortTitle: Internal settlement stablecoin on Stellar

@@ -26,8 +26,8 @@ ndaSummary: ''
 
 workTitle: A regulated stablecoin on Stellar
 workLine: 'One line for the Work page list.'
-audience: Institutions
-# Work page filter: Institutions, Protocols and products, or Ecosystems and open source.
+audience: Financial institutions
+# Work page filter: Financial institutions, Protocols and products, or Ecosystems and open source.
 network: Stellar
 # Stellar, XRPL, Canton or Multi-network.
 year: 2026
