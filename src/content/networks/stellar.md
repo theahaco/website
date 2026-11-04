@@ -7,8 +7,8 @@ heading: Issue assets and integrate protocols on Stellar, with the team that mai
 metaTitle: Stellar and Soroban development company | The Aha Company
 lede: Stablecoins, tokenized assets and protocol integrations on Stellar. Native Soroban contracts, adapters and SDKs matched to the guarantees you already give users.
 secondaryCta:
-  label: See the LI.FI case
-  href: /case-studies/lifi
+  label: See the EURCV case
+  href: /case-studies/societe-generale-forge
 stats:
 - value: '2021'
   label: Building on Stellar since
@@ -20,6 +20,18 @@ ship:
   title: What we ship on Stellar
   meta: Public goods and production
   rows:
+  - name: EURCV
+    description: Issuance and governance for SG-FORGE
+    badge: Live on mainnet
+    href: /case-studies/societe-generale-forge
+  - name: Settlement stablecoin
+    description: Top US commercial bank, architecture and delivery lead
+    badge: Live on mainnet
+    href: /case-studies/nda-settlement-stablecoin
+  - name: LI.FI contracts
+    description: Soroban contracts behind the Stellar integration
+    badge: Live on mainnet
+    href: /case-studies/lifi
   - name: Stellar CLI
     description: Plugin system and bindings
     badge: Core contributor
@@ -48,14 +60,6 @@ ship:
     description: Onchain governance the Stellar Community Fund votes on
     badge: Mainnet
     href: /open-source/tansu
-  - name: EURCV
-    description: Issuance and governance for SG-FORGE
-    badge: Live on mainnet
-    href: /case-studies/societe-generale-forge
-  - name: LI.FI contracts
-    description: Soroban contracts behind the Stellar integration
-    badge: Live on mainnet
-    href: /case-studies/lifi
 involves:
 - title: Contracts
   description: Soroban contracts written for Stellar’s resource model, not ported from EVM. Role and authorization patterns that match Stellar’s account model.
@@ -65,6 +69,10 @@ involves:
   description: Path payments, the Stellar DEX and anchors where they apply; liquidity plans agreed with the ecosystem where a program is involved.
 - title: Onboarding and wallets
   description: Passkey and smart-account flows, custodian integration where users are institutions, fiat rails through anchors.
+- title: Issuer controls
+  description: Compliance on Stellar’s built-in issuer controls, as EURCV runs today. A flagged address is frozen, with no contract in the transfer path.
+- title: Mint, burn and custody
+  description: Minting and redemption tied to your core banking, keys in your own custody setup, as for a top US commercial bank.
 stepsLede: Four milestones, each with an output your team can verify.
 steps:
 - title: Roadmap

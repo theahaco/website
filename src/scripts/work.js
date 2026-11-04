@@ -31,9 +31,13 @@ export function initWork() {
   const countEl = document.querySelector('[data-wk="count"]');
   const emptyEl = document.querySelector('[data-wk="empty"]');
   const tabs = document.querySelectorAll('.wk_tab');
+  // /work?for=institutions|protocols|ecosystems opens with that audience selected
+  // (the Services page links there).
+  const FOR = { institutions: 'Institutions', protocols: 'Protocols and products', ecosystems: 'Ecosystems and open source' };
+  const params = new URLSearchParams(location.search);
   const state = {
-    view: new URLSearchParams(location.search).get('view') === 'articles' && document.querySelector('.wk_tab[data-view="articles"]') ? 'articles' : 'cases',
-    aud: 'All',
+    view: params.get('view') === 'articles' && document.querySelector('.wk_tab[data-view="articles"]') ? 'articles' : 'cases',
+    aud: FOR[params.get('for')] || 'All',
     net: 'All',
   };
 
@@ -43,9 +47,10 @@ export function initWork() {
     vals.forEach((v) => {
       const b = document.createElement('button');
       b.type = 'button';
-      b.className = 'wk_chip' + (v === 'All' ? ' is-on' : '');
+      const on = v === state[group];
+      b.className = 'wk_chip' + (on ? ' is-on' : '');
       b.textContent = v;
-      b.setAttribute('aria-pressed', v === 'All' ? 'true' : 'false');
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
       b.setAttribute('data-val', v);
       b.addEventListener('click', () => {
         state[group] = v;

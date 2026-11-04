@@ -23,7 +23,7 @@ facts:
   value: '2026'
   style: plain
 - label: Engagement
-  value: Embedded architecture lead
+  value: Architecture lead with the bank’s engineers
   style: plain
 hero:
   image: /images/cases/nda-settlement-stablecoin.webp

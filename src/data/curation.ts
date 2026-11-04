@@ -6,7 +6,7 @@
 export const homeFeaturedCases = ["stellar-development-foundation", "lifi", "ripple", "societe-generale-forge", "pwc"];
 
 /** Home page, "Client under NDA" block under the case studies. */
-export const homeNdaCases = ["nda-real-estate-debt-fund", "nda-money-market-fund"];
+export const homeNdaCases = ["nda-settlement-stablecoin", "nda-money-market-fund", "nda-real-estate-debt-fund"];
 
 /** "More work" at the bottom of a case study: two other case studies, those for
  * the same audience first, in this order. Alliances (PwC US) are never listed. */

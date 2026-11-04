@@ -132,7 +132,7 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
           )}
           {members.length > 0 && (
             <div class="cs_teamcard" data-cs="team-card">
-              <p class="cs_cardlabel">Team on this engagement</p>
+              <p class="cs_cardlabel">{members.length === 1 ? 'Engagement lead' : 'Team on this engagement'}</p>
               <div class="w-dyn-list">
                 <div class="cs_teamlist w-dyn-items" role="list">
                   {members.map((m) => (

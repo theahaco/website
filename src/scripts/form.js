@@ -28,6 +28,14 @@ export function initForms(root = document) {
     if (answers.length && message && !message.value) {
       message.value = `From the Integrate page:\n${answers.join('\n')}\n\n`;
     }
+    // Calendly fills its first invitee question from a1, so the call starts
+    // with the same answers (ignored if the event asks no question).
+    const cal = document.querySelector('.calendar_widget iframe');
+    if (answers.length && cal) {
+      const u = new URL(cal.src);
+      u.searchParams.set('a1', answers.join('\n'));
+      cal.src = u.href;
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -61,7 +69,9 @@ export function initForms(root = document) {
         // Counted only when the message actually reached the endpoint: opening
         // an email app does not mean the email was sent.
         if (delivered) track('Contact form sent');
-        form.style.display = 'none';
+        // Hide the form only once the message was delivered: after opening an
+        // email app, the visitor may still need the text they typed.
+        if (delivered) form.style.display = 'none';
         if (done) {
           done.style.display = 'block';
           done.focus();
