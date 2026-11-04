@@ -26,7 +26,8 @@ const facts = [
 const links = [
   { key: 'linkedin', label: 'LinkedIn', href: d.links.linkedin },
   { key: 'github', label: 'GitHub', href: d.links.github },
-  { key: 'email', label: 'Email', href: d.links.email },
+  // "jane@theaha.co" works as well as "mailto:jane@theaha.co".
+  { key: 'email', label: 'Email', href: d.links.email && d.links.email.includes('@') && !d.links.email.startsWith('mailto:') ? `mailto:${d.links.email}` : d.links.email },
 ].filter((l) => l.href && l.href !== '#');
 const engagements = orderBy(await caseStudies(), engagementOrder).filter((c) => c.data.team.includes(member.id));
 const writing = (await posts()).filter((p) => p.data.author === member.id);

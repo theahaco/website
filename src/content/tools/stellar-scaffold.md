@@ -1,5 +1,4 @@
 ---
-slug: stellar-scaffold
 name: Stellar Scaffold
 order: 2
 network: Stellar

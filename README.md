@@ -1,6 +1,10 @@
 # theaha.co
 
-The Aha Company website. A static site built with [Astro](https://astro.build): every push to `main` rebuilds the preview on GitHub Pages and, once the domain moves, theaha.co on Cloudflare Pages.
+The Aha Company website.
+
+> **Publishing an article, a case study or a team member?** You need no installation and no code: follow [Publishing on theaha.co](docs/CONTENT.md), from the GitHub website.
+
+The rest of this page is for developers. A static site built with [Astro](https://astro.build): every push to `main` rebuilds the preview on GitHub Pages and theaha.co on Cloudflare Pages.
 
 It started as a rebuild of a Webflow design: same pages, URLs, copy, design and behavior, with the Webflow runtime and CMS replaced by plain HTML, a few small scripts and Markdown content files.
 
@@ -34,7 +38,7 @@ Node 22.23.4 or newer (24 recommended: `.nvmrc`).
 
 ## Editing content
 
-**To add an article, a case study, a tool page or a team member without touching code, follow [`docs/CONTENT.md`](docs/CONTENT.md)** (step by step from the GitHub website, with templates in [`docs/templates/`](docs/templates/)).
+The step-by-step guide for non-developers is [`docs/CONTENT.md`](docs/CONTENT.md), with templates in [`docs/templates/`](docs/templates/). `scripts/check-content.mjs` runs before every build: it explains content mistakes in plain words, with the file and the line (shown on the pull request on GitHub).
 
 Each case study, article, network and team member is a Markdown file. The frontmatter holds the structured fields (client, network, metrics, quote...), the body or the named Markdown fields hold the rich text. Add a file, push, and it appears everywhere it is listed (home, Work, network pages, team pages) with its own page at the matching URL.
 
@@ -44,7 +48,7 @@ Each case study, article, network and team member is a Markdown file. The frontm
 - `src/content/team/<slug>.md` → `/team/<slug>`
 - `src/content/tools/<slug>.md` → `/open-source/<slug>` (one page per open-source tool: facts, dated figures with receipts, a visual from `public/images/tools/`, the story, builders; team pages list the tools each person is credited for)
 
-Set `draft: true` in the frontmatter to keep an item out of the build. A `description` field (160 characters at most) sets what search engines show; without it, the lede is used.
+Set `draft: true` in the frontmatter to keep an item off the site. The file stays public on GitHub, and it must still be valid: a draft with an error stops the build. A `description` field (160 characters at most) sets what search engines show; without it, the lede is used.
 
 Testimonials still waiting for approval carry the quote label `Placeholder quote`: the preview shows them, the production build never does (the slot keeps the logo, labelled “Client”).
 

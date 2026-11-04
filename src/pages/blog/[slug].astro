@@ -4,7 +4,7 @@
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { posts, team, formatDate, parseDate, ogImageFor } from '../../lib/content';
+import { posts, team, formatDate, parseDate, ogImageFor, coverFor } from '../../lib/content';
 import { siteUrl, ld } from '../../lib/ld';
 
 export async function getStaticPaths() {
@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const d = post.data;
+const cover = coverFor(post.id, d.cover);
 const { Content, headings } = await render(post);
 const toc = headings.filter((h) => h.depth === 2);
 const author = d.author ? (await team()).find((m) => m.id === d.author) : undefined;
@@ -31,12 +32,12 @@ const articleLd = ld({
   url: pageUrl,
   mainEntityOfPage: pageUrl,
   datePublished: published,
-  image: d.cover ? new URL(d.cover.replace(/^\//, ''), base).href : undefined,
+  image: cover ? new URL(cover.replace(/^\//, ''), base).href : undefined,
   author: d.authorName ? { '@type': 'Person', name: d.authorName, url: d.author ? new URL(`team/${d.author}/`, base).href : undefined } : undefined,
   publisher: { '@type': 'Organization', '@id': base + '#organization', name: 'The Aha Company', url: base },
 });
 ---
-<BaseLayout title={title} description={d.description || d.lede || undefined} image={ogImageFor(post.id) || d.cover || undefined} imageAlt={d.title} ogType="article" publishedTime={publishedAt}>
+<BaseLayout title={title} description={d.description || d.lede || undefined} image={ogImageFor(post.id) || cover || undefined} imageAlt={d.title} ogType="article" publishedTime={publishedAt}>
   <Fragment slot="head"><script type="application/ld+json" set:html={articleLd} /></Fragment>
   <main>
     <article>
@@ -65,10 +66,12 @@ const articleLd = ld({
           </div>
         </div>
       </div>
-      <figure class="art_cover">
-        {d.cover && <img alt="" class="art_cover-img" src={d.cover} />}
-        {d.coverCaption && <figcaption class="art_cover-caption">{d.coverCaption}</figcaption>}
-      </figure>
+      {cover && (
+        <figure class="art_cover">
+          <img alt="" class="art_cover-img" src={cover} />
+          {d.coverCaption && <figcaption class="art_cover-caption">{d.coverCaption}</figcaption>}
+        </figure>
+      )}
       <div class="art_grid">
         <aside aria-label="In this article" class="art_rail" style={toc.length ? undefined : 'display:none'}>
           <p class="art_rail-label">In this article</p>
@@ -79,16 +82,18 @@ const articleLd = ld({
         <div class="blog_richtext w-richtext"><Content /></div>
         <div class="art_footer">
           <div class="art_authorcard">
-            <img alt="" class="art_avatar48" src={portrait || ''} />
+            {portrait && <img alt="" class="art_avatar48" src={portrait} />}
             <div>
               {d.authorName && <p class="art_author-name">{d.authorName}</p>}
               {d.authorBio && <p class="art_bio">{d.authorBio}</p>}
             </div>
           </div>
-          <div class="art_related">
-            <p class="work_eyebrow">Related work</p>
-            {d.relatedWorkLabel && <a class="art_related-link" href={d.relatedWork ? `/case-studies/${d.relatedWork}` : '/#work'}>{d.relatedWorkLabel}</a>}
-          </div>
+          {d.relatedWorkLabel && (
+            <div class="art_related">
+              <p class="work_eyebrow">Related work</p>
+              <a class="art_related-link" href={d.relatedWork ? `/case-studies/${d.relatedWork}` : '/#work'}>{d.relatedWorkLabel}</a>
+            </div>
+          )}
         </div>
       </div>
     </article>

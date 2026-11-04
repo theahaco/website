@@ -1,112 +1,160 @@
-# Adding and editing content
+# Publishing on theaha.co
 
-Everything on theaha.co that changes often is a Markdown file in this repo:
-articles, case studies, open-source tool pages and team members. You can add
-one from the GitHub website, without installing anything. When the change
-reaches the `main` branch, the site rebuilds and publishes itself in about two
-minutes.
+Articles, case studies and team members are text files in this repository.
+You add them from the GitHub website: nothing to install, no code. Every
+change goes through a pull request: you see a preview, someone checks it,
+then it goes live.
 
-| To add | Put the file in | It appears at | Start from |
-| --- | --- | --- | --- |
-| An article | `src/content/blog/` | `/blog/<file-name>` | [`docs/templates/article.md`](templates/article.md) |
-| A case study | `src/content/case-studies/` | `/case-studies/<file-name>` | [`docs/templates/case-study.md`](templates/case-study.md) |
-| An open-source tool | `src/content/tools/` | `/open-source/<file-name>` | [`docs/templates/tool.md`](templates/tool.md) |
-| A team member | `src/content/team/` | `/team/<file-name>` | [`docs/templates/team-member.md`](templates/team-member.md) |
+## Before you start
 
-Images go in `public/images/` (covers in `covers/`, case study headers in
-`cases/`, team photos in `team/`, images inside articles in `blog/<file-name>/`)
-and are written in the files as `/images/...`.
+- **Ask Enzo for Write access** to `theahaco/website`. Without it, GitHub
+  saves your work in a copy of the site (a "fork") and there is no preview.
+- **This repository is public.** Anyone can read every file, every pull
+  request and every older version, even after a file is deleted or set to
+  `draft: true`. Never write a client under NDA, a price or anything
+  confidential here, not even for a minute.
 
-**Share image (optional).** What LinkedIn, X or Slack show when someone shares
-the page: a 1200 × 630 PNG named after the file, in `public/images/og/` (for
-example `public/images/og/your-article-slug.png`). Nothing to declare: the page
-uses it as soon as the file exists. Without one, the page shares its cover or
-header image.
+## Publish an article
 
-## Publish an article from the GitHub website
+### 1. Prepare the text in Google Docs
 
-1. Open the template [`docs/templates/article.md`](templates/article.md), click
-   the copy button (the two squares, top right of the file).
-2. Go to `src/content/blog/`, click **Add file → Create new file**, name it
-   `your-article-slug.md` (lowercase, hyphens, no accents), paste, fill in the
-   fields between the two `---` lines and write the article below them.
-3. If you have a cover image: go to `public/images/covers/`, **Add file →
-   Upload files**, and give it the same name as the article
-   (`your-article-slug.webp`).
-4. Click **Commit changes**. To have someone review it first, choose
-   "Create a new branch and start a pull request"; the article goes live when
-   the pull request is merged.
-5. After about two minutes, check the page at `theaha.co/blog/your-article-slug`.
-   The **Actions** tab shows the build; a red cross means the file has an error
-   (see "If the build fails" below).
+- Style section headings as **Heading 2**. Do not keep the title in the
+  text: it goes in a field.
+- Once: **Tools > Preferences**, tick **Enable Markdown**.
+- Select the text from the first section to the end, right-click, **Copy as
+  Markdown**. Images do not come across: you upload them separately.
 
-The article then appears on its own, with nothing else to edit: on the Work
-page (Articles), in the home page "Selected work" (the three most recent), on
-the author's team page, under "More articles" on the other articles, and in
-the sitemap Google reads.
+### 2. Choose the file name
 
-### Schedule it
+A few words in lowercase, joined by hyphens: `what-a-bank-should-ask`. It
+becomes the address, theaha.co/blog/what-a-bank-should-ask. On your
+computer, give the cover image the same name: `what-a-bank-should-ask.jpg`
+(or `.png`: LinkedIn previews may not show `.webp`), 2520 x 1080 px, under
+300 KB. GitHub cannot rename a file while uploading it.
 
-Give it a `date` in the future. theaha.co shows it from that day (the site
-rebuilds every morning at 05:30 UTC); until then it is not on the live site.
-The date is written `November 20, 2026`.
+### 3. Create the article
 
-### Keep it as a draft
+1. Open [the article template](templates/article.md) and click **Copy raw
+   file** (two squares, top right of the file).
+2. Open [src/content/blog](../src/content/blog/) and click **Add file >
+   Create new file**.
+3. In **Name your file...**, type `what-a-bank-should-ask.md`, then paste.
+4. Between the two `---` lines, replace each example value and keep the
+   double quotes. The lines starting with `#` explain each field.
+5. Below the second `---`, replace the example text with your article.
+6. Click **Commit changes...**, choose **Create a new branch for this commit
+   and start a pull request**, click **Propose changes**, then **Create pull
+   request**.
 
-`draft: true` keeps the file out of the site entirely. Change it to `false`
-when it is ready.
+### 4. Add the cover
 
-## Edit something that is already online
+1. On the pull request, click the branch name after "from" (for example
+   `jane-patch-1`).
+2. Open `public/images/covers/`, click **Add file > Upload files** and drop
+   the image.
+3. Keep **Commit directly to the jane-patch-1 branch**, click **Commit
+   changes**.
 
-Open the file on GitHub (for example `src/content/blog/<slug>.md`), click the
-pencil icon, change the text, commit. Same for case studies, tool pages and
-team members.
+### 5. Check the preview
 
-What decides the order and the selection:
+After about two minutes the pull request shows:
 
-- Articles: newest first, by `date`.
-- Case studies on the Work page: the `order` field (lower first).
-- Case studies, clients under NDA and articles on the home page:
-  `src/data/curation.ts` (lists of file names, in display order).
-- Open-source tools: the `order` field.
-- Team: `order` on the About page, `teamPanelOrder` in `src/data/curation.ts`
-  on team pages.
+- the checks: a green tick, or a red cross (see "If the check fails");
+- a preview link from Cloudflare Pages (in its comment, or next to the
+  checks: Cloudflare Pages, Details). Open it and add
+  `/blog/what-a-bank-should-ask` to the address. The preview shows the
+  article even when its date is in the future. Numbered outlines and the
+  notes panel are Enzo's review notes: ignore them.
+
+Until theaha.co runs on Cloudflare Pages (see `docs/LAUNCH.md`) there is no
+preview link: the article shows on https://theahaco.github.io/website/ a few
+minutes after the merge.
+
+### 6. Ask for a review, then publish
+
+GitHub asks Enzo to review automatically. Once he approves, click **Merge
+pull request**, then **Confirm merge**. About two minutes later the article
+is on theaha.co: its own page, the home page (the three most recent
+articles), the Work page (Articles), the author's team page and the sitemap.
+
+## Schedule an article
+
+Set `date` to the publication day. theaha.co shows the article from 05:30
+UTC that day (6:30 in Paris in winter, 7:30 in summer); the preview shows it
+at once. To postpone it, change the date.
+
+## Change or remove a published article
+
+- **Change:** open the file, click the pencil, edit, **Commit changes...**,
+  with a pull request as above for anything more than a typo.
+- **Remove:** set `draft: true` and commit. The page disappears in about two
+  minutes and its address shows "page not found". Tell Enzo if the link was
+  shared.
+- **Undo a merged pull request:** open it, click **Revert**, then merge the
+  pull request GitHub creates.
+- **Confidential content published by mistake:** remove it as above and tell
+  Enzo at once. The old version stays readable on GitHub until he deletes it
+  from the history.
+
+## If the check fails
+
+On the pull request, click **Details** next to the red cross. Each problem
+is written in plain words, with the file and the line, for example:
+
+`ERROR in src/content/blog/what-a-bank-should-ask.md, line 7: This text
+contains a colon (:). Put the whole text between double quotes...`
+
+The **Files changed** tab shows the same message under the line. To fix it
+there: **...** (top right of the file), **Edit file**, correct the line,
+**Commit changes**. The checks run again. Nothing goes live while a check is
+red.
+
+## Images inside an article
+
+Name each image after the article, with a number
+(`what-a-bank-should-ask-1.webp`), upload it to `public/images/blog/` on your
+branch (as in step 4), and write this on its own line in the article:
+
+`![What the image shows](/images/blog/what-a-bank-should-ask-1.webp)`
+
+## Add a team member
+
+Same steps with [the team template](templates/team-member.md): the file
+`src/content/team/jane-doe.md` (first and last name), the photo
+`public/images/team/jane-doe.webp` (square, at least 400 x 400 px). The
+person then appears on About and on every team page.
+
+## Add a case study
+
+Same steps with [the case study template](templates/case-study.md): the
+file in `src/content/case-studies/`, the header image in
+`public/images/cases/` (2520 x 1080 px). Keep the spaces at the start of
+each line exactly as in the template. A case study always waits for Enzo's
+review (NDA). It appears on the Work page; Enzo decides whether it goes on
+the home page.
 
 ## Writing rules
 
-Before publishing, check:
-
-- **Clients under NDA stay anonymous.** No name, logo, city or figure that
-  identifies them, in the text, the file name, the image or its alt text.
+- **Clients under NDA stay anonymous**: no name, logo, city or figure that
+  identifies them, in the text, the file name, an image or its description.
 - **No prices**, rates, budgets, proposal amounts or grant amounts.
-- **PwC US**: describe it only as a co-selling alliance (joint business
-  relationship), never as a partner.
+- **PwC US**: only a co-selling alliance, never a partner.
 - **Figures carry a date or a source** ("111 projects, November 2, 2026").
-- **Title** 60 characters or fewer, **description** 120 to 160 characters, both
-  with the words a prospect would type in Google ("tokenized deposits",
-  "Stellar integration"...). A long page heading can get a shorter title for
-  Google in `metaTitle`.
-- **House style:** US English, short sentences, no em-dashes (use a colon, a
+- **Title** 60 characters or fewer, **description** 120 to 160 characters,
+  with the words a prospect would type in Google.
+- **House style**: US English, short sentences, no em-dash (use a colon, a
   comma or a new sentence), "onchain" in one word.
-- **Links to our own pages** start with `/` (`/networks/stellar`), never with
-  `https://theaha.co`.
+- **Links to our own pages** start with `/` (`/networks/stellar`).
 
-## Preview before publishing
+## Share image (optional)
 
-- From GitHub: open a pull request instead of committing to `main`. The build
-  check on the pull request tells you if a file has an error.
-- On your computer (Node 22.23.4 or newer): `npm ci`, then `npm run dev` and
-  open http://localhost:4321. Pages update as you save.
+LinkedIn and X show the cover. For a better one, add a 1200 x 630 PNG named
+like the article to `public/images/og/` (`what-a-bank-should-ask.png`).
 
-## If the build fails
+## What decides the order
 
-The Actions tab shows the file and the line. The usual causes:
-
-- A value with a colon (`:`) that is not in quotes. Write
-  `title: 'Stellar: a primer'`.
-- An apostrophe inside single quotes: write it twice, `'What''s next'`.
-- A date written differently from `November 20, 2026`.
-- An author, related case study or team member that does not match a file
-  name exactly.
-- An indentation mistake in a list (`facts`, `metrics`, `sections`): keep the
-  two spaces of the template.
+- Articles: newest first, by `date`.
+- Case studies and open-source tools on the Work page: the `order` field
+  (lower first).
+- The home page selection and the team order on team pages:
+  `src/data/curation.ts` (ask Enzo).

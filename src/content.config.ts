@@ -29,7 +29,7 @@ const quote = z
   .default({});
 
 const caseStudies = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/case-studies' }),
+  loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/case-studies' }),
   schema: z.object({
     draft: z.boolean().default(false),
     title: z.string(), // page heading
@@ -63,7 +63,7 @@ const caseStudies = defineCollection({
 });
 
 const blog = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/blog' }),
   schema: z.object({
     draft: z.boolean().default(false),
     title: z.string(),
@@ -89,7 +89,7 @@ const blog = defineCollection({
 
 const row2 = z.object({ title: z.string(), description: str });
 const networks = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/networks' }),
+  loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/networks' }),
   schema: z.object({
     draft: z.boolean().default(false),
     name: z.string(),
@@ -122,7 +122,7 @@ const networks = defineCollection({
 });
 
 const team = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/team' }),
+  loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/team' }),
   schema: z.object({
     draft: z.boolean().default(false),
     name: z.string(),
@@ -141,7 +141,7 @@ const team = defineCollection({
 // study. Figures carry their as-of date and follow the counting rules shown
 // on /open-source#how-we-count.
 const tools = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/tools' }),
+  loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/tools' }),
   schema: z.object({
     draft: z.boolean().default(false),
     name: z.string(), // "Stellar Scaffold"

@@ -1,8 +1,9 @@
 ---
 # Copy this file to src/content/case-studies/<slug>.md, for example
 # src/content/case-studies/acme-bank.md -> theaha.co/case-studies/acme-bank
-# For a client under NDA, start the slug with nda- and never write the client's
-# name anywhere in the file (not in the slug, the alt text or the image either).
+# For a client under NDA, start the file name with nda- and never write the
+# client's name anywhere (file name, text, alt text, image), not even in a draft
+# or a pull request: this repository and its history are public.
 
 title: Acme Bank
 # Page heading: the client's name, or a description for a client under NDA

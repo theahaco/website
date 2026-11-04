@@ -13,6 +13,16 @@ export function ogImageFor(id: string): string | undefined {
 }
 
 /**
+ * Article cover: the `cover` field when set, otherwise the image named after
+ * the article in public/images/covers/ (webp, jpg, jpeg or png), if any.
+ */
+export function coverFor(id: string, cover = ''): string {
+  if (cover) return cover;
+  const ext = ['webp', 'jpg', 'jpeg', 'png'].find((e) => existsSync(join(process.cwd(), 'public', 'images', 'covers', `${id}.${e}`)));
+  return ext ? `/images/covers/${id}.${ext}` : '';
+}
+
+/**
  * Dates are written "November 9, 2026" in the content files. They are read as
  * UTC midnight, so a build anywhere (a laptop in Paris, CI in UTC) gives the
  * same day and the same publication time.
@@ -81,7 +91,15 @@ const byDateDesc = (a: Post, b: Post) => {
   return db - da || a.data.order - b.data.order;
 };
 export async function posts() {
-  return (await getCollection('blog', (e) => !e.data.draft && !(PRODUCTION && isScheduled(e.data.date)))).sort(byDateDesc);
+  const members = await team();
+  return (await getCollection('blog', (e) => !e.data.draft && !(PRODUCTION && isScheduled(e.data.date))))
+    .map((p) => {
+      // Name and role come from the author's team file unless the article sets them.
+      const m = members.find((x) => x.id === p.data.author);
+      if (!m) return p;
+      return { ...p, data: { ...p.data, authorName: p.data.authorName || m.data.name.replace(/ \(.*\)/, ''), authorRole: p.data.authorRole || m.data.role } };
+    })
+    .sort(byDateDesc);
 }
 /** Links to articles not published yet become plain text (scheduled posts). */
 export function unlinkPosts(html: string, published: Set<string>): string {
