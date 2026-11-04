@@ -69,7 +69,7 @@ team:
 - willem-wyndham
 quote:
   label: ''
-  text: '"They shorten our teams’ time to go live, and they bring the DevX thinking XRPL needs."'
+  text: '“They shorten our teams’ time to go live, and they bring the DevX thinking XRPL needs.”'
   author: Maxime Dienger
   role: Senior Developer Advocate, Ripple
   portrait: /images/people/maxime-dienger.webp

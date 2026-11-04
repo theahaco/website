@@ -110,6 +110,11 @@ export function initWork() {
         }
       });
     });
+    // A filter group with a single choice besides "All" is hidden, and the
+    // whole filter bar when no group is left.
+    document.querySelectorAll('[data-wk="aud"], [data-wk="net"]').forEach((g) => { g.hidden = g.querySelectorAll('.wk_chip:not([hidden])').length <= 2; });
+    const filters = document.querySelector('.wk_filters');
+    if (filters) filters.hidden = [...filters.querySelectorAll('.wk_filtergroup')].every((g) => g.hidden);
     let n = 0;
     active.querySelectorAll('.work_item').forEach((it) => {
       const okA = state.aud === 'All' || it.getAttribute('data-fa') === state.aud;

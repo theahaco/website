@@ -86,7 +86,7 @@ team:
 - fabricius-zatti
 quote:
   label: ''
-  text: '"We searched far and wide for capable teams to help us. We found one."'
+  text: '“We searched far and wide for capable teams to help us. We found one.”'
   author: Tomer Weller
   role: Chief Product Officer, Stellar Development Foundation · On the launch of Soroban
   portrait: /images/people/tomer-weller.webp

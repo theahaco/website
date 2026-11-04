@@ -213,9 +213,6 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 /* Home hero card: the open-source figure links to its counting page */
 .hero_card-footlink{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
 .hero_card-footlink:hover{color:var(--green-ink)}
-/* Anchors and focused messages land below the sticky header */
-html{scroll-padding-top:128px}
-@media (max-width:991px){html{scroll-padding-top:80px}}
 /* Radio buttons keep their size next to two-line labels */
 .form_radio-input{flex-shrink:0}
 /* Calendar fallback line above the calendar */
@@ -226,3 +223,59 @@ html{scroll-padding-top:128px}
 /* /networks: direct links under the introduction */
 .net_jump{margin:4px 0 0;color:var(--muted);font-size:15px}
 .net_jump a{color:var(--deep-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+/* ---------------------------------------------------------------- design review, November 4 */
+/* Visible focus everywhere, white on the dark bands */
+:where(a,button,summary,[tabindex]:not([tabindex="-1"])):focus-visible{outline:2px solid var(--green-ink);outline-offset:2px}
+.process_tab:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+.cta_section :focus-visible,.process_section :focus-visible,.net_route :focus-visible{outline-color:#fff}
+/* Anchors and focused messages land below the sticky header */
+html{scroll-padding-top:125px}
+@media (max-width:991px){html{scroll-padding-top:101px}}
+@media (max-width:767px){html{scroll-padding-top:81px}}
+/* Contrast on Cool Pink */
+.tm_count,.tm_gridrole{color:#56677a}
+.art_related .cs_cardlabel-green,.nx_proof .cs_eyebrow{color:#2f6e10}
+/* One left edge for every page and band; the logo mark aligned with the text */
+.nav_bar,.nav_menu,.footer_container,.cta_container,.logos_container,.section-inner,.hero_section,.contact_main,.faq_main,.art_header,.art_cover,.art_grid,.more_inner{padding-left:clamp(24px,4vw,48px);padding-right:clamp(24px,4vw,48px)}
+.nav_logo,.footer_logo{margin-left:-13px}
+@media (max-width:991px){.nav_logo,.footer_logo{margin-left:-9px}}
+@media (max-width:767px){.nav_logo{margin-left:-8px}}
+/* Hyphenated names stay on one line in display headings */
+.nobr{white-space:nowrap}
+/* Network marks in the facts: the symbol only (the name is written next to it) */
+.cs_netmark{width:16px;height:16px;object-fit:cover;object-position:left center}
+.cs_netmark[src*="xrpl"]{width:21px}
+/* Hover feedback on list rows, FAQ questions and filter chips */
+.more_title,.networks_h3,.faq_q{transition:color .2s}
+a.more_row:hover .more_title,a.networks_row:hover .networks_h3,summary.faq_q:hover{color:var(--green-ink)}
+.wk_chip:not(.is-on):hover{border-color:var(--deep-blue)}
+/* 44 px touch targets without moving anything */
+.receipt-badge,.cs_figmark{position:relative}
+.receipt-badge::after,.cs_figmark::after{content:"";position:absolute;inset:-14px}
+.art_back{padding:11px 0;margin:-11px 0}
+@media (pointer:coarse){.wk_chip,.faq_pill,.share_pill,.svc_pill{min-height:44px}}
+/* Open mobile menu: an opaque header */
+.nav_wrap:has(.nav_menu.is-open){background-color:var(--paper)}
+/* Four cards or steps: 2 x 2 or 4 in a row, never 3 + 1 */
+@media (min-width:600px){.net_cards:has(>:nth-child(4):last-child),.svc_cardgrid:has(>:nth-child(4):last-child),.nx_stepsgrid,.process_steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:992px){.nx_stepsgrid,.process_steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (min-width:1200px){.net_cards:has(>:nth-child(4):last-child),.svc_cardgrid:has(>:nth-child(4):last-child){grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* "How an engagement runs": the heading gets the full width under 1200 px */
+@media (max-width:1199px){.section-inner.process_layout{grid-template-columns:1fr}.process_tabs{grid-row-start:2;grid-column-start:1;justify-self:start}.process_layout .work_panels{grid-row-start:3;grid-column:1/-1}}
+/* Work rows on phones: the number above the text, not in a column */
+@media (max-width:767px){.work_case-link,.work_article-link{grid-template-columns:minmax(0,1fr);row-gap:6px}.work_num{padding-top:0}}
+.faq_pill{font-size:14px;white-space:nowrap}
+.wk_filters[hidden],.wk_filtergroup[hidden]{display:none}
+/* Testimonials: portrait next to the name, attributions aligned */
+.nx_quoteattr{text-align:left}
+.cs_quoteattrib:has(.cs_quoteavatar){display:flex;align-items:center;gap:12px}
+.cs_quoteavatar{width:40px;height:40px;border-radius:999px;object-fit:cover;flex-shrink:0}
+/* Arrows stay with their last word */
+.art_related-link::after{content:"\00a0\2197"}
+.work_os-all{white-space:nowrap;flex-shrink:0}
+/* Status dot and network mark on the first line of a two-line value */
+.cs_dd-net{align-items:flex-start}
+.cs_dd-net .cs_dot{margin-top:8px}
+.cs_dd-net .cs_netmark{margin-top:4px}
+/* Case study header images on phones: square, on the diagram (the title is already the H1) */
+@media (max-width:767px){.cs_heroimg{aspect-ratio:1/1;object-fit:cover;object-position:100% 50%}}

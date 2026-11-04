@@ -1,7 +1,7 @@
 ---
 // Home page "Selected work": case studies tab (with quotes and the NDA block)
 // and articles tab. Webflow tabs markup, driven by src/scripts/tabs.js.
-import { caseStudies, posts, tools, pick, publicQuote } from '../lib/content';
+import { caseStudies, posts, tools, pick, publicQuote, nobr } from '../lib/content';
 import { homeFeaturedCases, homeNdaCases, homeArticles } from '../data/curation';
 
 const all = await caseStudies();
@@ -38,7 +38,7 @@ const production = !Astro.site || Astro.site.origin === siteData.productionOrigi
                         {!cs.data.alliance && <div aria-hidden="true" class="work_arrow">↗</div>}
                       </div>
                     </div>
-                    <h3 class="work_h3">{cs.data.title}</h3>
+                    <h3 class="work_h3" set:html={nobr(cs.data.title)} />
                     {cs.data.lede && <p class="work_para">{cs.data.lede}</p>}
                   </div>
                 </Row>

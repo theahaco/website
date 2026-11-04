@@ -95,7 +95,7 @@ proof:
   linkLabel: See the case study →
   quote:
     label: ''
-    text: '"The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference."'
+    text: '“The Aha Company built the Soroban contracts behind our Stellar integration. Working with the people who maintain the tooling made the difference.”'
     author: Max Klenk
     role: Chief Technology Officer, LI.FI
     portrait: /images/people/max-klenk.webp

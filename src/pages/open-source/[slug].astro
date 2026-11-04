@@ -3,7 +3,7 @@
 // study: facts, dated figures with receipts, a visual, the story, builders.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { tools, team, posts, networks, md, mdInline, wrapTables, unlinkPosts, networkMarks, ogImageFor } from '../../lib/content';
+import { tools, team, posts, networks, md, mdInline, wrapTables, unlinkPosts, networkMarks, ogImageFor, nobr } from '../../lib/content';
 import { site } from '../../data/site';
 
 export async function getStaticPaths() {
@@ -80,7 +80,7 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
         <div class="cs_headgrid">
           <div class="cs_intro" data-tl="intro">
             <p class="cs_eyebrow">Open source · {d.category}</p>
-            <h1 class="art_h1">{d.title}</h1>
+            <h1 class="art_h1" set:html={nobr(d.title)} />
             {d.lede && <p class="art_lede">{d.lede}</p>}
           </div>
           <dl class="cs_facts" data-tl="facts">

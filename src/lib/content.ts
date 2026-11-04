@@ -22,6 +22,9 @@ export function coverFor(id: string, cover = ''): string {
   return ext ? `/images/covers/${id}.${ext}` : '';
 }
 
+/** Title text for set:html, with hyphenated words kept on one line (no font here has a non-breaking hyphen). */
+export const nobr = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/(\S+-\S+)/g, '<span class="nobr">$1</span>');
+
 /**
  * Dates are written "November 9, 2026" in the content files. They are read as
  * UTC midnight, so a build anywhere (a laptop in Paris, CI in UTC) gives the

@@ -3,7 +3,7 @@
 // Empty fields are skipped, as the Webflow site's script did after load.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
-import { caseStudies, team, tools, networks, orderBy, md, serviceAnchor, networkMarks, publicQuote, ogImageFor } from '../../lib/content';
+import { caseStudies, team, tools, networks, orderBy, md, serviceAnchor, networkMarks, publicQuote, ogImageFor, nobr } from '../../lib/content';
 import { site as siteData } from '../../data/site';
 import { moreWork, moreWorkFor, teamPanelOrder } from '../../data/curation';
 
@@ -51,7 +51,7 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
         <div class="cs_headgrid">
           <div class="cs_intro">
             {d.eyebrow && <p class="cs_eyebrow">{d.eyebrow}</p>}
-            <h1 class="art_h1">{d.title}</h1>
+            <h1 class="art_h1" set:html={nobr(d.title)} />
             {d.lede && <p class="art_lede">{d.lede}</p>}
           </div>
           <dl class="cs_facts">
@@ -78,7 +78,7 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
           <div class="cs_quoteinner">
             <p class="cs_quotelabel">{quote.label}</p>
             <blockquote class="cs_quote">{quote.text}</blockquote>
-            <p class="cs_quoteattrib"><span data-cs="q-author">{quote.author}</span><span>, </span><span data-cs="q-role">{quote.role}</span></p>
+            <p class="cs_quoteattrib">{quote.portrait && <img alt="" class="cs_quoteavatar" height="40" loading="lazy" src={quote.portrait} width="40" />}<span><span data-cs="q-author">{quote.author}</span>, <span data-cs="q-role">{quote.role}</span></span></p>
           </div>
         </section>
       ) : d.hero.image && (
