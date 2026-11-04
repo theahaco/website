@@ -30,8 +30,8 @@ export const footerLinks = [
 export const contact = {
   email: 'hello@theaha.co',
   github: 'https://github.com/theahaco',
-  // Company LinkedIn page (the one linked from the current theaha.co footer).
-  linkedin: 'https://www.linkedin.com/company/aha-labs-dev',
+  // Company LinkedIn page.
+  linkedin: 'https://www.linkedin.com/company/theahaco',
   // Endpoint that receives the contact form as a POST (Formspree, Basin,
   // Getform, a Worker...). While empty, the form opens the visitor's email
   // client with the message prefilled, addressed to `email` above.
