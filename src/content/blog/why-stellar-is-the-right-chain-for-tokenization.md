@@ -23,7 +23,7 @@ On Stellar, a token issued with the network's built-in functions carries issuer 
 
 ## Smart contracts where the rules need them
 
-Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express. For EURCV, Société Générale-FORGE's regulated euro stablecoin, we built the Soroban contracts that govern it, with controls agreed with the FORGE compliance team. EURCV stays a native Stellar asset.
+Since Soroban, every Stellar asset also has a smart-contract interface, the Stellar Asset Contract, so an issuer can add rules the built-in controls cannot express, and take them off later without reissuing the asset. EURCV, Société Générale-FORGE's regulated euro stablecoin, launched with a governance layer we built on Soroban, with controls agreed with the FORGE compliance team. Its compliance now runs on the built-in controls, applied when an address is flagged, and it is still the same native Stellar asset.
 
 ## Institutions are already there
 

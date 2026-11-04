@@ -1,9 +1,9 @@
 ---
 title: Internal settlement stablecoin on Stellar
-metaTitle: 'Settlement stablecoin pilot for a top US commercial bank'
+metaTitle: 'Settlement stablecoin for a top US commercial bank'
 order: 5
 eyebrow: Financial institution · Stellar
-lede: An internal settlement stablecoin for a top US commercial bank, piloted on Stellar mainnet. We led the architecture and the delivery, embedded with the bank's engineers for five months in 2026.
+lede: An internal settlement stablecoin for a top US commercial bank, live on Stellar mainnet. We led the architecture and the delivery, embedded with the bank's engineers for five months in 2026.
 cta: Issuing a stablecoin inside a bank? Talk to the engineers who architected one.
 facts:
 - label: Client
@@ -16,7 +16,7 @@ facts:
   value: Stellar
   style: net
 - label: Status
-  value: Mainnet pilot
+  value: Live
   style: net
   live: true
 - label: Year
@@ -27,11 +27,11 @@ facts:
   style: plain
 hero:
   image: /images/cases/nda-settlement-stablecoin.webp
-  alt: 'A bank’s settlement stablecoin, piloted on mainnet: two accounts settling atomically on one ledger'
+  alt: 'A bank’s settlement stablecoin, live on Stellar: two accounts settling atomically on one ledger'
   caption: ''
 metrics:
-- figure: Mainnet pilot
-  label: On Stellar from Q3 2026
+- figure: Live
+  label: On Stellar mainnet since Q3 2026
   receipt: ''
 - figure: 5 months
   label: From kickoff to handover, in 2026
@@ -55,7 +55,7 @@ sections:
     - Controls designed to the bank's compliance and custody requirements
 - id: outcome
   title: Outcome
-  body: The stablecoin is piloted on Stellar mainnet, issued and operated by the bank.
+  body: The stablecoin is live on Stellar mainnet, issued and operated by the bank.
 tech:
 - Stellar
 - Stablecoin
@@ -83,5 +83,5 @@ audience: Institutions
 network: Stellar
 year: '2026'
 shortTitle: Internal settlement stablecoin on Stellar
-description: 'A settlement stablecoin pilot on Stellar mainnet for a top US commercial bank: we led the architecture and the delivery, embedded for five months.'
+description: 'An internal settlement stablecoin for a top US commercial bank, live on Stellar mainnet: we led the architecture and the delivery, embedded for five months.'
 ---

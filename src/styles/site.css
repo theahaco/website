@@ -210,3 +210,6 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 .h1_eyebrow{display:block;font-style:normal;line-height:1.5;margin-bottom:28px}
 /* "More" rows: a long figure wraps instead of widening the page on phones */
 @media (max-width:767px){.more_meta{white-space:normal}}
+/* Home hero card: the open-source figure links to its counting page */
+.hero_card-footlink{color:inherit;text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+.hero_card-footlink:hover{color:var(--green-ink)}

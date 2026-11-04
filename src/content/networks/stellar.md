@@ -48,7 +48,7 @@ ship:
     description: Onchain governance the Stellar Community Fund votes on
     badge: Mainnet
     href: /open-source/tansu
-  - name: EURCV contracts
+  - name: EURCV
     description: Issuance and governance for SG-FORGE
     badge: Live on mainnet
     href: /case-studies/societe-generale-forge
