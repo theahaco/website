@@ -1,6 +1,7 @@
 ---
 // Network page template (Webflow collection "Networks"). A network without a
 // heading has no page yet: its URL redirects to /networks, as on Webflow.
+import Icon from '../../components/Icon.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Redirect from '../../layouts/Redirect.astro';
 import Cta from '../../components/Cta.astro';
@@ -14,6 +15,9 @@ export async function getStaticPaths() {
 
 const { net } = Astro.props;
 const d = net.data;
+// Icons for the integration items and steps (src/icons); a title without one shows none.
+const involveIcons: Record<string, string> = { Contracts: 'file-text', 'Adapters and SDKs': 'plugs-connected', 'Routing and liquidity': 'path', 'Onboarding and wallets': 'wallet', 'Issuer controls': 'shield-check', 'Mint, burn and custody': 'vault', 'Token design': 'coins', 'Compliance primitives': 'seal-check', 'Custody and keys': 'key', 'Markets and settlement': 'arrows-left-right' };
+const stepIcons: Record<string, string> = { Roadmap: 'map-trifold', Proposal: 'file-text', Build: 'wrench', Mainnet: 'rocket-launch' };
 const others = orderBy(await networks(), otherNetworksOrder).filter((n) => n.id !== net.id);
 const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteData.productionOrigin);
 ---
@@ -70,7 +74,7 @@ const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteDa
             <h2 class="ab_h2">What the integration involves</h2>
             <div class="svc_cardgrid" data-nx="involves">
               {d.involves.map((r) => (
-                <div class="ab_rolecard"><h3 class="nxjs_invh3">{r.title}</h3><p class="nxjs_invp">{r.description}</p></div>
+                <div class="ab_rolecard">{involveIcons[r.title] && <span class="v-iconbox nx_invicon"><Icon name={involveIcons[r.title]} size={26} /></span>}<h3 class="nxjs_invh3">{r.title}</h3><p class="nxjs_invp">{r.description}</p></div>
               ))}
             </div>
           </div>
@@ -86,7 +90,7 @@ const q = publicQuote(d.proof.quote, !Astro.site || Astro.site.origin === siteDa
             <ul class="nx_stepsgrid" data-nx="steps" role="list">
               {d.steps.map((s, i) => (
                 <li class="nxjs_step">
-                  <span class="nxjs_stepnum">{i + 1}</span>
+                  <span class="nx_stephead"><span class="nxjs_stepnum">{i + 1}</span>{stepIcons[s.title] && <span class="v-iconbox v-iconbox--dark v-iconbox--sm"><Icon name={stepIcons[s.title]} size={20} /></span>}</span>
                   <h3 class="nxjs_steph3">{s.title}</h3>
                   <p class="nxjs_stepbody">{s.description}</p>
                   <p class="nxjs_stepout"><span style="font-weight:600">Output: </span>{s.output}</p>

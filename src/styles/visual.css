@@ -45,3 +45,7 @@
 /* Fact labels with an icon (case study and tool pages) */
 .cs_dt:has(.cs_dticon) { display: flex; align-items: center; gap: 6px; }
 .cs_dticon { color: var(--muted); --icon-tint: var(--vibrant-green); --icon-tint-opacity: .5; }
+
+/* Network pages: icons on the integration items and the steps */
+.nx_invicon { margin-bottom: 16px; }
+.nx_stephead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
