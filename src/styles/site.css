@@ -195,7 +195,7 @@ a.work_case-link[href]:hover .work_h3{color:#367A12}
 /* Calendly inline embed: the iframe fills its 700 px box (it was 150 px tall),
    and gets the full width under 992 px (Calendly needs 320 px at least) */
 .calendar_widget .w-embed{height:100%}
-@media (max-width:991px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:991px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:479px){.card.calendar{padding:20px 8px}.card.calendar>.card_h2,.card.calendar>.calendar_fallback{padding:0 8px}}
 /* Case studies and tool pages under 992 px: each heading above its own text */
 @media (max-width:991px){.cs_section>.cs_h2{grid-row:1}.cs_section>.blog_richtext{grid-row:2}}

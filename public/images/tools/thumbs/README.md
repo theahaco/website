@@ -5,7 +5,7 @@ exactly the same name as the tool file in `src/content/tools/`: `nido.md`
 uses `nido.webp` (`.png` or `.jpg` also work).
 
 What it shows: the grid of our tools, with this tool's square in green, on
-its background color, without text. Size: 720 x 450 px, under 60 KB, the
+its background color, without text. Size: 400 x 400 px (square), under 30 KB, the
 diagram in the middle (computers show a square cut from the middle, phones a
 smaller square).
 

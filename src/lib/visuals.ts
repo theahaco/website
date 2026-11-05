@@ -2,7 +2,7 @@
 //
 // A case study, article or open-source tool shows its thumbnail when the file
 // exists: public/images/cases/thumbs/<id>.webp, covers/thumbs/<id>.webp or
-// tools/thumbs/<id>.webp (the Aha diagram alone on its background, 720 x 450,
+// tools/thumbs/<id>.webp (the Aha diagram alone on its background, 400 x 400,
 // see the README.md in each folder). Without one, a case study falls back to
 // its header image and an article to its cover, both shown by their right
 // side, where the diagram is; anything else shows an icon on its audience
@@ -49,7 +49,7 @@ const CASE_ICONS: Record<string, string> = {
   'nda-real-estate-debt-fund': 'buildings',
 };
 
-const THUMB = { width: 720, height: 450 };
+const THUMB = { width: 400, height: 400 };
 const BANNER = { width: 2520, height: 1080 };
 
 export function caseVisual(id: string, data: { audience?: string; hero?: { image?: string } }): Visual {

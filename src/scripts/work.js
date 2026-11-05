@@ -79,7 +79,7 @@ export function initWork() {
     tabs.forEach((t) => {
       const on = t.getAttribute('data-view') === state.view;
       t.classList.toggle('is-on', on);
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     document.querySelectorAll('a.nav_link, a.nav_menu-link').forEach((a) => {
       const h = a.getAttribute('href');

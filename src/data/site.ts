@@ -38,6 +38,10 @@ export const contact = {
   formEndpoint: '',
 };
 
+// Projects using our open-source tools, and the date they were counted
+// (/open-source#how-we-count). Shown on the home page and the Open source page.
+export const toolAdoption = { count: 137, date: 'November 2, 2026' };
+
 export const calendly = {
   url: 'https://calendly.com/d/cs4b-dy3-9py/introduction-to-the-aha-company?background_color=fbfaf8&text_color=14243a&primary_color=1a3b60',
 };

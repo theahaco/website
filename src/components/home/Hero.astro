@@ -6,6 +6,7 @@
 import HeroProof from './HeroProof.astro';
 import KpiBand from './KpiBand.astro';
 import NetMark from './NetMark.astro';
+import { toolAdoption } from '../../data/site';
 ---
 <section class="hero_section hero">
   <div class="hero_text">
@@ -15,7 +16,7 @@ import NetMark from './NetMark.astro';
     <ul aria-label="Key figures" class="hero_figs" role="list">
       <li><span class="hero_figv">4</span><span class="hero_figl">Networks we build on</span></li>
       <li><span class="hero_figv">20<span class="hero_figplus">+</span></span><span class="hero_figl">Deployments on mainnet</span></li>
-      <li><span class="hero_figv">137</span><span class="hero_figl">Projects using our open-source tools (<a class="hero_figlink" href="/open-source#how-we-count">how we count</a>)</span></li>
+      <li><span class="hero_figv">{toolAdoption.count}</span><span class="hero_figl">Projects using our open-source tools (<a class="hero_figlink" href="/open-source#how-we-count">how we count</a>)</span></li>
       <li><span class="hero_figv">12<span class="hero_figplus">+</span></span><span class="hero_figl">Engineers in the US, Europe and Brazil</span></li>
     </ul>
   </div>

@@ -6,7 +6,7 @@ file: `what-a-bank-should-ask.md` uses `what-a-bank-should-ask.webp` (`.png`
 or `.jpg` also work).
 
 What it shows: the diagram of the article's cover, alone on its background
-color, without title, logo or text. Size: 720 x 450 px, under 60 KB, the
+color, without title, logo or text. Size: 400 x 400 px (square), under 30 KB, the
 diagram in the middle (computers show a square cut from the middle, phones a
 wide strip).
 

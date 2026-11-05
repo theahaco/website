@@ -113,7 +113,7 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
               <li class="cs_metric">
                 <span class="cs_fig">
                   <span>{m.figure}</span>
-                  {m.receipt && <a aria-label="Receipt" class="cs_figmark" href={m.receipt}>✓</a>}
+                  {m.receipt && <a aria-label={`Receipt: ${m.label}`} class="cs_figmark" href={m.receipt}>✓</a>}
                 </span>
                 <span class="cs_metriclabel">{m.label}</span>
               </li>

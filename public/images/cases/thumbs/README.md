@@ -9,7 +9,7 @@ name.
 What it shows: the diagram of the case study's header image, alone on its
 background color. No title, logo or text (labels are unreadable this small).
 
-Size: 720 x 450 px, under 60 KB, the diagram in the middle with space around
+Size: 400 x 400 px (square), under 30 KB, the diagram in the middle with space around
 it: computers show a square cut from the middle, phones a wide strip.
 
 No thumbnail yet? Nothing breaks: the row shows the header image

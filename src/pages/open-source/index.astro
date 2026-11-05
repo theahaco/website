@@ -6,11 +6,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
 import { contributions } from '../../data/opensource';
 import { tools, nobr } from '../../lib/content';
-import { site } from '../../data/site';
+import { site, toolAdoption } from '../../data/site';
 
 const list = await tools();
 const metrics = [
-  { figure: '137', label: 'Projects using at least one of our tools (November 2, 2026)', receipt: '' },
+  { figure: String(toolAdoption.count), label: `Projects using at least one of our tools (${toolAdoption.date})`, receipt: '' },
   { figure: '~20%', label: 'Of Stellar CLI commits, 2022 to 2025', receipt: 'https://github.com/stellar/stellar-cli' },
   { figure: '125,107', label: 'Downloads of our Stellar crates since 2023 (November 2, 2026)', receipt: '' },
   { figure: '~$1.4M', label: 'Public goods funding the Stellar Community Fund voted on Tansu, Q2 to Q4 2026', receipt: 'https://app.tansu.dev' },
@@ -39,7 +39,7 @@ const ld = {
       <ul class="cs_metrics" role="list">
         {metrics.map((m) => (
           <li class="cs_metric">
-            <span class="cs_fig"><span>{m.figure}</span>{m.receipt && <a aria-label="Receipt" class="cs_figmark" href={m.receipt}>✓</a>}</span>
+            <span class="cs_fig"><span>{m.figure}</span>{m.receipt && <a aria-label={`Receipt: ${m.label}`} class="cs_figmark" href={m.receipt}>✓</a>}</span>
             <span class="cs_metriclabel">{m.label}</span>
           </li>
         ))}

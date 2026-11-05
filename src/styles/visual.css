@@ -66,3 +66,7 @@
 /* Line lengths: case lines and quotes stay readable on mid-size screens */
 .hw_link .work_para { max-width: 66ch; }
 .work_blockquote { max-width: 46ch; }
+
+/* Contact form placeholders at AA contrast; fact values (emails, URLs) wrap on small phones */
+.form_textarea::placeholder, .form_input::placeholder { color: var(--muted); }
+.cs_dd, .cs_dd-net { overflow-wrap: anywhere; }

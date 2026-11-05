@@ -6,6 +6,7 @@
 // financial institutions blue, ecosystems pink, neutral tan.
 import Icon from '../Icon.astro';
 import NetMark from './NetMark.astro';
+import { toolAdoption } from '../../data/site';
 ---
 <section aria-label="Key figures" class="kpi">
   <div class="kpi_inner">
@@ -19,9 +20,9 @@ import NetMark from './NetMark.astro';
         <p class="kpi_label">Deployments on mainnet</p>
       </li>
       <li class="kpi_cell" data-rv="stat-os">
-        <div class="kpi_top"><p class="kpi_value">137</p><span class="v-iconbox v-iconbox--pink kpi_icon"><Icon name="git-branch" size={28} /></span></div>
+        <div class="kpi_top"><p class="kpi_value">{toolAdoption.count}</p><span class="v-iconbox v-iconbox--pink kpi_icon"><Icon name="git-branch" size={28} /></span></div>
         <p class="kpi_label">Projects using our <span class="kpi_nowrap">open-source</span> tools</p>
-        <p class="kpi_meta"><span class="kpi_date kpi_nowrap">November 2, 2026</span><a class="kpi_link kpi_nowrap" href="/open-source#how-we-count">How we count<span class="kpi_linkicon"><Icon name="arrow-right" size={14} /></span></a></p>
+        <p class="kpi_meta"><span class="kpi_date kpi_nowrap">{toolAdoption.date}</span><a class="kpi_link kpi_nowrap" href="/open-source#how-we-count">How we count<span class="kpi_linkicon"><Icon name="arrow-right" size={14} /></span></a></p>
       </li>
       <li class="kpi_cell" data-rv="stat-team">
         <div class="kpi_top"><p class="kpi_value">12<span class="kpi_plus">+</span></p><span class="v-iconbox v-iconbox--tan kpi_icon"><Icon name="users-three" size={28} /></span></div>
