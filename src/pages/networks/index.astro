@@ -1,9 +1,39 @@
 ---
 // Generated from the Webflow page "/networks". Edit freely: this file is the source now.
+// The four-question route builder is filled in by src/scripts/integrate.js
+// (data-net hooks); the network cards are shared with the home page
+// (src/components/NetworkCards.astro), with this page's own lines.
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
+import NetworkCards from '../../components/NetworkCards.astro';
+import { networkMarks } from '../../lib/content';
+
+const cards = [
+  { id: 'stellar', name: 'Stellar', logo: networkMarks.Stellar, href: '/networks/stellar', cta: 'Integrate with Stellar', desc: 'Core contributors, Stellar Community Fund reviewers, tooling maintainers. EURCV and LI.FI live on mainnet.' },
+  { id: 'xrpl', name: 'XRPL', logo: networkMarks.XRPL, href: '/networks/xrpl', cta: 'Integrate with XRPL', desc: 'Ripple program partner: accelerator cohorts, hackathons, continuous work on developer experience.' },
+  { id: 'canton', name: 'Canton', logo: networkMarks.Canton, desc: 'Privacy between parties by design. Integrations in progress.' },
+  { id: 'ethereum', name: 'Ethereum', logo: networkMarks.Ethereum, desc: 'EVM counterpart for <span class="nobr">cross-chain</span> work, as in the <a class="net_inlinelink" href="/case-studies/lifi">LI.FI integration</a>.' },
+];
 ---
 <BaseLayout title={'Stellar, XRPL, Canton or Ethereum: which network fits?'} description={'Stellar, XRPL, Canton or Ethereum: four questions that shape the choice of network for a tokenized asset or an integration, and where we build.'}>
-<main data-main="1"><section><div class="svc_introcontainer"><div class="lg_header"><p class="cs_eyebrow">Integrate</p><h1 class="intro_h1">Which network fits your case?</h1><p class="art_lede">Four questions shape the choice. We do not score networks on a web page: the answer depends on your custody, your counterparties and your regulator. Pick your branches, then bring them to a thirty-minute call.</p><p class="net_jump">Already chose? <a href="/networks/stellar">Stellar</a> · <a href="/networks/xrpl">XRPL</a></p></div></div></section><section class="ab_white"><div class="net_treegrid"><ol aria-label="Questions" class="net_qs" data-net="qs" role="list"></ol><aside aria-label="Your route" class="net_route"><div class="net_routehead"><span class="net_routelabel">Your route</span><span class="net_routeprogress" data-net="progress">0 of 4</span></div><ul class="net_routelist" data-net="routelist" role="list"></ul><div class="net_routefoot"><p class="net_verdict" data-net="verdict">Pick a branch on each question. The route fills in here.</p><a class="btn-green" data-net="cta" href="/contact">Schedule a call with these answers</a><a class="net_reset w-button" data-net="reset" href="#">Start over</a></div></aside></div></section><section class="footer_section"><div class="ab_container"><div class="ab_howhead"><h2 class="ab_h2">Explore the networks we build on</h2><p class="net_carddesc">What we ship on each, how an integration runs there, and the funding programs that apply.</p></div><ul class="net_cards" data-net="cards" role="list"><li><a class="net_card w-inline-block" href="/networks/stellar"><img alt="Stellar" class="net_cardlogo" loading="lazy" src="/images/logos/logo-light-stellar.svg"/><span class="net_cardname">Stellar</span><span class="net_carddesc">Core contributors, Stellar Community Fund reviewers, tooling maintainers. EURCV and LI.FI live on mainnet.</span><span class="net_cardlink">Integrate with Stellar →</span></a></li><li><a class="net_card w-inline-block" href="/networks/xrpl"><img alt="XRP Ledger" class="net_cardlogo" loading="lazy" src="/images/logos/logo-xrpl-transparent.webp"/><span class="net_cardname">XRPL</span><span class="net_carddesc">Ripple program partner: accelerator cohorts, hackathons, continuous work on developer experience.</span><span class="net_cardlink">Integrate with XRPL →</span></a></li><li><div class="net_card net_card--plain"><img alt="Canton" class="net_cardlogo" loading="lazy" src="/images/logos/logo-light-canton.svg"/><span class="net_cardname">Canton</span><span class="net_carddesc">Privacy between parties by design. Integrations in progress.</span></div></li><li><div class="net_card net_card--plain"><img alt="Ethereum" class="net_cardlogo" loading="lazy" src="/images/logos/logo-ethereum.webp"/><span class="net_cardname">Ethereum</span><span class="net_carddesc">EVM counterpart for cross-chain work, as in the <a class="net_inlinelink" href="/case-studies/lifi">LI.FI integration</a>.</span></div></li></ul></div></section></main>
+<main data-main="1">
+  <section><div class="svc_introcontainer"><div class="lg_header"><p class="cs_eyebrow">Integrate</p><h1 class="intro_h1">Which network fits your case?</h1><p class="art_lede">Four questions shape the choice. We do not score networks on a web page: the answer depends on your custody, your counterparties and your regulator. Pick your branches, then bring them to a thirty-minute call.</p><p class="net_jump">Already chose? <a href="/networks/stellar">Stellar</a> · <a href="/networks/xrpl">XRPL</a></p></div></div></section>
+  <section class="ab_white"><div class="net_treegrid"><ol aria-label="Questions" class="net_qs" data-net="qs" role="list"></ol><aside aria-label="Your route" class="net_route"><div class="net_routehead"><span class="net_routelabel">Your route</span><span class="net_routeprogress" data-net="progress">0 of 4</span></div><ul class="net_routelist" data-net="routelist" role="list"></ul><div class="net_routefoot"><p class="net_verdict" data-net="verdict">Pick a branch on each question. The route fills in here.</p><a class="btn-green" data-net="cta" href="/contact">Schedule a call with these answers</a><a class="net_reset w-button" data-net="reset" href="#">Start over</a></div></aside></div></section>
+  <section class="footer_section">
+    <div class="ab_container">
+      <div class="net_explorehead">
+        <p class="v-eyebrow">Where we build</p>
+        <h2 class="ab_h2">Explore the networks we build on</h2>
+        <p class="net_carddesc">What we ship on each, how an integration runs there, and the funding programs that apply.</p>
+      </div>
+      <div data-net="cards"><NetworkCards items={cards} /></div>
+    </div>
+  </section>
+</main>
 <Cta heading={'Not sure which network? That is the first thing we settle.'} />
 </BaseLayout>
+
+<style>
+  .net_explorehead { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .net_explorehead .ab_h2, .net_explorehead .net_carddesc { margin: 0; }
+</style>

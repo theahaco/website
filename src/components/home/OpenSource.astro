@@ -1,0 +1,144 @@
+---
+// Home page section: the open-source band (dark), after "Selected work".
+// Tools, order, category and network come from src/content/tools; the project
+// count and its date are the ones on /open-source (#how-we-count). The phones
+// are the tool pages' own mockups, cut out of their backgrounds
+// (public/images/tools/<tool>-phone-<width>.webp, from 864 x 1668 crops).
+import Icon from '../Icon.astro';
+import { tools } from '../../lib/content';
+
+const list = await tools();
+const icons: Record<string, string> = {
+  'stellar-cli': 'terminal-window',
+  'stellar-scaffold': 'stack',
+  'stellar-registry': 'package',
+  nido: 'wallet',
+  perch: 'shield-check',
+  moonlight: 'eye-slash',
+  tansu: 'check-square-offset',
+  ghostsig: 'fingerprint',
+};
+const widths = [300, 450, 600];
+const phone = (name: string) => ({
+  src: `/images/tools/${name}-phone-450.webp`,
+  srcset: widths.map((w) => `/images/tools/${name}-phone-${w}.webp ${w}w`).join(', '),
+});
+const center = phone('scaffold-stellar');
+const left = phone('nido');
+const right = phone('stellar-registry');
+// Rendered widths: 44% (center) and 37% (sides) of a stage at most 576 px wide.
+const sizesCenter = '(min-width: 1200px) 253px, (min-width: 992px) 21vw, (min-width: 600px) 229px, 41vw';
+const sizesSide = '(min-width: 1200px) 213px, (min-width: 992px) 18vw, (min-width: 600px) 192px, 35vw';
+---
+<section class="osb" data-rv="home-tools" aria-labelledby="osb-title">
+  <div class="osb_inner">
+    <div class="osb_top">
+      <div class="osb_text">
+        <p class="v-eyebrow v-eyebrow--dark">Open source</p>
+        <h2 class="osb_h2" id="osb-title">The tooling the Stellar ecosystem runs on. <span class="osb_h2-soft">Some of it already serves XRPL.</span></h2>
+        <p class="osb_lede">We are core contributors to the official Stellar CLI and build the tools around it. Each tool has its own page, with every figure dated.</p>
+        <div class="osb_figure">
+          <p class="osb_num">137</p>
+          <div class="osb_numtext">
+            <p class="osb_numlabel">projects use our <span class="nobr">open-source</span> tools</p>
+            <p class="osb_numfoot">As of November 2, 2026</p>
+            <a class="osb_count" href="/open-source#how-we-count">How we count</a>
+          </div>
+        </div>
+      </div>
+      <div class="osb_visual" aria-hidden="true">
+        <span class="osb_glow"></span>
+        <img class="osb_phone osb_phone--l" src={left.src} srcset={left.srcset} sizes={sizesSide} width="450" height="869" alt="" loading="lazy" decoding="async" />
+        <img class="osb_phone osb_phone--r" src={right.src} srcset={right.srcset} sizes={sizesSide} width="450" height="869" alt="" loading="lazy" decoding="async" />
+        <img class="osb_phone osb_phone--c" src={center.src} srcset={center.srcset} sizes={sizesCenter} width="450" height="869" alt="" loading="lazy" decoding="async" />
+      </div>
+    </div>
+    <ul class="osb_tools" role="list">
+      {list.map((t) => (
+        <li class="osb_cell">
+          <a class="osb_tool" href={`/open-source/${t.id}`}>
+            <span class="v-iconbox v-iconbox--dark osb_icon"><Icon name={icons[t.id] ?? 'code'} size={28} /></span>
+            <span class="osb_name">{t.data.name}</span>
+            <span class="osb_meta"><span class="osb_cat">{t.data.category}<span aria-hidden="true">&nbsp;·</span></span> <span>{t.data.network}</span></span>
+            <span aria-hidden="true" class="osb_arrow">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a class="osb_all" href="/open-source">See all tools <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<style>
+  .osb { --osb-rule: rgba(255, 255, 255, .16); --osb-soft: rgba(255, 255, 255, .72); background: var(--deep-blue); color: #fff; overflow: hidden; }
+  .osb :focus-visible { outline-color: #fff; }
+  .osb_inner { display: flex; flex-direction: column; align-items: flex-start; max-width: var(--container); margin: 0 auto; padding: 120px clamp(24px, 4vw, 48px) 104px; }
+  .osb_top { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 48px; align-items: end; width: 100%; }
+
+  /* Text column */
+  .osb_text { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; padding-bottom: 48px; }
+  .osb_h2 { margin: 0; max-width: 14em; font-family: var(--font-display); font-size: 44px; font-style: italic; font-weight: 400; line-height: 1.1; letter-spacing: -.01em; color: #fff; text-wrap: balance; }
+  .osb_h2-soft { display: block; color: rgba(255, 255, 255, .6); }
+  .osb_lede { margin: 0; max-width: 30em; font-size: 17px; line-height: 1.55; color: var(--osb-soft); text-wrap: pretty; }
+  .osb_figure { display: flex; align-items: flex-end; gap: 20px; width: 100%; margin-top: 16px; padding-top: 32px; border-top: 1px solid var(--osb-rule); }
+  .osb_num { margin: 0; font-size: 96px; font-weight: 500; line-height: .8; letter-spacing: -.045em; color: #fff; }
+  .osb_numtext { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .osb_numlabel { margin: 0 0 4px; font-size: 18px; font-weight: 500; line-height: 1.3; color: #fff; text-wrap: balance; }
+  .osb_numfoot { margin: 0; font-size: 14px; line-height: 1.5; color: var(--osb-soft); }
+  .osb_count { font-size: 14px; font-weight: 500; line-height: 1.5; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .45); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+  .osb_count:hover { text-decoration-color: #fff; }
+  .osb_count { position: relative; }
+  .osb_count::after { content: ''; position: absolute; inset: -12px -8px; }
+
+  /* Phones: one stage, cut at the bottom by the top rule of the tool grid */
+  /* Sizes in % of the stage, so the composition scales as one piece; every
+     phone runs past the bottom edge, where the stage cuts it. */
+  .osb_visual { position: relative; width: 100%; aspect-ratio: 1.2; clip-path: inset(-120px -120px 0 -120px); }
+  .osb_glow { position: absolute; left: 8%; right: 8%; top: 4%; height: 96%; border-radius: 50%; background: radial-gradient(closest-side, rgba(246, 226, 255, .2), rgba(246, 226, 255, 0)); }
+  .osb_phone { position: absolute; display: block; height: auto; max-width: none; filter: drop-shadow(0 24px 40px rgba(6, 16, 32, .5)); }
+  .osb_phone--c { z-index: 2; left: 28%; top: 0; width: 44%; }
+  .osb_phone--l { z-index: 1; left: 0; top: 16%; width: 37%; }
+  .osb_phone--r { z-index: 1; right: 0; top: 16%; width: 37%; }
+
+  /* Tools: framed cells sharing their rules */
+  .osb_tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--osb-rule); border-left: 1px solid var(--osb-rule); }
+  .osb_cell { display: flex; min-width: 0; border-right: 1px solid var(--osb-rule); border-bottom: 1px solid var(--osb-rule); }
+  .osb_tool { position: relative; display: flex; flex-direction: column; gap: 6px; width: 100%; padding: 24px 24px 26px; color: #fff; text-decoration: none; transition: background-color .2s; }
+  .osb_tool:hover { background-color: rgba(255, 255, 255, .05); }
+  .osb_tool:focus-visible { outline-offset: -2px; }
+  .osb_icon { margin-bottom: 18px; }
+  .osb_name { padding-right: 24px; font-size: 18px; font-weight: 600; line-height: 1.3; }
+  .osb_meta { font-size: 14px; line-height: 1.45; color: var(--osb-soft); }
+  .osb_arrow { position: absolute; top: 22px; right: 22px; font-size: 18px; line-height: 1; color: rgba(255, 255, 255, .5); transition: color .2s, transform .2s; }
+  .osb_tool:hover .osb_arrow { color: var(--vibrant-green); transform: translate(2px, -2px); }
+  .osb_all { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; margin-top: 40px; padding: 0 24px; border: 1px solid rgba(255, 255, 255, .4); border-radius: var(--radius-sm); color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color .2s, background-color .2s; }
+  .osb_all:hover { border-color: #fff; background-color: rgba(255, 255, 255, .06); }
+
+  @media (max-width: 1199px) {
+    .osb_h2 { font-size: 40px; }
+    .osb_num { font-size: 84px; }
+  }
+  @media (max-width: 991px) {
+    .osb_inner { padding-top: 96px; padding-bottom: 96px; }
+    .osb_top { grid-template-columns: minmax(0, 1fr); }
+    .osb_h2 { font-size: 36px; }
+    .osb_text { padding-bottom: 56px; }
+    .osb_visual { justify-self: center; max-width: 520px; aspect-ratio: 1.3; }
+    .osb_tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767px) {
+    .osb_inner { padding-top: 72px; padding-bottom: 72px; }
+    .osb_h2 { font-size: 32px; }
+    .osb_num { font-size: 72px; }
+    .osb_figure { gap: 16px; padding-top: 24px; }
+    .osb_numlabel { font-size: 16px; }
+    .osb_tool { padding: 20px 18px 22px; }
+    .osb_icon { width: 40px; height: 40px; margin-bottom: 12px; border-radius: 10px; }
+    .osb_name { font-size: 16px; }
+    .osb_arrow { top: 20px; right: 16px; }
+    .osb_all { margin-top: 32px; }
+  }
+  @media (max-width: 479px) {
+    .osb_cat { display: none; }
+  }
+</style>
