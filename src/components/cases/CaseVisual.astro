@@ -28,7 +28,7 @@ const Wrap = describedby ? 'figure' : 'div';
 ---
 {v.kind === 'flow' ? (
   <Wrap aria-describedby={describedby} class:list={['cv', cls]} data-cs="visual">
-    <Flow class="cv_flow" floats={floats} label={v.label} panel={v.panel} steps={steps} />
+    <Flow class="cv_flow" floats={floats} label={v.label} panel={v.panel} planned={v.planned} steps={steps} />
   </Wrap>
 ) : (
   /* Decorative: the tools are named in the lede and in the caption */
