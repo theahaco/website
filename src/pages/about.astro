@@ -9,7 +9,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TeamGrid from '../components/TeamGrid.astro';
 import Cta from '../components/Cta.astro';
-import Session from '../components/vx2/Session.astro';
+import Terminal from '../components/vx/Terminal.astro';
 
 const how = [
   { title: 'An engineer on every call', body: 'The first conversation is thirty minutes with someone who has shipped the kind of system you are asking about. No sales team.' },
@@ -101,7 +101,7 @@ const session = [
           <p class="abr_lede">Our engineers wrote parts of the Stellar CLI that developers use every day, and maintain the tools around it. On XRPL, our architects mentor the teams in Ripple’s programs.</p>
         </div>
         <figure class="abr_visual">
-          <Session compact label="A Stellar CLI session: the CLI’s version, its installed plugins, and the versions of our Scaffold and Registry plugins" lines={session} />
+          <Terminal compact label="A Stellar CLI session: the CLI’s version, its installed plugins, and the versions of our Scaffold and Registry plugins" lines={session} />
           <figcaption class="abr_caption">A real session, recorded on November 5, 2026: the official Stellar CLI, with the two plugins we maintain running as <code>stellar</code> subcommands.</figcaption>
         </figure>
       </div>

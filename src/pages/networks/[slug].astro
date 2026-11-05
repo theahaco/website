@@ -14,7 +14,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Redirect from '../../layouts/Redirect.astro';
 import Cta from '../../components/Cta.astro';
 import Flow, { type FlowStep, type FlowFloat } from '../../components/vx/Flow.astro';
-import Session from '../../components/vx2/Session.astro';
+import Terminal from '../../components/vx/Terminal.astro';
 import { site as siteData } from '../../data/site';
 import { networks, orderBy, publicQuote, nobr } from '../../lib/content';
 import { otherNetworksOrder } from '../../data/curation';
@@ -133,7 +133,7 @@ const flow = proofFlow[net.id];
               </ul>
               {sess && (
                 <figure class="nxi_visual">
-                  <Session compact label={sess.label} lines={sess.lines} />
+                  <Terminal compact label={sess.label} lines={sess.lines} />
                   <figcaption class="nxi_caption">{sess.caption}</figcaption>
                 </figure>
               )}

@@ -7,10 +7,10 @@
 //   (<name>.webp); otherwise that panel image is shown as it is.
 // - duo: the phone and a recorded session of the tool's CLI plugin.
 // - session: a recorded session alone, on a tinted panel (Stellar CLI).
-// Sessions are copied from the captures (vx2/Session.astro), never retyped.
+// Sessions are copied from the captures (vx/Terminal.astro), never retyped.
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import Session from '../vx2/Session.astro';
+import Terminal from '../vx/Terminal.astro';
 
 interface Props {
   /** Panel image from the tool's file, e.g. /images/tools/nido.webp. */
@@ -41,7 +41,7 @@ const sizes = mode === 'duo' ? '(min-width: 1200px) 224px, 200px' : '(min-width:
   )}
   {lines.length > 0 && (
     <div class="tst_session">
-      <Session compact={mode === 'duo'} label={label} lines={lines} />
+      <Terminal compact={mode === 'duo'} label={label} lines={lines} />
     </div>
   )}
 </div>
