@@ -195,7 +195,7 @@ const session = [
   .abr_roles li::before { content: ''; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--vibrant-green); }
   .abr_roles :global(.ab_rolelink) { color: var(--deep-blue); text-decoration: underline; text-decoration-color: rgba(26, 59, 96, .35); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
   .abr_roles :global(.ab_rolelink:hover) { color: var(--green-ink); text-decoration-color: currentColor; }
-  .abr_all { display: inline-flex; align-items: center; align-self: flex-start; gap: 8px; min-height: 48px; margin-top: 32px; padding: 0 24px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--deep-blue); font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color .2s; }
+  .abr_all { display: inline-flex; align-items: center; align-self: flex-start; gap: 8px; min-height: 48px; margin-top: 32px; padding: 10px 24px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--deep-blue); font-size: 15px; font-weight: 600; line-height: 1.35; text-decoration: none; text-wrap: balance; transition: border-color .2s; }
   .abr_all:hover { border-color: var(--deep-blue); }
 
   @media (max-width: 991px) {
@@ -203,6 +203,9 @@ const session = [
     .abr_top { grid-template-columns: minmax(0, 1fr); }
     .abr_visual { max-width: 640px; }
     .abr_cells { grid-template-columns: minmax(0, 1fr); margin-top: 48px; }
+  }
+  @media (max-width: 479px) {
+    .abr_all { align-self: stretch; justify-content: center; text-align: center; }
   }
   @media (max-width: 767px) {
     .abh_row { grid-template-columns: 40px minmax(0, 1fr); padding: 24px 0 26px; }

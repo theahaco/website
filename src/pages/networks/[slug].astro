@@ -16,7 +16,7 @@ import Cta from '../../components/Cta.astro';
 import Flow, { type FlowStep, type FlowFloat } from '../../components/vx/Flow.astro';
 import Session from '../../components/vx2/Session.astro';
 import { site as siteData } from '../../data/site';
-import { networks, orderBy, publicQuote } from '../../lib/content';
+import { networks, orderBy, publicQuote, nobr } from '../../lib/content';
 import { otherNetworksOrder } from '../../data/curation';
 
 export async function getStaticPaths() {
@@ -95,7 +95,7 @@ const flow = proofFlow[net.id];
                 {d.secondaryCta.label && <a class="btn-secondary" data-nx="cta2" href={d.secondaryCta.href}>{d.secondaryCta.label}</a>}
               </div>
               {d.stats.length > 0 && (
-                <ul aria-label="Key figures" class="nx_stats" data-nx="stats" role="list">
+                <ul aria-label="Key figures" class={`nx_stats nx_stats--${d.stats.length}`} data-nx="stats" role="list">
                   {d.stats.map((s) => (
                     <li class="nxjs_stat"><span class="nxjs_statv">{s.value}</span><span class="nxjs_statl">{s.label}</span></li>
                   ))}
@@ -125,7 +125,7 @@ const flow = proofFlow[net.id];
         <section aria-labelledby="nx-involves" class="ab_white" data-nx="involves-sec">
           <div class="ab_container">
             <div class:list={['nxi', sess && 'nxi--visual']}>
-              <h2 class="ab_h2 nxi_h2" id="nx-involves">What the integration involves.{involvesSoft[net.id] && <> <span class="v-soft">{involvesSoft[net.id]}</span></>}</h2>
+              <h2 class="ab_h2 nxi_h2" id="nx-involves">What the integration involves.{involvesSoft[net.id] && <> <span class="v-soft" set:html={nobr(involvesSoft[net.id])} /></>}</h2>
               <ul class="nxi_list" data-nx="involves" role="list">
                 {d.involves.map((r) => (
                   <li class="nxi_item"><h3 class="nxi_title">{r.title}</h3><p class="nxi_desc">{r.description}</p></li>
@@ -307,6 +307,13 @@ const flow = proofFlow[net.id];
   .nxp_quotetext { margin: 0; padding: 0; border: 0; background: none; color: var(--deep-blue); font-family: var(--font-display); font-size: 22px; font-style: italic; line-height: 1.35; }
   .nxp_quotelogo { width: auto; height: 18px; margin-left: auto; }
   .nxp_visual { min-width: 0; }
+
+  /* The green eyebrow at AA contrast on the pink band of the precedent
+     (#2f6e10, the green of the site's status pills: 5.1:1) */
+  .nx_proof .cs_eyebrow { color: #2f6e10; }
+
+  /* Three key figures in one row, never two and an orphan */
+  @media (min-width: 480px) { .nx_stats--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
   @media (max-width: 991px) {
     .nxi--visual { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'head' 'visual' 'list'; grid-template-rows: auto; }
