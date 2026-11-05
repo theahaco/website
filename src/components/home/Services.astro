@@ -1,8 +1,8 @@
 ---
 // Home page section "What we do": one row per audience (the three doors of
 // /services), each with its services, their precedents and one visual drawn
-// as product UI: the controls of a regulated mint (generic, from the service
-// bullets), LI.FI on Stellar (from its case study) and a real Stellar CLI
+// as product UI: EURCV and LI.FI on Stellar (facts from their case studies:
+// societe-generale-forge.md and lifi.md) and a real Stellar CLI
 // session (recorded on Stellar CLI 30.0.1, unedited apart from cut lines,
 // marked "…"). Copy lives in ./services-data.ts, shared with /services.
 import Icon from '../Icon.astro';
@@ -103,16 +103,16 @@ const cli = [
           <div class="wd-visual">
             {r.id === 'institutions' && (
               <Flow
-                label="A mint on a regulated stablecoin, with its controls"
+                label="EURCV on Stellar, from its case study"
                 panel="blue"
                 steps={[
-                  { kind: 'anchor', icon: 'bank', title: 'Core banking', sub: 'Mint request', tone: 'tan' },
-                  { kind: 'check', title: 'Roles separated' },
-                  { kind: 'check', title: 'Holder on the allowlist' },
-                  { kind: 'check', title: 'Freeze and clawback in place' },
-                  { kind: 'anchor', icon: 'coins', title: 'Tokens issued onchain', sub: 'On Stellar or XRPL' },
+                  { kind: 'anchor', logo: { src: `${LOGOS}/logo-light-sgforge.svg`, w: 58, h: 17 }, title: 'EURCV', sub: 'Regulated euro stablecoin' },
+                  { kind: 'check', title: 'Launch governance on Soroban: issuer, compliance and pause roles' },
+                  { kind: 'check', title: 'Then compliance on Stellar’s built-in issuer controls' },
+                  { kind: 'check', title: 'Every privileged action visible on the ledger' },
+                  { kind: 'anchor', net: 'stellar', title: 'Live on Stellar', sub: 'Since Q1 2026 · €20M+ issued', status: 'Live' },
                 ]}
-                floats={[{ text: 'Controls on the asset or in contracts', at: 'top' }]}
+                floats={[{ text: 'Audited by Hacken before mainnet', at: 'top' }]}
               />
             )}
             {r.id === 'protocols' && (
@@ -122,7 +122,7 @@ const cli = [
                 steps={[
                   { kind: 'anchor', logo: { src: `${LOGOS}/logo-light-lifi.svg`, w: 44, h: 16 }, title: 'LI.FI', sub: 'Routing built for EVM chains', tone: 'green' },
                   { kind: 'check', title: 'Soroban contracts written for Stellar' },
-                  { kind: 'check', title: 'Routes run under the user’s signed authorization' },
+                  { kind: 'check', title: 'Signed authorization or a token allowance' },
                   { kind: 'check', title: 'Tokens through their Stellar Asset Contracts' },
                   { kind: 'anchor', net: 'stellar', title: 'Live on Stellar', sub: 'Cross-chain transfers', status: 'Live' },
                 ]}

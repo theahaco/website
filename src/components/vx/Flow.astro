@@ -88,7 +88,8 @@ const { label, steps, floats = [], panel = 'paper', class: cls } = Astro.props;
   .vf_tile--green { background: var(--tint-green); }
   .vf_tile--pink { background: var(--tint-pink); }
   .vf_tile--tan { background: var(--tint-tan); }
-  .vf_tile img { display: block; max-width: 44px; height: auto; }
+  .vf_tile img { display: block; max-width: 58px; height: auto; }
+  .vf_tile:has(img:not(.netmark)) { width: 72px; }
   .vf_anchor .vf_title { font-size: 16px; }
   .vf_status { display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0; height: 26px; margin-left: auto; padding: 0 11px 0 10px; border-radius: 999px; background: var(--tint-green); color: #2f6e10; font-size: 12px; font-weight: 600; line-height: 1; white-space: nowrap; }
   .vf_status .v-live { width: 7px; height: 7px; }
