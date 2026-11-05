@@ -1,0 +1,48 @@
+---
+// A terminal window with a real recorded session. A copy of vx/Terminal.astro
+// (same look) that keeps the blank lines a command prints, so --help outputs
+// read as they did on screen: there, an empty line has no height.
+// `lines` is the transcript as printed: a line starting with "$ " is a
+// command (shown after the prompt), any other line is output. Only real
+// output, copied from the captures; whole lines may be cut at the end of an
+// output, the cut marked "…". Long lines are clipped by the window, as on a
+// narrow screen.
+interface Props {
+  /** Window title. */
+  title?: string;
+  /** The prompt printed before each command. */
+  prompt?: string;
+  lines: string[];
+  /** What the session shows, for screen readers. */
+  label: string;
+  /** Smaller type, for a window that shares its panel with a phone. */
+  compact?: boolean;
+  class?: string;
+}
+const { title = 'Terminal', prompt = '~/projects $', lines, label, compact = false, class: cls } = Astro.props;
+const rows = lines.map((l) => (l.startsWith('$ ') ? { cmd: l.slice(2) } : { out: l }));
+---
+<figure aria-label={label} class:list={['vs', compact && 'vs--compact', cls]}>
+  <div aria-hidden="true" class="vs_bar"><i></i><i></i><i></i><span class="vs_title">{title}</span></div>
+  <pre class="vs_pre"><code>{rows.map((r) => r.cmd !== undefined ? <span class="vs_line"><span class="vs_prompt">{prompt}</span> <span class="vs_cmd">{r.cmd}</span></span> : <span class:list={['vs_line', 'vs_out', r.out === '…' && 'vs_cut', r.out === '' && 'vs_blank']}>{r.out}</span>)}</code></pre>
+</figure>
+
+<style>
+  .vs { margin: 0; overflow: hidden; border: 1px solid rgba(255, 255, 255, .1); border-radius: 16px; background: #0e1b2c; box-shadow: var(--shadow-2); color: #fff; }
+  .vs_bar { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-bottom: 1px solid rgba(255, 255, 255, .08); background: #13243a; }
+  .vs_bar i { width: 11px; height: 11px; border-radius: 50%; background: rgba(255, 255, 255, .18); }
+  .vs_title { flex: 1; margin-right: 49px; color: rgba(255, 255, 255, .55); font-family: var(--font-ui); font-size: 12px; font-weight: 500; text-align: center; }
+  .vs_pre { margin: 0; padding: 20px 22px 22px; overflow: hidden; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13.5px; line-height: 1.7; white-space: pre; background: none; border-radius: 0; color: inherit; }
+  .vs_pre code { font: inherit; }
+  .vs_line { display: block; overflow: hidden; text-overflow: clip; }
+  /* An empty line keeps the height of a line, as it does on screen */
+  .vs_blank { height: 1.7em; }
+  .vs_prompt { color: #8fd16a; }
+  .vs_cmd { color: #fff; }
+  .vs_out { color: rgba(255, 255, 255, .72); }
+  .vs_cut { color: rgba(255, 255, 255, .42); }
+  .vs--compact .vs_pre { padding: 18px 20px 20px; font-size: 12.5px; line-height: 1.7; }
+  @media (max-width: 479px) {
+    .vs_pre, .vs--compact .vs_pre { padding: 16px 16px 18px; font-size: 12px; }
+  }
+</style>
