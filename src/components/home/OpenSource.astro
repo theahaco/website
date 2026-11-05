@@ -84,15 +84,14 @@ const sizesSide = '(min-width: 1200px) 213px, (min-width: 992px) 18vw, (min-widt
   .osb_num { margin: 0; font-size: 96px; font-weight: 500; line-height: .8; letter-spacing: -.045em; color: #fff; }
   .osb_numtext { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
   .osb_numlabel { margin: 0 0 4px; font-size: 18px; font-weight: 500; line-height: 1.3; color: #fff; text-wrap: balance; }
-  .osb_numfoot { margin: 0; font-size: 14px; line-height: 1.5; color: var(--osb-soft); }
-  .osb_count { font-size: 14px; font-weight: 500; line-height: 1.5; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .45); text-underline-offset: 3px; transition: text-decoration-color .2s; }
+  .osb_numfoot { margin: 0; font-size: 15px; line-height: 1.5; color: var(--osb-soft); }
+  .osb_count { position: relative; font-size: 15px; font-weight: 500; line-height: 1.5; color: #fff; text-decoration: underline; text-decoration-color: rgba(255, 255, 255, .45); text-underline-offset: 3px; transition: text-decoration-color .2s; }
   .osb_count:hover { text-decoration-color: #fff; }
-  .osb_count { position: relative; }
-  .osb_count::after { content: ''; position: absolute; inset: -12px -8px; }
+  .osb_count::after { content: ''; position: absolute; inset: -12px -8px; } /* 44 px touch target */
 
-  /* Phones: one stage, cut at the bottom by the top rule of the tool grid */
-  /* Sizes in % of the stage, so the composition scales as one piece; every
-     phone runs past the bottom edge, where the stage cuts it. */
+  /* Phones: one stage, cut at the bottom by the top rule of the tool grid.
+     Sizes are in % of the stage, so the composition scales as one piece;
+     every phone runs past the bottom edge, where the stage cuts it. */
   .osb_visual { position: relative; width: 100%; aspect-ratio: 1.2; clip-path: inset(-120px -120px 0 -120px); }
   .osb_glow { position: absolute; left: 8%; right: 8%; top: 4%; height: 96%; border-radius: 50%; background: radial-gradient(closest-side, rgba(246, 226, 255, .2), rgba(246, 226, 255, 0)); }
   .osb_phone { position: absolute; display: block; height: auto; max-width: none; filter: drop-shadow(0 24px 40px rgba(6, 16, 32, .5)); }
@@ -108,11 +107,15 @@ const sizesSide = '(min-width: 1200px) 213px, (min-width: 992px) 18vw, (min-widt
   .osb_tool:focus-visible { outline-offset: -2px; }
   .osb_icon { margin-bottom: 18px; }
   .osb_name { padding-right: 24px; font-size: 18px; font-weight: 600; line-height: 1.3; }
-  .osb_meta { font-size: 14px; line-height: 1.45; color: var(--osb-soft); }
+  .osb_meta { font-size: 15px; line-height: 1.45; color: var(--osb-soft); }
   .osb_arrow { position: absolute; top: 22px; right: 22px; font-size: 18px; line-height: 1; color: rgba(255, 255, 255, .5); transition: color .2s, transform .2s; }
   .osb_tool:hover .osb_arrow { color: var(--vibrant-green); transform: translate(2px, -2px); }
   .osb_all { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; margin-top: 40px; padding: 0 24px; border: 1px solid rgba(255, 255, 255, .4); border-radius: var(--radius-sm); color: #fff; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color .2s, background-color .2s; }
   .osb_all:hover { border-color: #fff; background-color: rgba(255, 255, 255, .06); }
+  @media (prefers-reduced-motion: reduce) {
+    .osb_arrow { transition: none; }
+    .osb_tool:hover .osb_arrow { transform: none; }
+  }
 
   @media (max-width: 1199px) {
     .osb_h2 { font-size: 40px; }

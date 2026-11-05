@@ -9,7 +9,8 @@ interface Props {
   heading: string;
 }
 const { heading } = Astro.props;
-const faces = ['willem-wyndham', 'pamela-selle', 'fabricius-zatti', 'chad-ostrowski', 'pamphile-roy', 'roberson-costa-dresch'];
+// Engineers across the United States, Europe and Brazil (src/content/team).
+const faces = ['willem-wyndham', 'pamela-selle', 'fabricius-zatti', 'hugo-heer', 'chad-ostrowski', 'pamphile-roy', 'roberson-costa-dresch'];
 ---
 <section class="cta_section">
   <div class="cta_container">
@@ -38,10 +39,13 @@ const faces = ['willem-wyndham', 'pamela-selle', 'fabricius-zatti', 'chad-ostrow
   .cta_faces img + img { margin-left: -10px; }
   .cta_note { margin: 0; font-size: 15px; line-height: 1.45; color: rgba(255, 255, 255, .72); }
   .cta_email { padding: 12px 0; margin: -12px 0; }
-  /* Phones: the people above the button */
-  @media (max-width: 767px) {
+  /* Tablets and phones: the people above the button */
+  @media (max-width: 1023px) {
     .cta_foot { flex-direction: column; align-items: flex-start; padding-top: 32px; }
-    .cta_people { order: 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+    .cta_people { order: 0; }
+  }
+  @media (max-width: 767px) {
+    .cta_people { flex-direction: column; align-items: flex-start; gap: 12px; }
     .cta_faces img { width: 44px; height: 44px; }
   }
 </style>
