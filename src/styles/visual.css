@@ -41,3 +41,7 @@
 
 /* Blueprint grid: a faint square grid behind a visual */
 .v-blueprint { background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 32px 32px; }
+
+/* Fact labels with an icon (case study and tool pages) */
+.cs_dt:has(.cs_dticon) { display: flex; align-items: center; gap: 6px; }
+.cs_dticon { color: var(--muted); --icon-tint: var(--vibrant-green); --icon-tint-opacity: .5; }

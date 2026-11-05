@@ -1,6 +1,8 @@
 ---
 // Case study template (Webflow collection "Case Studies").
 // Empty fields are skipped, as the Webflow site's script did after load.
+import Icon from '../../components/Icon.astro';
+import { factIcon } from '../../lib/factIcons';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Cta from '../../components/Cta.astro';
 import { caseStudies, team, tools, networks, orderBy, md, serviceAnchor, networkMarks, publicQuote, ogImageFor, nobr } from '../../lib/content';
@@ -59,7 +61,7 @@ const quote = publicQuote(d.quote, !Astro.site || Astro.site.origin === siteData
           <dl class="cs_facts">
             {facts.map((f) => (
               <div class="cs_fact">
-                <dt class="cs_dt">{f.label}</dt>
+                <dt class="cs_dt">{factIcon(f.label) && <Icon name={factIcon(f.label)!} size={15} class="cs_dticon" />}{f.label}</dt>
                 {f.style === 'net' ? (
                   <dd class="cs_dd-net">
                     {f.label === 'Network' && networkMarks[f.value] && <img alt="" class="cs_netmark" data-cs="netmark" src={networkMarks[f.value]} />}
