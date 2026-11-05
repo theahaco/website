@@ -112,7 +112,7 @@ const { label, steps, floats = [], panel = 'paper', class: cls } = Astro.props;
     .vf_anchor { padding: 12px 12px 12px 10px; gap: 12px; }
     .vf_tile { width: 48px; height: 44px; border-radius: 10px; }
     .vf_tile :global(svg) { width: 22px; height: 22px; }
-    .vf_tile img { max-width: 34px; }
+    .vf_tile img { max-width: 52px; }
     .vf_check { margin-left: 60px; padding: 10px 12px 10px 10px; gap: 10px; }
     .vf_check::before { left: -27px; width: 26px; }
     .vf_check::after { left: -31px; }
@@ -120,6 +120,16 @@ const { label, steps, floats = [], panel = 'paper', class: cls } = Astro.props;
   }
   @media (max-width: 767px) {
     .vf { padding: 44px 20px; }
+  }
+  @media (max-width: 479px) {
+    .vf { padding: 40px 12px; }
+    .vf_check { margin-left: 46px; }
+    .vf_check::before { left: -19px; width: 18px; }
+    .vf_check::after { left: -23px; }
+    .vf_steps::before { left: 25px; }
+    .vf_anchor .vf_tile { width: 40px; height: 40px; }
+  }
+  @media (max-width: 767px) {
     .vf_float { font-size: 12px; padding: 6px 12px 6px 7px; }
     .vf_floaticon { width: 22px; height: 22px; }
     .vf_float--top { right: 12px; }

@@ -1,22 +1,24 @@
 ---
 // Home page section "What we do": one row per audience (the three doors of
 // /services), each with its services, their precedents and one visual drawn
-// as product UI: EURCV and LI.FI on Stellar (facts from their case studies:
-// societe-generale-forge.md and lifi.md) and a real Stellar CLI
-// session (recorded on Stellar CLI 30.0.1, unedited apart from cut lines,
-// marked "…"). Copy lives in ./services-data.ts, shared with /services.
+// as product UI: the top US commercial bank's settlement stablecoin and LI.FI
+// on Stellar (facts from nda-settlement-stablecoin.md and lifi.md, worded as
+// there), and a real Stellar CLI session (recorded on Stellar CLI 30.0.1,
+// unedited apart from cut lines, marked "…"). Copy lives in
+// ./services-data.ts, shared with /services. Architecture and embedded
+// engineering is the "Ways to work with us" section.
 import Icon from '../Icon.astro';
 import Flow from '../vx/Flow.astro';
 import Terminal from '../vx/Terminal.astro';
 import { services, doors, type Precedent, type Service } from './services-data';
 
 const of = (a: Service['audience']) => services.filter((s) => s.audience === a);
-const architecture = services.find((s) => s.id === 'architecture')!;
-// One chip per precedent, in order of first appearance (the bank backs two services)
-const precedentsOf = (list: Service[]) => {
+// One chip per precedent, in order of first appearance (the bank backs two
+// services). The institutions row shows clients only, not our tools.
+const precedentsOf = (list: readonly Service[], clientsOnly = false) => {
   const seen = new Set<string>();
   const out: Precedent[] = [];
-  for (const s of list) for (const p of s.precedents) if (!seen.has(p.text)) { seen.add(p.text); out.push(p); }
+  for (const s of list) for (const p of s.precedents) if (!seen.has(p.text) && !(clientsOnly && p.kind === 'tool')) { seen.add(p.text); out.push(p); }
   return out;
 };
 
@@ -25,7 +27,7 @@ const rows = [
     id: 'institutions',
     label: doors.institutions.label,
     title: 'Regulated assets onchain.',
-    soft: 'With an operating model your risk committee signs off on.',
+    soft: 'You keep the keys and the controls.',
     services: of('institutions'),
   },
   {
@@ -38,17 +40,14 @@ const rows = [
   {
     id: 'ecosystems',
     label: doors.ecosystems.label,
-    title: 'The tooling an ecosystem runs on.',
-    soft: 'Built and maintained as public goods.',
+    title: 'Your developer path, audited in two weeks.',
+    soft: 'Then the tools, maintained as public goods.',
     services: of('ecosystems'),
   },
 ] as const;
 
 const LOGOS = '/images/logos';
 const cli = [
-  '$ stellar --version',
-  'stellar 30.0.1 (f2a7b74175c34585f3b30a1abf42a2d41cbcc390)',
-  '…',
   '$ stellar contract init hello-world',
   'ℹ️ Initializing workspace at "hello-world"',
   '➕ Writing "hello-world/.gitignore"',
@@ -88,7 +87,7 @@ const cli = [
             <div class="wd-precedent" data-rv={r.services.find((s) => s.rv)?.rv}>
               <p class="wd-label">Precedents</p>
               <ul class="wd-chips" role="list">
-                {precedentsOf(r.services).map((p) => (
+                {precedentsOf(r.services, r.id === 'institutions').map((p) => (
                   <li>
                     {p.kind === 'client' && <a class="wd-chip" href={p.href}><img class="wd-logo" src={p.logo} alt={p.alt} width={p.w} height={p.h} loading="lazy" />{p.text}</a>}
                     {p.kind === 'mark' && <a class="wd-chip" href={p.href}><img class="wd-mark" src={p.logo} alt="" width="16" height="16" loading="lazy" />{p.text}</a>}
@@ -103,16 +102,15 @@ const cli = [
           <div class="wd-visual">
             {r.id === 'institutions' && (
               <Flow
-                label="EURCV on Stellar, from its case study"
+                label="A top US commercial bank’s settlement stablecoin, from its case study (client under NDA)"
                 panel="blue"
                 steps={[
-                  { kind: 'anchor', logo: { src: `${LOGOS}/logo-light-sgforge.svg`, w: 58, h: 17 }, title: 'EURCV', sub: 'Regulated euro stablecoin' },
-                  { kind: 'check', title: 'Launch governance on Soroban: issuer, compliance and pause roles' },
-                  { kind: 'check', title: 'Then compliance on Stellar’s built-in issuer controls' },
-                  { kind: 'check', title: 'Every privileged action visible on the ledger' },
-                  { kind: 'anchor', net: 'stellar', title: 'Live on Stellar', sub: 'Since Q1 2026 · €20M+ issued', status: 'Live' },
+                  { kind: 'anchor', icon: 'bank', title: 'Top US commercial bank', sub: 'Internal settlement stablecoin, under NDA' },
+                  { kind: 'check', title: 'Minting and redemption tied to the bank’s systems' },
+                  { kind: 'check', title: 'Freeze and clawback held by the bank' },
+                  { kind: 'check', title: 'Keys in the bank’s own custody setup' },
+                  { kind: 'anchor', net: 'stellar', title: 'Live on Stellar mainnet', sub: 'Since Q3 2026 · operated by the bank', status: 'Live' },
                 ]}
-                floats={[{ text: 'Audited by Hacken before mainnet', at: 'top' }]}
               />
             )}
             {r.id === 'protocols' && (
@@ -131,18 +129,14 @@ const cli = [
             )}
             {r.id === 'ecosystems' && (
               <figure class="wd-term">
-                <Terminal label="A Stellar CLI session: version, a new contract project, and the installed plugins" lines={cli} />
-                <figcaption class="wd-caption">A real session: Stellar CLI 30.0.1, with our Registry and Scaffold plugins installed.</figcaption>
+                <Terminal label="A Stellar CLI session: a new contract project, then the installed plugins" lines={cli} />
+                <figcaption class="wd-caption">A real session on Stellar CLI 30.0.1: a new contract project, then our Registry and Scaffold plugins.</figcaption>
               </figure>
             )}
           </div>
         </article>
       ))}
     </div>
-
-    <p class="wd-arch" data-rv={architecture.rv}>
-      <span class="wd-arch-title">{architecture.title}.</span> {architecture.desc} <a class="wd-arch-link" href="#ways">Ways to work with us <span aria-hidden="true">→</span></a>
-    </p>
   </div>
 </section>
 
@@ -155,8 +149,8 @@ const cli = [
 
   /* One row per door: text and visual side by side, the visual switching sides */
   .wd-rows { display: flex; flex-direction: column; }
-  .wd-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 72px; align-items: center; padding: 64px 0; border-top: 1px solid var(--line); }
-  .wd-row:last-child { padding-bottom: 24px; }
+  .wd-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 72px; align-items: center; padding: 56px 0; border-top: 1px solid var(--line); }
+  .wd-row:last-child { padding-bottom: 0; }
   .wd-row:nth-child(even) { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); }
   .wd-row:nth-child(even) .wd-text { order: 2; }
   .wd-text { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; }
@@ -188,10 +182,6 @@ const cli = [
   .wd-term { margin: 0; }
   .wd-caption { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
 
-  .wd-arch { margin: 0; padding: 24px 28px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper); color: var(--ink-2); font-size: 16px; line-height: 1.55; }
-  .wd-arch-title { color: var(--deep-blue); font-weight: 600; }
-  .wd-arch-link { display: inline-flex; gap: 6px; color: var(--deep-blue); font-weight: 600; text-decoration: none; white-space: nowrap; }
-  .wd-arch-link:hover { color: var(--green-ink); }
 
   @media (pointer: coarse) { .wd-chip { min-height: 44px; border-radius: 22px; } .wd-all, .wd-more { min-height: 44px; } }
   @media (max-width: 1199px) {
@@ -206,6 +196,5 @@ const cli = [
   @media (max-width: 767px) {
     .wd-row { padding: 48px 0; row-gap: 32px; }
     .wd-h3 { font-size: 28px; margin-bottom: 24px; }
-    .wd-arch { padding: 20px; }
   }
 </style>

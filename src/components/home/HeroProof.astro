@@ -1,7 +1,8 @@
 ---
 // Home hero: the proof panel. Three engagements live on mainnet, each row
 // linking to its case study, with the facts of src/content/case-studies
-// (status, network, the EURCV figure and its receipt, the two audits).
+// (status, network, the EURCV figure and its receipt, the bank's five months
+// from kickoff to handover). The audits are in the row under the logos.
 // The bank is under NDA: no logo, a bank icon. Tile tints follow the
 // audience colors (financial institutions blue, protocols green).
 import Icon from '../Icon.astro';
@@ -33,6 +34,7 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
         <div class="hp_meta">
           <span class="hp_status"><span aria-hidden="true" class="v-live"></span><span data-rv="card-bank">Live since Q3 2026</span></span>
         </div>
+        <div class="hp_fig"><span class="hp_figv">5 months</span><span class="hp_figl">to handover</span></div>
       </li>
       <li class="hp_row">
         <span class="hp_tile hp_tile--green"><img alt="" class="hp_logo-lifi" src="/images/logos/logo-light-lifi.svg" width="55" height="20" /></span>
@@ -44,8 +46,6 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
       </li>
     </ul>
   </div>
-  <p class="hp_float hp_float--hacken"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span>EURCV audited by Hacken before mainnet</span></p>
-  <p class="hp_float hp_float--halborn"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span>LI.FI audited by Halborn before production</span></p>
 </figure>
 
 <style>
@@ -95,19 +95,11 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
   .hp_figl { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; line-height: 1; color: var(--muted); }
   .hp_receipt { z-index: 2; }
 
-  /* Floating facts, over the card edges */
-  .hp_float { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 8px 14px 8px 9px; background: var(--white); border: 1px solid var(--line-strong); border-radius: 999px; box-shadow: var(--shadow-2); font-size: 13px; font-weight: 600; line-height: 1.2; color: var(--deep-blue); white-space: nowrap; pointer-events: none; }
-  .hp_floaticon { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--tint-green); color: var(--deep-blue); --icon-tint: var(--vibrant-green); --icon-tint-opacity: .6; }
-  .hp_float--hacken { top: 2px; right: 4px; }
-  .hp_float--halborn { bottom: 0; left: -22px; }
   @media (prefers-reduced-motion: reduce) { .hp_row, .hp_arrow { transition: none; } .hp_row:hover .hp_arrow { left: 0; } }
   .hp_sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-  /* Narrow panel (1024 px): the figure under the facts, and the card lower
-     so the floating fact clears the title */
+  /* Narrow panel (1024 px): the figure under the facts */
   @container (max-width: 460px) {
-    .hp_card { margin-top: 12px; }
-    .hp_float--hacken { top: 0; }
     .hp_row { grid-template-columns: 64px minmax(0, 1fr); grid-template-areas: 'tile name' 'tile desc' 'tile meta' 'tile fig'; column-gap: 14px; padding: 16px 18px 16px 16px; }
     .hp_tile { width: 64px; height: 48px; border-radius: 10px; }
     .hp_logo-forge { width: 52px; }
@@ -130,17 +122,11 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
   @media (max-width: 991px) {
     .hp { max-width: 640px; padding: 22px 22px 36px 0; }
     .hp_grid { inset: -40px -12px -48px -12px; }
-    .hp_float--halborn { left: 14px; }
-    .hp_float--hacken { right: 0; }
   }
   @media (max-width: 479px) {
     .hp { padding: 20px 14px 30px 0; }
     .hp_sheet--back { inset: 44px 0 6px 26px; }
     .hp_sheet--mid { inset: 32px 7px 18px 13px; }
     .hp_grid { inset: -24px -24px -32px -24px; }
-    .hp_float { font-size: 12px; padding: 6px 12px 6px 7px; }
-    .hp_floaticon { width: 22px; height: 22px; }
-    .hp_float--hacken { top: 0; right: 0; }
-    .hp_float--halborn { position: static; max-width: calc(100% - 14px); margin: 12px 0 0 14px; white-space: normal; }
   }
 </style>
