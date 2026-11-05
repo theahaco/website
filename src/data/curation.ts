@@ -3,7 +3,7 @@
 
 /** Home page, "Selected work" > Case studies. */
 // Case studies with a testimonial first, then the others.
-export const homeFeaturedCases = ["stellar-development-foundation", "lifi", "ripple", "societe-generale-forge", "pwc"];
+export const homeFeaturedCases = ["stellar-development-foundation", "lifi", "ripple", "societe-generale-forge"];
 
 /** Home page, "Client under NDA" block under the case studies. */
 export const homeNdaCases = ["nda-settlement-stablecoin", "nda-money-market-fund", "nda-real-estate-debt-fund"];

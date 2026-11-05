@@ -2,10 +2,9 @@
 // Home page section: logos. Clients and partners in their official colors,
 // as framed tiles continuing the key figures' frame above. A tile links only
 // to the public case study of that same client; Filecoin, Banque Delubac et
-// Cie and Canton have none and stay static (Delubac is never tied to the
-// money market fund case). Then the networks we build on, mark and name.
+// Cie have none and stay static (Delubac is never tied to the money market
+// fund case). Networks are named in the key figures and the Networks section.
 import Icon from '../Icon.astro';
-import NetMark from './NetMark.astro';
 
 // h: logo height in px on desktop (per file, for an even optical weight);
 // w: its width at that height (from the file's proportions).
@@ -16,14 +15,7 @@ const logos = [
   { name: 'Filecoin', src: '/images/logos/logo-light-filecoin.svg', h: 25, w: 87 },
   { name: 'LI.FI', src: '/images/logos/logo-light-lifi.svg', h: 23, w: 63, href: '/case-studies/lifi' },
   { name: 'Banque Delubac et Cie', src: '/images/logos/logo-light-delubac.svg', h: 25, w: 111 },
-  { name: 'Canton', src: '/images/logos/logo-light-canton.svg', h: 22, w: 85 },
 ];
-const networks = [
-  { net: 'stellar', name: 'Stellar' },
-  { net: 'xrpl', name: 'XRP Ledger' },
-  { net: 'canton', name: 'Canton' },
-  { net: 'ethereum', name: 'Ethereum' },
-] as const;
 ---
 <section aria-label="Clients and partners" class="logos_section lg" data-rv="logos">
   <div class="logos_container lg_container">
@@ -45,23 +37,14 @@ const networks = [
         </li>
       ))}
     </ul>
-    <div class="lg_nets">
-      <p class="lg_label lg_label--nets"><span class="lg_dot"></span>Networks we build on</p>
-      <ul class="lg_netlist" role="list">
-        {networks.map((n) => (
-          <li class="lg_net"><NetMark net={n.net} size={20} lazy />{n.name}</li>
-        ))}
-      </ul>
-    </div>
   </div>
 </section>
 
 <style>
   /* The band's own padding goes: the frame touches its top and bottom rules */
   .lg_container { --pad: 28px; padding-top: 0; padding-bottom: 0; row-gap: 0; }
-  .lg_grid, .lg_nets { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--line); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
-  .lg_nets { border-top: 1px solid var(--line); }
-  .lg_grid > li, .lg_nets > * { background: var(--white); }
+  .lg_grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--line); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .lg_grid > li { background: var(--white); }
 
   /* Labels start where the key figures' text starts; the dot hangs in the padding */
   .lg_label { display: flex; align-items: center; margin: 0; padding: 18px 12px 18px var(--pad); font-size: 12px; font-weight: 600; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-wrap: balance; }
@@ -78,14 +61,10 @@ const networks = [
   @media (prefers-reduced-motion: reduce) { .lg_arrow { transition: none; transform: none !important; } }
   .lg_sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
-  .lg_label--nets { grid-column: span 2; }
-  .lg_netlist { grid-column: 3 / -1; display: grid; grid-template-columns: repeat(4, max-content); align-items: center; gap: 12px clamp(24px, 3vw, 44px); margin: 0; padding: 20px var(--pad); list-style: none; }
-  .lg_net { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1.2; color: var(--deep-blue); }
 
   @media (max-width: 1199px) {
-    .lg_grid, .lg_nets { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .lg_label--nets { grid-column: span 1; }
-    .lg_netlist { grid-column: 2 / -1; }
+    .lg_grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lg_label { grid-column: 1 / -1; padding-top: 14px; padding-bottom: 14px; }
     .lg_cell { min-height: 100px; }
   }
   @media (max-width: 991px) {
@@ -94,14 +73,7 @@ const networks = [
   @media (max-width: 767px) {
     .lg_container { --pad: 20px; }
     .lg_grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .lg_nets { display: block; background: var(--white); }
-    .lg_label--nets { padding-bottom: 0; }
-    .lg_netlist { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 20px; padding: 16px var(--pad) 22px; }
     .lg_cell { min-height: 88px; }
     .lg_logo { height: calc(var(--h) * .92); }
-  }
-  @media (max-width: 374px) {
-    .lg_netlist { column-gap: 12px; }
-    .lg_net { gap: 8px; font-size: 14px; white-space: nowrap; }
   }
 </style>

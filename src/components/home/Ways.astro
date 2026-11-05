@@ -11,7 +11,7 @@ const ways: Way[] = [
   { title: 'Integration partner', body: 'Fixed scope, milestone-based, our team end to end. As with EURCV and LI.FI.', first: 'scoping session', diagram: 'partner' },
   { title: 'Architecture lead with your engineers', body: 'We design the system and lead delivery inside your engineering team. As with the settlement stablecoin of a top US commercial bank.', first: 'architecture note', diagram: 'lead' },
   { title: 'Embedded principal engineer', body: 'A principal engineer placed with your team for a quarter or more. As with the Stellar Development Foundation.', first: 'onboarding', diagram: 'embedded' },
-  { title: 'Programs for ecosystems', body: 'DevX audits, tooling roadmaps, accelerator and hackathon mentoring. As with Ripple.', first: 'audit kickoff', diagram: 'programs' },
+  { title: 'Programs for ecosystems', body: 'DevX audits, tooling roadmaps, accelerator and hackathon mentoring. As with Ripple.', first: 'DevX audit', diagram: 'programs' },
 ];
 ---
 <section class="ways_section" id="ways">
@@ -50,10 +50,10 @@ const ways: Way[] = [
   .wy-key--ours { background: var(--vibrant-green); }
   .wy-key--yours { margin-left: 12px; border: 2px solid var(--deep-blue); background: #fff; }
 
-  .wy-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+  /* One frame, the cards sharing 1 px rules (as the other grids of the page) */
+  .wy-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
   /* Titles, texts and "First two weeks" line up across a row (subgrid) */
-  .wy-card { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--white); transition: border-color .2s, box-shadow .2s; }
-  .wy-card:hover { border-color: var(--line-strong); box-shadow: var(--shadow-1); }
+  .wy-card { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; overflow: hidden; background: var(--white); }
   /* The diagram on a faint blueprint grid */
   .wy-fig { display: grid; place-items: center; height: 180px; padding: 12px 14px; border-bottom: 1px solid var(--line); background-color: var(--paper); background-image: linear-gradient(rgba(26, 59, 96, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(26, 59, 96, .05) 1px, transparent 1px); background-size: 24px 24px; background-position: center; }
   .wy-h3 { margin: 0; padding: 24px 24px 10px; color: var(--deep-blue); font-family: var(--font-display); font-size: 24px; font-style: italic; font-weight: 400; line-height: 1.2; text-wrap: balance; }
@@ -82,7 +82,7 @@ const ways: Way[] = [
     .wy-caption [data-rv] { flex-basis: 100%; padding-left: 26px; }
   }
   @media (max-width: 599px) {
-    .wy-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .wy-grid { grid-template-columns: minmax(0, 1fr); }
     .wy-fig { height: 172px; }
     .wy-h3 { padding: 22px 20px 10px; }
     .wy-body { padding: 0 20px 18px; }

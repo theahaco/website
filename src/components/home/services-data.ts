@@ -89,9 +89,9 @@ export const services: Service[] = [
     audience: 'ecosystems',
     bullets: ['CLIs and scaffolding', 'Registries and sandboxes', 'Maintained as public goods'],
     precedents: [
+      { kind: 'client', logo: `${LOGOS}/logo-light-ripple.svg`, alt: 'Ripple', w: 54, h: 14, text: 'XRPL DevX audit', href: '/case-studies/ripple' },
       { kind: 'tool', icon: 'terminal-window', text: 'Stellar CLI plugins and bindings', href: '/open-source/stellar-cli' },
       { kind: 'tool', icon: 'stack', text: 'Stellar Scaffold', href: '/open-source/stellar-scaffold' },
-      { kind: 'tool', icon: 'package', text: 'Stellar Registry', href: '/open-source/stellar-registry' },
     ],
   },
   {

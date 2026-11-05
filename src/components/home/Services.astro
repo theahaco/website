@@ -4,7 +4,8 @@
 // its precedents: client logos, anonymous clients behind a lock, our tools.
 // Copy lives in ./services-data.ts, shared with src/pages/services.astro.
 import Icon from '../Icon.astro';
-import { services, tint } from './services-data';
+import { services, tint, doors } from './services-data';
+const cardHref = (a: keyof typeof doors) => (a === 'any' ? '#ways' : `/services${doors[a].href}`);
 ---
 <section class="services_section" id="what-we-do">
   <div class="section-inner">
@@ -23,7 +24,7 @@ import { services, tint } from './services-data';
             <span class:list={['v-iconbox', tint[s.audience] && `v-iconbox--${tint[s.audience]}`]}><Icon name={s.icon} size={28} /></span>
             <span class="wd-arrow"><Icon name="arrow-up-right" size={20} /></span>
           </div>
-          <h3 class="wd-h3"><a class="wd-link" href={`/services#${s.id}`}>{s.title}</a></h3>
+          <h3 class="wd-h3"><a class="wd-link" href={cardHref(s.audience)}>{s.title}</a></h3>
           <p class="wd-desc">{s.desc}</p>
           <div class="wd-precedent" data-rv={s.rv}>
             <p class="wd-label">Precedent</p>

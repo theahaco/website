@@ -45,7 +45,7 @@ const audience = (a = '') => AUDIENCE[a] || { tone: 'tan' as Tone, icon: 'cube' 
 // does (the NDA block on the home page). Generic on purpose: no client detail.
 const CASE_ICONS: Record<string, string> = {
   'nda-settlement-stablecoin': 'bank',
-  'nda-money-market-fund': 'chart-line-up',
+  'nda-money-market-fund': 'certificate',
   'nda-real-estate-debt-fund': 'buildings',
 };
 

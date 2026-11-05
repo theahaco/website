@@ -5,7 +5,6 @@
 // The bank is under NDA: no logo, a bank icon. Tile tints follow the
 // audience colors (financial institutions blue, protocols green).
 import Icon from '../Icon.astro';
-import NetMark from './NetMark.astro';
 
 const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVBF2TG2RUSGTUJCIN75KEX3NGLMY4VPL4GFE5L355AXW3G';
 ---
@@ -21,9 +20,8 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
       <li class="hp_row">
         <span class="hp_tile hp_tile--blue"><img alt="" class="hp_logo-forge" src="/images/logos/logo-light-sgforge.svg" width="73" height="21" /></span>
         <p class="hp_name"><a class="hp_link" href="/case-studies/societe-generale-forge">Société Générale-FORGE<span aria-hidden="true" class="hp_arrow">&nbsp;→</span></a></p>
-        <p class="hp_desc">EURCV regulated euro stablecoin</p>
+        <p class="hp_desc">EURCV regulated euro stablecoin · Stellar</p>
         <div class="hp_meta">
-          <span class="hp_net"><NetMark net="stellar" size={13} />Stellar</span>
           <span class="hp_status"><span aria-hidden="true" class="v-live"></span><span data-rv="card-eurcv">Live since Q1 2026</span></span>
         </div>
         <div class="hp_fig"><span class="hp_figv">€20M+</span><span class="hp_figl">issued<a aria-label="Receipt: EURCV on the Stellar explorer" class="receipt-badge hp_receipt" href={receipt} title="Receipt">✓</a></span></div>
@@ -31,25 +29,23 @@ const receipt = 'https://stellar.expert/explorer/public/asset/EURCV-GCEYGIVOLAVB
       <li class="hp_row">
         <span class="hp_tile hp_tile--blue"><Icon name="bank" size={28} /></span>
         <p class="hp_name"><a class="hp_link" href="/case-studies/nda-settlement-stablecoin">Top US commercial bank<span aria-hidden="true" class="hp_arrow">&nbsp;→</span></a></p>
-        <p class="hp_desc">Settlement stablecoin</p>
+        <p class="hp_desc">Settlement stablecoin · Stellar</p>
         <div class="hp_meta">
-          <span class="hp_net"><NetMark net="stellar" size={13} />Stellar</span>
-          <span class="hp_status"><span aria-hidden="true" class="v-live"></span><span data-rv="card-bank">Live</span></span>
+          <span class="hp_status"><span aria-hidden="true" class="v-live"></span><span data-rv="card-bank">Live since Q3 2026</span></span>
         </div>
       </li>
       <li class="hp_row">
         <span class="hp_tile hp_tile--green"><img alt="" class="hp_logo-lifi" src="/images/logos/logo-light-lifi.svg" width="55" height="20" /></span>
         <p class="hp_name"><a class="hp_link" href="/case-studies/lifi">LI.FI<span aria-hidden="true" class="hp_arrow">&nbsp;→</span></a></p>
-        <p class="hp_desc">Cross-chain asset transfers</p>
+        <p class="hp_desc">Cross-chain asset transfers · Stellar</p>
         <div class="hp_meta">
-          <span class="hp_net"><NetMark net="stellar" size={13} />Stellar</span>
           <span class="hp_status"><span aria-hidden="true" class="v-live"></span><span>Live</span></span>
         </div>
       </li>
     </ul>
   </div>
-  <p class="hp_float hp_float--hacken"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span><span class="hp_sr">EURCV: </span>Audited by Hacken before mainnet</span></p>
-  <p class="hp_float hp_float--halborn"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span><span class="hp_sr">LI.FI: </span>Audited by Halborn before production</span></p>
+  <p class="hp_float hp_float--hacken"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span>EURCV audited by Hacken before mainnet</span></p>
+  <p class="hp_float hp_float--halborn"><span class="hp_floaticon"><Icon name="shield-check" size={18} /></span><span>LI.FI audited by Halborn before production</span></p>
 </figure>
 
 <style>

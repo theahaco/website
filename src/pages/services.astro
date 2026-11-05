@@ -1,14 +1,10 @@
 ---
 // /services: the three doors (financial institutions, protocols and products,
-// ecosystems and foundations), after an index of the six services. The six
-// services (copy, bullets, icons) come from src/components/home/services-data.ts,
-// shared with the home page, whose cards link to the anchors here
-// (#stablecoin-issuance, ...). Each door keeps its anchor (#institutions,
-// #protocols, #ecosystems).
+// ecosystems and foundations), each with its anchor (#institutions,
+// #protocols, #ecosystems), where the home page's service cards link.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Cta from '../components/Cta.astro';
 import Icon from '../components/Icon.astro';
-import { services, tint, doors as doorOf } from '../components/home/services-data';
 
 type Tint = '' | 'green' | 'pink';
 interface CaseCard { href: string; label: string; title: string; cta: string; rv?: string; logo?: { src: string; w: number; h: number }; icon?: string }
@@ -97,6 +93,7 @@ const doors: Door[] = [
     lede: 'The tooling an ecosystem runs on, built and maintained as public goods, and the programs that take teams from prototype to go live.',
     cases: [
       { href: '/case-studies/stellar-development-foundation', label: 'Ecosystem · Stellar', title: 'Stellar Development Foundation: Stellar Scaffold, Stellar CLI plugin system, Stellar Registry, Nido', cta: 'See case study →', logo: { src: '/images/logos/logo-light-stellar.svg', w: 77, h: 19 } },
+      { href: '/case-studies/ripple', label: 'Ecosystem · XRPL', title: 'Ripple: accelerator cohorts, hackathons and a two-week DevX audit of XRPL’s developer path', cta: 'See case study →', logo: { src: '/images/logos/logo-light-ripple.svg', w: 70, h: 18 } },
       { href: '/open-source', rv: 'svc-tools', label: 'Open source · Stellar and XRPL', title: 'Each tool has its own page: Stellar CLI, Stellar Scaffold, Stellar Registry, Nido, Perch, Moonlight, Tansu and GhostSig', cta: 'See the tools →', icon: 'terminal-window' },
     ],
     offer: [
@@ -136,28 +133,6 @@ const split = (step: string) => {
           <a class="svc_pill sv-pill" href={j.href}><span class:list={['sv-pilldot', j.tint && `sv-pilldot--${j.tint}`]}><Icon name={j.icon} size={16} /></span>{j.label}</a>
         ))}
       </nav>
-    </div>
-  </section>
-
-  <section class="ab_white sv-index" aria-labelledby="sv-index-h">
-    <div class="ab_container">
-      <div class="sv-indexhead">
-        <p class="v-eyebrow">What we do</p>
-        <h2 class="ab_h2" id="sv-index-h">Six services behind the three doors</h2>
-      </div>
-      <ul class="sv-grid" role="list">
-        {services.map((s) => (
-          <li class="sv-cell" id={s.id}>
-            <span class:list={['v-iconbox', tint[s.audience] && `v-iconbox--${tint[s.audience]}`]}><Icon name={s.icon} size={28} /></span>
-            <h3 class="sv-h3">{s.title}</h3>
-            <p class="sv-desc">{s.desc}</p>
-            <ul class="sv-bullets" role="list">
-              {s.bullets.map((b) => <li><Icon name="check-circle" size={18} />{b}</li>)}
-            </ul>
-            <a class:list={['sv-door', tint[s.audience] && `sv-door--${tint[s.audience]}`]} href={doorOf[s.audience].href}>{doorOf[s.audience].label} <span aria-hidden="true">→</span></a>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
@@ -226,22 +201,6 @@ const split = (step: string) => {
   .sv-pilldot--green { background: var(--tint-green); }
   .sv-pilldot--pink { background: var(--tint-pink); }
 
-  /* Index of the six services: framed cells sharing 1 px rules */
-  .sv-indexhead { display: flex; flex-direction: column; gap: 20px; }
-  .sv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
-  .sv-cell { display: grid; grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; justify-items: start; padding: 32px 32px 28px; background: var(--white); }
-  .sv-cell .v-iconbox { margin-bottom: 24px; }
-  .sv-h3 { margin: 0 0 12px; color: var(--deep-blue); font-family: var(--font-display); font-size: 26px; font-style: italic; font-weight: 400; line-height: 1.2; text-wrap: balance; }
-  .sv-desc { margin: 0 0 20px; color: var(--ink-2); font-size: 16px; line-height: 1.55; }
-  .sv-bullets { display: flex; flex-direction: column; gap: 10px; margin: 0 0 24px; padding: 20px 0 0; border-top: 1px solid var(--line); list-style: none; color: var(--ink-2); font-size: 15px; line-height: 1.45; justify-self: stretch; }
-  .sv-bullets li { display: flex; align-items: flex-start; gap: 10px; }
-  .sv-bullets :global(.icon) { color: var(--green-ink); --icon-tint: var(--vibrant-green); --icon-tint-opacity: .25; margin-top: 1px; }
-  .sv-door { align-self: end; display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 14px; border-radius: 999px; background: var(--tint-blue); color: var(--deep-blue); font-size: 14px; font-weight: 600; text-decoration: none; transition: background-color .2s, color .2s; }
-  .sv-door--green { background: var(--tint-green); }
-  .sv-door--pink { background: var(--tint-pink); }
-  .sv-door--tan { background: var(--tint-tan); }
-  .sv-door:hover { background: var(--deep-blue); color: #fff; }
-
   /* The doors */
   .sv-doorhead { display: flex; align-items: center; gap: 14px; }
   .sv-case { gap: 12px; border-radius: var(--radius-lg); transition: border-color .2s, box-shadow .2s; }
@@ -265,19 +224,11 @@ const split = (step: string) => {
   .sv-pills--green .cs_pill { background: var(--tint-green); }
   .sv-pills--pink .cs_pill { background: var(--tint-pink); }
 
-  @media (pointer: coarse) { .sv-door { min-height: 44px; } }
-  @media (max-width: 1199px) { .sv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 991px) {
     .sv-roles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .sv-roles > :last-child { grid-column: 1 / -1; }
   }
-  /* Phones: the icon next to the title, to keep the index short */
   @media (max-width: 599px) {
-    .sv-grid, .sv-roles { grid-template-columns: minmax(0, 1fr); }
-    .sv-cell { grid-row: auto; grid-template-rows: none; grid-template-columns: 48px minmax(0, 1fr); align-items: center; column-gap: 16px; padding: 24px 24px 24px; }
-    .sv-cell .v-iconbox { margin: 0; }
-    .sv-h3 { margin: 0; font-size: 23px; }
-    .sv-desc, .sv-bullets, .sv-door { grid-column: 1 / -1; }
-    .sv-desc { margin-top: 16px; }
+    .sv-roles { grid-template-columns: minmax(0, 1fr); }
   }
 </style>

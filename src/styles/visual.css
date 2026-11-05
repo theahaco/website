@@ -49,3 +49,20 @@
 /* Network pages: icons on the integration items and the steps */
 .nx_invicon { margin-bottom: 16px; }
 .nx_stephead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+/* Page label above each page title (the pill), with the old label's spacing */
+.page_eyebrow { margin-bottom: 4px; }
+
+/* Arrow icons are drawn without their duotone fill (at small sizes it reads as a box) */
+.kpi_linkicon .icon [opacity], .wd-arrow .icon [opacity], .lg_arrow .icon [opacity] { opacity: 0; }
+
+/* Client logos in one tone; a linked tile gets its colours back on hover */
+.lg_logo { filter: grayscale(1); opacity: .82; transition: filter .2s, opacity .2s; }
+.lg_tile--link:hover .lg_logo, .lg_tile--link:focus-visible .lg_logo { filter: none; opacity: 1; }
+
+/* People in one tone: testimonial portraits and the engineers' faces */
+.work_portrait, .cta_faces img, .fc_faces img { filter: grayscale(1) contrast(1.04); }
+
+/* Line lengths: case lines and quotes stay readable on mid-size screens */
+.hw_link .work_para { max-width: 66ch; }
+.work_blockquote { max-width: 46ch; }
