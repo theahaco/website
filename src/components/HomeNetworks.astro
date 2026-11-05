@@ -1,33 +1,18 @@
 ---
-// Home page "Networks" rows. A network gets a link only when it has its own
-// page (a heading); the others are listed without a link or an arrow.
-import { networks } from '../lib/content';
+// Home page "Networks" cards, from src/content/networks: each network's mark,
+// its home line, and a link only when it has its own page (a heading); the
+// others are plain cards, without a link or an arrow.
+import NetworkCards from './NetworkCards.astro';
+import { networks, networkMarks, nobr } from '../lib/content';
+
 const list = await networks();
+const items = list.map((n) => ({
+  id: n.id,
+  name: n.data.name,
+  logo: n.data.mark || networkMarks[n.data.name] || '',
+  desc: nobr(n.data.homeDescription || ''), // escaped, hyphenated words kept whole
+  href: n.data.heading ? `/networks/${n.id}` : undefined,
+  cta: n.data.homeCta,
+}));
 ---
-<div class="w-dyn-list">
-  <div class="networks_list w-dyn-items" role="list">
-    {list.map((n) => (
-      <div class="networks_item w-dyn-item" role="listitem">
-        {n.data.heading ? (
-          <a class="networks_row w-inline-block" href={`/networks/${n.id}`}>
-            <div class="networks_left">
-              <div class="networks_name-wrap"><h3 class="networks_h3">{n.data.name}</h3></div>
-              {n.data.homeDescription && <p class="networks_desc">{n.data.homeDescription}</p>}
-            </div>
-            <div class="networks_cta">
-              <div class="inline-text">{n.data.homeCta}</div>
-              <div aria-hidden="true" class="work_arrow">→</div>
-            </div>
-          </a>
-        ) : (
-          <div class="networks_row wk_static">
-            <div class="networks_left">
-              <div class="networks_name-wrap"><h3 class="networks_h3">{n.data.name}</h3></div>
-              {n.data.homeDescription && <p class="networks_desc">{n.data.homeDescription}</p>}
-            </div>
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-</div>
+<NetworkCards items={items} />
