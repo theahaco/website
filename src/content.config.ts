@@ -87,7 +87,7 @@ const blog = defineCollection({
   }),
 });
 
-const row2 = z.object({ title: z.string(), description: str });
+const row2 = z.object({ title: z.string(), description: str, icon: str }); // icon: a file name of src/icons, drawn on the item's card
 const networks = defineCollection({
   loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/networks' }),
   schema: z.object({
@@ -97,13 +97,14 @@ const networks = defineCollection({
     mark: str,
     markAlt: str,
     heading: str, // a network without a heading has no page of its own (redirects to /networks)
+    headingSoft: str, // optional second half of the heading, in the softer tone
     metaTitle: str, // <title> for search engines (60 characters max); defaults to "Integrate with <name> | The Aha Company"
     lede: str,
     description: str, // search description (160 characters max); defaults to the lede
     secondaryCta: z.object({ label: str, href: str }).default({}),
     stats: z.array(z.object({ value: z.string(), label: str })).default([]),
     ship: z
-      .object({ title: str, meta: str, rows: z.array(z.object({ name: z.string(), description: str, badge: str, href: str })).default([]) })
+      .object({ title: str, meta: str, rows: z.array(z.object({ name: z.string(), description: str, badge: str, href: str, live: z.boolean().default(false) })).default([]) }) // live: the badge says it runs on mainnet (green dot); other badges are a neutral chip
       .default({}),
     involves: z.array(row2).default([]),
     stepsLede: str,
