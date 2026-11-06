@@ -124,8 +124,8 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
       )}
       {v.kind && (
         <figure class={`tl_visual tl_visual--${v.kind}`} data-tl="visual">
-          {v.kind === 'image' && <ToolStage alt={v.alt} image={v.image} label={v.label} lines={v.lines} tone={v.tone} />}
-          {v.kind === 'terminal' && v.lines.length > 0 && <ToolStage label={v.label} lines={v.lines} tone={v.tone} />}
+          {v.kind === 'image' && <ToolStage alt={v.alt} clip={v.clip} image={v.image} label={v.label} lines={v.lines} tone={v.tone} />}
+          {v.kind === 'terminal' && v.lines.length > 0 && <ToolStage clip={v.clip} label={v.label} lines={v.lines} tone={v.tone} />}
           {v.kind === 'code' && (
             <div class="tl_code">
               <div aria-hidden="true" class="tl_codebar"><i></i><i></i><i></i><span class="tl_codefile">{v.filename}</span></div>
@@ -239,4 +239,5 @@ const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
   @media (max-width: 479px) {
     .tl_metrics--4 { grid-template-columns: minmax(0, 1fr); }
   }
+  @media (min-width: 992px) and (max-width: 1199px) { .art_h1 { font-size: 48px; } }
 </style>

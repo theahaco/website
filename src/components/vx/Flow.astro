@@ -36,11 +36,13 @@ interface Props {
   /** A system not live yet (in design or in build): its checks are drawn
       hollow, so they read as the design, not as something already running. */
   planned?: boolean;
+  /** Id of a caption that describes the flow. */
+  describedby?: string;
   class?: string;
 }
-const { label, steps, floats = [], panel = 'paper', planned = false, class: cls } = Astro.props;
+const { label, steps, floats = [], panel = 'paper', planned = false, describedby, class: cls } = Astro.props;
 ---
-<figure aria-label={label} class:list={['vf', `vf--${panel}`, planned && 'vf--planned', cls]}>
+<figure aria-describedby={describedby} aria-label={label} class:list={['vf', `vf--${panel}`, planned && 'vf--planned', cls]}>
   <div aria-hidden="true" class="vf_grid"></div>
   <ol class="vf_steps" role="list">
     {steps.map((s) => s.kind === 'anchor' ? (
