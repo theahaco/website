@@ -68,13 +68,13 @@ export const caseVisuals: Record<string, CaseVisual> = {
   'stellar-development-foundation': {
     kind: 'phones',
     panel: 'pink',
-    // Nido: line 60. Stellar Scaffold: line 58 (in front: 111 of the 137
-    // projects counted on November 2, 2026 build on it, line 65). Stellar
-    // Registry: line 59.
+    // Nido: line 66. Stellar Scaffold: line 64 (in front: 111 of the 137
+    // projects counted on November 2, 2026 build on it, line 71). Stellar
+    // Registry: line 65.
     left: 'nido',
     center: 'scaffold-stellar',
     right: 'stellar-registry',
-    // Names: lines 6 and 58-60 ("tooling the Stellar ecosystem runs on")
+    // Names: lines 6 and 64-66 ("tooling the Stellar ecosystem runs on")
     caption: 'Nido, Stellar Scaffold and Stellar Registry, on their own sites: three of the tools we build and maintain.',
   },
 
