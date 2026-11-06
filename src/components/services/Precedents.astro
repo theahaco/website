@@ -1,10 +1,12 @@
 ---
 // /services: a door's precedents, one row per case study (or the tools
-// page). A public client shows its logo; a client under NDA shows the lock
-// and its anonymous name, never a logo. Each line and status is a fact of the
-// case study's file in src/content/case-studies. The Work page lists its
-// open-source tools and the PwC US alliance with the same rows, under its own
-// labels; a row without href has no link and no arrow (the alliance).
+// page); team pages: a person's engagements and tools, in the same rows. A
+// public client shows its logo; a client under NDA shows the lock and its
+// anonymous name, never a logo. Each line and status is a fact of the case
+// study's file in src/content/case-studies (or of the tool's file). The Work
+// page lists its open-source tools and the PwC US alliance with the same rows,
+// under its own labels; a row without href has no link and no arrow (the
+// alliance).
 import Icon from '../Icon.astro';
 import { nobr } from '../../lib/content';
 
@@ -21,25 +23,27 @@ export interface PrecedentRow {
   figure?: { value: string; label: string };
   /** NDA client (the lock) or our tools (an icon), when there is no logo. */
   icon?: string;
+  /** This row's tint, when it is not the list's (team pages: each case study's audience). */
+  tint?: 'blue' | 'green' | 'pink';
   rv?: string;
 }
 interface Props {
   rows: PrecedentRow[];
   tint?: 'blue' | 'green' | 'pink';
-  /** The small label above the rows. */
+  /** The small label over the rows; empty for none (team pages have their own heading). */
   label?: string;
 }
 const { rows, tint = 'blue', label = 'Precedents' } = Astro.props;
 ---
 <div class="pc">
-  <p class="pc_label">{label}</p>
+  {label && <p class="pc_label">{label}</p>}
   <ul class="pc_list" role="list">
     {rows.map((r) => {
       const Row = r.href ? 'a' : 'div';
       return (
       <li class="pc_item">
         <Row class:list={['pc_row', r.figure && 'pc_row--fig', !r.href && 'pc_row--static']} data-rv={r.rv} href={r.href}>
-          <span class:list={['pc_tile', `pc_tile--${r.icon === 'lock-simple' ? 'nda' : tint}`]}>
+          <span class:list={['pc_tile', `pc_tile--${r.icon === 'lock-simple' ? 'nda' : r.tint ?? tint}`]}>
             {r.logo ? <img alt="" height={r.logo.h} loading="lazy" src={r.logo.src} width={r.logo.w} /> : <Icon name={r.icon ?? 'cube'} size={22} />}
           </span>
           <span class="pc_text">
