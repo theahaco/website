@@ -36,7 +36,7 @@ const caseStudies = defineCollection({
     metaTitle: str, // <title> for search engines (60 characters max); defaults to "<title> | Case study | The Aha Company"
     shortTitle: str, // used in "More work" and team engagement rows
     alliance: z.boolean().default(false), // an alliance, not a client engagement: listed last, without a link to a case page
-    order: z.number().default(100), // Work page order
+    order: z.number().default(100), // Work page order, after the ids listed in src/data/curation.ts (workOrder)
     eyebrow: str, // "Financial institution · Stellar"
     lede: str, // also the paragraph in Selected work on the home page
     description: str, // search description (160 characters max); defaults to the lede
@@ -44,8 +44,8 @@ const caseStudies = defineCollection({
     cta: str, // heading of the closing call-to-action band
     client: str,
     nda: z.boolean().default(false), // client not named: the "Client not named" pill on the Work page and the case page
-    workTitle: str, // Work page row title
-    workLine: str, // Work page row line
+    workTitle: str, // title of its tile (home page and Work page)
+    workLine: str, // line of its tile (home page and Work page)
     // Work page filter. "Institutions" (the former label) is still accepted.
     audience: z.preprocess((v) => (v === 'Institutions' ? 'Financial institutions' : v), z.enum(['Financial institutions', 'Protocols and products', 'Ecosystems and open source', '']).default('')),
     network: str, // Stellar, XRPL, Canton, Multi-network
