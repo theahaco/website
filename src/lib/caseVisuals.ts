@@ -121,6 +121,27 @@ export const caseVisuals: Record<string, CaseVisual> = {
     ],
   },
 
+  // talwex.md (in build: hollow checks and an "In build" float, no pill)
+  talwex: {
+    kind: 'flow',
+    label: 'Talwex on Stellar: the institutional bond yield pool whose Soroban smart contracts we develop, in build',
+    panel: 'green',
+    steps: [
+      // line 6 and Talwex's own site ("One infrastructure for bonds")
+      { kind: 'anchor', logo: { src: `${LOGOS}/logo-talwex-mark.svg`, w: 27, h: 18 }, tone: 'green', title: 'Talwex', sub: 'One infrastructure for bonds' },
+      // lines 6 and 44
+      { kind: 'check', title: 'Institutional bond yield pool', sub: 'On Stellar' },
+      // line 47 (and lines 35-37, metric)
+      { kind: 'check', title: 'Soroban smart contracts', sub: 'Developed by us, in Rust' },
+      // lines 32-34 (metric, receipt: the Stellar Community Fund page) and 50
+      { kind: 'check', title: 'Stellar Community Fund', sub: 'Awarded, round 43 (Build)' },
+      // lines 18-19 (Status: In build) and 50
+      { kind: 'anchor', net: 'stellar', title: 'Talwex on Stellar', sub: 'Smart contracts in build' },
+    ],
+    planned: true,
+    floats: [{ text: 'In build', icon: 'calendar-blank', at: 'top' }],
+  },
+
   // starknet.md (a DevX audit: no live system, so no status pill)
   starknet: {
     kind: 'flow',
