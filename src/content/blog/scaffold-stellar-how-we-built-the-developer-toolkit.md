@@ -1,7 +1,7 @@
 ---
 title: 'Stellar Scaffold: how we built the developer toolkit'
 category: Ecosystems
-lede: Stellar Scaffold takes a team from an empty folder to contracts, a web front end, a local network and typed clients in one command. Why we built it as a Stellar CLI plugin, and what it took to make it production-grade.
+lede: Stellar Scaffold takes a team from an empty folder to contracts, a web frontend, a local network and typed clients in one command. Why we built it as a Stellar CLI plugin, and what it took to make it production-grade.
 author: willem-wyndham
 authorName: Willem Wyndham
 authorRole: Chief Science Officer
@@ -15,11 +15,11 @@ relatedWorkLabel: 'Stellar Development Foundation: tooling and public goods'
 audience: Ecosystems and open source
 network: Stellar
 order: 3
-description: 'How we built Stellar Scaffold: from an empty folder to contracts, a front end, a local network and typed clients in one command, as a Stellar CLI plugin.'
+description: 'How we built Stellar Scaffold: from an empty folder to contracts, a frontend, a local network and typed clients in one command, as a Stellar CLI plugin.'
 ---
 ## The problem: a blank repository
 
-When Soroban brought smart contracts to Stellar, every new project started the same way: write a contract, compile it to WebAssembly, deploy it to a local network, generate a client, wire that client into a front end, and repeat on every change. Each step had a tool, and nothing joined them. A proof of concept spent its first week on plumbing.
+When Soroban brought smart contracts to Stellar, every new project started the same way: write a contract, compile it to WebAssembly, deploy it to a local network, generate a client, wire that client into a frontend, and repeat on every change. Each step had a tool, and nothing joined them. A proof of concept spent its first week on plumbing.
 
 ## Built on the Stellar CLI's plugin system
 
@@ -28,7 +28,7 @@ We were already core contributors to the Stellar CLI, the network's official com
 ## What one command sets up
 
 - Contracts, built and deployed in dependency order
-- A web front end in React or Svelte, wired to those contracts
+- A web frontend in React or Svelte, wired to those contracts
 - A local network running in Docker
 - TypeScript clients generated from each contract's interface, regenerated on every change
 

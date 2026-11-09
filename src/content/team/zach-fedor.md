@@ -3,7 +3,7 @@ name: Zach Fedor
 order: 8
 role: Senior Engineer
 location: United States
-focus: Developer tooling, TypeScript front ends
+focus: Developer tooling, TypeScript frontends
 networks: Stellar
 since: ''
 portrait: /images/team/zach-fedor.webp

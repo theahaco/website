@@ -5,9 +5,9 @@ network: Stellar
 category: Developer tooling
 title: 'Stellar Scaffold: a working Stellar dApp in one command'
 metaTitle: 'Stellar Scaffold (Scaffold Stellar): Soroban dApp toolkit'
-description: 'Stellar Scaffold, also called Scaffold Stellar, sets up a Soroban dApp in one command: contracts, typed TypeScript clients and a front end. 111 projects use it.'
-lede: 'One command gives a working Stellar dApp: smart contracts, generated TypeScript clients and a web front end, wired to a local network, testnet and mainnet. We built Stellar Scaffold (Scaffold Stellar in Stellar’s docs) and maintain it as a Stellar public good. On November 2, 2026, 111 projects were building on it.'
-summary: 'One command from an empty folder to contracts, typed clients and a web front end.'
+description: 'Stellar Scaffold, also called Scaffold Stellar, sets up a Soroban dApp in one command: contracts, typed TypeScript clients and a frontend. 111 projects use it.'
+lede: 'One command gives a working Stellar dApp: smart contracts, generated TypeScript clients and a web frontend, wired to a local network, testnet and mainnet. We built Stellar Scaffold (Scaffold Stellar in Stellar’s docs) and maintain it as a Stellar public good. On November 2, 2026, 111 projects were building on it.'
+summary: 'One command from an empty folder to contracts, typed clients and a web frontend.'
 headline:
   figure: '111'
   label: projects build on it
@@ -66,10 +66,10 @@ sections:
 - id: what-it-does
   title: What it does
   body: |-
-    Starting a Stellar project used to mean wiring the pieces by hand: a contract workspace, a local network, deploy scripts, client bindings and a front end that talks to all of them. Stellar Scaffold sets them up in one command:
+    Starting a Stellar project used to mean wiring the pieces by hand: a contract workspace, a local network, deploy scripts, client bindings and a frontend that talks to all of them. Stellar Scaffold sets them up in one command:
 
     - Contracts, built and deployed in dependency order
-    - A web front end wired to those contracts
+    - A web frontend wired to those contracts
     - A local network running in Docker
     - TypeScript clients generated from each contract’s interface, regenerated on every change
 
