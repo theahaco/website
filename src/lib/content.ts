@@ -140,13 +140,7 @@ export function serviceAnchor(eyebrow: string): string {
   return '/services#institutions';
 }
 
-/** Network marks shown next to the network name on case studies and tool pages: each network's own logo, in its official colors. */
-export const networkMarks: Record<string, string> = {
-  Stellar: '/images/logos/logo-light-stellar.svg',
-  XRPL: '/images/logos/logo-xrpl-transparent.webp',
-  Canton: '/images/logos/logo-light-canton.svg',
-  Ethereum: '/images/logos/logo-ethereum.webp',
-};
+export { networkMarks, networkIds } from './networkMarks';
 
 /** Dates are written "September 1, 2026"; lists show "Sep 1, 2026", pages "September 1, 2026". */
 export function formatDate(value: string, style: 'short' | 'long'): string {

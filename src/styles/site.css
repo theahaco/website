@@ -256,9 +256,6 @@ html{scroll-padding-top:125px}
 @media (max-width:767px){.nav_logo{margin-left:-8px}}
 /* Hyphenated names stay on one line in display headings */
 .nobr{white-space:nowrap}
-/* Network marks in the facts: the symbol only (the name is written next to it) */
-.cs_netmark{width:16px;height:16px;object-fit:cover;object-position:left center}
-.cs_netmark[src*="xrpl"]{width:21px}
 /* Hover feedback on list rows, FAQ questions and filter chips */
 .more_title,.networks_h3,.faq_q{transition:color .2s}
 a.more_row:hover .more_title,a.networks_row:hover .networks_h3,summary.faq_q:hover{color:var(--green-ink)}
