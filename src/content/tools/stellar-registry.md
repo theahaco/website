@@ -75,30 +75,30 @@ sections:
   body: |-
     - **The registry contract**: a managed root, namespaces, and versions that only move forward.
     - **Safety controls**: flagged entries are refused by default, and naming an account needs that account’s consent.
-    - **Admin and upgrade rights** through the contract admin standard we drafted with an engineer at the Stellar Development Foundation, governed by a security council on [Tansu](/open-source/tansu), on testnet for now.
+    - **Admin and upgrade rights** through the contract admin standard we drafted with an engineer at the Stellar Development Foundation, governed by a security council on [Tansu](/open-source/tansu).
     - **The CLI plugin and Rust macros** that import a contract or an asset by name, the rgstry.xyz interface and its indexer.
-- id: adoption
-  title: Who uses it
-  body: |-
-    Contracts running code published in the Registry carry live mainnet traffic: 166,833 calls by October 31, 2026, calls made from other contracts included.
-
-    | Contract | What the calls do | Mainnet calls |
-    |---|---|---:|
-    | [kalien](https://stellar.expert/explorer/public/contract/CDDAYXNY6MMA47Q54VSHG2WV445ZUOJ354NOLSFRC7ZUDTD6OTS4A7PE), an onchain game | Game transactions | 109,116 |
-    | [RISC Zero Groth16 verifier](https://stellar.expert/explorer/public/contract/CB4PBLDPTMAGCLSCEDMTKB5JZUDON5TFEF7GQ4KIWD7LSCHRUBINJM7X) | Zero-knowledge proof checks for other contracts | 53,233 |
-    | [WebAuthn](https://stellar.expert/explorer/public/contract/CB7HENHJ7NF34I5FFXQK7D5I3WWQRGB5O5XO77D3NXMT7LM7LOKRQ5YR) and [Ed25519](https://stellar.expert/explorer/public/contract/CBOOZV2BK5OETGL4Q4KGEBESPRLJFN7DOFWDT7OZGLD7EQEZUVOWUEMC) verifiers, taken from the Registry by smart accounts | Passkey and key signature checks | 3,204 |
-    | Other published contracts: smol, ohloss, Perch and smart-account policies | Token launches, games and account policies | 1,280 |
-    | **Total** | | **166,833** |
-
-    Call counts from StellarExpert. Contracts deployed before the Registry existed, such as KALE’s farm, are left out.
-
-    On mainnet, passkey-kit and smart-account-kit, both now in the Stellar Development Foundation’s GitHub organization, publish their contracts through the Registry, as do KALE, smol, ohloss, kalien and a RISC Zero verifier. On testnet, HackMeridian 2026 teams used it from the first day: ZBE TOLL published two versions of its contracts and resolves them by name, ancora names each organization’s treasury in the Registry, and Shake resolves Nido’s factory at runtime. Our own [Nido](/open-source/nido), [Perch](/open-source/perch), Tansu and Moonlight use it too.
-- id: names
-  title: What the mainnet Registry names
-  body: |-
-    The mainnet Registry holds 218 names across 67 namespaces, for stablecoins, tokenized assets and DeFi protocols. Our team registered most third-party names so any developer can resolve them; a name implies no relationship with its issuer. It also holds 33 builds of OpenZeppelin’s contracts, ready to deploy by name, 31 of them published by our team.
-
-    OpenZeppelin’s Contracts Wizard tells smart-account deployers to take verifier and policy contracts from the Stellar Registry, on testnet or mainnet.
+# - id: adoption
+#   title: Who uses it
+#   body: |-
+#     Contracts running code published in the Registry carry live mainnet traffic: 166,833 calls by October 31, 2026, calls made from other contracts included.
+# 
+#     | Contract | What the calls do | Mainnet calls |
+#     |---|---|---:|
+#     | [kalien](https://stellar.expert/explorer/public/contract/CDDAYXNY6MMA47Q54VSHG2WV445ZUOJ354NOLSFRC7ZUDTD6OTS4A7PE), an onchain game | Game transactions | 109,116 |
+#     | [RISC Zero Groth16 verifier](https://stellar.expert/explorer/public/contract/CB4PBLDPTMAGCLSCEDMTKB5JZUDON5TFEF7GQ4KIWD7LSCHRUBINJM7X) | Zero-knowledge proof checks for other contracts | 53,233 |
+#     | [WebAuthn](https://stellar.expert/explorer/public/contract/CB7HENHJ7NF34I5FFXQK7D5I3WWQRGB5O5XO77D3NXMT7LM7LOKRQ5YR) and [Ed25519](https://stellar.expert/explorer/public/contract/CBOOZV2BK5OETGL4Q4KGEBESPRLJFN7DOFWDT7OZGLD7EQEZUVOWUEMC) verifiers, taken from the Registry by smart accounts | Passkey and key signature checks | 3,204 |
+#     | Other published contracts: smol, ohloss, Perch and smart-account policies | Token launches, games and account policies | 1,280 |
+#     | **Total** | | **166,833** |
+# 
+#     Call counts from StellarExpert. Contracts deployed before the Registry existed, such as KALE’s farm, are left out.
+# 
+#     On mainnet, passkey-kit and smart-account-kit, both now in the Stellar Development Foundation’s GitHub organization, publish their contracts through the Registry, as do KALE, smol, ohloss, kalien and a RISC Zero verifier. On testnet, HackMeridian 2026 teams used it from the first day: ZBE TOLL published two versions of its contracts and resolves them by name, ancora names each organization’s treasury in the Registry, and Shake resolves Nido’s factory at runtime. Our own [Nido](/open-source/nido), [Perch](/open-source/perch), Tansu and Moonlight use it too.
+# - id: names
+#   title: What the mainnet Registry names
+#   body: |-
+#     The mainnet Registry holds 218 names across 67 namespaces, for stablecoins, tokenized assets and DeFi protocols. Our team registered most third-party names so any developer can resolve them; a name implies no relationship with its issuer. It also holds 33 builds of OpenZeppelin’s contracts, ready to deploy by name, 31 of them published by our team.
+# 
+#     OpenZeppelin’s Contracts Wizard tells smart-account deployers to take verifier and policy contracts from the Stellar Registry, on testnet or mainnet.
 - id: history
   title: Where it came from
   body: |-
