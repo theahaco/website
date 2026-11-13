@@ -15,18 +15,14 @@ const toText = (v: unknown) => {
   return v;
 };
 const str = z.preprocess(toText, z.string().default(''));
-const quote = z
-  .object({
-    label: str, // small tag above the quote ("Placeholder quote" until approved)
-    text: str,
-    author: str,
-    role: str,
-    portrait: str,
-    portraitAlt: str,
-    logo: str,
-    logoAlt: str,
-  })
-  .default({});
+const quote = z.object({
+  label: str, // small tag above the quote ("Placeholder quote" until approved)
+  text: str,
+  author: str,
+  role: str,
+  portrait: str,
+  portraitAlt: str,
+});
 
 const caseStudies = defineCollection({
   loader: glob({ pattern: ['*.md', '!README.md'], base: './src/content/case-studies' }),
@@ -43,6 +39,7 @@ const caseStudies = defineCollection({
     ndaSummary: str, // one-liner in the "More work for financial institutions" block on home (clients not named)
     cta: str, // heading of the closing call-to-action band
     client: str,
+    logo: str, // client branding in team engagement rows
     nda: z.boolean().default(false), // client not named: the "Client not named" pill on the Work page and the case page
     workTitle: str, // title of its tile (home page and Work page)
     workLine: str, // line of its tile (home page and Work page)
@@ -58,7 +55,7 @@ const caseStudies = defineCollection({
     receipts: str, // Markdown list of links
     relatedService: str,
     team: z.array(z.string()).default([]), // team member slugs
-    quote,
+    quote: quote.default({}),
   }),
 });
 
@@ -110,7 +107,7 @@ const networks = defineCollection({
     stepsLede: str,
     steps: z.array(z.object({ title: z.string(), description: str, output: str })).default([]),
     proof: z
-      .object({ eyebrow: str, heading: str, body: str, caseStudy: str, linkLabel: str, quote })
+      .object({ eyebrow: str, heading: str, body: str, caseStudy: str, linkLabel: str, quote: quote.extend({ logo: str, logoAlt: str }).default({}) })
       .default({}),
     funding: z
       .object({ heading: str, body: str, rows: z.array(z.object({ name: z.string(), description: str, badge: str })).default([]) })

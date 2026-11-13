@@ -55,11 +55,11 @@ export function wrapTables(html: string): string {
   return html.replace(/<table>/g, '<div class="tl_tablewrap"><table>').replace(/<\/table>/g, '</table></div>');
 }
 
-type Quote = { label: string; text: string; author: string; role: string; portrait: string; portraitAlt: string; logo: string; logoAlt: string };
+type Quote = { label: string; text: string; author: string; role: string; portrait: string; portraitAlt: string };
 /**
  * Testimonials still waiting for approval carry the label "Placeholder quote".
  * The preview shows them for review; the production build (theaha.co) never
- * publishes them: the slot keeps the logo, labelled "Client".
+ * publishes them. Any other fields are preserved.
  */
 export function publicQuote<Q extends Quote>(q: Q, production: boolean): Q {
   if (!q || !production || !/placeholder/i.test(q.label || '')) return q;

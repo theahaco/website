@@ -7,7 +7,7 @@
 // portrait in one tone, round, then the facts as rows with their icons
 // (src/lib/factIcons.ts). Engagements and open-source tools are the rows of
 // the Services precedents (components/services/Precedents.astro): the
-// client's logo (its case study's quote.logo) on the tint of the case
+// client's logo (its case study's logo) on the tint of the case
 // study's audience, or the lock on tan for a client not named, never a logo;
 // a tool shows its icon (src/lib/toolIcons.ts) and its headline figure, as
 // before. The rest of the team: compact chips with their faces (TeamGrid).
@@ -59,7 +59,7 @@ const logoSize = (src: string) => {
 };
 const tintOf: Record<string, PrecedentRow['tint']> = { 'Financial institutions': 'blue', 'Protocols and products': 'green', 'Ecosystems and open source': 'pink' };
 const engagementRows: PrecedentRow[] = engagements.map((c) => {
-  const logo = !c.data.nda && c.data.quote?.logo ? c.data.quote.logo : '';
+  const logo = !c.data.nda ? c.data.logo : '';
   return {
     href: `/case-studies/${c.id}`,
     name: c.data.client || c.data.shortTitle || c.data.title,

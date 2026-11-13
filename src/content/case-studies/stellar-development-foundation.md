@@ -97,10 +97,9 @@ quote:
   role: Chief Product Officer, Stellar Development Foundation
   portrait: /images/people/tomer-weller.webp
   portraitAlt: Tomer Weller
-  logo: /images/logos/logo-light-stellar.svg
-  logoAlt: Stellar Development Foundation
 ndaSummary: ''
 client: Stellar Development Foundation
+logo: /images/logos/logo-light-stellar.svg
 nda: false
 workTitle: Stellar Scaffold, Stellar CLI plugin system, Stellar Registry, Nido
 workLine: Tooling the Stellar ecosystem runs on, maintained as public goods, and a core contributor to the Stellar Architect Program.
