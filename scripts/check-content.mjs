@@ -129,6 +129,7 @@ for (const dir of DIRS) {
     }
     if (dir === 'team') checkImage(file, lineOf('portrait'), data.portrait);
     if (dir === 'case-studies') {
+      checkImage(file, lineOf('logo'), data.logo);
       checkImage(file, lineOf('hero'), data.hero?.image);
       for (const m of data.team || []) ref('team', m, 'team', 'a team member file');
       (data.sections || []).forEach((s) => {
